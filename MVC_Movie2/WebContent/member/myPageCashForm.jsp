@@ -37,7 +37,6 @@
 	</tr>
 </table>
 </div>
-
 <br><br>
 <div>
 <h3>적립내역보기</h3>
