@@ -1,3 +1,5 @@
+
+
 <jsp:include page="./top.jsp" />
 
     <!-- banner part start-->
@@ -20,6 +22,7 @@
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
+
                                     <img src="../assets/img/banner_img.png" alt="">
                                 </div>
                             </div>
