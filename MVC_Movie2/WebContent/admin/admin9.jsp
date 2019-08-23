@@ -9,7 +9,7 @@
 <body>
 
 	<TABLE border="1">
-		<tr><th colspan='5'>관리자_통합 게시물 관리</th></tr>
+		<tr><th colspan='5'>관리자 통합 게시물 관리</th></tr>
 		<tr>
 			<td>게시판 이름</td>
 			<td>게시판코드(id)</td>

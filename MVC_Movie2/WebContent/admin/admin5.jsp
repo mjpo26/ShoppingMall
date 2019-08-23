@@ -31,7 +31,7 @@
 		</tr>
 
 		<tr>
-			<th>상품검색</th>
+			<th>상품 검색</th>
 			<td colspan='3'><select><option>상품명</option>
 					<option>주문자</option></select> <input type="text" size="20"><input
 				type="button" value="검색"></td>
