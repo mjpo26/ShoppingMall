@@ -26,6 +26,7 @@
 				type="button" value="글삭제(리스트)"></td>
 		</tr>
 
+
 	</TABLE>
 </body>
 </html>
