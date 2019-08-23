@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<TABLE border="1">
 		<tr><th colspan='5'>관리자_통합 게시물 관리</th></tr>
 		<tr>
