@@ -23,7 +23,7 @@
 			<td>회원 /비회원</td>
 			<td>1/50</td>
 			<td><input type="button" value="글보기(리스트)">&nbsp;&nbsp;<input
-				type="button" value="글보기(리스트)"></td>
+				type="button" value="글삭제(리스트)"></td>
 		</tr>
 
 	</TABLE>
