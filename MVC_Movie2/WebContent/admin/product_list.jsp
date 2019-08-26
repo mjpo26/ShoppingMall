@@ -20,7 +20,7 @@
 			<div style="height: 200px; width: 120px; float: left;">
 				<nav>
 					<ul>
-						<li><a href="#">상품관리</a></li>
+						<li><a href="#">상품 관리</a></li>
 						<li><a href="#">주문관리</a></li>
 						<li><a href="#">고객관리</a></li>
 						<li><a href="#">게시판관리</a></li>
@@ -52,22 +52,36 @@
 						<td>상품등록일</td>
 						<td colspan="3"><select name="date">
 								<option value="xxxx.xx.xx">오늘
-								<option value="3일전">3일전계산해서넣기..<!--날짜옵션넣기-->
-						</select>  <input type="date" value="2019-08-23"> <!--달력픽커넣기-->
+								<option value="3일전">3일전계산해서넣기..
+									<!--날짜옵션넣기-->
+						</select> <input type="date" value="2019-08-23"> <!--달력픽커넣기-->
 					</tr>
 					<tr>
-					<td>진열상태</td>
-					<td><input type="radio" value="all">전체<input type="radio" value="yes">진열함 <input type="radio"
-				value="no">진열안함</td>
-				<td>판매상태</td>
-				<td><input type="radio" value="all">전체<input type="radio" value="yes">판매함 <input type="radio"
-				value="no">판매안함</td>
+						<td>진열상태</td>
+						<td><input type="radio" value="all">전체<input
+							type="radio" value="yes">진열함 <input type="radio"
+							value="no">진열안함</td>
+						<td>판매상태</td>
+						<td><input type="radio" value="all">전체<input
+							type="radio" value="yes">판매함 <input type="radio"
+							value="no">판매안함</td>
 					</tr>
 				</table>
 				<input type="submit" value="검색하기"> <input type="reset"
 					value="초기화">
 				<%-- 	<%if(checked==true) {%> //검색된조건이 만족하면 표 보여주기--%>
 				<table border="1">
+					<tr>
+						<td colspan='8' align="right"><select><option>등록일
+								<option>오름차순
+								<option>내림차순</select><select>
+								<option>10개
+								<option>20개
+								<option>50개
+						</select>
+					    <input type="button" value="검색">
+						</td>
+					</tr>
 					<tr>
 						<th>No.</th>
 						<th>상품명</th>
@@ -91,13 +105,13 @@
 					</tr>
 					<%-- 		<%	}%> --%>
 				</table>
-				선택상품들 <input type="button" value="삭제">
-				       <input type="button" value="수정">
-				       <input type="button" value="진열변경">
-				       <input type="button" value="판매변경">
+				선택상품들 <input type="button" value="삭제"> <input type="button"
+					value="수정"> <input type="button" value="진열변경"> <input
+					type="button" value="판매변경">
 				<%-- 	<%} %> --%>
 			</div>
 		</div>
 	</form>
 </body>
+
 </html>
