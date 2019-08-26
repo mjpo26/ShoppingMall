@@ -1,6 +1,7 @@
 /*Color Variables*/
 /**************** extend css start ****************/
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap"); */
+
 @import url('https://fonts.googleapis.com/css?family=Monoton|Noto+Sans+KR:100,300,400,500,700,900|Noto+Serif+KR:200,300,400,500,600,700,900&display=swap&subset=korean');
 /* 
 font-family: 'Noto Sans KR', sans-serif;
@@ -21,7 +22,7 @@ font-family: 'Noto Serif KR', serif;
 /**************** common css start ****************/
 /* line 4, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 body {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif !important;
   padding: 0;
   margin: 0;
   font-size: 14px;
