@@ -26,8 +26,6 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- google Web Font -->
-    <link href="https://fonts.googleapis.com/css?family=Monoton|Noto+Sans+KR:100,300,400,500,700,900|Noto+Serif+KR:200,300,400,500,600,700,900&display=swap&subset=korean" rel="stylesheet">
 </head>
 
 <body>
@@ -51,8 +49,8 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       
+                                        role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                                                           상품
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                         <a class="dropdown-item" href="category.html"> 침대</a>
@@ -62,12 +60,12 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
+                                        role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                         pages
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="login.html"> 로그인</a>
+                                        <a class="dropdown-item" href="login.jsp"> 로그인</a>
                                         <a class="dropdown-item" href="tracking.html">tracking</a>
                                         <a class="dropdown-item" href="checkout.html">product checkout</a>
                                         <a class="dropdown-item" href="cart.html">shopping cart</a>
@@ -76,11 +74,11 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
+                                        role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                         blog
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_3">
                                         <a class="dropdown-item" href="blog.html"> blog</a>
                                         <a class="dropdown-item" href="single-blog.html">Single blog</a>
                                     </div>
@@ -96,7 +94,7 @@
                             <a href=""><i class="ti-heart"></i></a>
                             <div class="dropdown cart">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     <i class="fas fa-cart-plus"></i>
                                 </a>
                                 <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
