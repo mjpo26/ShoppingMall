@@ -43,7 +43,7 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="즉시구매"><input type="submit" value="찜하기">
 </div><br>
 
-<div>
+<div style="clear:both;">
 <h3>*일괄구매 또는 코디세트</h3>
 <table>
 	<tr>
@@ -54,7 +54,8 @@
 	</tr>
 </table>
 </div>
-<div>
+
+
 <h3>상품 이름</h3>	<!-- 정렬 기준 -->
 <select>
  <option>설명</option>
@@ -64,7 +65,6 @@
 
 <input type="submit" value="장바구니">
 <input type="submit" value="찜하기"><br>
-</div>
 
 </body>
 </html>

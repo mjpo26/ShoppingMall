@@ -12,6 +12,7 @@
 		return;
 	}
 </script>
+
 </head>
 <body>
 	<form action="" method="post" name="fr" onsubmit="return check()">
