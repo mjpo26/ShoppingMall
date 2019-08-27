@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.MemberJoinProService;
 import svc.ProductInsertProService;
 import vo.ActionForward;
 import vo.ItemBean;

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import vo.ItemBean;
-import vo.MemberBean;
 
 import static db.JdbcUtil.*;
 
@@ -68,39 +67,6 @@ public class ItemDAO {
     }
     
     
-    // 회원 정보 조회
-    public MemberBean selectMemberInfo(String member_id) {
-        MemberBean memberBean = null;
-        
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        
-        try {
-            String sql = "SELECT * FROM movie_member WHERE member_id=?";
-            pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, member_id);
-            rs = pstmt.executeQuery();
-            
-            if(rs.next()) {
-                memberBean = new MemberBean();
-                memberBean.setMember_name(rs.getString("member_name"));
-                memberBean.setMember_id(rs.getString("member_id"));
-                memberBean.setMember_gender(rs.getString("member_gender"));
-                memberBean.setMember_jumin(rs.getString("member_jumin"));
-                memberBean.setMember_email(rs.getString("member_email"));
-                memberBean.setMember_phone(rs.getString("member_phone"));
-            }
-            
-        } catch (SQLException e) {
-            System.out.println("selectMemberInfo 실패! - " + e.getMessage());
-        } finally {
-            close(rs);
-            close(pstmt);
-        }
-        
-        return memberBean;
-        
-    }
     
     
 }

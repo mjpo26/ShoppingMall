@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.MovieInfoDetailProAction;
-import action.MovieListAction;
-import action.MovieReservationAction;
-import action.MovieReservationProAction;
 import action.ProductInsertProAction;
 import vo.ActionForward;
 
