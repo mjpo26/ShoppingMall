@@ -37,7 +37,9 @@ public class ItemDAO {
         
         PreparedStatement pstmt = null;
         
-        String sql = "INSERT INTO Item VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Item(Item_title,Item_old_price,Item_content1,Item_content2,"
+        		+ "Item_BGpic,Item_pic1,Item_display,Item_sales,Item_category1,Item_stock_price,"
+        		+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
         
         try {
             pstmt = con.prepareStatement(sql);
@@ -54,9 +56,9 @@ public class ItemDAO {
             pstmt.setInt(11, itemBean.getItem_delivery_pee());//배송비
             pstmt.setInt(12, itemBean.getItem_weight()); //판매중량
             pstmt.setInt(13, itemBean.getItem_stock_count()); //재고
-            pstmt.setDate(14, itemBean.getItem_Date());
-            insertCount = pstmt.executeUpdate();
             
+            insertCount = pstmt.executeUpdate();
+            System.out.println("DB성공");
         } catch (SQLException e) {
             System.out.println("insertItem 실패! - " + e.getMessage());
         } finally {

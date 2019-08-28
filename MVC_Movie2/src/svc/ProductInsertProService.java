@@ -10,8 +10,7 @@ import dao.ItemDAO;
 public class ProductInsertProService {
     
     public boolean insertItem(ItemBean itemBean) {
-//        System.out.println("MemberJoinProService()");
-        
+    	System.out.println("ProductInserPrService");
         boolean isInsertSuccess = false;
         
         // MemberDAO 클래스의 insertMember() 메서드를 호출하여 MemberBean 전달

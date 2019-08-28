@@ -29,7 +29,7 @@ form {
 				</ul>
 			</nav>
 		</div>
-		<form action="./ItemInsert.sh" method="get">
+		<form action="../ItemInsert.sh" method="get">
 		<div style="height: 200px; width: 400px; float: left;">
 			<h3>오늘매출현황</h3>
 			<table border="1">
