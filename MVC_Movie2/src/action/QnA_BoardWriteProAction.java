@@ -59,7 +59,7 @@ public class QnA_BoardWriteProAction implements Action {
         } else { // 글 쓰기에 성공했을 경우
             // ActionForward 객체 생성하여 포워딩 정보 설정
             forward = new ActionForward();
-            forward.setPath("/BoardList.qb"); // 포워딩 경로 설정
+            forward.setPath("BoardList.qb"); // 포워딩 경로 설정
             // 글 목록 출력을 위해 BoardList.bo 페이지로 새로운 요청이 이루어지므로 Redirect 방식으로 포워딩
             forward.setRedirect(true); // Redirect 방식 지정
         }
