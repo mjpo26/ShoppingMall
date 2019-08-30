@@ -21,7 +21,7 @@
 			<div style="height: 200px; width: 120px; float: left;">
 				<nav>
 					<ul>
-						<li><a href="#">상품 관리</a></li>
+						<li><a href="product_main.jsp">상품 관리</a></li>
 						<li><a href="#">주문관리</a></li>
 						<li><a href="#">고객관리</a></li>
 						<li><a href="#">게시판관리</a></li>
@@ -37,7 +37,7 @@
 						<td colspan="3"><select name="search">
 								<option value="상품명">상품명
 								<option value="모델명">모델명
-						</select></td>
+						</select><input type="text"></td>
 					</tr>
 					<tr>
 						<td>상품분류</td>

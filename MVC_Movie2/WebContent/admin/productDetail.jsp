@@ -10,7 +10,8 @@
 	// 	    out.println("location.href='index.jsp'");
 	// 	    out.println("</script>");
 	// 	}
-	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
+	ItemBean itemBean = (ItemBean)request.getAttribute("article");
+	String nowPage = (String)request.getAttribute("page");
 %>
 <!DOCTYPE html>
 <html>
@@ -26,8 +27,7 @@
 	<div style="width: 500; float: left;">
 		<div>
 			<nav>
-				<img src="../image/i14790938408.jpg" 
-				width="350px" height="450px">
+				<img src="../image/doodle.png" width="350px" height="450px">
 			</nav>
 		</div>
 	</div>
@@ -35,11 +35,15 @@
 	<br>
 	<div style="width: 800; float: left;">
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;아이콘 / 아이콘 / 아이콘 / 아이콘 <br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상품 제목줄</b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>가격</b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격(이벤트)</b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상세내용 요약</b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상품 : <%=itemBean.getItem_title() %></b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>가격 : <%=itemBean.getItem_old_price() %></b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <%=itemBean.getItem_new_price() %></b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>
+		상세내용 요약</b><br>
+		&emsp;&emsp;&emsp;<%=itemBean.getItem_content1() %><br>
+		
 		<br> <br>
+		
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Color</b> <select>
 			<%
 				if (itemBean.getItem_option_color1().equals("블랙")) {
@@ -68,16 +72,18 @@
 			<option>Yellow</option>
 			<%
 				}
-			%>
+			%></select>
 			 <br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit"
-			value="장바구니 담기"><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="즉시구매"><input
-			type="submit" value="찜하기">
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button"
+			value="장바구니 담기" size="30"><br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button" value="즉시구매"><input
+			type="Button" value="찜하기">
 	</div>
 	<br>
 
 	<div style="clear: both;">
+	<h3>제품설명</h3><br>
+		<%=itemBean.getItem_content2() %><br><br><br>
 		<h3>*일괄구매 또는 코디세트</h3>
 		<table>
 			<tr>
