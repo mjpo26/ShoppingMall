@@ -38,7 +38,7 @@ public class QnA_BoardFrontController extends HttpServlet {
             forward.setPath("/main.jsp");
         } else if(command.equals("/BoardWriteForm.qb")) {
             forward = new ActionForward();
-            forward.setPath("../QnA_Board/qna_board_write.jsp");
+            forward.setPath("/QnA_Board/qna_board_write.jsp");
         } else if(command.equals("/BoardWritePro.qb")) {
             action = new QnA_BoardWriteProAction(); // Action 클래스 인스턴스 생성
             try {
@@ -57,24 +57,18 @@ public class QnA_BoardFrontController extends HttpServlet {
             }
         }
         
-        if(forward != null) { // 예외 발생 시를 제외한 나머지(ActionForward 객체가 null 이 아닐 때)
-            
-            // Redirect or Dispatcher 방식 판별
-            if(forward.isRedirect()) { // Redirect 방식일 경우
-                response.sendRedirect(forward.getPath()); // 지정된 주소로 리다이렉트 방식 포워딩
-            } else { // Dispatcher 방식일 경우
-                // request 객체로부터 Dispatcher 객체를 가져오기(매개변수로 포워딩 주소 전달)
+        // 포워딩 처리
+        if(forward != null) {
+            if(forward.isRedirect()) {
+                response.sendRedirect(forward.getPath());
+            } else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-                // Dispatcher 객체의 forward() 메서드 호출하여 포워딩(매개변수로 request, response 객체 전달)
                 dispatcher.forward(request, response);
             }
-            
         }
         
-        
-        
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doProcess(request, response);

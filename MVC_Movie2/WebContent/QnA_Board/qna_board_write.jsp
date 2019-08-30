@@ -42,28 +42,28 @@
 	<!-- 게시판 글 등록 -->
 	<section id="writeForm">
 		<h2>게시판 글 등록</h2>
-		<form action="QnA_BoardWritePro.qb" method="post" enctype="multipart/form-data" name="boardform">
+		<form action="BoardWritePro.qb" method="post" enctype="multipart/form-data" name="boardform">
 			<table>
 				<tr>
 					<!-- label 태그를 사용하여 해당 레이블 클릭 시 for 속성에 지정된 이름과 같은 id 속성을 갖는 텍스트필드로 커서 요청 -->
-					<td class="td_left"><label for="board_name">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="board_name" id="board_name" required="required" /></td>
+					<td class="td_left"><label for="Qna_name">글쓴이</label></td>
+					<td class="td_right"><input type="text" name="Qna_name" id="Qna_name" required="required" /></td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="board_pass">비밀번호</label></td>
-					<td class="td_right"><input type="password" name="board_pass" id="board_pass" required="required" /></td>
+					<td class="td_left"><label for="Qna_pass">비밀번호</label></td>
+					<td class="td_right"><input type="password" name="Qna_pass" id="Qna_pass" required="required" /></td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="board_subject">제목</label></td>
-					<td class="td_right"><input type="text" name="board_subject" id="board_subject" required="required" /></td>
+					<td class="td_left"><label for="Qna_subject">제목</label></td>
+					<td class="td_right"><input type="text" name="Qna_subject" id="Qna_subject" required="required" /></td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="board_content">내용</label></td>
-					<td class="td_right"><textarea name="board_content" id="board_content" cols="40" rows="15" required="required" ></textarea></td>
+					<td class="td_left"><label for="Qna_content">내용</label></td>
+					<td class="td_right"><textarea name="Qna_content" id="Qna_content" cols="40" rows="15" required="required" ></textarea></td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="board_file">파일첨부</label></td>
-					<td class="td_right"><input type="file" name="board_file" id="board_file" required="required" /></td>
+					<td class="td_left"><label for="Qna_file">파일첨부</label></td>
+					<td class="td_right"><input type="file" name="Qna_file" id="Qna_file" required="required" /></td>
 				</tr>
 			</table>
 			<section id="commandCell">

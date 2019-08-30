@@ -121,7 +121,7 @@ public class QnA_BoardDAO {
 	            // SELECT 구문 : board 테이블 데이터 전체 조회 
 	            // => board_re_ref 기준 내림차순, board_re_seq 기준 오름차순
 	            // => 전체 갯수가 아닌 시작 레코드 번호 ~ limit 갯수 만큼 읽어오기
-	            String sql = "SELECT * FROM board ORDER BY board_re_ref DESC,board_re_seq ASC LIMIT ?,?";
+	            String sql = "SELECT * FROM QnA_Board ORDER BY Qna_re_ref DESC,Qna_re_seq ASC LIMIT ?,?";
 	            pstmt = con.prepareStatement(sql);
 	            pstmt.setInt(1, startRow);
 	            pstmt.setInt(2, limit);

@@ -1,9 +1,9 @@
-<%@page import="vo.BoardBean"%>
+<%@page import="vo.QnA_BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	// BoardBean 객체(article) 가져오기
-	BoardBean article = (BoardBean)request.getAttribute("article");
+	QnA_BoardBean article = (QnA_BoardBean)request.getAttribute("article");
 	//page 파라미터 값 가져오기(page 식별자 지정 불가) => page 디렉티브 때문에 JSP의 예약어로 취급됨
 	String nowPage = request.getParameter("page"); 
 	
@@ -64,15 +64,15 @@
 	<section id="writeForm">
 		<h2>게시판 글 수정</h2>
 		<form action="BoardModifyPro.bo" method="post" 
-				name="boardForm" onsubmit="return modifyBoard(<%=article.getBoard_pass()%>)">
-			<input type="hidden" name="board_num" value="<%=article.getBoard_num() %>" />
+				name="boardForm" onsubmit="return modifyBoard(<%=article.getQna_pass()%>)">
+			<input type="hidden" name="board_num" value="<%=article.getQna_num() %>" />
 			<input type="hidden" name="page" value="<%=nowPage%>" />
 			<table>
 				<tr>
 					<!-- label 태그를 사용하여 해당 레이블 클릭 시 for 속성에 지정된 이름과 같은 id 속성을 갖는 텍스트필드로 커서 요청 -->
 					<td class="td_left"><label for="board_name">글쓴이</label></td>
 					<td class="td_right">
-						<input type="text" name="board_name" id="board_name" value="<%=article.getBoard_name() %>" required="required" />
+						<input type="text" name="board_name" id="board_name" value="<%=article.getQna_name() %>" required="required" />
 					</td>
 				</tr>
 				<tr>
@@ -84,12 +84,12 @@
 				<tr>
 					<td class="td_left"><label for="board_subject">제목</label></td>
 					<td class="td_right">
-						<input type="text" name="board_subject" id="board_subject" value="<%=article.getBoard_subject() %>" required="required" />
+						<input type="text" name="board_subject" id="board_subject" value="<%=article.getQna_subject() %>" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="board_content">내용</label></td>
-					<td class="td_right"><textarea name="board_content" id="board_content" cols="40" rows="15" required="required" ><%=article.getBoard_content() %></textarea></td>
+					<td class="td_right"><textarea name="board_content" id="board_content" cols="40" rows="15" required="required" ><%=article.getQna_content() %></textarea></td>
 				</tr>
 			</table>
 			<section id="commandCell">
