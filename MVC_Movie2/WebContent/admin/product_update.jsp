@@ -21,7 +21,7 @@ form {
 		<div style="height: 200px; width: 120px; float: left;">
 			<nav>
 				<ul>
-					<li><a href="#">상품관리</a></li>
+					<li><a href="product_main.jsp">상품관리</a></li>
 					<li><a href="#">주문관리</a></li>
 					<li><a href="#">고객관리</a></li>
 					<li><a href="#">게시판관리</a></li>
@@ -56,6 +56,12 @@ form {
 					<td colspan="2"><input type="file" name="Item_pic1"></td>
 				</tr>
 			</table>
+			<h3>컬러</h3>
+			<input type="checkbox" name="Item_option_color1" value="블랙">블랙
+			<input type="checkbox" name="Item_option_color2" value="화이트">화이트
+			<input type="checkbox" name="Item_option_color3" value="레드">레드
+			<input type="checkbox" name="Item_option_color4" value="옐로우">옐로우<br>
+			
 			<h3>진열상태</h3>
 			<input type="radio" name="display" value="yes">진열함 
 			<input type="radio"	name="display" value="no">진열안함

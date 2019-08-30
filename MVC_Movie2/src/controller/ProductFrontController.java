@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.ProductInsertProAction;
+import action.productDetailAction;
+import action.product_listAction;
 import vo.ActionForward;
 
 @WebServlet("*.sh")
@@ -24,7 +26,7 @@ public class ProductFrontController extends HttpServlet {
         
         Action action = null;
         ActionForward forward = null;
-        
+        System.out.println("컨트롤러");
         if(command.equals("/ItemInsert.sh")) {
             action = new ProductInsertProAction();
             
@@ -33,7 +35,23 @@ public class ProductFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } 
+        } else if(command.equals("/product_list.sh")) {
+            action = new product_listAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }					
+        }else if(command.equals("/productDetail.sh")) {
+            action = new productDetailAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         
         // 포워딩 처리
         if(forward != null) {

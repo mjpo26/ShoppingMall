@@ -28,6 +28,10 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_delivery_pee(Integer.parseInt(request.getParameter("delivery_pee")));
 		  	itemBean.setItem_weight(Integer.parseInt(request.getParameter("weight")));
 		  	itemBean.setItem_stock_count(Integer.parseInt(request.getParameter("stock_count")));
+		  	itemBean.setItem_option_color1(request.getParameter("Item_option_color1"));
+		  	itemBean.setItem_option_color2(request.getParameter("Item_option_color2"));
+		  	itemBean.setItem_option_color3(request.getParameter("Item_option_color3"));
+		  	itemBean.setItem_option_color4(request.getParameter("Item_option_color4"));
 		  	
 		  	
 	        ProductInsertProService productInsertProService = new ProductInsertProService(); 
