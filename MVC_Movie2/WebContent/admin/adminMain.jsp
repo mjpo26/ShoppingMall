@@ -12,7 +12,7 @@
 	<div style="height:200px; width:120px;float:left;">
 	<nav>
 		<ul>
-			<li><a href="#">상품관리</a></li>
+			<li><a href="product_main.jsp">상품관리</a></li>
 			<li><a href="#">주문관리</a></li>
 			<li><a href="#">고객관리</a></li>
 			<li><a href="#">게시판관리</a></li>
