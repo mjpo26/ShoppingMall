@@ -11,7 +11,7 @@ public class productDetailAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		   System.out.println("ProductDetailAction");
+		   System.out.println("ProductDetailAction ");
 	        
 	        // 파라미터로 전달된 board_num, page 데이터 가져오기
 	        int item_code = Integer.parseInt(request.getParameter("Item_code"));
