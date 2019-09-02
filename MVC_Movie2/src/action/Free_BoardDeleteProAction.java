@@ -20,7 +20,7 @@ public class Free_BoardDeleteProAction implements Action {
         Free_BoardDeleteProService boardDeleteProService = new Free_BoardDeleteProService();
         // 패스워드 확인
         boolean isArticleWriter = boardDeleteProService.isArticleWriter(free_num, request.getParameter("free_pass"));
-        
+        //
         ActionForward forward = null;
         
         if(!isArticleWriter) { // 패스워드가 일치하지 않을 경우(올바른 작성자가 아닐 경우)
