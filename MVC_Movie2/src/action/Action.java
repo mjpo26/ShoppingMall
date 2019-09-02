@@ -21,6 +21,7 @@ public interface Action {
     // => Action 클래스에서 작업을 처리한 후 포워딩 URL 과 포워딩 방식을 지정한 후
     //    FrontController 에서 이동할 주소 및 방법을 알려주는 용도로 ActionForward 객체를 리턴 
     ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+
     
 }
 
