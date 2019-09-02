@@ -19,7 +19,7 @@ public class QnA_BoardModifyFormAction implements Action {
         //    따라서, 현재 Action 클래스에서 사용하지 않기 때문에 별도로 가져올 필요 없음
         
         // 기존 게시물 1개의 정보 가져오기 - BoardDetailService 객체에 이미 존재하는 메서드 호출
-        BoardDetailService boardDetailService = new BoardDetailService();
+        boardDetailService boardDetailService = new BoardDetailService();
         QnA_BoardBean article = boardDetailService.getArticle(Qna_num);
         
         // request 객체에 BoardBean 객체 저장
