@@ -14,9 +14,9 @@
 <meta charset="UTF-8">
 <title>MVC 게시판</title>
 <script type="text/javascript">
-	function modifyBoard(password) {
-		return true
-	}
+// 	function modifyBoard(password) {
+// 		return true
+// 	}
 </script>
 <style type="text/css">
 	#registForm {
