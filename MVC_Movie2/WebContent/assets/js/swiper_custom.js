@@ -1,7 +1,7 @@
   // swiper js code start
   var galleryTop = new Swiper('.gallery-top', {
     spaceBetween: 0,
-
+    
     navigation: {
       nextEl: '.navigationHide',
       prevEl: '.navigationHide',

@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.QnA_BoardListService;
+import svc.QnA_BoardListService;
 import vo.ActionForward;
-import vo.PageInfo;
+import vo.QnA_BoardBean;
+import vo.QnA_PageInfo;
 import vo.QnA_BoardBean;
 
 // 글 목록 보기 요청을 처리하는 BoardListAction
@@ -15,7 +17,7 @@ public class QnA_BoardListAction implements Action {
 
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("BoardListAction!");
+//        System.out.println("BoardListAction!");
 
         // 게시물 목록 정보를 받아와서 저장할 ArrayList 타입 변수 선언(제네릭 타입 BoardBean 타입으로 지정)
         ArrayList<QnA_BoardBean> articleList = new ArrayList<QnA_BoardBean>();
@@ -28,11 +30,11 @@ public class QnA_BoardListAction implements Action {
         if(request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
+        System.out.println("보드리스트 액션 왔다.");
+        QnA_BoardListService boardListService = new QnA_BoardListService();
+        int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
         
-        QnA_BoardListService qnA_BoardListService = new QnA_BoardListService();
-        int listCount = qnA_BoardListService.getListCount(); // 전체 게시물 수 가져오기
-        
-        articleList = qnA_BoardListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
+        articleList = boardListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
         
         // 전체 페이지(마지막 페이지) 수 계산
         int maxPage = (int)((double)listCount / limit + 0.95);
@@ -49,7 +51,7 @@ public class QnA_BoardListAction implements Action {
         }
         
         // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
+        QnA_PageInfo pageInfo = new QnA_PageInfo(page, maxPage, startPage, endPage, listCount);
         
         // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
         request.setAttribute("pageInfo", pageInfo);
@@ -58,7 +60,7 @@ public class QnA_BoardListAction implements Action {
         // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
         ActionForward forward = new ActionForward();
         forward.setRedirect(false); // 생략 가능
-        forward.setPath("/QnA_Board/qna_board_list.jsp");
+        forward.setPath("/QnA_board/QnA_board_list.jsp");
         
         return forward;
     }

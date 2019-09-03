@@ -18,7 +18,7 @@
 	@include transform_time(0.5s);
 	&:hover{
 		background: transparent;
-
+		
 	}
 }
 .btn_1{
@@ -84,7 +84,7 @@
 		line-height: 50px;
 	}
 	@media #{$medium_device}{
-
+	
 	}
 }
 
@@ -100,7 +100,7 @@
 		margin-top: 30px;
 	}
 	@media #{$medium_device}{
-
+	
 	}
 	img{
 		width: 20px;

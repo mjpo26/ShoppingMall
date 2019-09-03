@@ -5,7 +5,7 @@
         font-size: 45px;
         color: $white_color;
         margin-bottom: 30px;
-
+        
         @media #{$tab}{
             font-size: 30px;
             margin-bottom: 20px;
@@ -42,12 +42,12 @@
             color: $white_color;
             @extend %custom_btn_bg_2;
         }
-    }
+    } 
     .banner_btn_2{
         color: $white_color;
         border: 1px solid $white_color;
         background-color: transparent;
-
+        
         &:hover{
             background-color: $btn_bg !important;
             color: $white_color;

@@ -22,6 +22,7 @@
 	</header>
 	
 	<h1>메인 페이지</h1>
+	<a href="BoardWriteForm.qb"><input type="button" value="글 등록"></a> 
 	<a href="BoardList.qb"><input type="button" value="게시판"></a> 
 </body>
 </html>

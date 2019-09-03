@@ -2,26 +2,115 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	// 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
-	// 	String sId = (String)session.getAttribute("sId");
-	// 	if(sId == null) {
-	// 	    out.println("<script>");
-	// 	    out.println("alert('잘못된 접근입니다!')");
-	// 	    out.println("location.href='index.jsp'");
-	// 	    out.println("</script>");
-	// 	}
-	ItemBean itemBean = (ItemBean)request.getAttribute("article");
-	String nowPage = (String)request.getAttribute("page");
+	 ItemBean itemBean = (ItemBean)request.getAttribute("article");
+	 String nowPage = (String)request.getAttribute("page");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Product Detail</title>
-</head>
-<body>
+<jsp:include page="../assets/top.jsp"></jsp:include>
 
-	<h1>제품 상세페이지</h1>
+ <!-- breadcrumb start-->
+  <section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="breadcrumb_iner">
+            <div class="breadcrumb_iner_item">
+              <h2>제품 상세 페이지</h2>
+              <p>제품 상세 페이지 <span>-</span><%=itemBean.getItem_title() %> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb start-->
+  <!--================End Home Banner Area =================-->
+
+
+  <!--================Single Product Area =================-->
+  <div class="product_image_area section_padding">
+    <div class="container">
+      <div class="row s_product_inner justify-content-between">
+        <div class="col-lg-7 col-xl-7">
+          <div class="product_slider_img">
+            <div id="vertical">
+              <div data-thumb="../assets/img/product/single-product/product_2.jpg">
+                <img src="../assets/img/product/single-product/product_2.jpg" />
+              </div>
+<!--               <div data-thumb="img/product/single-product/product_1.png">
+                <img src="img/product/single-product/product_1.png" />
+              </div> -->
+              <div data-thumb="/assets/img/product/single-product/product_3.jpg">
+                <img src="/assets/img/product/single-product/product_3.jpg" />
+              </div>
+              <div data-thumb="/assets/img/product/single-product/product_4.jpg">
+                <img src="/assets/img/product/single-product/product_4.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-xl-4">
+          <div class="s_product_text">
+            <h5>아이콘 <span>|</span> 아이콘</h5>
+            <h3><!-- 바미르 케인 수납장 --> <%=itemBean.getItem_title() %></h3>
+            <h5 class="oneprice"><!-- 300,000 원 -->  <%=itemBean.getItem_old_price() %></h5>
+            <h2><!-- 150,000 원 --> <%=itemBean.getItem_new_price() %></h2>
+<!--             <ul class="list"> -->
+<!--               <li> -->
+<!--                 <a class="active" href="#"> -->
+<!--                   <span>Category</span> : Household</a> -->
+<!--               </li> -->
+<!--               <li> -->
+<!--                 <a href="#"> <span>Availibility</span> : In Stock</a> -->
+<!--               </li> -->
+<!--             </ul> -->
+<select>
+            <%
+                //if (itemBean.getItem_option_color1().equals("블랙")) {
+            %>
+            <option>Black</option>
+            <%
+                //}
+            %>
+            <%
+                //if (itemBean.getItem_option_color2().equals("화이트")) {
+            %>
+            <option>White</option>
+            <%
+                //}
+            %>
+            <%
+                //if (itemBean.getItem_option_color3().equals("레드")) {
+            %>
+            <option>Red</option>
+            <%
+                //}
+            %>
+            <%
+                //if (itemBean.getItem_option_color4().equals("옐로우")) {
+            %>
+            <option>Yellow</option>
+            <%
+                //}
+            %></select>
+            <p>
+              <%=itemBean.getItem_content1() %>
+            </p>
+            <div class="card_area d-flex justify-content-between align-items-center">
+              <div class="product_count">
+                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+                <input class="input-number" type="text" value="1" min="0" max="10">
+                <span class="number-increment"> <i class="ti-plus"></i></span>
+              </div>
+              <a href="#" class="btn_3">add to cart</a>
+              <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================End Single Product Area =================-->
+
 
 
 	<div style="width: 500; float: left;">
@@ -46,32 +135,32 @@
 		
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Color</b> <select>
 			<%
-				if (itemBean.getItem_option_color1().equals("블랙")) {
+				//if (itemBean.getItem_option_color1().equals("블랙")) {
 			%>
 			<option>Black</option>
 			<%
-				}
+				//}
 			%>
 			<%
-				if (itemBean.getItem_option_color2().equals("화이트")) {
+				//if (itemBean.getItem_option_color2().equals("화이트")) {
 			%>
 			<option>White</option>
 			<%
-				}
+				//}
 			%>
 			<%
-				if (itemBean.getItem_option_color3().equals("레드")) {
+				//if (itemBean.getItem_option_color3().equals("레드")) {
 			%>
 			<option>Red</option>
 			<%
-				}
+				//}
 			%>
 			<%
-				if (itemBean.getItem_option_color4().equals("옐로우")) {
+				//if (itemBean.getItem_option_color4().equals("옐로우")) {
 			%>
 			<option>Yellow</option>
 			<%
-				}
+				//}
 			%></select>
 			 <br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button"
@@ -111,6 +200,6 @@
 	<input type="submit" value="장바구니">
 	<input type="submit" value="찜하기">
 	<br>
+	
 
-</body>
-</html>
+<jsp:include page="../assets/foot.jsp"></jsp:include>
