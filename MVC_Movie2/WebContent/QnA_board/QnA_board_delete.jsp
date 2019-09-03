@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	// 전달받은 request 객체로부터 게시물 번호(board_num)와 페이지번호(page) 가져오기
-    int board_num = Integer.parseInt(request.getParameter("board_num"));
+	// 전달받은 request 객체로부터 게시물 번호(QnA_num)와 페이지번호(page) 가져오기
+    int QnA_num = Integer.parseInt(request.getParameter("QnA_num"));
     String nowPage = request.getParameter("page");
 %>    
 <!DOCTYPE html>
@@ -20,13 +20,13 @@
 </head>
 <body>
 	<section id="passForm">
-		<form name="deleteForm" action="BoardDeletePro.bo?board_num=<%=board_num%>" method="post">
+		<form name="deleteForm" action="QnA_BoardDeletePro.qa?QnA_num=<%=QnA_num%>" method="post">
 			<input type="hidden" name="page" value="<%=nowPage %>" />
 			
 			<table>
 				<tr>
 					<td><label>글 비밀번호 : </label></td>
-					<td><input type="password" name="board_pass"></td>
+					<td><input type="password" name="QnA_pass"></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="삭제" /></td>

@@ -1,14 +1,14 @@
 package vo;
 
 // 페이징 처리를 위한 정보를 저장하는 클래스
-public class PageInfo {
+public class QnA_PageInfo {
     private int page;
     private int maxPage;
     private int startPage;
     private int endPage;
     private int listCount;
     
-    public PageInfo(int page, int maxPage, int startPage, int endPage, int listCount) {
+    public QnA_PageInfo(int page, int maxPage, int startPage, int endPage, int listCount) {
         this.page = page;
         this.maxPage = maxPage;
         this.startPage = startPage;
