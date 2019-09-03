@@ -18,7 +18,7 @@
     .blog_right_sidebar .widget_title {
         font-size: 20px;
         margin-bottom: 40px;
-        font-style: inherit !important;
+        font-style: inherit !important; 
     }
     .single-home-blog{
         @media #{$small_mobile}{
@@ -31,13 +31,13 @@
             margin-bottom: 20px;
         }
         @media #{$medium_device}{
-
+        
         }
         .card-img-top{
             border-radius: 0px;
         }
         .card{
-
+            
             border-radius: 0px;
             background-color: transparent;
             position: relative;
@@ -58,7 +58,7 @@
                     padding: 15px;
                 }
                 @media #{$tab_device}{
-
+                
                 }
                 @media #{$medium_device}{
                     padding: 20px;
@@ -134,7 +134,7 @@
                     @include transform_time(0.8s);
                     color: $btn_bg;
                 }
-
+                
             }
             ul{
                 border-top: 1px solid $border_color;
@@ -165,3 +165,4 @@
     }
 }
 
+  

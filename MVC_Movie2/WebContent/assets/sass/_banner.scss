@@ -51,7 +51,7 @@
             p{
                 font-size: 15px;
                 line-height: 1.8;
-                font-family: $font_stack_2;
+                font-family: $font_stack_2; 
                 margin-bottom: 70px;
                 padding-right: 80px;
                 @media #{$tab}{
@@ -89,7 +89,7 @@
             margin: 0 15px!important;
             text-transform: capitalize;
             font-weight: 700 !important;
-
+            
         }
         .owl-prev{
             position: relative;
@@ -129,7 +129,7 @@
     @media #{$tab}{
         padding: 0;
     }
-
+    
      @media #{$medium_device}{
         .banner_img {
             img{
@@ -138,5 +138,5 @@
             }
         }
      }
-}
+} 
 /**************** hero part css end ****************/
