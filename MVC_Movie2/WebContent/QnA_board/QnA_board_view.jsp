@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	// 전달받은 request 객체에서 데이터 가져오기
+    // 전달받은 request 객체에서 데이터 가져오기
 	QnA_BoardBean article = (QnA_BoardBean)request.getAttribute("article");
 	String nowPage = (String)request.getAttribute("page");
 %>    
@@ -48,21 +48,21 @@
 	<section id="articleForm">
 		<h2>글 내용 상세보기</h2>
 		<section id="basicInfoArea">
-			제목 : <%=article.getQna_subject() %><br>
+			제목 : <%=article.getQnA_subject() %><br>
 			첨부파일 : 
-			<%if(article.getQna_file1() != null) { %>
-					<a href="file_down?downFile=<%=article.getQna_file1()%>"><%=article.getQna_file1() %></a>
+			<%if(article.getQnA_file1() != null) { %>
+					<a href="file_down?downFile=<%=article.getQnA_file1()%>"><%=article.getQnA_file1() %></a>
 			<%}%>
 		</section>
 		<section id="articleContentArea">
-			<%=article.getQna_content() %>	
+			<%=article.getQnA_content() %>	
 		</section>
 	</section>
 	<section id="commandList">
-		<a href="BoardReplyForm.bo?board_num=<%=article.getQna_num()%>&page=<%=nowPage %>"><input type="button" value="답변" ></a>
-		<a href="BoardModifyForm.bo?board_num=<%=article.getQna_num()%>&page=<%=nowPage %>"><input type="button" value="수정" ></a>
-		<a href="BoardDeleteForm.bo?board_num=<%=article.getQna_num()%>&page=<%=nowPage %>"><input type="button" value="삭제" ></a>
-		<a href="BoardList.bo?page=<%=nowPage %>"><input type="button" value="목록" ></a>
+		<a href="QnA_BoardReplyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="답변" ></a>
+		<a href="QnA_BoardModifyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="수정" ></a>
+		<a href="QnA_BoardDeleteForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="삭제" ></a>
+		<a href="QnA_BoardList.qa?page=<%=nowPage %>"><input type="button" value="목록" ></a>
 	</section>
 </body>
 </html>

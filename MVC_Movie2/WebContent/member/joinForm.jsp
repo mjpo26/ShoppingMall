@@ -167,7 +167,7 @@
 			<input type="button" value="중복체크" class="dup"
 				onclick="idcheck()"><br> 
 				<label>비밀번호</label> <input
-				type="text" name="pass"><br>
+				type="password" name="pass"><br>
 				 <label>비밀번호 확인</label> <input
 				type="password" name="pass2"><br> 
 				
@@ -339,8 +339,8 @@
 			<label>sms수신여부</label><input type="radio" name="isSmsOk" checked="checked" value="ok">동의<input type="radio" name="isSmsOk" value="no">동의안함<br>
 	<label>email수신여부</label><input type="radio" name="isEmailOk" checked="checked" value="ok">동의<input type="radio" name="isEmailOk" value="no">동의안함<br>
 	
-	<label>좌표정보</label> <input type="text" name="resulty"
-				id="resulty" placeholder="y좌표"> <input type="text"
+	<label></label> <input type="hidden" name="resulty"
+				id="resulty" placeholder="y좌표"> <input type="hidden"
 				name="resultx" id="resultx" placeholder="x좌표"><br>
 	
 	
@@ -350,8 +350,8 @@
 		</fieldset>
 		<div class="clear"></div>
 		<div id="buttons">
-			<input type="submit" value="Submit" class="submit"> <input
-				type="reset" value="Cancel" class="cancel">
+			<input type="submit" value="가입" class="submit"> <input
+				type="reset" value="초기화" class="cancel">
 		</div>
 	</form>
 
