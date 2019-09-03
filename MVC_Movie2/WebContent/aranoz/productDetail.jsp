@@ -36,9 +36,9 @@
               <div data-thumb="img/product/single-product/product_2.jpg">
                 <img src="img/product/single-product/product_2.jpg" />
               </div>
-              <div data-thumb="img/product/single-product/product_1.png">
+<!--               <div data-thumb="img/product/single-product/product_1.png">
                 <img src="img/product/single-product/product_1.png" />
-              </div>
+              </div> -->
               <div data-thumb="img/product/single-product/product_3.jpg">
                 <img src="img/product/single-product/product_3.jpg" />
               </div>
@@ -50,21 +50,50 @@
         </div>
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
-            <h5>신상품 <span>|</span> next</h5>
-            <h3>Faded SkyBlu Denim Jeans</h3>
-            <h2>$149.99</h2>
-            <ul class="list">
-              <li>
-                <a class="active" href="#">
-                  <span>Category</span> : Household</a>
-              </li>
-              <li>
-                <a href="#"> <span>Availibility</span> : In Stock</a>
-              </li>
-            </ul>
+            <h5>아이콘 <span>|</span> 아이콘</h5>
+            <h3>바미르 케인 수납장 %=itemBean.getItem_title() %></h3>
+            <h5 class="oneprice">300,000 원  %=itemBean.getItem_old_price() %></h5>
+            <h2>150,000 원 %=itemBean.getItem_new_price() %></h2>
+<!--             <ul class="list"> -->
+<!--               <li> -->
+<!--                 <a class="active" href="#"> -->
+<!--                   <span>Category</span> : Household</a> -->
+<!--               </li> -->
+<!--               <li> -->
+<!--                 <a href="#"> <span>Availibility</span> : In Stock</a> -->
+<!--               </li> -->
+<!--             </ul> -->
+<select>
+            <%
+                //if (itemBean.getItem_option_color1().equals("블랙")) {
+            %>
+            <option>Black</option>
+            <%
+                //}
+            %>
+            <%
+                //if (itemBean.getItem_option_color2().equals("화이트")) {
+            %>
+            <option>White</option>
+            <%
+                //}
+            %>
+            <%
+                //if (itemBean.getItem_option_color3().equals("레드")) {
+            %>
+            <option>Red</option>
+            <%
+                //}
+            %>
+            <%
+                //if (itemBean.getItem_option_color4().equals("옐로우")) {
+            %>
+            <option>Yellow</option>
+            <%
+                //}
+            %></select>
             <p>
-              First replenish living. Creepeth image image. Creeping can't, won't called.
-              Two fruitful let days signs sea together all land fly subdue
+              %=itemBean.getItem_content1() %>
             </p>
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
@@ -172,11 +201,5 @@
 	<input type="submit" value="찜하기">
 	<br>
 	
-    <script src="js/lightslider.min.js"></script>
-	<script src="js/stellar.js"></script>
-	<script src="js/swiper.jquery.js"></script>
-	
-	<!-- custom js -->
-	<script src="js/theme.js"></script>
-	
+
 <jsp:include page="foot.jsp"></jsp:include>

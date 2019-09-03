@@ -106,8 +106,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- easing js -->
     <script src="js/jquery.magnific-popup.js"></script>
     <!-- swiper js -->
-      <script src="js/lightslider.min.js"></script>
-    
+    <script src="js/lightslider.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <!-- swiper js -->
     <script src="js/masonry.pkgd.js"></script>
