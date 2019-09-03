@@ -106,6 +106,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- easing js -->
     <script src="js/jquery.magnific-popup.js"></script>
     <!-- swiper js -->
+      <script src="js/lightslider.min.js"></script>
+    
     <script src="js/swiper.min.js"></script>
     <!-- swiper js -->
     <script src="js/masonry.pkgd.js"></script>
@@ -114,6 +116,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.nice-select.min.js"></script>
     <!-- slick js -->
     <script src="js/slick.min.js"></script>
+      <script src="js/swiper.jquery.js"></script>
+    
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/waypoints.min.js"></script>
     <script src="js/contact.js"></script>
@@ -121,7 +125,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
+      <script src="js/stellar.js"></script>
+    
     <!-- custom js -->
+      <script src="js/theme.js"></script>
+    
     <script src="js/custom.js"></script>
 </body>
 
