@@ -41,7 +41,9 @@
 		width: 500;
 		text-align: center;
 	}
+	
 </style>
+
 </head>
 <body>
 	<!-- 게시판 글 조회 -->
