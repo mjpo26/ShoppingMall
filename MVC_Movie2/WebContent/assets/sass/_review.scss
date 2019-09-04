@@ -89,7 +89,7 @@
     border-radius: 100%;
     text-indent: -9999px;
   }
-
+    
   .slick-active button {
     @extend %custom_btn_bg_2;
   }
@@ -103,15 +103,15 @@
 
   }
   @media #{$large_mobile}{
-
+  
   }
   @media #{$tab_device}{
     margin: 54px 40px 20px;
   }
   @media #{$medium_device}{
-
+  
   }
-
+  
   img {
     max-width: 100%;
     margin: 0 auto;

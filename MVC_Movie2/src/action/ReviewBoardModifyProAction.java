@@ -37,7 +37,7 @@ public class ReviewBoardModifyProAction implements Action {
             article.setReview_num(review_num);
             article.setReview_subject(request.getParameter("review_subject"));
             article.setReview_content(request.getParameter("review_content"));
-            
+            article.setReview_starPoint(Integer.parseInt(request.getParameter("review_starPoint")));
             boolean isModifySuccess = boardModifyProService.modifyArticle(article);
             
             if(!isModifySuccess) {

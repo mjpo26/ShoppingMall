@@ -14,13 +14,13 @@
             margin-top: 20px;
         }
         @media #{$large_mobile}{
-
+        
         }
         @media #{$tab_device}{
-
+        
         }
         @media #{$medium_device}{
-
+        
         }
         a{
             width: 35px;
@@ -31,7 +31,7 @@
             text-align: center;
             margin-left: 10px;
             color: $white_color;
-
+            
             &:hover{
                 background-color: #ff7e5f !important;
                 color: $white_color !important;
@@ -42,7 +42,7 @@
             }
         }
     }
-   }
+   } 
    @media #{$small_mobile}{
         .footer-text{
             text-align: center;

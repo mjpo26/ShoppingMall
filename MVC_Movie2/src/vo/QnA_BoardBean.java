@@ -3,133 +3,119 @@ package vo;
 import java.sql.Date;
 
 public class QnA_BoardBean {
-	private int Qna_num;
-	private String Qna_subject;
-	private String Qna_content;
-	private String Qna_name;
-	private String Qna_pass;
-	private Date Qna_date;
-	private int Qna_readcount;
-	private String Qna_answer_content;
-	private String Qna_isanswer;
-	private int Qna_reply_count;
-	private String Qna_file1;
-	private String Qna_file2;
-	private String Qna_file3;
-	private String Qna_file4;
-	private String Qna_file5;
-	private int Qna_re_ref;
-	private int Qna_re_lev;
-	private int Qna_re_seq;
+    
+	private int QnA_num;
+	private String QnA_subject;
+	private String QnA_content ;
+	private String QnA_writer_id ;
+	private String QnA_pass ;
+	private Date QnA_date ;
+	private int QnA_readcount ;
+	private int QnA_replycount ;
+	private int QnA_re_ref ;
+	private int QnA_re_lev ;
+	private int QnA_re_seq ;
+	private String QnA_file1;
+	private String QnA_file2;
+	private String QnA_file3;
+	private String QnA_file4;
+	private String QnA_file5;
 	
-	public int getQna_num() {
-		return Qna_num;
+    public int getQnA_num() {
+		return QnA_num;
 	}
-	public void setQna_num(int qna_num) {
-		Qna_num = qna_num;
+	public void setQnA_num(int qnA_num) {
+		QnA_num = qnA_num;
 	}
-	public String getQna_subject() {
-		return Qna_subject;
+	public String getQnA_subject() {
+		return QnA_subject;
 	}
-	public void setQna_subject(String qna_subject) {
-		Qna_subject = qna_subject;
+	public void setQnA_subject(String qnA_subject) {
+		QnA_subject = qnA_subject;
 	}
-	public String getQna_content() {
-		return Qna_content;
+	public String getQnA_content() {
+		return QnA_content;
 	}
-	public void setQna_content(String qna_content) {
-		Qna_content = qna_content;
+	public void setQnA_content(String qnA_content) {
+		QnA_content = qnA_content;
 	}
-	public String getQna_name() {
-		return Qna_name;
+	public String getQnA_writer_id() {
+		return QnA_writer_id;
 	}
-	public void setQna_name(String qna_name) {
-		Qna_name = qna_name;
+	public void setQnA_writer_id(String qnA_writer_id) {
+		QnA_writer_id = qnA_writer_id;
 	}
-	public String getQna_pass() {
-		return Qna_pass;
+	public String getQnA_pass() {
+		return QnA_pass;
 	}
-	public void setQna_pass(String qna_pass) {
-		Qna_pass = qna_pass;
+	public void setQnA_pass(String qnA_pass) {
+		QnA_pass = qnA_pass;
 	}
-	public Date getQna_date() {
-		return Qna_date;
+	public Date getQnA_date() {
+		return QnA_date;
 	}
-	public void setQna_date(Date qna_date) {
-		Qna_date = qna_date;
+	public void setQnA_date(Date qnA_date) {
+		QnA_date = qnA_date;
 	}
-	public int getQna_readcount() {
-		return Qna_readcount;
+	public int getQnA_readcount() {
+		return QnA_readcount;
 	}
-	public void setQna_readcount(int qna_readcount) {
-		Qna_readcount = qna_readcount;
+	public void setQnA_readcount(int qnA_readcount) {
+		QnA_readcount = qnA_readcount;
 	}
-	public String getQna_answer_content() {
-		return Qna_answer_content;
+	public int getQnA_replycount() {
+		return QnA_replycount;
 	}
-	public void setQna_answer_content(String qna_answer_content) {
-		Qna_answer_content = qna_answer_content;
+	public void setQnA_replycount(int qnA_replycount) {
+		QnA_replycount = qnA_replycount;
 	}
-	public String getQna_isanswer() {
-		return Qna_isanswer;
+	public int getQnA_re_ref() {
+		return QnA_re_ref;
 	}
-	public void setQna_isanswer(String qna_isanswer) {
-		Qna_isanswer = qna_isanswer;
+	public void setQnA_re_ref(int qnA_re_ref) {
+		QnA_re_ref = qnA_re_ref;
 	}
-	public int getQna_reply_count() {
-		return Qna_reply_count;
+	public int getQnA_re_lev() {
+		return QnA_re_lev;
 	}
-	public void setQna_reply_count(int qna_reply_count) {
-		Qna_reply_count = qna_reply_count;
+	public void setQnA_re_lev(int qnA_re_lev) {
+		QnA_re_lev = qnA_re_lev;
 	}
-	public String getQna_file1() {
-		return Qna_file1;
+	public int getQnA_re_seq() {
+		return QnA_re_seq;
 	}
-	public void setQna_file1(String qna_file1) {
-		Qna_file1 = qna_file1;
+	public void setQnA_re_seq(int qnA_re_seq) {
+		QnA_re_seq = qnA_re_seq;
 	}
-	public String getQna_file2() {
-		return Qna_file2;
+	public String getQnA_file1() {
+		return QnA_file1;
 	}
-	public void setQna_file2(String qna_file2) {
-		Qna_file2 = qna_file2;
+	public void setQnA_file1(String qnA_file1) {
+		QnA_file1 = qnA_file1;
 	}
-	public String getQna_file3() {
-		return Qna_file3;
+	public String getQnA_file2() {
+		return QnA_file2;
 	}
-	public void setQna_file3(String qna_file3) {
-		Qna_file3 = qna_file3;
+	public void setQnA_file2(String qnA_file2) {
+		QnA_file2 = qnA_file2;
 	}
-	public String getQna_file4() {
-		return Qna_file4;
+	public String getQnA_file3() {
+		return QnA_file3;
 	}
-	public void setQna_file4(String qna_file4) {
-		Qna_file4 = qna_file4;
+	public void setQnA_file3(String qnA_file3) {
+		QnA_file3 = qnA_file3;
 	}
-	public String getQna_file5() {
-		return Qna_file5;
+	public String getQnA_file4() {
+		return QnA_file4;
 	}
-	public void setQna_file5(String qna_file5) {
-		Qna_file5 = qna_file5;
+	public void setQnA_file4(String qnA_file4) {
+		QnA_file4 = qnA_file4;
 	}
-	public int getQna_re_ref() {
-		return Qna_re_ref;
+	public String getQnA_file5() {
+		return QnA_file5;
 	}
-	public void setQna_re_ref(int qna_re_ref) {
-		Qna_re_ref = qna_re_ref;
+	public void setQnA_file5(String qnA_file5) {
+		QnA_file5 = qnA_file5;
 	}
-	public int getQna_re_lev() {
-		return Qna_re_lev;
-	}
-	public void setQna_re_lev(int qna_re_lev) {
-		Qna_re_lev = qna_re_lev;
-	}
-	public int getQna_re_seq() {
-		return Qna_re_seq;
-	}
-	public void setQna_re_seq(int qna_re_seq) {
-		Qna_re_seq = qna_re_seq;
-	}
-
-
+    
 }

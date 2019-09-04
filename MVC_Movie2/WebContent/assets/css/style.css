@@ -1,13 +1,6 @@
 /*Color Variables*/
 /**************** extend css start ****************/
-/* @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap"); */
-
-@import url('https://fonts.googleapis.com/css?family=Monoton|Noto+Sans+KR:100,300,400,500,700,900|Noto+Serif+KR:200,300,400,500,600,700,900&display=swap&subset=korean');
-/* 
-font-family: 'Noto Sans KR', sans-serif;
-font-family: 'Monoton', cursive;
-font-family: 'Noto Serif KR', serif;
- */
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
 .btn_2, .form-contact .form-group .btn_1 i {
   background-image: linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%);
@@ -22,7 +15,7 @@ font-family: 'Noto Serif KR', serif;
 /**************** common css start ****************/
 /* line 4, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 body {
-  font-family: 'Noto Sans KR', sans-serif !important;
+  font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
   font-size: 14px;
@@ -164,14 +157,14 @@ h4,
 h5,
 h6 {
   color: #000;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 /* line 105, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 p {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 2;
   font-size: 15px;
   margin-bottom: 0px;
@@ -309,7 +302,7 @@ button:focus,
   color: #556172;
   text-transform: capitalize;
   line-height: 30px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 576px) {
@@ -546,7 +539,7 @@ ul {
   border-radius: 5px;
   background-color: #ff3368;
   font-size: 15px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: #fff;
   -o-transition: all .4s ease-in-out;
@@ -2132,7 +2125,7 @@ ul {
   color: #000;
   font-size: 15px;
   padding: 36px 23px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: capitalize;
   line-height: 12px;
   font-weight: 400;
@@ -2515,7 +2508,7 @@ ul {
 .banner_part .single_banner_slider .banner_text p {
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 70px;
   padding-right: 80px;
 }
@@ -3313,7 +3306,7 @@ ul {
 
 /* line 65, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .single-product .product-btm span {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 16px;
@@ -3520,7 +3513,7 @@ ul {
 /* line 262, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .p_filter_widgets .list li a {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   color: #797979;
   position: relative;
@@ -3565,7 +3558,7 @@ ul {
 /* line 314, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .sorting span {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #555555;
 }
 
@@ -3578,7 +3571,7 @@ ul {
 /* line 324, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .sorting .list li {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #555555;
 }
 
@@ -3609,7 +3602,7 @@ ul {
 /* line 353, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .show span {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #555555;
 }
 
@@ -3622,7 +3615,7 @@ ul {
 /* line 363, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .show .list li {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #555555;
 }
 
@@ -3852,7 +3845,14 @@ ul {
   font-weight: 700;
   font-size: 15px;
   text-transform: capitalize;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.oneprice{
+	font-weight: 400 !important;	
+	color : #aaa !important;
+	text-decoration: line-through !important;
+	margin-bottom: 5px !important;
 }
 
 @media (max-width: 576px) {
@@ -3860,6 +3860,9 @@ ul {
   .s_product_text h5 {
     margin-bottom: 15px;
   }
+  
+  
+  
 }
 
 /* line 619, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -3869,8 +3872,8 @@ ul {
 
 /* line 624, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text h3 {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 500;
   color: #2a2a2a;
   margin-bottom: 10px;
 }
@@ -3891,7 +3894,7 @@ ul {
 /* line 642, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .list li a {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   color: #555555;
 }
@@ -4126,7 +4129,7 @@ ul {
 .product_description_area .tab-content .total_rate .rating_list h3 {
   font-size: 18px;
   color: #2a2a2a;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -4163,7 +4166,7 @@ ul {
 /* line 892, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_description_area .tab-content .table tbody tr td h5 {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   color: #797979;
   margin-bottom: 0px;
@@ -4211,7 +4214,7 @@ ul {
   margin-bottom: 0px;
   font-size: 14px;
   color: #2a2a2a;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 8px;
 }
 
@@ -4235,7 +4238,7 @@ ul {
   line-height: 32px;
   border-radius: 16px;
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #2a2a2a;
   position: absolute;
   right: 0px;
@@ -4329,7 +4332,7 @@ ul {
   border-top: 0px;
   font-size: 14px;
   font-weight: 500;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   border-bottom: 0px !important;
 }
@@ -4368,7 +4371,7 @@ ul {
 .cart_inner .table tbody tr td h5 {
   font-size: 14px;
   color: #2a2a2a;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 0px;
 }
 
@@ -4450,7 +4453,7 @@ ul {
   height: 40px;
   font-size: 14px;
   color: #cccccc;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   margin-right: -3px;
   outline: none;
@@ -4461,7 +4464,7 @@ ul {
 .cart_inner .table tbody tr.bottom_button td .cupon_text input.placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -4469,7 +4472,7 @@ ul {
 .cart_inner .table tbody tr.bottom_button td .cupon_text input:-moz-placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -4477,7 +4480,7 @@ ul {
 .cart_inner .table tbody tr.bottom_button td .cupon_text input::-moz-placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -4485,7 +4488,7 @@ ul {
 .cart_inner .table tbody tr.bottom_button td .cupon_text input::-webkit-input-placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -4571,7 +4574,7 @@ ul {
   font-size: 14px;
   font-weight: normal;
   color: #2a2a2a;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -4680,7 +4683,7 @@ ul {
 .check_title h2 {
   font-size: 14px;
   font-weight: normal;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   background: #ecfdff;
   line-height: 40px;
   padding-left: 30px;
@@ -4739,7 +4742,7 @@ ul {
   height: 40px;
   border-radius: 3px;
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4747,7 +4750,7 @@ ul {
 /* line 65, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input.placeholder {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4755,7 +4758,7 @@ ul {
 /* line 68, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input:-moz-placeholder {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4763,7 +4766,7 @@ ul {
 /* line 71, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input::-moz-placeholder {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4771,7 +4774,7 @@ ul {
 /* line 74, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input::-webkit-input-placeholder {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4798,7 +4801,7 @@ ul {
   display: block;
   margin-top: 20px;
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4888,7 +4891,7 @@ ul {
   padding: 0px 40px;
   color: #2a2a2a;
   text-transform: capitalize;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   border-radius: 50px;
 }
@@ -4965,7 +4968,7 @@ ul {
 /* line 1574, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .billing_details .contact_form .form-group .country_select .list li {
   font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -5174,7 +5177,7 @@ ul {
   border-radius: 0px;
   font-size: 14px;
   color: #797979;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -5182,7 +5185,7 @@ ul {
 .tracking_box_area .tracking_box_inner .tracking_form .form-group input.placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -5190,7 +5193,7 @@ ul {
 .tracking_box_area .tracking_box_inner .tracking_form .form-group input:-moz-placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -5198,7 +5201,7 @@ ul {
 .tracking_box_area .tracking_box_inner .tracking_form .form-group input::-moz-placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -5206,7 +5209,7 @@ ul {
 .tracking_box_area .tracking_box_inner .tracking_form .form-group input::-webkit-input-placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
 }
 
@@ -5253,7 +5256,7 @@ ul {
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: #2a2a2a;
   font-size: 13px;

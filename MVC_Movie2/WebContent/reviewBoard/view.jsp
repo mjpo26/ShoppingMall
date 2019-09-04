@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	ReviewBoardBean article = (ReviewBoardBean) request.getAttribute("article");
+
 	String nowPage = (String) request.getAttribute("page");
 %>
 <!DOCTYPE html>
@@ -44,31 +45,25 @@ h2 {
 </head>
 <body>
 	<section id="articleForm">
-		<h2>글 내용 상세보기</h2>
 		<section id="basicInfoArea">
 			제목:
-			<%=article.getReview_subject()%>
-			첨부파일:
-			<%
-				if (!(article.getReview_file1() == null)) {
-			%>
-			<a href="file_down?downFile=" <%=article.getReview_file1()%>><%=article.getReview_file1()%></a>
-			<%
-				}
-			%>
+			<%=article.getReview_subject()%> <br>
+			별점:
+			<%=article.getReview_starPoint()%>점
 		</section>
 		<section id="articleContentArea">
 			<%=article.getReview_content()%>
-			<img src="../upload/<%=article.getReview_file1()%>" width="300"
+			<img src="../image/<%=article.getReview_file1()%>" width="300"
 				height="300">
 		</section>
 		<section id="commandList">
 			<a
 				href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a>
 			<a
-				href="ReviewBoardDeletetForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a>
+				href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a>
 			<a href="ReviewBoardList.re?page=<%=nowPage%>">[목록]</a> &nbsp;&nbsp;
 		</section>
+			</section>
 		<section>
 			<form action="ReviewBoardCommentWritePro.re" method="post"
 				enctype="multipart/form-data">
@@ -87,6 +82,5 @@ h2 {
 				</div>
 			</form>
 		</section>
-	</section>
 </body>
 </html>

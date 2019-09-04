@@ -21,8 +21,17 @@
 		<%} %>
 		</p>
 	</header>
-	<h1>영화관 정보</h1>
-	<h3><a href="MovieList.mo">영화목록</a></h3>
+	<h1>메인페이지</h1>
+	<h3><a href="MemberInfo.me">회원정보수정</a></h3>
+		<h3><a href="./admin/product_update.jsp">상품등록</a></h3>
+		<h3><a href="Free_BoardList.bo">Free_board리스트</a></h3>
+
+		<h3><a href="./admin/product_main.jsp">상품메인보기</a></h3>
+
+		<h3><a href="QnA_BoardList.qa">QnA_board리스트</a></h3>
+
+		<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a> 
+		<a href="QnA_BoardWriteForm.qa"><input type="button" value="QnA_글쓰기"></a> 
 </body>
 </html>
 
