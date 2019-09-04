@@ -17,6 +17,7 @@ public class ReviewBoardBean {
 	private String review_file4;
 	private String review_file5;
 	private int review_starPoint;
+	private int review_orderNo;
 	
 	public int getReview_num() {
 		return review_num;
@@ -101,6 +102,12 @@ public class ReviewBoardBean {
 	}
 	public void setReview_starPoint(int review_starPoint) {
 		this.review_starPoint = review_starPoint;
+	}
+	public int getReview_orderNo() {
+		return review_orderNo;
+	}
+	public void setReview_orderNo(int review_orderNo) {
+		this.review_orderNo = review_orderNo;
 	}
 
 	
