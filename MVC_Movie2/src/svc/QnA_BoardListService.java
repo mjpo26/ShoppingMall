@@ -40,7 +40,7 @@ public class QnA_BoardListService {
         // Connection 객체 반환
         close(con);
         
-        System.out.println("svc:보드리스트 겟아티클리스트 서비스왔다 " +listCount+"조회했다");
+        System.out.println("svc: BoardList getArticlist Service 접속 " +listCount+"조회");
         
         return listCount;
     }
@@ -53,7 +53,7 @@ public class QnA_BoardListService {
         QnA_BoardDAO boardDAO = QnA_BoardDAO.getInstance();
         boardDAO.setConnection(con);
         
-        System.out.println("svc:보드리스트 겟아티클리스트 서비스왔다 :arraylist로 전체 게시물 목록 가지러 dao간다");
+        System.out.println("svc:BoardList getArticlist Service 접속 :arraylist로 전체 게시물 목록을 가지러 dao로 간다");
         articleList = boardDAO.selectArticleList(page, limit);
         
 //        System.out.println(articleList);

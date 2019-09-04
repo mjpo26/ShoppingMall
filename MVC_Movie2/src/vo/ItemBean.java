@@ -20,7 +20,7 @@ public class ItemBean {
 	private String Item_option_color3;
 	private String Item_option_color4;
 	private int Item_weight;
-	private String Item_BGpic;
+	private String Item_bgpic;
 	private int Item_stock_count;
 	private String Item_pic1;
 	private int Item_point;
@@ -143,11 +143,11 @@ public class ItemBean {
 	public void setItem_weight(int item_weight) {
 		Item_weight = item_weight;
 	}
-	public String getItem_BGpic() {
-		return Item_BGpic;
+	public String getItem_bgpic() {
+		return Item_bgpic;
 	}
-	public void setItem_BGpic(String item_BGpic) {
-		Item_BGpic = item_BGpic;
+	public void setItem_bgpic(String item_bgpic) {
+		Item_bgpic = item_bgpic;
 	}
 	public int getItem_stock_count() {
 		return Item_stock_count;

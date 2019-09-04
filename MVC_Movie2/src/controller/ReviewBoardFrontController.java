@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.Free_BoardDeleteProAction;
+import action.Free_BoardModifyFormAction;
+import action.ReviewBoardDeleteProAction;
 import action.ReviewBoardDetailAction;
 import action.ReviewBoardListAction;
+import action.ReviewBoardModifyFormAction;
 import action.ReviewBoardModifyProAction;
 import action.ReviewBoardWriteProAction;
 import vo.ActionForward;
@@ -65,9 +69,14 @@ public class ReviewBoardFrontController extends HttpServlet {
 			}
 		}
 		else if (command.equals("/ReviewBoardModifyForm.re")) {
-			System.out.println("ReviewBoardModifyForm 들어옴");
-			forward = new ActionForward();
-			forward.setPath("/reviewBoard/modify.jsp");
+			System.out.println("modifyForm");
+			   action = new ReviewBoardModifyFormAction();
+	  
+	            try {
+	                forward = action.execute(request, response);
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
 		}
 		else if (command.equals("/ReviewBoardModifyPro.re")) {
 			System.out.println("modifyPro");
@@ -79,6 +88,19 @@ public class ReviewBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/ReviewBoardDeleteForm.re")) {
+			System.out.println("deleteForm들어와용");
+            forward = new ActionForward();
+            forward.setPath("/reviewBoard/delete.jsp");
+        } else if(command.equals("/ReviewBoardDeletePro.re")) {
+            action = new ReviewBoardDeleteProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 		if (forward != null) {
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
