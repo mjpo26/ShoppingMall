@@ -43,7 +43,7 @@ public class QnA_BoardWriteProAction implements Action {
         // 업로드 파일명은 별도의 메서드 getOriginalFileName()를 호출하여 가져오기 
         QnA_BoardBean.setQnA_file1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
         
-        System.out.println("보드라이트프로액션"+QnA_BoardBean+ "담았나?"
+        System.out.println("BoardWriteProAction"+QnA_BoardBean+ "BoardBean을 성공적으로 담았는가"
                 +QnA_BoardBean.getQnA_writer_id());
         // 비즈니스 로직을 처리할 Service 클래스 인스턴스 생성
         QnA_BoardWriteProService qnA_BoardWriteProService = new QnA_BoardWriteProService();

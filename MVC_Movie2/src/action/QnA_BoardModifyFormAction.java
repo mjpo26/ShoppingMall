@@ -27,7 +27,7 @@ public class QnA_BoardModifyFormAction implements Action {
         request.setAttribute("article", article);
         
         ActionForward forward = new ActionForward();
-        forward.setPath("/QnA_board/QnA_board_modify.jsp");
+        forward.setPath("/QnA_Board/QnA_Board_modify.jsp");
         forward.setRedirect(false); // Dispatcher 방식 지정
         return forward;
     }

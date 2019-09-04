@@ -21,7 +21,7 @@ public class QnA_BoardReplyProService {
         QnA_BoardDAO dao = QnA_BoardDAO.getInstance();
         dao.setConnection(con); // DAO 객체에 Connection 객체 전달
         
-        System.out.println("보드리플라이프로서비스참조번호"+article.getQnA_re_ref());
+        System.out.println("BoardReply번호 참조"+article.getQnA_re_ref());
         // BoardDAO 객체의 insertReplyArticle() 메서드를 호출하여 답글 등록 => 정수형 결과 insertCount 리턴받음
         int insertCount = dao.insertReplyArticle(article);
         

@@ -30,7 +30,7 @@ public class QnA_BoardListAction implements Action {
         if(request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
-        System.out.println("보드리스트 액션 왔다.");
+        System.out.println("BoardListAction is Connected");
         QnA_BoardListService boardListService = new QnA_BoardListService();
         int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
         
@@ -60,7 +60,7 @@ public class QnA_BoardListAction implements Action {
         // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
         ActionForward forward = new ActionForward();
         forward.setRedirect(false); // 생략 가능
-        forward.setPath("/QnA_board/QnA_board_list.jsp");
+        forward.setPath("/QnA_Board/QnA_Board_list.jsp");
         
         return forward;
     }
