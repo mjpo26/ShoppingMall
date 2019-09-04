@@ -9,6 +9,7 @@
 <body>
 
 <h1>상품등록 Main</h1>
+
 <ul>
 <li><a href="product_update.jsp">상품등록</a></li>
 <li><a href="product_list.jsp">상품목록</a></li>
