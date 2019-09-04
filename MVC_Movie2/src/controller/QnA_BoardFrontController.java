@@ -62,7 +62,7 @@ public class QnA_BoardFrontController extends HttpServlet {
             forward.setPath("MemberLoginForm.me");
         } else if(command.equals("/QnA_BoardWriteForm.qa")) {
             forward = new ActionForward();
-            forward.setPath("/QnA_board/QnA_board_write.jsp");
+            forward.setPath("/QnA_Board/QnA_Board_write.jsp");
         } else if(command.equals("/QnA_BoardWritePro.qa")) {
             // Action 인터페이스를 구현한 XXXAction 클래스의 인스턴스를 생성하여
             // execute() 메서드를 호출하여 요청 작업을 처리한 후 ActionForward 객체 리턴받아야 한다.
@@ -79,7 +79,7 @@ public class QnA_BoardFrontController extends HttpServlet {
             }
         } else if(command.equals("/QnA_BoardList.qa")) {
             action = new QnA_BoardListAction();
-            System.out.println("보드리스트 컨트롤러왔다.");
+            System.out.println("BoardListController is Connected");
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {
@@ -127,7 +127,7 @@ public class QnA_BoardFrontController extends HttpServlet {
             }
         } else if(command.equals("/QnA_BoardDeleteForm.qa")) {
             forward = new ActionForward();
-            forward.setPath("/QnA_board/QnA_board_delete.jsp");
+            forward.setPath("/QnA_Board/QnA_Board_delete.jsp");
         } else if(command.equals("/QnA_BoardDeletePro.qa")) {
             action = new QnA_BoardDeleteProAction();
             

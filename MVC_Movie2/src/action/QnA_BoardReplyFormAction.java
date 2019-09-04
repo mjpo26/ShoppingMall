@@ -26,7 +26,7 @@ public class QnA_BoardReplyFormAction implements Action {
         request.setAttribute("page", page);
         
         ActionForward forward = new ActionForward();
-        forward.setPath("/QnA_board/QnA_board_reply.jsp");
+        forward.setPath("/QnA_Board/QnA_Board_reply.jsp");
         forward.setRedirect(false);
         return forward;
     }

@@ -12,7 +12,7 @@ public class QnA_BoardDetailService {
     public QnA_BoardBean getArticle(int QnA_num) throws Exception {
         // Connection 객체 가져오기 - getConnection()
        
-        System.out.println("보드디테일서비스왔다.");
+        System.out.println("BoardDetialService is Connected");
         
         Connection con = getConnection();
         

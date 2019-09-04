@@ -1,13 +1,13 @@
-<%@page import="vo.Free_PageInfo"%>
-<%@page import="vo.Free_BoardBean"%>
+<%@page import="vo.QnA_PageInfo"%>
+<%@page import="vo.QnA_BoardBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
 	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
-	ArrayList<Free_BoardBean> articleList = (ArrayList<Free_BoardBean>) request.getAttribute("articleList");
-	Free_PageInfo pageInfo = (Free_PageInfo) request.getAttribute("pageInfo");
+	ArrayList<QnA_BoardBean> articleList = (ArrayList<QnA_BoardBean>) request.getAttribute("articleList");
+	QnA_PageInfo pageInfo = (QnA_PageInfo) request.getAttribute("pageInfo");
 
 	// PageInfo 객체로부터 페이징 정보 가져오기
 	int listCount = pageInfo.getListCount();
@@ -20,11 +20,11 @@
 	String sId = (String) session.getAttribute("sId");
 
 	// 만약, 회원만 게시판 목록 조회가 가능할 경우
-	// 세션 아이디 없으면 Main.bo 로 이동
+	// 세션 아이디 없으면 Main.qa 로 이동
 	if (sId == null) {
 		out.println("<script>");
 		out.println("alert('로그인이 필요한 메뉴입니다!')");
-		out.println("location.href='Main.bo'");
+		out.println("location.href='Main.qa'");
 		out.println("</script>");
 	}
 %>
@@ -115,12 +115,12 @@ a {
 				for (int i = 0; i < articleList.size(); i++) {
 			%>
 			<tr>
-				<td align="center"><%=articleList.get(i).getFree_num()%></td>
+				<td align="center"><%=articleList.get(i).getQnA_num()%></td>
 				<td>
 					<%
-						if (articleList.get(i).getFree_re_lev() != 0) {
+						if (articleList.get(i).getQnA_re_lev() != 0) {
 					%> <%
- 	for (int j = 0; j <= articleList.get(i).getFree_re_lev() * 2; j++) {
+ 	for (int j = 0; j <= articleList.get(i).getQnA_re_lev() * 2; j++) {
  %>
 					&nbsp; <%
  	}
@@ -129,13 +129,13 @@ a {
  %> ▶ <%
  	}
  %> <a
-					href="Free_BoardDetail.bo?free_num=<%=articleList.get(i).getFree_num()%>&page=<%=nowPage%>">
-						<%=articleList.get(i).getFree_subject()%>
+					href="QnA_BoardDetail.qa?QnA_num=<%=articleList.get(i).getQnA_num()%>&page=<%=nowPage%>">
+						<%=articleList.get(i).getQnA_subject()%>
 				</a>
 				</td>
-				<td align="center"><%=articleList.get(i).getFree_writer_id()%></td>
-				<td align="center"><%=articleList.get(i).getFree_date()%></td>
-				<td align="center"><%=articleList.get(i).getFree_readcount()%></td>
+				<td align="center"><%=articleList.get(i).getQnA_writer_id()%></td>
+				<td align="center"><%=articleList.get(i).getQnA_date()%></td>
+				<td align="center"><%=articleList.get(i).getQnA_readcount()%></td>
 			</tr>
 			<%
 				}
@@ -144,7 +144,7 @@ a {
 	</section>
 
 	<section id="writeButton">
-		<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a>
+		<a href="QnA_BoardWriteForm.qa"><input type="button" value="글쓰기"></a>
 	</section>
 
 	<section id="pageList">
@@ -155,7 +155,7 @@ a {
 		<%
 			} else {
 		%>
-		<a href="Free_BoardList.bo?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+		<a href="QnA_BoardList.qa?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
 		<%
 			}
 		%>
@@ -168,7 +168,7 @@ a {
 		<%
 			} else {
 		%>
-		<a href="Free_BoardList.bo?page=<%=i%>">[<%=i%>]
+		<a href="QnA_BoardList.qa?page=<%=i%>">[<%=i%>]
 		</a>&nbsp;
 		<%
 			}
@@ -184,7 +184,7 @@ a {
 		<%
 			} else {
 		%>
-		<a href="Free_BoardList.bo?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
+		<a href="QnA_BoardList.qa?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
 		<%
 			}
 		%>

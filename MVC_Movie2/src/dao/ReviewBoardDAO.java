@@ -46,7 +46,7 @@ public class ReviewBoardDAO {
 			if (rs.next()) {
 				num = rs.getInt(1) + 1;
 			}
-			sql = "INSERT INTO Review_Board VALUES (?,?,?,?,?,?,now(),?,?,?,?,?,?,?)";
+			sql = "INSERT INTO Review_Board VALUES (?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 		
@@ -62,7 +62,7 @@ public class ReviewBoardDAO {
 			pstmt.setString(11, article.getReview_file4());
 			pstmt.setString(12, article.getReview_file5());
 			pstmt.setInt(13, article.getReview_starPoint());
-			
+			pstmt.setInt(14, article.getReview_orderNo());
 			insertCount = pstmt.executeUpdate(); 
 
 		} catch (SQLException e) {
@@ -123,6 +123,7 @@ public class ReviewBoardDAO {
 				boardBean.setReview_date(rs.getDate("Review_date"));
 				boardBean.setReview_pass(rs.getString("Review_pass"));
 				boardBean.setReview_starPoint(rs.getInt("Review_starPoint"));
+				boardBean.setReview_orderNo(rs.getInt("Review_orderNo"));
 			}
 		} catch (SQLException e) {
 			System.out.println("selectArticle() 에러 - " + e.getMessage());
@@ -144,7 +145,7 @@ public class ReviewBoardDAO {
 		
 		try {
 
-			String sql = "SELECT * FROM Review_Board LIMIT ?,?";
+			String sql = "SELECT * FROM Review_Board ORDER BY review_num DESC LIMIT ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, limit);
@@ -228,11 +229,12 @@ public class ReviewBoardDAO {
 
 		try {
 			// 글 번호에 해당하는 레코드에 대해 제목(subject), 내용(content) 수정 후 결과값 리턴
-			String sql = "UPDATE Review_Board SET review_subject=?,review_content=? WHERE review_num=?";
+			String sql = "UPDATE Review_Board SET review_subject=?,review_content=?,review_starPoint=? WHERE review_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, article.getReview_subject());
 			pstmt.setString(2, article.getReview_content());
-			pstmt.setInt(3, article.getReview_num());
+			pstmt.setInt(3, article.getReview_starPoint());
+			pstmt.setInt(4, article.getReview_num());
 			updateCount = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -243,4 +245,26 @@ public class ReviewBoardDAO {
 
 		return updateCount;
 	}
+
+	public int deleteArticle(int review_num) {
+        PreparedStatement pstmt = null;
+        
+        int deleteCount = 0;
+        
+        try {
+            String sql = "DELETE FROM Review_Board WHERE review_num=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, review_num);
+            deleteCount = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("deleteArticle() 에러 - " + e.getMessage());
+        } finally {
+            close(pstmt);
+        }
+        
+        return deleteCount;
+        
+        
+    }
+    
 }

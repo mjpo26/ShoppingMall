@@ -17,7 +17,7 @@ public class QnA_BoardReplyProAction implements Action {
         
         // BoardBean 객체(article) 생성 후 전달받은 모든 파라미터 추가
         QnA_BoardBean article = new QnA_BoardBean();
-        System.out.println("리플라이프로액션 왔다");
+        System.out.println("Reply Action is Connected");
         article.setQnA_num(Integer.parseInt(request.getParameter("QnA_num")));
         article.setQnA_writer_id(request.getParameter("QnA_writer_id"));
         article.setQnA_pass(request.getParameter("QnA_pass"));
@@ -36,7 +36,7 @@ public class QnA_BoardReplyProAction implements Action {
         
         // ActionForward 객체를 사용하여 BoardList.bo?page=x 포워딩 => 페이지 번호를 가지고 이동
         ActionForward forward = new ActionForward();
-        forward.setPath("QnA_BoardList.bo?page=" + page);
+        forward.setPath("QnA_BoardList.qa?page=" + page);
         forward.setRedirect(true);
         
         return forward;

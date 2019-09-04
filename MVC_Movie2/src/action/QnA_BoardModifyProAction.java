@@ -59,7 +59,7 @@ public class QnA_BoardModifyProAction implements Action {
                 // BoardDetail.bo 페이지로 포워딩 => 파라미터로 글번호(QnA_num), 페이지(page) 전달
                 // => 주소가 변경(새로운 요청)되어야 하므로 Redirect 방식으로 이동
                 forward = new ActionForward();
-                forward.setPath("QnA_BoardDetail.bo?QnA_num=" + QnA_num + "&page=" + page);
+                forward.setPath("QnA_BoardDetail.qa?QnA_num=" + QnA_num + "&page=" + page);
                 forward.setRedirect(true); // Redirect 방식이므로 생략 불가
             }
         }

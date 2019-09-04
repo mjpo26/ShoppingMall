@@ -1,3 +1,4 @@
+
 <%@page import="vo.PageInfo"%>
 <%@page import="vo.ReviewBoardBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -74,6 +75,7 @@ a {
 			%>
 			<tr id="tr_top">
 				<td width="100">번호</td>
+				<td width="200">상품</td>
 				<td width="400">제목</td>
 				<td width="150">작성자</td>
 				<td width="150">날짜</td>
@@ -84,8 +86,10 @@ a {
 			%>
 			<tr>
 				<td align="center"><%=articleList.get(i).getReview_num()%></td>
-				<td>
-				<a href="ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>">
+				<td align="center"><img
+					src="../image/<%=articleList.get(i).getReview_file1()%>"></td>
+				<td><a
+					href="ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>">
 						<%=articleList.get(i).getReview_subject()%>
 				</a></td>
 				<td align="center"><%=articleList.get(i).getReview_writer()%></td>
@@ -110,7 +114,7 @@ a {
 		<%
 			} else {
 		%>
-		<a href="ReviewBoardList.bo?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+		<a href="ReviewBoardList.re?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
 		<%
 			}
 		%>
@@ -123,7 +127,7 @@ a {
 		<%
 			} else {
 		%>
-		<a href="ReviewBoardList.bo?page=<%=i%>">[<%=i%>]
+		<a href="ReviewBoardList.re?page=<%=i%>">[<%=i%>]
 		</a>&nbsp;
 		<%
 			}
@@ -139,7 +143,7 @@ a {
 		<%
 			} else {
 		%>
-		<a href="ReviewBoardList.bo?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
+		<a href="ReviewBoardList.re?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
 		<%
 			}
 		%>
@@ -148,6 +152,9 @@ a {
 		} else {
 	%>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
+	<section id="writeButton">
+		<a href="ReviewBoardWriteForm.re"><input type="button" value="글쓰기"></a>
+	</section>
 	<%
 		}
 	%>

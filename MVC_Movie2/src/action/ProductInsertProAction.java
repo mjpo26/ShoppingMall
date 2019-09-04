@@ -19,7 +19,7 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_old_price(Integer.parseInt(request.getParameter("old_price")));
 		  	itemBean.setItem_content1(request.getParameter("content1"));
 		  	itemBean.setItem_content2(request.getParameter("content2"));
-		  	itemBean.setItem_BGpic(request.getParameter("BGpic"));
+		  	itemBean.setItem_bgpic(request.getParameter("Item_bgpic"));
 		  	itemBean.setItem_pic1(request.getParameter("pic1"));
 		  	itemBean.setItem_display(request.getParameter("display"));
 		  	itemBean.setItem_sales(request.getParameter("sales"));
@@ -48,7 +48,7 @@ public class ProductInsertProAction implements Action {
 	            out.println("</script>");
 	        } else {
 	            forward = new ActionForward();
-	            forward.setPath("index.jsp");
+	            forward.setPath("admin/product_main.jsp");
 	            forward.setRedirect(true);
 	        }
 	        
