@@ -48,6 +48,9 @@
             </div>
           </div>
         </div>
+        
+        
+        
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
             <h5>아이콘 <span>|</span> 아이콘</h5>
@@ -112,6 +115,7 @@
   <!--================End Single Product Area =================-->
 
 
+	
 
 	<div style="width: 500; float: left;">
 		<div>
@@ -165,7 +169,7 @@
 			 <br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button"
 			value="장바구니 담기" size="30"><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button" value="즉시구매"><input
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" value="즉시구매"><input
 			type="Button" value="찜하기">
 	</div>
 	<br>
@@ -200,6 +204,5 @@
 	<input type="submit" value="장바구니">
 	<input type="submit" value="찜하기">
 	<br>
-	
 
 <jsp:include page="../assets/foot.jsp"></jsp:include>
