@@ -15,7 +15,7 @@ public class OrderListBKAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		  ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
-	        System.out.println("OrderListBKAction 실행됨");
+	        System.out.println("OrderListBKAction실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 10; // 한 페이지 당 표시할 게시물 수

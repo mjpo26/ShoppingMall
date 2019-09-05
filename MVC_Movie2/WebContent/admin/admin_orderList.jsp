@@ -19,7 +19,7 @@
 	</header>
 	<table border="1">
 		<tr>
-			<th colspan='4'>주문관리_전체주문목록</th>
+			<th colspan='4'>주문관리전체주문목록</th>
 		</tr>
 
 		<tr>
