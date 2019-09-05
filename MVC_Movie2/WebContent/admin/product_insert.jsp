@@ -121,6 +121,7 @@ form {
 				<h3>판매정보</h3>
 				공급가 <input type="text" name="stock_price"> <br>
 				<br> 소비자가 <input type="text"> <br>
+				<br> 상품적립금<input type="text" name="Item_point"><br>
 				<br> 배송비 입력 <input type="text" name="delivery_pee"
 					value="50000"><br>
 				<br> 상품전체중량 <input type="text" name="weight"> <br>

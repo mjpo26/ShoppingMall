@@ -156,6 +156,9 @@
 	<div style="clear: both;">
 	<h3>제품설명</h3><br>
 		<%=itemBean.getItem_content2() %><br><br><br>
+		<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code() %>>
+		<input type="hidden" name="Item_delivery_pee" value=<%=itemBean.getItem_delivery_pee() %>>
+		<input type="hidden" name="Item_stock_count" value=<%=itemBean.getItem_stock_count() %>>
 		</form>
 		<h3>*일괄구매 또는 코디세트</h3>
 		<table>
