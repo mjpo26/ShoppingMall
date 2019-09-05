@@ -1,10 +1,48 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.MemberBean"%>
+<%@page import="vo.Admin_memberPageInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+
+	<%
+   //Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
+	ArrayList<MemberBean> memberList = (ArrayList<MemberBean>) request.getAttribute("memberList");
+	Admin_memberPageInfo pageInfo = (Admin_memberPageInfo) request.getAttribute("pageInfo");
+
+	// PageInfo 객체로부터 페이징 정보 가져오기
+	int listCount = pageInfo.getListCount();
+	int nowPage = pageInfo.getPage();
+	int startPage = pageInfo.getStartPage();
+	int endPage = pageInfo.getEndPage();
+	int maxPage = pageInfo.getMaxPage();
+
+	// 세션 아이디 가져오기
+	String sId = (String) session.getAttribute("sId");
+
+	// 만약, 회원만 게시판 목록 조회가 가능할 경우
+	// 세션 아이디 없으면 Main.bo 로 이동
+	if (sId == null) {
+		out.println("<script>");
+		out.println("alert('로그인이 필요한 메뉴입니다!')");
+		out.println("location.href='Main.bo'");
+		out.println("</script>");
+	}else if (sId != "admin") {
+		out.println("<script>");
+		out.println("alert('관리자 전용 메뉴입니다!')");
+		out.println("location.href='Main.bo'");
+		out.println("</script>");
+	}
+
+%>	
+	
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 고객관리</title>
 </head>
 <body>
 	<table border="1">
@@ -19,7 +57,7 @@
 
 			<th>검색어</th>
 
-			<td><label>아이디적는곳</label><input type="text" size="10"></td>
+			<td><label>아이디적는곳</label><input type="text" size="10"  name="searchKey"></td>
 
 		</tr>
 
@@ -27,8 +65,8 @@
 
 			<th>sms수신</th>
 
-			<td><input type="checkbox">전체<input type="checkbox">수신허용<input
-				type="checkbox">수신안함</td>
+			<td><input type="radio" name="smsOk" value="수신허용" checked="checked">수신허용<input
+				type="radio" name="smsOk" value="수신안함">수신안함</td>
 
 		</tr>
 
@@ -36,8 +74,8 @@
 
 			<th>email수신</th>
 
-			<td><input type="checkbox">전체<input type="checkbox">수신허용<input
-				type="checkbox">수신안함</td>
+			<td><input type="radio" name="emailOk" value="수신허용" checked="checked">수신허용<input
+				type="radio" name="emailOk" value="수신안함">수신안함</td>
 
 		</tr>
 
@@ -45,7 +83,7 @@
 		
 
 	</table>
-<input type="button" value="검색">
+<input type="button" value="검색" >
 <br><br>
 	<table border="1">
 
