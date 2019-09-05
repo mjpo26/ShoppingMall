@@ -3,7 +3,6 @@ package vo;
 import java.sql.Date;
 
 public class OrderBean {
-
 	
    private int order_idx ;
    private String order_item_code ;
@@ -21,6 +20,7 @@ public class OrderBean {
    private String order_payment ;
    private String order_memo;
    private Date order_date;
+   
 public int getOrder_idx() {
     return order_idx;
 }
