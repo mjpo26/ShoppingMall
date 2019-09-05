@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.ProductInsertProAction;
+import action.basketAction;
 import action.productDetailAction;
+import action.productUpdateAction;
 import action.product_listAction;
 import vo.ActionForward;
 
@@ -51,7 +54,24 @@ public class ProductFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else if(command.equals("/basket.sh")) {
+            action = new basketAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else if(command.equals("/update.sh")) {
+            action = new productUpdateAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        
         
         // 포워딩 처리
         if(forward != null) {

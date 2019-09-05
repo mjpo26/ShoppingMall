@@ -56,8 +56,8 @@
           <div class="s_product_text">
             <h5>아이콘 <span>|</span> 아이콘</h5>
             <h3><!-- 바미르 케인 수납장 --> <%=itemBean.getItem_title() %></h3>
-            <h5 class="oneprice"><!-- 300,000 원 -->  <%=itemBean.getItem_old_price() %></h5>
-            <h2><!-- 150,000 원 --> <%=itemBean.getItem_new_price() %></h2>
+            <h5 class="oneprice"><!-- 300,000 원 --> <%=itemBean.getItem_new_price() %>  </h5>
+            <h2><!-- 150,000 원 --><%=itemBean.getItem_old_price() %></h2>
 <!--             <ul class="list"> -->
 <!--               <li> -->
 <!--                 <a class="active" href="#"> -->
@@ -105,6 +105,7 @@
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
+              
               <a href="#" class="btn_3">add to cart</a>
               <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
             </div>
@@ -116,22 +117,27 @@
   <!--================End Single Product Area =================-->
 
 
-	
+			   <input type="button" value="수정" onclick="location.href='./update.sh?Item_code=<%=itemBean.getItem_code()%>'">
+		   <input type="button" value="삭제" onclick="location.href='./delete.sh?Item_code=<%=itemBean.getItem_code()%>'">
+<form action="" name="Fr" method="get">
 
+<%-- 		   <input type="button" value="삭제" formaction="./delete.sh?Item_code=<%=itemBean.getItem_code()%>"> --%>
 	<div style="width: 500; float: left;">
 		<div>
 			<nav>
-				<img src="./image/<%=itemBean.getItem_bgpic() %>" width="350px" height="450px">
+				<input type="image" src="./image/<%=itemBean.getItem_bgpic() %>" name="Item_bgpic" width="350px" height="450px" >
+				
 			</nav>
 		</div>
 	</div>
 	<br>
 	<br>
 	<div style="width: 800; float: left;">
+	
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;아이콘 / 아이콘 / 아이콘 / 아이콘 <br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상품 : <%=itemBean.getItem_title() %></b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>가격 : <%=itemBean.getItem_old_price() %>원</b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <%=itemBean.getItem_new_price() %>원</b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상품 :<input type="text" name="Item_title" value=<%=itemBean.getItem_title() %> readonly="readonly"></b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>가격 :<input type="text" name="Item_old_price" value=<%=itemBean.getItem_old_price() %> readonly="readonly"> </b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <input type="text" name="Item_old_price" value=<%=itemBean.getItem_new_price() %> readonly="readonly"></b><br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>
 		상세내용 요약</b><br>
 		&emsp;&emsp;&emsp;<%=itemBean.getItem_content1() %><br>
@@ -139,39 +145,64 @@
 		<br> <br>
 		
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Color</b> 
-		
-        <select>
-
-            <option>Black</option>
-
-            <option>White</option>
-
-            <option>Red</option>
-
-            <option>Yellow</option>
-
-        </select>
+		<select name="color">
+			<%if(itemBean.getItem_option_color1()!=null){
+				if (itemBean.getItem_option_color1().equals("블랙")) {
+			%>
+			<option name="Black" value="Black">Black</option>
+			<%
+				}}
+			%>
+			<%
+			if(itemBean.getItem_option_color2()!=null){
+				if (itemBean.getItem_option_color2().equals("화이트")) {
+			%>
+			<option name="White" value="White">White</option>
+			<%
+				}}
+			%>
+			<%
+			if(itemBean.getItem_option_color3()!=null){
+				if (itemBean.getItem_option_color3().equals("레드")) {
+			%>
+			<option name="Red" value="Red">Red</option>
+			<%
+				}}
+			%>
+			<%
+			if(itemBean.getItem_option_color4()!=null){
+				if (itemBean.getItem_option_color4().equals("옐로우")) {
+			%>
+			<option name="Yellow" value="Yellow">Yellow</option>
+			<%
+				}}
+			%></select>
+			<label>수량 : </label><input type="text" name="Item_count" size="1">
 			 <br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button"
-			value="장바구니 담기" size="30"><br>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" value="즉시구매"><input
-			type="Button" value="찜하기">
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<input type="submit" value="장바구니 담기" formaction="./basket.sh">
+		<br>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		   <input type="submit" value="즉시구매" formaction="./order.sh">
+		   <input type="submit" value="찜하기" formaction="./wish.sh">
+		
 	</div>
 	<br>
 
 	<div style="clear: both;">
 	<h3>제품설명</h3><br>
 		<%=itemBean.getItem_content2() %><br><br><br>
+		</form>
 		<h3>*일괄구매 또는 코디세트</h3>
 		<table>
 			<tr>
-				<td><img alt="" src="./image/<%=itemBean.getItem_bgpic() %>" width="150px"
+				<td><img alt="" src="../image/doodle.png" width="150px"
 					height="150px"></td>
-				<td><img alt="" src="./image/doodle.png" width="150px"
+				<td><img alt="" src="../image/doodle.png" width="150px"
 					height="150px"></td>
-				<td><img alt="" src="./image/doodle.png" width="150px"
+				<td><img alt="" src="../image/doodle.png" width="150px"
 					height="150px"></td>
-				<td><img alt="" src="./image/doodle.png" width="150px"
+				<td><img alt="" src="../image/doodle.png" width="150px"
 					height="150px"></td>
 			</tr>
 		</table>
@@ -186,8 +217,8 @@
 		<option>옵션</option>
 	</select>
 
-	<input type="submit" value="장바구니">
-	<input type="submit" value="찜하기">
+	
 	<br>
+
 
 <jsp:include page="../assets/foot.jsp"></jsp:include>

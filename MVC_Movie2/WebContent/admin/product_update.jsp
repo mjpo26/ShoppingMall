@@ -1,10 +1,17 @@
+<%@page import="vo.ItemBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+ItemBean itemBean = (ItemBean)request.getAttribute("article");
+String nowPage = (String)request.getAttribute("page");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+코드값 불러와지는지 확인 : <%=itemBean.getItem_code() %><br>
 <style type="text/css">
 table {
 	border: #000000 solid;
@@ -53,19 +60,19 @@ form {
 				<table border="1" id="itemtable">
 					<tr>
 						<th colspan="3">상품명(필수)</th>
-						<td colspan="5"><input type="text" name="title"></td>
+						<td colspan="5"><input type="text" name="title" value=<%=itemBean.getItem_title() %>></td>
 					</tr>
 					<tr>
 						<th colspan="3">판매가(필수)</th>
-						<td colspan="5"><input type="text" name="old_price"></td>
+						<td colspan="5"><input type="text" name="old_price" value=<%=itemBean.getItem_old_price() %>></td>
 					</tr>
 					<tr>
 						<th colspan="3">상품요약설명</th>
-						<td colspan="12"><textarea rows="5" cols="30" name="content1"></textarea></td>
+						<td colspan="12"><textarea rows="5" cols="30" name="content1"><%=itemBean.getItem_content1() %></textarea></td>
 					</tr>
 					<tr>
 						<th colspan="12">상품상세설명</th></tr><tr>
-						<td colspan="12"><textarea id="summernote" name="content2"></textarea></td>
+						<td colspan="12"><textarea id="summernote" name="content2"><%=itemBean.getItem_content2() %></textarea></td>
 						<script>
 							$('#summernote').summernote({
 								placeholder : '상세내용 작성하는곳',
@@ -80,10 +87,10 @@ form {
 					</tr>
 					<tr>
 						<th colspan="2">첨부파일</th>
-						<td colspan="2"><input type="file" name="Item_bgpic"></td>
+						<td colspan="2"><input type="file" name="Item_bgpic" value=<%=itemBean.getItem_bgpic() %>></td>
 						<th colspan="2">추가이미지</th>
 						<td colspan="2" id="tbody"><input type="file"
-							name="Item_pic1" class="addItemBtn"></td>
+							name="Item_pic1" class="addItemBtn" value=<%=itemBean.getItem_pic1() %>></td>
 
 						<script src="//code.jquery.com/jquery.min.js"></script>
 						<script>
@@ -102,22 +109,34 @@ form {
 				</table>
 
 				<h3>컬러</h3>
-				<input type="checkbox" name="Item_option_color1" value="블랙">블랙
-				<input type="checkbox" name="Item_option_color2" value="화이트">화이트
-				<input type="checkbox" name="Item_option_color3" value="레드">레드
-				<input type="checkbox" name="Item_option_color4" value="옐로우">옐로우<br>
+				<input type="checkbox" name="Item_option_color1" value="블랙"  
+				<%if(itemBean.getItem_option_color1()!=null){if(itemBean.getItem_option_color1().equals("블랙")){%>checked="checked"<%}} %>>블랙
+				<input type="checkbox" name="Item_option_color2" value="화이트" 
+				<%if(itemBean.getItem_option_color2()!=null){if(itemBean.getItem_option_color2().equals("화이트")){%>checked="checked"<%}} %>>화이트
+				<input type="checkbox" name="Item_option_color3" value="레드" 
+				<%if(itemBean.getItem_option_color3()!=null){if(itemBean.getItem_option_color3().equals("레드")){%>checked="checked"<%}} %>>레드
+				<input type="checkbox" name="Item_option_color4" value="옐로우" 
+				<%if(itemBean.getItem_option_color4()!=null){if(itemBean.getItem_option_color4().equals("옐로우")){%>checked="checked"<%}} %>>옐로우<br>
 
 				<h3>진열상태</h3>
-				<input type="radio" name="display" value="yes">진열함 <input
-					type="radio" name="display" value="no">진열안함
+				<input type="radio" name="display" value="yes"
+				<%if(itemBean.getItem_display()!=null){if(itemBean.getItem_display().equals("yes")){%>checked="checked" <%}} %>>진열함 
+				<input type="radio" name="display" value="no"
+				<%if(itemBean.getItem_display()!=null){if(itemBean.getItem_display().equals("no")){%>checked="checked" <%}} %>>진열안함
 				<h3>판매상태</h3>
-				<input type="radio" name="Item_sales" value="yes">판매함 <input
-					type="radio" name="Item_sales" value="no">판매안함
+				<input type="radio" name="sales" value="yes" 
+				<%if(itemBean.getItem_sales()!=null){if(itemBean.getItem_sales().equals("yes")){%>checked="checked"<%}} %>>판매함 
+				<input type="radio" name="sales" value="no" 
+				<%if(itemBean.getItem_sales()!=null){if(itemBean.getItem_sales().equals("no")){%>checked="checked"<%}}%>>판매안함
 				<h3>매인진열</h3>
-				<input type="radio" name="category" value="recommend"> 추천상품
-				<input type="radio" name="category" value="new"> 신상품 <input
-					type="radio" name="category" value="ca1">카테고리1 <input
-					type="radio" name="category" value="ca2">카테고리2
+				<input type="radio" name="category" value="recommend" 
+				<%if(itemBean.getItem_category1()!=null){if(itemBean.getItem_category1().equals("recommend")){%>checked="checked"<%}} %>> 추천상품
+				<input type="radio" name="category" value="new" 
+				<%if(itemBean.getItem_category1()!=null){if(itemBean.getItem_category1().equals("new")){%>checked="checked"<%}} %>> 신상품 
+				<input type="radio" name="category" value="ca1" 
+				<%if(itemBean.getItem_category1()!=null){if(itemBean.getItem_category1().equals("ca1")){%>checked="checked"<%} }%>>카테고리1 
+				<input type="radio" name="category" value="ca2" 
+				<%if(itemBean.getItem_category1()!=null){if(itemBean.getItem_category1().equals("ca2")){%>checked="checked"<%}} %>>카테고리2
 
 				<div style="display: inline-block">
 					<h3>상품분류</h3>
@@ -125,13 +144,13 @@ form {
 					<!-- 위에꺼(상품분류) 이부분은 잠깐보류 -->
 				</div>
 				<h3>판매정보</h3>
-				공급가 <input type="text" name="stock_price"> <br>
-				<br> 소비자가 <input type="text"> <br>
+				공급가 <input type="text" name="stock_price" value=<%=itemBean.getItem_stock_price() %>> <br>
+				<br> 소비자가 <input type="text" value=<%=itemBean.getItem_old_price() %>> <br>
 				<br> 배송비 입력 <input type="text" name="delivery_pee"
 					value="50000"><br>
-				<br> 상품전체중량 <input type="text" name="weight"> <br>
-				<br> 재고수량 <input type="text" name="stock_count"> <br>
-				<br> <input type="submit" value="등록하기"> <input
+				<br> 상품전체중량 <input type="text" name="weight" value=<%=itemBean.getItem_weight() %>> <br>
+				<br> 재고수량 <input type="text" name="stock_count" value=<%=itemBean.getItem_stock_count() %>> <br>
+				<br> <input type="submit" value="수정하기"> <input
 					type="reset" value="취소하기">
 			</div>
 		</form>
