@@ -54,7 +54,6 @@ public class BasketListDAO {
 
 		return listCount;
 	}
-
 	public ArrayList<BasketListBean> selectArticleList(int page, int limit) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -62,7 +61,7 @@ public class BasketListDAO {
 		ArrayList<BasketListBean> articleList = new ArrayList<BasketListBean>();
 
 		int startRow = (page - 1) * 10; 
-		
+	
 		try {
 			String sql = "SELECT * FROM basket ORDER BY basket_idx LIMIT ?,?";
 			pstmt = con.prepareStatement(sql);
