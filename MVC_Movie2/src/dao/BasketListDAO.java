@@ -64,7 +64,6 @@ public class BasketListDAO {
 		int startRow = (page - 1) * 10; 
 		
 		try {
-
 			String sql = "SELECT * FROM basket ORDER BY basket_idx LIMIT ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
