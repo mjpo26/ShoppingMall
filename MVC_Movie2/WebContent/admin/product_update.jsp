@@ -45,7 +45,7 @@ form {
 		<h1 style="margin-bottom: 0;">관리자 메인 페이지</h1>
 		<div style="height: 500px; width: 120px; float: left;">
 			<nav>
-				<ul>
+				<ul>	
 					<li><a href="product_main.jsp">상품관리</a></li>
 					<li><a href="#">주문관리</a></li>
 					<li><a href="#">고객관리</a></li>
@@ -54,7 +54,8 @@ form {
 				</ul>
 			</nav>
 		</div>
-		<form action="../ItemInsert.sh" method="get">
+		<form action="./updatePro.sh" method="get">
+		<input type="hidden" name="item_code" value=<%=itemBean.getItem_code() %>>
 			<div style="height: 500px; width: 400px; float: left;">
 				<h3>오늘매출현황</h3>
 				<table border="1" id="itemtable">
@@ -84,6 +85,12 @@ form {
 
 
 
+<select>
+
+<opstion>   </opstion>
+<opstion>best50</opstion>
+<opstion>옐로우 </opstion>
+</select>
 					</tr>
 					<tr>
 						<th colspan="2">첨부파일</th>
@@ -108,16 +115,7 @@ form {
 
 				</table>
 
-				<h3>컬러</h3>
-				<input type="checkbox" name="Item_option_color1" value="블랙"  
-				<%if(itemBean.getItem_option_color1()!=null){if(itemBean.getItem_option_color1().equals("블랙")){%>checked="checked"<%}} %>>블랙
-				<input type="checkbox" name="Item_option_color2" value="화이트" 
-				<%if(itemBean.getItem_option_color2()!=null){if(itemBean.getItem_option_color2().equals("화이트")){%>checked="checked"<%}} %>>화이트
-				<input type="checkbox" name="Item_option_color3" value="레드" 
-				<%if(itemBean.getItem_option_color3()!=null){if(itemBean.getItem_option_color3().equals("레드")){%>checked="checked"<%}} %>>레드
-				<input type="checkbox" name="Item_option_color4" value="옐로우" 
-				<%if(itemBean.getItem_option_color4()!=null){if(itemBean.getItem_option_color4().equals("옐로우")){%>checked="checked"<%}} %>>옐로우<br>
-
+	
 				<h3>진열상태</h3>
 				<input type="radio" name="display" value="yes"
 				<%if(itemBean.getItem_display()!=null){if(itemBean.getItem_display().equals("yes")){%>checked="checked" <%}} %>>진열함 

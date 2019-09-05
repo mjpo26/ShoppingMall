@@ -21,6 +21,7 @@
 			<option>15일</option>
 			<option>1개월</option>
 			</select></td>
+
 			<td colspan='5'>날짜선택 <input type="date" value="2019-08-23"></td>
 		</tr>
 		<tr>

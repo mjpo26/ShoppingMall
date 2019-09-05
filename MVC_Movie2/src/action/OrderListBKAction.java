@@ -15,7 +15,7 @@ public class OrderListBKAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		  ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
-	        System.out.println("OrderListBKAction 실행됨");
+	        System.out.println("OrderListBKAction실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 10; // 한 페이지 당 표시할 게시물 수
@@ -54,7 +54,7 @@ public class OrderListBKAction implements Action {
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
-	        forward.setPath("/admin/orderListBk.jsp");
+	        forward.setPath("/admin/admin_orderList.jsp");
 	        
 	        return forward;
 		}

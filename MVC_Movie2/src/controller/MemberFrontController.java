@@ -18,7 +18,7 @@ import action.MemberLogoutProAction;
 import action.MemberUpdateProAction;
 import vo.ActionForward;
 
-@WebServlet("*.kk")
+@WebServlet("*.me")
 public class MemberFrontController extends HttpServlet {
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
