@@ -69,32 +69,35 @@
 <!--             </ul> -->
 <select>
             <%
-                //if (itemBean.getItem_option_color1().equals("블랙")) {
+            if(itemBean.getItem_option_color1()!=null){   
+            if (itemBean.getItem_option_color1().equals("블랙")) {
             %>
             <option>Black</option>
             <%
-                //}
+                }}
             %>
-            <%
-                //if (itemBean.getItem_option_color2().equals("화이트")) {
+            <%if(itemBean.getItem_option_color2()!=null){
+                if (itemBean.getItem_option_color2().equals("화이트")) {
             %>
             <option>White</option>
             <%
-                //}
+                }}
             %>
             <%
-                //if (itemBean.getItem_option_color3().equals("레드")) {
+            if(itemBean.getItem_option_color3()!=null){  
+            if (itemBean.getItem_option_color3().equals("레드")) {
             %>
             <option>Red</option>
             <%
-                //}
+                }}
             %>
             <%
-                //if (itemBean.getItem_option_color4().equals("옐로우")) {
+            if(itemBean.getItem_option_color4()!=null){
+                if (itemBean.getItem_option_color4().equals("옐로우")) {
             %>
             <option>Yellow</option>
             <%
-                //}
+                }}
             %></select>
             <p>
               <%=itemBean.getItem_content1() %>
@@ -104,9 +107,8 @@
                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
-              </div>
-              
-              <a href="#" class="btn_3">add to cart</a>
+              </div> 
+              <input type="submit" value="add to cart" formaction="./basket.sh" class="btn_3" >
               <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
             </div>
           </div>
