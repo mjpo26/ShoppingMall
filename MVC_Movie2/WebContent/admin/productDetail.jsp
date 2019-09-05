@@ -92,8 +92,10 @@
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div> 
               <div class="product_buying">
-	              <input type="submit" value="add to cart" formaction="./basket.sh" class="btn_3" >
-	              <a href="#" class="like_us"> <i class="ti-heart"></i></a>
+	              <input type="submit" value="장바구니 담기" formaction="./basket.sh" class="btn_3" >
+	              <input type="submit" value="즉시구매" formaction="./order.sh" class="btn_3 buy" >
+                <input type="submit" value="♡" formaction="./wish.sh" class="ti-heart like_us">
+
               </div>
             </div>
           </div>
