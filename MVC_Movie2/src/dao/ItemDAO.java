@@ -43,7 +43,7 @@ public class ItemDAO {
 
 		String sql = "INSERT INTO Item(Item_title,Item_old_price,Item_content1,Item_content2,"
 				+ "Item_bgpic,Item_pic1,Item_display,Item_sales,Item_category1,Item_stock_price,"
-				+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_date,Item_option_color1,Item_option_color2,Item_option_color3,Item_option_color4) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?,?,?,?)";
+				+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -60,10 +60,6 @@ public class ItemDAO {
 			pstmt.setInt(11, itemBean.getItem_delivery_pee());// 배송비
 			pstmt.setInt(12, itemBean.getItem_weight()); // 판매중량
 			pstmt.setInt(13, itemBean.getItem_stock_count()); // 재고
-			pstmt.setString(14, itemBean.getItem_option_color1());
-			pstmt.setString(15, itemBean.getItem_option_color2());
-			pstmt.setString(16, itemBean.getItem_option_color3());
-			pstmt.setString(17, itemBean.getItem_option_color4());
 			insertCount = pstmt.executeUpdate();
 			System.out.println("DB성공");
 		} catch (SQLException e) {
@@ -123,10 +119,6 @@ public class ItemDAO {
 	                itemBean.setItem_category1(rs.getString("Item_category1"));
 	                itemBean.setItem_content1(rs.getString("Item_content1"));
 	                itemBean.setItem_content2(rs.getString("Item_content2"));
-	                itemBean.setItem_option_color1(rs.getString("Item_option_color1"));
-	                itemBean.setItem_option_color2(rs.getString("Item_option_color2"));
-	                itemBean.setItem_option_color3(rs.getString("Item_option_color3"));
-	                itemBean.setItem_option_color4(rs.getString("Item_option_color4"));
 	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
 	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
 	                itemBean.setItem_display(rs.getString("Item_display"));
@@ -170,10 +162,7 @@ public class ItemDAO {
 	                itemBean.setItem_category1(rs.getString("Item_category1"));
 	                itemBean.setItem_content1(rs.getString("Item_content1"));
 	                itemBean.setItem_content2(rs.getString("Item_content2"));
-	                itemBean.setItem_option_color1(rs.getString("Item_option_color1"));
-	                itemBean.setItem_option_color2(rs.getString("Item_option_color2"));
-	                itemBean.setItem_option_color3(rs.getString("Item_option_color3"));
-	                itemBean.setItem_option_color4(rs.getString("Item_option_color4"));
+
 	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
 	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
 	                itemBean.setItem_display(rs.getString("Item_display"));
@@ -192,5 +181,41 @@ public class ItemDAO {
 	        }
 	        
 	        return itemBean;
+	}
+
+	public int UpdateItem(ItemBean itemBean) {
+		int updateCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = "UPDATE Item SET Item_title=?,Item_old_price=?,Item_content1=?,Item_content2=?,"
+				+ "Item_bgpic=?,Item_pic1=?,Item_display=?,Item_sales=?,Item_category1=?,Item_stock_price=?,"
+				+ "Item_delivery_pee=?,Item_weight=?,Item_stock_count=?,Item_date=NOW() where Item_code=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, itemBean.getItem_title());// 상품명
+			pstmt.setInt(2, itemBean.getItem_old_price()); // 판매가(정가)
+			pstmt.setString(3, itemBean.getItem_content1());// 상품요약설명
+			pstmt.setString(4, itemBean.getItem_content2()); // 상품상세설명
+			pstmt.setString(5, itemBean.getItem_bgpic()); // 상품 대표그림
+			pstmt.setString(6, itemBean.getItem_pic1()); // 추가이미지
+			pstmt.setString(7, itemBean.getItem_display());// 진열상태
+			pstmt.setString(8, itemBean.getItem_sales());// 판매상태
+			pstmt.setString(9, itemBean.getItem_category1());// 카테고리
+			pstmt.setInt(10, itemBean.getItem_stock_price());// 원가
+			pstmt.setInt(11, itemBean.getItem_delivery_pee());// 배송비
+			pstmt.setInt(12, itemBean.getItem_weight()); // 판매중량
+			pstmt.setInt(13, itemBean.getItem_stock_count()); // 재고
+			pstmt.setInt(14, itemBean.getItem_code());
+			updateCount = pstmt.executeUpdate();
+			System.out.println("DB성공");
+		} catch (SQLException e) {
+			System.out.println("updateItem 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return updateCount;
 	}
 }

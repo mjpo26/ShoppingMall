@@ -33,9 +33,14 @@
         <div class="col-lg-7 col-xl-7">
           <div class="product_slider_img">
             <div id="vertical">
-              <div data-thumb="./assets/img/product/single-product/product_2.jpg">
+            
+            	<div data-thumb="./assets/img/product/single-product/product_2.jpg">
                 <img src="./assets/img/product/single-product/product_2.jpg" />
-              </div>
+              </div>            	
+            
+            
+            
+              
 <!--               <div data-thumb="img/product/single-product/product_1.png">
                 <img src="img/product/single-product/product_1.png" />
               </div> -->
@@ -56,8 +61,8 @@
           <div class="s_product_text">
             <h5>아이콘 <span>|</span> 아이콘</h5>
             <h3><!-- 바미르 케인 수납장 --> <%=itemBean.getItem_title() %></h3>
-            <h5 class="oneprice"><!-- 300,000 원 --> <%=itemBean.getItem_new_price() %>  </h5>
-            <h2><!-- 150,000 원 --><%=itemBean.getItem_old_price() %></h2>
+            <h5 class="oneprice"><!-- 300,000 원 --> <%=itemBean.getItem_old_price()  %>  </h5>
+            <h2><!-- 150,000 원 --><%-- <%=//itemBean.getItem_new_price() %> --%>190,000</h2>
 <!--             <ul class="list"> -->
 <!--               <li> -->
 <!--                 <a class="active" href="#"> -->
@@ -67,49 +72,39 @@
 <!--                 <a href="#"> <span>Availibility</span> : In Stock</a> -->
 <!--               </li> -->
 <!--             </ul> -->
-<select>
-            <%
-            if(itemBean.getItem_option_color1()!=null){   
-            if (itemBean.getItem_option_color1().equals("블랙")) {
-            %>
-            <option>Black</option>
-            <%
-                }}
-            %>
-            <%if(itemBean.getItem_option_color2()!=null){
-                if (itemBean.getItem_option_color2().equals("화이트")) {
-            %>
-            <option>White</option>
-            <%
-                }}
-            %>
-            <%
-            if(itemBean.getItem_option_color3()!=null){  
-            if (itemBean.getItem_option_color3().equals("레드")) {
-            %>
-            <option>Red</option>
-            <%
-                }}
-            %>
-            <%
-            if(itemBean.getItem_option_color4()!=null){
-                if (itemBean.getItem_option_color4().equals("옐로우")) {
-            %>
-            <option>Yellow</option>
-            <%
-                }}
-            %></select>
+<<<<<<< HEAD
+=======
+  
+            
+>>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
             <p>
               <%=itemBean.getItem_content1() %>
             </p>
             <div class="card_area d-flex justify-content-between align-items-center">
-              <div class="product_count">
-                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+              <div class="product_option">              
+<!-- 	              <select> -->
+<%-- 	                    <%if (itemBean.getItem_option_color1() != null) {if (itemBean.getItem_option_color1().equals("블랙")) {%> --%>
+<!-- 	                    <option>Black</option> -->
+<%-- 	                    <%}}if (itemBean.getItem_option_color2() != null) { if (itemBean.getItem_option_color2().equals("화이트")) {%> --%>
+<!-- 	                    <option>White</option> -->
+<%-- 	                    <%}}if (itemBean.getItem_option_color3() != null) {if (itemBean.getItem_option_color3().equals("레드")) {%> --%>
+<!-- 	                    <option>Red</option> -->
+<%-- 	                    <%}}if (itemBean.getItem_option_color4() != null) {if (itemBean.getItem_option_color4().equals("옐로우")) {%> --%>
+<!-- 	                    <option>Yellow</option> -->
+<%-- 	                    <%}}%> --%>
+<!-- 	               </select>                -->
+              </div>
+              <div class="product_count">							
+				<span class="inumber-decrement"> <i class="ti-minus"></i></span>
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div> 
-              <input type="submit" value="add to cart" formaction="./basket.sh" class="btn_3" >
-              <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+              <div class="product_buying">
+	              <input type="submit" value="장바구니 담기" formaction="./basket.sh" class="btn_3" >
+	              <input type="submit" value="즉시구매" formaction="./order.sh" class="btn_3 buy" >
+                <input type="submit" value="♡" formaction="./wish.sh" class="ti-heart like_us">
+
+              </div>
             </div>
           </div>
         </div>
@@ -147,38 +142,7 @@
 		<br> <br>
 		
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Color</b> 
-		<select name="color">
-			<%if(itemBean.getItem_option_color1()!=null){
-				if (itemBean.getItem_option_color1().equals("블랙")) {
-			%>
-			<option name="Black" value="Black">Black</option>
-			<%
-				}}
-			%>
-			<%
-			if(itemBean.getItem_option_color2()!=null){
-				if (itemBean.getItem_option_color2().equals("화이트")) {
-			%>
-			<option name="White" value="White">White</option>
-			<%
-				}}
-			%>
-			<%
-			if(itemBean.getItem_option_color3()!=null){
-				if (itemBean.getItem_option_color3().equals("레드")) {
-			%>
-			<option name="Red" value="Red">Red</option>
-			<%
-				}}
-			%>
-			<%
-			if(itemBean.getItem_option_color4()!=null){
-				if (itemBean.getItem_option_color4().equals("옐로우")) {
-			%>
-			<option name="Yellow" value="Yellow">Yellow</option>
-			<%
-				}}
-			%></select>
+	
 			<label>수량 : </label><input type="text" name="Item_count" size="1">
 			 <br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -194,6 +158,9 @@
 	<div style="clear: both;">
 	<h3>제품설명</h3><br>
 		<%=itemBean.getItem_content2() %><br><br><br>
+		<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code() %>>
+		<input type="hidden" name="Item_delivery_pee" value=<%=itemBean.getItem_delivery_pee() %>>
+		<input type="hidden" name="Item_stock_count" value=<%=itemBean.getItem_stock_count() %>>
 		</form>
 		<h3>*일괄구매 또는 코디세트</h3>
 		<table>

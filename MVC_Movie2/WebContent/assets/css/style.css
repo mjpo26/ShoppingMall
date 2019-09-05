@@ -5512,12 +5512,14 @@ ul {
   text-align: center;
 }
 
+
 /* line 2042, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .btn_3 {
   padding: 13px 36px;
   box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
   border: 1px solid #ff3368;
 }
+
 
 @media (max-width: 576px) {
   /* line 2042, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
