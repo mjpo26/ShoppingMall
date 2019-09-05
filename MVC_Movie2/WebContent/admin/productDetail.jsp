@@ -138,72 +138,19 @@
 		
 		<br> <br>
 		
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Color</b> <select>
-<<<<<<< HEAD
-			<%if(itemBean.getItem_option_color1()!=null){
-				if (itemBean.getItem_option_color1().equals("블랙")) {
-=======
-			<%
-				//if (itemBean.getItem_option_color1().equals("블랙")) {
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-			<option>Black</option>
-			<%
-<<<<<<< HEAD
-				}}
-=======
-				//}
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-			<%
-<<<<<<< HEAD
-			if(itemBean.getItem_option_color2()!=null){
-			if (itemBean.getItem_option_color2().equals("화이트")) {
-=======
-				//if (itemBean.getItem_option_color2().equals("화이트")) {
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-			<option>White</option>
-			<%
-<<<<<<< HEAD
-				}}
-=======
-				//}
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-<<<<<<< HEAD
-			<%if(itemBean.getItem_option_color3()!=null){
-			if (itemBean.getItem_option_color3().equals("레드")) {
-=======
-			<%
-				//if (itemBean.getItem_option_color3().equals("레드")) {
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-			<option>Red</option>
-			<%
-<<<<<<< HEAD
-				}}
-=======
-				//}
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-			
-			<%
-<<<<<<< HEAD
-			if(itemBean.getItem_option_color4()!=null){
-			if (itemBean.getItem_option_color4().equals("옐로우")) {
-=======
-				//if (itemBean.getItem_option_color4().equals("옐로우")) {
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%>
-			<option>Yellow</option>
-			<%
-<<<<<<< HEAD
-				}}
-=======
-				//}
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
-			%></select>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Color</b> 
+		
+        <select>
+
+            <option>Black</option>
+
+            <option>White</option>
+
+            <option>Red</option>
+
+            <option>Yellow</option>
+
+        </select>
 			 <br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="Button"
 			value="장바구니 담기" size="30"><br>
