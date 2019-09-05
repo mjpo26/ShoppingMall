@@ -6,15 +6,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.ProductInsertProService;
+import svc.ProductUpdateProService;
 import vo.ActionForward;
 import vo.ItemBean;
 
-public class ProductInsertProAction implements Action {
+public class productUpdateProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ProductInserProAction");
+		System.out.println("ProductUpdateProAction");
+		
 		  ItemBean itemBean = new ItemBean();
+		  	itemBean.setItem_code(Integer.parseInt(request.getParameter("item_code")));
 		  	itemBean.setItem_title(request.getParameter("title"));
 		  	itemBean.setItem_old_price(Integer.parseInt(request.getParameter("old_price")));
 		  	itemBean.setItem_content1(request.getParameter("content1"));
@@ -28,18 +31,18 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_delivery_pee(Integer.parseInt(request.getParameter("delivery_pee")));
 		  	itemBean.setItem_weight(Integer.parseInt(request.getParameter("weight")));
 		  	itemBean.setItem_stock_count(Integer.parseInt(request.getParameter("stock_count")));
-
 		  	
-	        ProductInsertProService productInsertProService = new ProductInsertProService(); 
+		  	
+	        ProductUpdateProService productUpdateProService = new ProductUpdateProService();
+	        boolean isUpdateSuccess = productUpdateProService.updateItem(itemBean);
 	        
-	        boolean isInsertSuccess = productInsertProService.insertItem(itemBean);
 	        
 	        // 회원 추가 결과가 false 일 경우
 	        // "회원 가입 실패!" 경고 출력 후 이전 페이지로 이동
 	        // true 일 경우 index.jsp 로 이동
 	        ActionForward forward = null;
 	        
-	        if(!isInsertSuccess) {
+	        if(!isUpdateSuccess) {
 	            response.setContentType("text/html;charset=UTF-8");
 	            PrintWriter out = response.getWriter();
 	            out.println("<script>");

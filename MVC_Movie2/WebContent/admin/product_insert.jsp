@@ -101,12 +101,6 @@ form {
 
 				</table>
 
-				<h3>컬러</h3>
-				<input type="checkbox" name="Item_option_color1" value="블랙">블랙
-				<input type="checkbox" name="Item_option_color2" value="화이트">화이트
-				<input type="checkbox" name="Item_option_color3" value="레드">레드
-				<input type="checkbox" name="Item_option_color4" value="옐로우">옐로우<br>
-
 				<h3>진열상태</h3>
 				<input type="radio" name="display" value="yes">진열함 <input
 					type="radio" name="display" value="no">진열안함

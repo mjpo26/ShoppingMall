@@ -15,10 +15,10 @@ public class ItemBean {
 	private String Item_display;
 	private String Item_sales; 
 	private String Item_option_size;
-	private String Item_option_color1;
-	private String Item_option_color2;
-	private String Item_option_color3;
-	private String Item_option_color4;
+//	private String Item_option_color1;
+//	private String Item_option_color2;
+//	private String Item_option_color3;
+//	private String Item_option_color4;
 	private int Item_weight;
 	private String Item_bgpic;
 	private int Item_stock_count;
@@ -113,30 +113,30 @@ public class ItemBean {
 		Item_option_size = item_option_size;
 	}
 
-	public String getItem_option_color1() {
-		return Item_option_color1;
-	}
-	public void setItem_option_color1(String item_option_color1) {
-		Item_option_color1 = item_option_color1;
-	}
-	public String getItem_option_color2() {
-		return Item_option_color2;
-	}
-	public void setItem_option_color2(String item_option_color2) {
-		Item_option_color2 = item_option_color2;
-	}
-	public String getItem_option_color3() {
-		return Item_option_color3;
-	}
-	public void setItem_option_color3(String item_option_color3) {
-		Item_option_color3 = item_option_color3;
-	}
-	public String getItem_option_color4() {
-		return Item_option_color4;
-	}
-	public void setItem_option_color4(String item_option_color4) {
-		Item_option_color4 = item_option_color4;
-	}
+//	public String getItem_option_color1() {
+//		return Item_option_color1;
+//	}
+//	public void setItem_option_color1(String item_option_color1) {
+//		Item_option_color1 = item_option_color1;
+//	}
+//	public String getItem_option_color2() {
+//		return Item_option_color2;
+//	}
+//	public void setItem_option_color2(String item_option_color2) {
+//		Item_option_color2 = item_option_color2;
+//	}
+//	public String getItem_option_color3() {
+//		return Item_option_color3;
+//	}
+//	public void setItem_option_color3(String item_option_color3) {
+//		Item_option_color3 = item_option_color3;
+//	}
+//	public String getItem_option_color4() {
+//		return Item_option_color4;
+//	}
+//	public void setItem_option_color4(String item_option_color4) {
+//		Item_option_color4 = item_option_color4;
+//	}
 	public int getItem_weight() {
 		return Item_weight;
 	}
