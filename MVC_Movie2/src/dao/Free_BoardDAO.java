@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import vo.BoardSearchBean;
 import vo.Free_BoardBean;
 
 public class Free_BoardDAO {
@@ -112,15 +113,30 @@ public class Free_BoardDAO {
     }
 
     // 전체 게시물 갯수를 조회하여 리턴
-    public int selectListCount() {
+    public int selectListCount(BoardSearchBean bb) {
         int listCount = 0; // 게시물 갯수를 저장하는 변수
         
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        String s_subject = bb.getSubject();
+       String s_id = bb.getId();
+       int s_num = bb.getNum();
         
         try {
-            String sql = "SELECT COUNT(*) FROM free_board";
+            String sql = "SELECT COUNT(*) FROM free_board where free_subject=?";
+             //       + "AND free_writer_id =? AND free_num =? ";
+       //    String korea = "select * from free_board where free_writer_id ? and free_num is not null";
+                   
+           
             pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, s_subject);  //제목          
+            pstmt.setString(2, s_id); //글쓴이
+            pstmt.setInt(3, s_num);//글넘버
+            
+          
+         
+            
+            
             rs = pstmt.executeQuery();
             
             if(rs.next()) {
@@ -139,13 +155,13 @@ public class Free_BoardDAO {
     }
 
     // 게시물 목록 조회하여 리턴
-    public ArrayList<Free_BoardBean> selectArticleList(int page, int limit) {
+    public ArrayList<Free_BoardBean> selectArticleList(BoardSearchBean bb) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         
         ArrayList<Free_BoardBean> articleList = new ArrayList<Free_BoardBean>();
 
-        int startRow = (page - 1) * 10; // 읽어올 목록의 첫 레코드 번호
+        int startRow = (bb.getPage() - 1) * 10; // 읽어올 목록의 첫 레코드 번호
         
         try {
             // SELECT 구문 : board 테이블 데이터 전체 조회 
@@ -154,7 +170,7 @@ public class Free_BoardDAO {
             String sql = "SELECT * FROM free_board ORDER BY free_ref DESC,free_seq ASC LIMIT ?,?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, startRow);
-            pstmt.setInt(2, limit);
+            pstmt.setInt(2, bb.getLimit());
             rs = pstmt.executeQuery();
             
             

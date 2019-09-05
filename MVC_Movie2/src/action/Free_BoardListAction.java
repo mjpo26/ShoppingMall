@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import svc.Free_BoardListService;
 import vo.ActionForward;
+import vo.BoardSearchBean;
 import vo.Free_BoardBean;
 import vo.Free_PageInfo;
 
@@ -28,11 +29,38 @@ public class Free_BoardListAction implements Action {
         if(request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
+        
+        //보드서치빈 테스트한다.
+        BoardSearchBean bb = new BoardSearchBean();
+        bb.setPage(page);
+        bb.setLimit(limit);
+        bb.setId("admin");
+        bb.setSubject("침대");
+        bb.setNum(9);
+        
+        
+        
+        //
+        
         System.out.println("보드리스트 액션 왔다.");
         Free_BoardListService boardListService = new Free_BoardListService();
-        int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
+        int listCount = boardListService.getListCount(bb); // 전체 게시물 수 가져오기
         
-        articleList = boardListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
+        articleList = boardListService.getArticleList(bb); // 전체 게시물 목록 가져오기(10개 한정)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         // 전체 페이지(마지막 페이지) 수 계산
         int maxPage = (int)((double)listCount / limit + 0.95);
