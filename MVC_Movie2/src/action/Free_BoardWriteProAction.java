@@ -21,6 +21,7 @@ public class Free_BoardWriteProAction implements Action {
         
         ActionForward forward = null;
         
+        
         String realFolder = ""; // 실제 업로드 폴더(톰캣)
         String saveFolder = "/boardUpload"; // 이클립스 상의 업로드 폴더
         int fileSize = 10 * 1024 * 1024; // 10MB 제한 크기 지정
