@@ -13,7 +13,7 @@
 	<nav>
 		<ul>
 			<li><a href="product_main.jsp">상품관리</a></li>
-			<li><a href="#">주문관리</a></li>
+			<li><a href="../orderList.ol">주문관리</a></li>
 			<li><a href="#">고객관리</a></li>
 			<li><a href="#">게시판관리</a></li>
 			<li><a href="#">통계분석</a></li>

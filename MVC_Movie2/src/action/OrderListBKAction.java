@@ -54,7 +54,7 @@ public class OrderListBKAction implements Action {
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
-	        forward.setPath("/admin/orderListBk.jsp");
+	        forward.setPath("/admin/admin_orderList.jsp");
 	        
 	        return forward;
 		}
