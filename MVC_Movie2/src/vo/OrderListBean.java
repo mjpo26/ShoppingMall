@@ -2,9 +2,8 @@ package vo;
 
 import java.sql.Date;
 
-public class OrderBean {
+public class OrderListBean {
 
-	
    private int order_idx ;
    private String order_item_code ;
    private String order_item_title ;
@@ -21,6 +20,8 @@ public class OrderBean {
    private String order_payment ;
    private String order_memo;
    private Date order_date;
+   private String order_member_id;
+   
 public int getOrder_idx() {
     return order_idx;
 }
@@ -116,6 +117,12 @@ public Date getOrder_date() {
 }
 public void setOrder_date(Date order_date) {
     this.order_date = order_date;
+}
+public String getOrder_member_id() {
+	return order_member_id;
+}
+public void setOrder_member_id(String order_member_id) {
+	this.order_member_id = order_member_id;
 }
     
     
