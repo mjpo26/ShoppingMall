@@ -21,6 +21,7 @@ public class Free_BoardWriteProAction implements Action {
         
         ActionForward forward = null;
         
+        
         String realFolder = ""; // 실제 업로드 폴더(톰캣)
         String saveFolder = "/boardUpload"; // 이클립스 상의 업로드 폴더
         int fileSize = 10 * 1024 * 1024; // 10MB 제한 크기 지정
@@ -62,7 +63,7 @@ public class Free_BoardWriteProAction implements Action {
         } else { // 글 쓰기에 성공했을 경우
             // ActionForward 객체 생성하여 포워딩 정보 설정
             forward = new ActionForward();
-            forward.setPath("QnA_BoardList.qa"); // 포워딩 경로 설정
+            forward.setPath("Free_BoardList.bo"); // 포워딩 경로 설정
             // 글 목록 출력을 위해 BoardList.bo 페이지로 새로운 요청이 이루어지므로 Redirect 방식으로 포워딩
             forward.setRedirect(true); // Redirect 방식 지정
         }

@@ -61,8 +61,8 @@
           <div class="s_product_text">
             <h5>아이콘 <span>|</span> 아이콘</h5>
             <h3><!-- 바미르 케인 수납장 --> <%=itemBean.getItem_title() %></h3>
-            <h5 class="oneprice"><!-- 300,000 원 --> <%=itemBean.getItem_new_price() %>  </h5>
-            <h2><!-- 150,000 원 --><%=itemBean.getItem_old_price() %></h2>
+            <h5 class="oneprice"><!-- 300,000 원 --> <%=itemBean.getItem_old_price()  %>  </h5>
+            <h2><!-- 150,000 원 --><%-- <%=//itemBean.getItem_new_price() %> --%>190,000</h2>
 <!--             <ul class="list"> -->
 <!--               <li> -->
 <!--                 <a class="active" href="#"> -->
@@ -72,17 +72,37 @@
 <!--                 <a href="#"> <span>Availibility</span> : In Stock</a> -->
 <!--               </li> -->
 <!--             </ul> -->
+<<<<<<< HEAD
+=======
+  
+            
+>>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall
             <p>
               <%=itemBean.getItem_content1() %>
             </p>
             <div class="card_area d-flex justify-content-between align-items-center">
-              <div class="product_count">
-                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+              <div class="product_option">              
+<!-- 	              <select> -->
+<%-- 	                    <%if (itemBean.getItem_option_color1() != null) {if (itemBean.getItem_option_color1().equals("블랙")) {%> --%>
+<!-- 	                    <option>Black</option> -->
+<%-- 	                    <%}}if (itemBean.getItem_option_color2() != null) { if (itemBean.getItem_option_color2().equals("화이트")) {%> --%>
+<!-- 	                    <option>White</option> -->
+<%-- 	                    <%}}if (itemBean.getItem_option_color3() != null) {if (itemBean.getItem_option_color3().equals("레드")) {%> --%>
+<!-- 	                    <option>Red</option> -->
+<%-- 	                    <%}}if (itemBean.getItem_option_color4() != null) {if (itemBean.getItem_option_color4().equals("옐로우")) {%> --%>
+<!-- 	                    <option>Yellow</option> -->
+<%-- 	                    <%}}%> --%>
+<!-- 	               </select>                -->
+              </div>
+              <div class="product_count">							
+				<span class="inumber-decrement"> <i class="ti-minus"></i></span>
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div> 
-              <input type="submit" value="add to cart" formaction="./basket.sh" class="btn_3" >
-              <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+              <div class="product_buying">
+	              <input type="submit" value="add to cart" formaction="./basket.sh" class="btn_3" >
+	              <a href="#" class="like_us"> <i class="ti-heart"></i></a>
+              </div>
             </div>
           </div>
         </div>

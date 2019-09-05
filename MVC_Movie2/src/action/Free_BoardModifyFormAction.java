@@ -13,6 +13,7 @@ public class Free_BoardModifyFormAction implements Action {
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //        System.out.println("BoardModifyFormAction");
         
+    	
         // free_num 파라미터 가져오기
         int free_num = Integer.parseInt(request.getParameter("free_num"));
 //        String page = request.getParameter("page");
