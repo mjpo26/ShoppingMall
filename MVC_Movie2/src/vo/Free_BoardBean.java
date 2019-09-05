@@ -12,19 +12,14 @@ public class Free_BoardBean {
     private Date free_date ;
     private int free_readcount ;
     private int free_replycount ;
-    private int free_re_ref ;
-    private int free_re_lev ;
-    private int free_re_seq ;
+    private int free_ref ;
+    private int free_lev ;
+    private int free_seq ;
     private String free_file1;
     private String free_file2;
     private String free_file3;
     private String free_file4;
     private String free_file5;
-    
-    
-  
-    
-    
     public int getFree_num() {
         return free_num;
     }
@@ -73,23 +68,23 @@ public class Free_BoardBean {
     public void setFree_replycount(int free_replycount) {
         this.free_replycount = free_replycount;
     }
-    public int getFree_re_ref() {
-        return free_re_ref;
+    public int getFree_ref() {
+        return free_ref;
     }
-    public void setFree_re_ref(int free_re_ref) {
-        this.free_re_ref = free_re_ref;
+    public void setFree_ref(int free_ref) {
+        this.free_ref = free_ref;
     }
-    public int getFree_re_lev() {
-        return free_re_lev;
+    public int getFree_lev() {
+        return free_lev;
     }
-    public void setFree_re_lev(int free_re_lev) {
-        this.free_re_lev = free_re_lev;
+    public void setFree_lev(int free_lev) {
+        this.free_lev = free_lev;
     }
-    public int getFree_re_seq() {
-        return free_re_seq;
+    public int getFree_seq() {
+        return free_seq;
     }
-    public void setFree_re_seq(int free_re_seq) {
-        this.free_re_seq = free_re_seq;
+    public void setFree_seq(int free_seq) {
+        this.free_seq = free_seq;
     }
     public String getFree_file1() {
         return free_file1;
@@ -121,7 +116,10 @@ public class Free_BoardBean {
     public void setFree_file5(String free_file5) {
         this.free_file5 = free_file5;
     }
-   
+    
+    
+    
+  
     
     
     

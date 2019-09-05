@@ -99,7 +99,7 @@
 		</tr>
 
 		<tr>
-			<td colspan='14'>[검색결과 0건]&nbsp;
+			<td colspan='14'>[검색결과 <%=listCount %>건]&nbsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

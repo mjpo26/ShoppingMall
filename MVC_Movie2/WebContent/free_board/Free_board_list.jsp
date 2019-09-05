@@ -118,9 +118,9 @@ a {
 				<td align="center"><%=articleList.get(i).getFree_num()%></td>
 				<td>
 					<%
-						if (articleList.get(i).getFree_re_lev() != 0) {
+						if (articleList.get(i).getFree_lev() != 0) {
 					%> <%
- 	for (int j = 0; j <= articleList.get(i).getFree_re_lev() * 2; j++) {
+ 	for (int j = 0; j <= articleList.get(i).getFree_lev() * 2; j++) {
  %>
 					&nbsp; <%
  	}

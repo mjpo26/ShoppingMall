@@ -13,6 +13,8 @@ import action.Action;
 import action.OrderListBKAction;
 import action.ReviewBoardListAction;
 import vo.ActionForward;
+import vo.OrderSearchBean;
+
 
 @WebServlet("*.ol")
 public class OrderListBKFrontController extends HttpServlet {
@@ -26,6 +28,7 @@ public class OrderListBKFrontController extends HttpServlet {
 		ActionForward forward = null;
 		if (command.equals("/orderList.ol")) {
 			System.out.println("list controller 들어옴");
+			
 			action = new OrderListBKAction();
 			try {
 				forward = action.execute(request, response);
