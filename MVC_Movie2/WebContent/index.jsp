@@ -27,11 +27,13 @@
 		<h3><a href="Free_BoardList.bo">Free_board리스트</a></h3>
 		<h3><a href="OrderInsert.or">인서트오더</a></h3>
 		<h3><a href="./admin/product_main.jsp">상품메인보기</a></h3>
-
+			
 		<h3><a href="QnA_BoardList.qa">QnA_board리스트</a></h3>
 
 		<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a> 
 		<a href="QnA_BoardWriteForm.qa"><input type="button" value="QnA_글쓰기"></a> 
+		
+		<h3><a href="./admin/cart.jsp">카트Test</a></h3>
 </body>
 </html>
 
