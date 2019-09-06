@@ -37,29 +37,23 @@
 		<input type="hidden" name="Item_title" value=<%=itemBean.getItem_title() %>>
 		<input type="hidden" name="Item_sel_price" value=<%=itemBean.getItem_sel_price() %>>
 		<input type="hidden" name="Item_point" value=<%=itemBean.getItem_point() %>>
-		
   <div class="product_image_area section_padding">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
         <div class="col-lg-7 col-xl-7">
           <div class="product_slider_img">
             <div id="vertical">
-            
-            	<div data-thumb="./assets/img/product/single-product/product_2.jpg">
-                <img src="./assets/img/product/single-product/product_2.jpg" />
+            	<div data-thumb="./assets/img/product/single-product/<%=itemBean.getItem_pic1()%>">
+                <img src="./assets/img/product/single-product/<%=itemBean.getItem_pic1()%>" />
               </div>            	
-            
-            
-            
-              
-<!--               <div data-thumb="img/product/single-product/product_1.png">
-                <img src="img/product/single-product/product_1.png" />
-              </div> -->
-              <div data-thumb="./assets/img/product/single-product/product_3.jpg">
-                <img src="./assets/img/product/single-product/product_3.jpg" />
+               <div data-thumb="./assets/img/product/single-product/<%=itemBean.getItem_pic2()%>">
+                <img src="./assets/img/product/single-product/<%=itemBean.getItem_pic2()%>" />
+              </div> 
+              <div data-thumb="./assets/img/product/single-product/<%=itemBean.getItem_pic3()%>">
+                <img src="./assets/img/product/single-product/<%=itemBean.getItem_pic3()%>" />
               </div>
-              <div data-thumb="./assets/img/product/single-product/product_4.jpg">
- 				<img src="./assets/img/product/single-product/product_4.jpg" />
+              <div data-thumb="./assets/img/product/single-product/<%=itemBean.getItem_pic4()%>">
+ 				<img src="./assets/img/product/single-product/<%=itemBean.getItem_pic4()%>" />
 
               </div>
             </div>
