@@ -122,7 +122,7 @@
 	<div style="width: 500; float: left;">
 		<div>
 			<nav>
-				<input type="image" src="./image/<%=itemBean.getItem_bgpic() %>" name="Item_bgpic" width="350px" height="450px" >
+<%-- 				<input type="image" src="./image/<%=itemBean.pic1() %>" name="Item_bgpic" width="350px" height="450px" > --%>
 				
 			</nav>
 		</div>
@@ -134,7 +134,7 @@
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;아이콘 / 아이콘 / 아이콘 / 아이콘 <br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상품 :<input type="text" name="Item_title" value=<%=itemBean.getItem_title() %> readonly="readonly"></b><br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>가격 :<input type="text" name="Item_old_price" value=<%=itemBean.getItem_old_price() %> readonly="readonly"> </b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <input type="text" name="Item_old_price" value=<%=itemBean.getItem_new_price() %> readonly="readonly"></b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <input type="text" name="Item_sel_price" value=<%=itemBean.getItem_sel_price() %> readonly="readonly"></b><br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>
 		상세내용 요약</b><br>
 		&emsp;&emsp;&emsp;<%=itemBean.getItem_content1() %><br>
