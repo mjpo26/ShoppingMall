@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.OrderListBean;
+import vo.OrderSearchBean;
 
 public class OrderListDAO {
 	private static OrderListDAO instance;
@@ -29,19 +30,22 @@ public class OrderListDAO {
 		this.con = con;
 	}
 
-	public int selectListCount() {
+	public int selectListCount(OrderSearchBean ob) {
 		int listCount = 0;
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String order_item_option_color=ob.getOrder_item_option_color();
 
 		try {
-			String sql = "SELECT COUNT(*) FROM item_order";
+			String sql = "SELECT COUNT(*) FROM item_order where order_item_option_color=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, order_item_option_color);  //제목  
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 				listCount = rs.getInt(1);
+				System.out.println("색깔은"+ob.getOrder_item_option_color()+"갯수는"+listCount);
 			}
 
 		} catch (SQLException e) {
@@ -54,21 +58,28 @@ public class OrderListDAO {
 		return listCount;
 	}
 
-	public ArrayList<OrderListBean> selectArticleList(int page, int limit) {
+	public ArrayList<OrderListBean> selectArticleList(OrderSearchBean ob) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
 
-		int startRow = (page - 1) * 10; 
-		
+		int startRow = (ob.getPage() - 1) * 10;
+
 		try {
 
 			String sql = "SELECT * FROM item_order ORDER BY order_idx LIMIT ?,?";
+			
 			pstmt = con.prepareStatement(sql);
+			//pstmt.setInt(1, startRow);
+			//pstmt.setInt(2, ob.getLimit());
+//			pstmt.setString(1, ob.getOrder_item_option_color());
 			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, limit);
+			pstmt.setInt(2, ob.getLimit());
+			
 			rs = pstmt.executeQuery();
+			
+			System.out.println(startRow+"와"+ob.getLimit());
 
 			while (rs.next()) {
 				OrderListBean listBean = new OrderListBean();
@@ -80,6 +91,7 @@ public class OrderListDAO {
 				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 				listBean.setOrder_payment(rs.getString("order_payment"));
 				listBean.setOrder_memo(rs.getString("order_memo"));
+				listBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 				articleList.add(listBean);
 			}
 

@@ -26,10 +26,15 @@ public class OrderListBKAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 	        
+	        OrderSearchBean ob = new OrderSearchBean();
+	        ob.setOrder_item_option_color("black");
+	        ob.setPage(page);
+	        ob.setLimit(limit);
+	        
 	        OrderListService orderListService = new OrderListService();
-	        int listCount = orderListService.getListCount(); // 전체 게시물 수 가져오기
+	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기
 
-	        articleList = orderListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
+	        articleList = orderListService.getArticleList(ob); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
 	        int maxPage = (int)((double)listCount / limit + 0.95);

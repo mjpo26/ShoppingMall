@@ -20,6 +20,8 @@ public class OrderSearchBean {
    private String order_payment ;
    private String order_memo;
    private Date order_date;
+   private int page;
+   private int limit;
    
 public int getOrder_idx() {
     return order_idx;
@@ -117,7 +119,18 @@ public Date getOrder_date() {
 public void setOrder_date(Date order_date) {
     this.order_date = order_date;
 }
-    
+public int getPage() {
+	return page;
+}
+public void setPage(int page) {
+	this.page = page;
+}
+public int getLimit() {
+	return limit;
+}
+public void setLimit(int limit) {
+	this.limit = limit;
+}
     
    
    
