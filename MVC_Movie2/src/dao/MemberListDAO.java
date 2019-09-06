@@ -79,15 +79,15 @@ public class MemberListDAO {
 		
 		try {
 
-			String sql = "SELECT * FROM member where member_sms_ok=? ORDER BY member_id LIMIT ?,?";
+			String sql = "SELECT * FROM member ORDER BY member_id LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
 		//		pstmt.setInt(1, startRow);
 		//		pstmt.setInt(2, ams.getLimit());
 			
-			pstmt.setString(1, ams.getMember_sms_ok());
-			pstmt.setInt(2, startRow);
-			pstmt.setInt(3, ams.getLimit());
+		//	pstmt.setString(1, ams.getMember_sms_ok());
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, ams.getLimit());
 
 			rs = pstmt.executeQuery();
 			

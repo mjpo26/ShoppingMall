@@ -69,7 +69,6 @@ public class OrderListDAO {
 		try {
 
 			String sql = "SELECT * FROM item_order ORDER BY order_idx LIMIT ?,?";
-			
 			pstmt = con.prepareStatement(sql);
 			//pstmt.setInt(1, startRow);
 			//pstmt.setInt(2, ob.getLimit());
