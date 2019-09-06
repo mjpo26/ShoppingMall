@@ -138,9 +138,9 @@ public class OrderDAO {
         
         try {
             // SELECT 구문 : board 테이블 데이터 전체 조회 
-            // => free_re_ref 기준 내림차순, free_re_seq 기준 오름차순
+            // => free_ref 기준 내림차순, free_seq 기준 오름차순
             // => 전체 갯수가 아닌 시작 레코드 번호 ~ limit 갯수 만큼 읽어오기
-            String sql = "SELECT * FROM free_board ORDER BY free_re_ref DESC,free_re_seq ASC LIMIT ?,?";
+            String sql = "SELECT * FROM free_board ORDER BY free_ref DESC,free_seq ASC LIMIT ?,?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, startRow);
             pstmt.setInt(2, limit);
@@ -156,9 +156,9 @@ public class OrderDAO {
                 boardBean.setFree_subject(rs.getString("free_subject"));
                 boardBean.setFree_content(rs.getString("free_content"));
                 boardBean.setFree_file1(rs.getString("free_file1"));
-                boardBean.setFree_re_ref(rs.getInt("free_re_ref"));
-                boardBean.setFree_re_lev(rs.getInt("free_re_lev"));
-                boardBean.setFree_re_seq(rs.getInt("free_re_seq"));
+                boardBean.setFree_ref(rs.getInt("free_ref"));
+                boardBean.setFree_lev(rs.getInt("free_lev"));
+                boardBean.setFree_seq(rs.getInt("free_seq"));
                 boardBean.setFree_readcount(rs.getInt("free_readcount"));
                 boardBean.setFree_date(rs.getDate("free_date"));
                 
@@ -202,9 +202,9 @@ public class OrderDAO {
                 boardBean.setFree_subject(rs.getString("free_subject"));
                 boardBean.setFree_content(rs.getString("free_content"));
                 boardBean.setFree_file1(rs.getString("free_file1"));
-                boardBean.setFree_re_ref(rs.getInt("free_re_ref"));
-                boardBean.setFree_re_lev(rs.getInt("free_re_lev"));
-                boardBean.setFree_re_seq(rs.getInt("free_re_seq"));
+                boardBean.setFree_ref(rs.getInt("free_ref"));
+                boardBean.setFree_lev(rs.getInt("free_lev"));
+                boardBean.setFree_seq(rs.getInt("free_seq"));
                 boardBean.setFree_readcount(rs.getInt("free_readcount"));
                 boardBean.setFree_date(rs.getDate("free_date"));
                 boardBean.setFree_pass(rs.getString("free_pass"));
@@ -289,10 +289,10 @@ public class OrderDAO {
         int num = 1; // 답변글 번호
         int insertCount = 0; // 성공 여부의 리턴값을 저장할 변수
         
-        // article 객체에서 참조글(free_re_ref), 들여쓰기레벨(free_re_lev), 순서번호(free_re_seq) 가져오기 
-        int free_re_ref = article.getFree_re_ref();
-        int free_re_lev = article.getFree_re_lev();
-        int free_re_seq = article.getFree_re_seq();
+        // article 객체에서 참조글(free_ref), 들여쓰기레벨(free_lev), 순서번호(free_seq) 가져오기 
+        int free_ref = article.getFree_ref();
+        int free_lev = article.getFree_lev();
+        int free_seq = article.getFree_seq();
         
         try {
             // 현재 게시물에서 가장 큰 번호 조회
@@ -306,12 +306,12 @@ public class OrderDAO {
                 num = rs.getInt(1) + 1;
             }
             
-            // 동일한 참조글(free_re_ref)에 대한 기존 답글의 순서번호 값을 모두 1씩 증가시킴 
+            // 동일한 참조글(free_ref)에 대한 기존 답글의 순서번호 값을 모두 1씩 증가시킴 
             // => 최신 글이 seq 번호가 가장 낮은 값(1)이어야 하므로 기존 답글들의 값을 전부 +1 시킴
-            sql = "UPDATE free_board SET free_re_seq=free_re_seq+1 WHERE free_re_ref=? AND free_re_seq>?";
+            sql = "UPDATE free_board SET free_seq=free_seq+1 WHERE free_ref=? AND free_seq>?";
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, free_re_ref);
-            pstmt.setInt(2, free_re_seq);
+            pstmt.setInt(1, free_ref);
+            pstmt.setInt(2, free_seq);
             int updateCount = pstmt.executeUpdate();
             
             if(updateCount > 0) {
@@ -319,8 +319,8 @@ public class OrderDAO {
             }
             
             // 새 답글에 대한 순서 번호, 들여쓰기 레벨 1 증가시킴
-            free_re_seq += 1;
-            free_re_lev += 1;
+            free_seq += 1;
+            free_lev += 1;
             
             // 답변글 등록 => 파일을 제외한 나머지 등록
             System.out.println("리플라이등록DAO왔다");
@@ -331,9 +331,9 @@ public class OrderDAO {
                     + "free_subject,"
                     + "free_content,"
                     + "free_file1,"
-                    + "free_re_ref,"
-                    + "free_re_lev,"
-                    + "free_re_seq,"
+                    + "free_ref,"
+                    + "free_lev,"
+                    + "free_seq,"
                     + "free_readcount,"
                     + "free_replycount,"
                     + "free_date,"
@@ -348,9 +348,9 @@ public class OrderDAO {
             pstmt.setString(4, article.getFree_subject());
             pstmt.setString(5, article.getFree_content());
             pstmt.setString(6, ""); // 답글 파일 업로드 없음
-            pstmt.setInt(7, free_re_ref); 
-            pstmt.setInt(8, free_re_lev);
-            pstmt.setInt(9, free_re_seq);
+            pstmt.setInt(7, free_ref); 
+            pstmt.setInt(8, free_lev);
+            pstmt.setInt(9, free_seq);
             pstmt.setInt(10, 0); // 조회수 = 새 글이므로 0
             pstmt.setInt(11, 0); // 리플카운트
             //date

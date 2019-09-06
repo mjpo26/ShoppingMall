@@ -5,18 +5,17 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.OrderListService;
+import svc.BasketListService;
 import vo.ActionForward;
-import vo.PageInfo;
-import vo.OrderListBean;
-import vo.OrderSearchBean;
+import vo.BasketListBean;
+import vo.Basket_PageInfo;
 
-public class OrderListBKAction implements Action {
+public class BasketListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		  ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
-	        System.out.println("OrderListBKAction실행됨");
+		  ArrayList<BasketListBean> articleList = new ArrayList<BasketListBean>();
+	        System.out.println("BasketListAction 실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 10; // 한 페이지 당 표시할 게시물 수
@@ -26,10 +25,10 @@ public class OrderListBKAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 	        
-	        OrderListService orderListService = new OrderListService();
-	        int listCount = orderListService.getListCount(); // 전체 게시물 수 가져오기
+	        BasketListService basketListService = new BasketListService();
+	        int listCount = basketListService.getListCount(); // 전체 게시물 수 가져오기
 
-	        articleList = orderListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
+	        articleList = basketListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
 	        int maxPage = (int)((double)listCount / limit + 0.95);
@@ -46,19 +45,16 @@ public class OrderListBKAction implements Action {
 	        }
 	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
+	        Basket_PageInfo basket_PageInfo = new Basket_PageInfo(page, maxPage, startPage, endPage, listCount);
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
-	        request.setAttribute("pageInfo", pageInfo);
+	        request.setAttribute("basket_pageInfo", basket_PageInfo);
 	        request.setAttribute("articleList", articleList);
-	        
-	                	        	        	        	       	        
-	        
 	        
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
-	        forward.setPath("/admin/admin_orderList.jsp");
+	        forward.setPath("/Product/BasketList.jsp");
 	        
 	        return forward;
 		}

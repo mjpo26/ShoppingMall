@@ -10,14 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.OrderListBKAction;
+import action.BasketListAction;
 import action.ReviewBoardListAction;
 import vo.ActionForward;
-import vo.OrderSearchBean;
 
-
-@WebServlet("*.ol")
-public class OrderListBKFrontController extends HttpServlet {
+@WebServlet("*.bl")
+public class BasketListFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -26,10 +24,9 @@ public class OrderListBKFrontController extends HttpServlet {
 		String command = request.getServletPath();
 		Action action = null;
 		ActionForward forward = null;
-		if (command.equals("/orderList.ol")) {
+		if (command.equals("/BasketList.bl")) {
 			System.out.println("list controller 들어옴");
-			
-			action = new OrderListBKAction();
+			action = new BasketListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

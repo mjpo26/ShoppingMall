@@ -2,7 +2,7 @@ package vo;
 
 import java.sql.Date;
 
-public class OrderBean {
+public class OrderSearchBean {
 	
    private int order_idx ;
    private String order_item_code ;

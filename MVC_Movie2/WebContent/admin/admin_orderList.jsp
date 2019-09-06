@@ -15,8 +15,7 @@
 %>
 </head>
 <body>
-<header>
-	</header>
+	<header> </header>
 	<table border="1">
 		<tr>
 			<th colspan='4'>주문관리전체주문목록</th>
@@ -35,8 +34,7 @@
 					<option>7일
 					<option>15일
 					<option>1개월
-			</select>
-		  	날짜선택 <input type="date" value="2019-08-23"></td>
+			</select> 날짜선택 <input type="date" value="2019-08-23"></td>
 		</tr>
 
 		<tr>
@@ -45,35 +43,26 @@
 					<option>주문자</option></select> <input type="text" size="20"><input
 				type="button" value="검색"></td>
 		</tr>
-		
-	    <tr>
+
+		<tr>
 			<th>배송상태</th>
-			<td colspan='3'>
-			<input type="checkbox">전체 
-			<input type="checkbox">배송준비중
-			<input type="checkbox">배송대기
-			<input type="checkbox">배송중
-			<input type="checkbox">배송완료
+			<td colspan='3'><input type="checkbox">전체 <input
+				type="checkbox">배송준비중 <input type="checkbox">배송대기 <input
+				type="checkbox">배송중 <input type="checkbox">배송완료
 		</tr>
-		
+
 		<tr>
 			<th>주문상태</th>
-			<td colspan='3'>
-			<input type="checkbox">전체 
-			<input type="checkbox">정상
-			<input type="checkbox">교환
-			<input type="checkbox">취소
-			<input type="checkbox">교환
-			<input type="checkbox">반품
-			<input type="checkbox">환불
+			<td colspan='3'><input type="checkbox">전체 <input
+				type="checkbox">정상 <input type="checkbox">교환 <input
+				type="checkbox">취소 <input type="checkbox">교환 <input
+				type="checkbox">반품 <input type="checkbox">환불
 		</tr>
 
 		<tr>
 			<th>결제상태</th>
-			<td><input type="checkbox" >전체
-			<input type="checkbox" >입금전
-			<input type="checkbox">입금완료
-			<input type="checkbox">결제완료
+			<td><input type="checkbox">전체 <input type="checkbox">입금전
+				<input type="checkbox">입금완료 <input type="checkbox">결제완료
 			</td>
 			<th>회원구분</th>
 			<td><input type="checkbox">전체 <input type="checkbox">회원
@@ -92,101 +81,102 @@
 	<p>
 	<div style="height: 200px; width: 900px; float: left;">
 		<br> <br>
-	<table border="1">
+		<table border="1">
 
-		<tr>
-			<th colspan='14'>검색결과 리스트 출력</th>
-		</tr>
+			<tr>
+				<th colspan='14'>검색결과 리스트 출력</th>
+			</tr>
 
-		<tr>
-			<td colspan='14'>[검색결과 <%=articleList.size()%>건]&nbsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp; <select><option>등록일
-					<option>오름차순
-					<option>내림차순</select><select>
-					<option>10개
-					<option>20개
-					<option>50개
-			</select> <input type="button" value="검색">
-			</td>
-		</tr>
+			<tr>
+				<td colspan='14'>[검색결과 <%=listCount%>건]&nbsp;
 
-		<tr>
-			<th><input type="checkbox"></th>
-			<th>주문일(결제일)</th>
-			<th>주문번호</th>
-			<th>주문자</th>
-			<th>상품명</th>
-			<th>주문상태</th>
-			<th>배송상태</th>
-			<th>결제상태</th>
-			<th>메모</th>
-		</tr>
-		<%
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp; <select><option>등록일
+						<option>오름차순
+						<option>내림차순</select><select>
+						<option>10개
+						<option>20개
+						<option>50개
+				</select> <input type="button" value="검색">
+				</td>
+			</tr>
+
+			<tr>
+				<th><input type="checkbox"></th>
+				<th>주문일(결제일)</th>
+				<th>주문번호</th>
+				<th>주문자</th>
+				<th>상품명</th>
+				<th>주문상태</th>
+				<th>배송상태</th>
+				<th>결제상태</th>
+				<th>메모</th>
+			</tr>
+			<%
 				for (int i = 0; i < articleList.size(); i++) {
-		%>
-		<tr>
-			<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
-			<th><input type="checkbox"></th>
-			<td><%=articleList.get(i).getOrder_date()%></td>
-			<td><%=articleList.get(i).getOrder_idx()%></td>
-			<td><%=articleList.get(i).getOrder_member_id()%></td>
-			<td><%=articleList.get(i).getOrder_item_title() %></td>
-			<td><%=articleList.get(i).getOrder_pay_status()%></td>
-			<td><%=articleList.get(i).getOrder_delivery_status()%></td>
-			<td><%=articleList.get(i).getOrder_payment()%></td>
-			<td><%=articleList.get(i).getOrder_memo() %></td>
-		</tr>
-		<%
+			%>
+			<tr>
+				<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
+				<th><input type="checkbox"></th>
+				<td><%=articleList.get(i).getOrder_date()%></td>
+				<td><%=articleList.get(i).getOrder_idx()%></td>
+				<td><%=articleList.get(i).getOrder_member_id()%></td>
+				<td><%=articleList.get(i).getOrder_item_title()%></td>
+				<td><%=articleList.get(i).getOrder_pay_status()%></td>
+				<td><%=articleList.get(i).getOrder_delivery_status()%></td>
+				<td><%=articleList.get(i).getOrder_payment()%></td>
+				<td><%=articleList.get(i).getOrder_memo()%></td>
+			</tr>
+			<%
 				}
 			%>
-	</table>
+		</table>
 
 
-	<section id="pageList">
-		<%
-			if (nowPage <= 1) {
-		%>
-		[이전]&nbsp;
-		<%
-			} else {
-		%>
-		<a href="orderList.ol?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
-		<%
-			}
-		%>
+		<section id="pageList">
+			<%
+				if (nowPage <= 1) {
+			%>
+			[이전]&nbsp;
+			<%
+				} else {
+			%>
+			<a href="orderList.ol?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+			<%
+				}
+			%>
 
-		<%
-			for (int i = startPage; i <= endPage; i++) {
+			<%
+				for (int i = startPage; i <= endPage; i++) {
 					if (i == nowPage) {
-		%>
-		[<%=i%>]
-		<%
-			} else {
-		%>
-		<a href="orderList.ol?page=<%=i%>">[<%=i%>]
-		</a>&nbsp;
-		<%
-			}
-		%>
-		<%
-			}
-		%>
+			%>
+			[<%=i%>]
+			<%
+				} else {
+			%>
+			<a href="orderList.ol?page=<%=i%>">[<%=i%>]
+			</a>&nbsp;
+			<%
+				}
+			%>
+			<%
+				}
+			%>
 
-		<%
-			if (nowPage >= maxPage) {
-		%>
-		&nbsp;[다음]
-		<%
-			} else {
-		%>
-		<a href="orderList.ol?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
-		<%
-			}
-		%>
-	</section>
+			<%
+				if (nowPage >= maxPage) {
+			%>
+			&nbsp;[다음]
+			<%
+				} else {
+			%>
+			<a href="orderList.ol?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
+			<%
+				}
+			%>
+		</section>
 	</div>
 </body>
 </html>

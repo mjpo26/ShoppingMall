@@ -51,9 +51,9 @@
 		<form action="Free_BoardReplyPro.bo" method="post" name="replyForm">
 			<input type="hidden" name="page" value="<%=nowPage %>">
 			<input type="hidden" name="free_num" value="<%=article.getFree_num() %>">
-			<input type="text" name="free_re_ref" value="<%=article.getFree_re_ref() %>">
-			<input type="hidden" name="free_re_lev" value="<%=article.getFree_re_lev() %>">
-			<input type="hidden" name="free_re_seq" value="<%=article.getFree_re_seq() %>">
+			<input type="text" name="free_ref" value="<%=article.getFree_ref() %>">
+			<input type="hidden" name="free_lev" value="<%=article.getFree_lev() %>">
+			<input type="hidden" name="free_seq" value="<%=article.getFree_seq() %>">
 			<table>
 				<tr>
 					<td class="td_left"><label for="free_writer_id">ID</label></td>

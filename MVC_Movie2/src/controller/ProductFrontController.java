@@ -15,6 +15,7 @@ import action.ProductInsertProAction;
 import action.basketAction;
 import action.productDetailAction;
 import action.productUpdateAction;
+import action.productUpdateProAction;
 import action.product_listAction;
 import vo.ActionForward;
 
@@ -70,7 +71,16 @@ public class ProductFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else if(command.equals("/updatePro.sh")) {
+            action = new productUpdateProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        
         
         
         // 포워딩 처리
