@@ -39,6 +39,7 @@ public class MemberBean {
   private  String member_address_y4;
   private  String member_address_x5;
   private  String member_address_y5;
+
 public String getMember_id() {
     return member_id;
 }

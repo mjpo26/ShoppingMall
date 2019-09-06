@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import svc.Admin_memberListService;
 import svc.OrderListService;
 import vo.ActionForward;
+import vo.Admin_MemberSearchBean;
 import vo.Admin_memberPageInfo;
 import vo.MemberBean;
 import vo.PageInfo;
@@ -28,10 +29,17 @@ public class Admin_memberListAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 	        
+	        Admin_MemberSearchBean ams = new Admin_MemberSearchBean();
+	        ams.setMember_id("admin");
+	        ams.setMember_sms_ok("no");
+	        ams.setMember_email_ok("ok");
+	        ams.setPage(page);
+	        ams.setLimit(limit);
+	        
 	        Admin_memberListService Admin_memberListService = new Admin_memberListService();
-	        int listCount = Admin_memberListService.getListCount(); // 전체 게시물 수 가져오기
+	        int listCount = Admin_memberListService.getListCount(ams); // 전체 게시물 수 가져오기
 
-	        memberList = Admin_memberListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
+	        memberList = Admin_memberListService.getArticleList(ams); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
 	        int maxPage = (int)((double)listCount / limit + 0.95);
@@ -47,6 +55,7 @@ public class Admin_memberListAction implements Action {
 	            endPage = maxPage;
 	        }
 	        
+	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
 	        Admin_memberPageInfo pageInfo = new Admin_memberPageInfo(page, maxPage, startPage, endPage, listCount);
 	        
@@ -57,7 +66,7 @@ public class Admin_memberListAction implements Action {
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
-	        forward.setPath("/admin/admin8.jsp");
+	        forward.setPath("/admin/admin_memberlist.jsp");
 	        
 	        return forward;
 		}

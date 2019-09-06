@@ -79,7 +79,7 @@
 
 		<tr>
 
-			<td colspan='11'>[검색결과 0건]&nbsp;
+			<td colspan='11'>[검색결과 <%=listCount %>건]&nbsp;
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -101,24 +101,36 @@
 		<tr>
 
 			<td><input type="checkbox"></td>
+
 			<td>아이디</td>
 			<td>이름</td>
 			<td>주소</td>
-			<td>휴대전화</td>	
+			<td>휴대전화</td>
 			<td>메일수신</td>
 			<td>sns수신</td>
 			<td>메모</td>
-
 		</tr>
-
 		<tr>
-			<td colspan='11'>//여기부터는 db를 이용해서 for문을 이용 어레이list</td>
-		</tr>
-
-		<tr>
-			<td colspan='11'><input type="button" value="회원삭제"><input
+	<%
+		for (int i = 0; i < memberList.size(); i++) {
+	%>
+			<tr>
+				<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
+				<th><input type="checkbox"></th>
+				<th><%=memberList.get(i).getMember_id()%></th>
+				<th><%=memberList.get(i).getMember_name()%></th>
+				<th><%=memberList.get(i).getMember_address1()%></th>
+				<th><%=memberList.get(i).getMember_phone()%></th>
+				<th><%=memberList.get(i).getMember_email_ok()%></th>
+				<th><%=memberList.get(i).getMember_sms_ok()%></th>
+				<th><input type="button" value="회원삭제"><input
 				type="button" value="회원수정"><input type="button"
-				value="이메일전송"><input type="button" value="sns전송">
+				value="이메일전송"><input type="button" value="sns전송"></th>
+			</tr>
+			<%
+				}
+			%>
+
 	</table>
 </body>
 </html>

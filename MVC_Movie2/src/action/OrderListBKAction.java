@@ -56,9 +56,7 @@ public class OrderListBKAction implements Action {
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);
 	        request.setAttribute("articleList", articleList);
-	        
-	                	        	        	        	       	        
-	        
+	        	                	        	        	        	       	             
 	        
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
