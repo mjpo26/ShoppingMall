@@ -41,25 +41,30 @@ public class ItemDAO {
 
 		PreparedStatement pstmt = null;
 
-		String sql = "INSERT INTO Item(Item_title,Item_old_price,Item_content1,Item_content2,"
-				+ "Item_bgpic,Item_pic1,Item_display,Item_sales,Item_category1,Item_stock_price,"
-				+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
+		String sql = "INSERT INTO Item(Item_title,Item_old_price,Item_sel_price,Item_point,"
+				+ "Item_pic1,Item_pic2,Item_pic3,Item_pic4,Item_content1,Item_content2,Item_display,Item_sales,Item_category1,Item_stock_price,"
+				+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, itemBean.getItem_title());// 상품명
 			pstmt.setInt(2, itemBean.getItem_old_price()); // 판매가(정가)
-			pstmt.setString(3, itemBean.getItem_content1());// 상품요약설명
-			pstmt.setString(4, itemBean.getItem_content2()); // 상품상세설명
-			pstmt.setString(5, itemBean.getItem_bgpic()); // 상품 대표그림
-			pstmt.setString(6, itemBean.getItem_pic1()); // 추가이미지
-			pstmt.setString(7, itemBean.getItem_display());// 진열상태
-			pstmt.setString(8, itemBean.getItem_sales());// 판매상태
-			pstmt.setString(9, itemBean.getItem_category1());// 카테고리
-			pstmt.setInt(10, itemBean.getItem_stock_price());// 원가
-			pstmt.setInt(11, itemBean.getItem_delivery_pee());// 배송비
-			pstmt.setInt(12, itemBean.getItem_weight()); // 판매중량
-			pstmt.setInt(13, itemBean.getItem_stock_count()); // 재고
+			pstmt.setInt(3, itemBean.getItem_sel_price()); // 판매가(정가)
+			pstmt.setInt(4, itemBean.getItem_point());
+//			pstmt.setString(5, itemBean.getItem_bgpic()); // 상품 대표그림
+			pstmt.setString(5, itemBean.getItem_pic1()); // 추가이미지
+			pstmt.setString(6, itemBean.getItem_pic2()); // 추가이미지
+			pstmt.setString(7, itemBean.getItem_pic3()); // 추가이미지
+			pstmt.setString(8, itemBean.getItem_pic4()); // 추가이미지
+			pstmt.setString(9, itemBean.getItem_content1());// 상품요약설명
+			pstmt.setString(10, itemBean.getItem_content2()); // 상품상세설명
+			pstmt.setString(11, itemBean.getItem_display());// 진열상태
+			pstmt.setString(12, itemBean.getItem_sales());// 판매상태
+			pstmt.setString(13, itemBean.getItem_category1());// 카테고리
+			pstmt.setInt(14, itemBean.getItem_stock_price());// 원가
+			pstmt.setInt(15, itemBean.getItem_delivery_pee());// 배송비
+			pstmt.setInt(16, itemBean.getItem_weight()); // 판매중량
+			pstmt.setInt(17, itemBean.getItem_stock_count()); // 재고
 			insertCount = pstmt.executeUpdate();
 			System.out.println("DB성공");
 		} catch (SQLException e) {
@@ -119,13 +124,19 @@ public class ItemDAO {
 	                itemBean.setItem_category1(rs.getString("Item_category1"));
 	                itemBean.setItem_content1(rs.getString("Item_content1"));
 	                itemBean.setItem_content2(rs.getString("Item_content2"));
-	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+	                itemBean.setItem_point(rs.getInt("item_point"));
+//	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
 	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
+	                itemBean.setItem_pic2(rs.getString("Item_pic2"));
+	                itemBean.setItem_pic3(rs.getString("Item_pic3"));
+	                itemBean.setItem_pic4(rs.getString("Item_pic4"));
 	                itemBean.setItem_display(rs.getString("Item_display"));
 	                itemBean.setItem_sales(rs.getString("Item_sales"));
 	                itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+	                itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
 	                itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
 	                itemBean.setItem_weight(rs.getInt("Item_weight"));
+	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
 	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
 	                itemBean.setItem_Date(rs.getDate("Item_Date"));
 	                
@@ -162,14 +173,19 @@ public class ItemDAO {
 	                itemBean.setItem_category1(rs.getString("Item_category1"));
 	                itemBean.setItem_content1(rs.getString("Item_content1"));
 	                itemBean.setItem_content2(rs.getString("Item_content2"));
-
-	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+	                itemBean.setItem_point(rs.getInt("item_point"));
+//	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
 	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
+	                itemBean.setItem_pic2(rs.getString("Item_pic2"));
+	                itemBean.setItem_pic3(rs.getString("Item_pic3"));
+	                itemBean.setItem_pic4(rs.getString("Item_pic4"));
 	                itemBean.setItem_display(rs.getString("Item_display"));
 	                itemBean.setItem_sales(rs.getString("Item_sales"));
 	                itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+	                itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
 	                itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
 	                itemBean.setItem_weight(rs.getInt("Item_weight"));
+	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
 	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
 	                itemBean.setItem_Date(rs.getDate("Item_Date"));
 	            }
@@ -188,26 +204,31 @@ public class ItemDAO {
 
 		PreparedStatement pstmt = null;
 
-		String sql = "UPDATE Item SET Item_title=?,Item_old_price=?,Item_content1=?,Item_content2=?,"
-				+ "Item_bgpic=?,Item_pic1=?,Item_display=?,Item_sales=?,Item_category1=?,Item_stock_price=?,"
-				+ "Item_delivery_pee=?,Item_weight=?,Item_stock_count=?,Item_date=NOW() where Item_code=?";
+		String sql = "UPDATE Item SET Item_title=?,Item_old_price=?,Item_sel_price=?Item_content1=?,Item_content2=?,"
+				+ "Item_pic1=?,Item_pic2=?,Item_pic3=?,Item_pic4=?,Item_display=?,Item_sales=?,Item_category1=?,Item_stock_price=?,"
+				+ "Item_delivery_pee=?,Item_weight=?,Item_stock_count=?,Item_point=?,Item_date=NOW() where Item_code=?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, itemBean.getItem_title());// 상품명
 			pstmt.setInt(2, itemBean.getItem_old_price()); // 판매가(정가)
-			pstmt.setString(3, itemBean.getItem_content1());// 상품요약설명
-			pstmt.setString(4, itemBean.getItem_content2()); // 상품상세설명
-			pstmt.setString(5, itemBean.getItem_bgpic()); // 상품 대표그림
+			pstmt.setInt(3, itemBean.getItem_sel_price()); // 할인후 판매가(정가)
+			pstmt.setString(4, itemBean.getItem_content1());// 상품요약설명
+			pstmt.setString(5, itemBean.getItem_content2()); // 상품상세설명
+//			pstmt.setString(5, itemBean.getItem_bgpic()); // 상품 대표그림
 			pstmt.setString(6, itemBean.getItem_pic1()); // 추가이미지
-			pstmt.setString(7, itemBean.getItem_display());// 진열상태
-			pstmt.setString(8, itemBean.getItem_sales());// 판매상태
-			pstmt.setString(9, itemBean.getItem_category1());// 카테고리
-			pstmt.setInt(10, itemBean.getItem_stock_price());// 원가
-			pstmt.setInt(11, itemBean.getItem_delivery_pee());// 배송비
-			pstmt.setInt(12, itemBean.getItem_weight()); // 판매중량
-			pstmt.setInt(13, itemBean.getItem_stock_count()); // 재고
-			pstmt.setInt(14, itemBean.getItem_code());
+			pstmt.setString(7, itemBean.getItem_pic2()); // 추가이미지
+			pstmt.setString(8, itemBean.getItem_pic3()); // 추가이미지
+			pstmt.setString(9, itemBean.getItem_pic4()); // 추가이미지
+			pstmt.setString(10, itemBean.getItem_display());// 진열상태
+			pstmt.setString(11, itemBean.getItem_sales());// 판매상태
+			pstmt.setString(12, itemBean.getItem_category1());// 카테고리
+			pstmt.setInt(13, itemBean.getItem_stock_price());// 원가
+			pstmt.setInt(14, itemBean.getItem_delivery_pee());// 배송비
+			pstmt.setInt(15, itemBean.getItem_weight()); // 판매중량
+			pstmt.setInt(16, itemBean.getItem_stock_count()); // 재고
+			pstmt.setInt(17, itemBean.getItem_point());
+			pstmt.setInt(18, itemBean.getItem_code());
 			updateCount = pstmt.executeUpdate();
 			System.out.println("DB성공");
 		} catch (SQLException e) {

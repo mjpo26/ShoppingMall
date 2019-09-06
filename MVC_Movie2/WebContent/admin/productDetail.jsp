@@ -27,6 +27,17 @@
 
 
   <!--================Single Product Area =================-->
+			   <input type="button" value="수정" onclick="location.href='./update.sh?Item_code=<%=itemBean.getItem_code()%>'">
+		   <input type="button" value="삭제" onclick="location.href='./delete.sh?Item_code=<%=itemBean.getItem_code()%>'">
+		   
+		<form method="post">   
+		<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code() %>>
+		<input type="hidden" name="Item_delivery_pee" value=<%=itemBean.getItem_delivery_pee() %>>
+		<input type="hidden" name="Item_stock_count" value=<%=itemBean.getItem_stock_count() %>>
+		<input type="hidden" name="Item_title" value=<%=itemBean.getItem_title() %>>
+		<input type="hidden" name="Item_sel_price" value=<%=itemBean.getItem_sel_price() %>>
+		<input type="hidden" name="Item_point" value=<%=itemBean.getItem_point() %>>
+		
   <div class="product_image_area section_padding">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
@@ -62,7 +73,8 @@
             <h5>아이콘 <span>|</span> 아이콘</h5>
             <h3><!-- 바미르 케인 수납장 --> <%=itemBean.getItem_title() %></h3>
             <h5 class="oneprice"><!-- 300,000 원 --> <%=itemBean.getItem_old_price()  %>  </h5>
-            <h2><!-- 150,000 원 --><%-- <%=//itemBean.getItem_new_price() %> --%>190,000</h2>
+            <h2><!-- 150,000 원 --><%-- <%=//itemBean.getItem_new_price() %> --%> <%=itemBean.getItem_sel_price()  %> </h2>
+            <h6><%=itemBean.getItem_point() %></h6>
 <!--             <ul class="list"> -->
 <!--               <li> -->
 <!--                 <a class="active" href="#"> -->
@@ -96,7 +108,7 @@
               </div>
               <div class="product_count">							
 				<span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
+                <input class="input-number" type="text" name="Item_code_count" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div> 
               <div class="product_buying">
@@ -111,6 +123,7 @@
       </div>
     </div>
   </div>
+  </form>
   <!--================End Single Product Area =================-->
 
 
@@ -122,7 +135,7 @@
 	<div style="width: 500; float: left;">
 		<div>
 			<nav>
-				<input type="image" src="./image/<%=itemBean.getItem_bgpic() %>" name="Item_bgpic" width="350px" height="450px" >
+<%-- 				<input type="image" src="./image/<%=itemBean.pic1() %>" name="Item_bgpic" width="350px" height="450px" > --%>
 				
 			</nav>
 		</div>
@@ -134,7 +147,7 @@
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;아이콘 / 아이콘 / 아이콘 / 아이콘 <br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>상품 :<input type="text" name="Item_title" value=<%=itemBean.getItem_title() %> readonly="readonly"></b><br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>가격 :<input type="text" name="Item_old_price" value=<%=itemBean.getItem_old_price() %> readonly="readonly"> </b><br>
-		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <input type="text" name="Item_old_price" value=<%=itemBean.getItem_new_price() %> readonly="readonly"></b><br>
+		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>할인가격 : <input type="text" name="Item_sel_price" value=<%=itemBean.getItem_sel_price() %> readonly="readonly"></b><br>
 		<br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>
 		상세내용 요약</b><br>
 		&emsp;&emsp;&emsp;<%=itemBean.getItem_content1() %><br>

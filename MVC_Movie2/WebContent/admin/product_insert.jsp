@@ -58,6 +58,7 @@ form {
 					<tr>
 						<th colspan="3">판매가(필수)</th>
 						<td colspan="5"><input type="text" name="old_price"></td>
+						할인율 : <input type="text" name="sale_price">%
 					</tr>
 					<tr>
 						<th colspan="3">상품요약설명</th>
@@ -79,23 +80,29 @@ form {
 
 					</tr>
 					<tr>
-						<th colspan="2">첨부파일</th>
-						<td colspan="2"><input type="file" name="Item_bgpic"></td>
-						<th colspan="2">추가이미지</th>
+<!-- 						<th colspan="2">첨부파일</th> -->
+<!-- 						<td colspan="2"><input type="file" name="Item_bgpic"></td> -->
+						<th colspan="2">이미지추가</th>
 						<td colspan="2" id="tbody"><input type="file"
 							name="Item_pic1" class="addItemBtn"></td>
+							<td colspan="2" id="tbody"><input type="file"
+							name="Item_pic2" class="addItemBtn"></td>
+							<td colspan="2" id="tbody"><input type="file"
+							name="Item_pic3" class="addItemBtn"></td>
+							<td colspan="2" id="tbody"><input type="file"
+							name="Item_pic4" class="addItemBtn"></td>
 
-						<script src="//code.jquery.com/jquery.min.js"></script>
-						<script>
-							$('.addItemBtn')
-									.click(
-											function() {
-												// 		$('#itemtable > #tbody:last').append('<td><input type="file"> </td>');
-												$('#tbody:last')
-														.append(
-																'<tr><td><input type="file" class="addItemBtn"> </td></tr>');
-											});
-						</script>
+<!-- 						<script src="//code.jquery.com/jquery.min.js"></script> -->
+<!-- 						<script> -->
+<!-- // 							$('.addItemBtn')
+// 									.click(
+// 											function() {
+// 												// 		$('#itemtable > #tbody:last').append('<td><input type="file"> </td>');
+// 												$('#tbody:last')
+// 														.append(
+// 																'<tr><td><input type="file" class="addItemBtn"> </td></tr>');
+// 											});
+						</script> -->
 
 					</tr>
 
@@ -119,9 +126,7 @@ form {
 					<!-- 위에꺼(상품분류) 이부분은 잠깐보류 -->
 				</div>
 				<h3>판매정보</h3>
-				공급가 <input type="text" name="stock_price"> <br>
-				<br> 소비자가 <input type="text"> <br>
-				<br> 상품적립금<input type="text" name="Item_point"><br>
+				원가 <input type="text" name="stock_price"> <br>
 				<br> 배송비 입력 <input type="text" name="delivery_pee"
 					value="50000"><br>
 				<br> 상품전체중량 <input type="text" name="weight"> <br>

@@ -9,7 +9,7 @@ public class ItemBean {
 	private String Item_content2;
 	private int Item_stock_price;
 	private int Item_old_price;
-	private int Item_new_price;
+	private int Item_sel_price;
 	private String Item_category1;
 	private String Item_category2;
 	private String Item_display;
@@ -20,9 +20,12 @@ public class ItemBean {
 //	private String Item_option_color3;
 //	private String Item_option_color4;
 	private int Item_weight;
-	private String Item_bgpic;
+//	private String Item_bgpic;
 	private int Item_stock_count;
 	private String Item_pic1;
+	private String Item_pic2;
+	private String Item_pic3;
+	private String Item_pic4;	
 	private int Item_point;
 	private int Item_delivery_pee;
 	private String Item_icon1;
@@ -33,6 +36,30 @@ public class ItemBean {
 	private Date Item_Date;
 	
 	
+	public int getItem_sel_price() {
+		return Item_sel_price;
+	}
+	public void setItem_sel_price(int item_sel_price) {
+		Item_sel_price = item_sel_price;
+	}
+	public String getItem_pic2() {
+		return Item_pic2;
+	}
+	public void setItem_pic2(String item_pic2) {
+		Item_pic2 = item_pic2;
+	}
+	public String getItem_pic3() {
+		return Item_pic3;
+	}
+	public void setItem_pic3(String item_pic3) {
+		Item_pic3 = item_pic3;
+	}
+	public String getItem_pic4() {
+		return Item_pic4;
+	}
+	public void setItem_pic4(String item_pic4) {
+		Item_pic4 = item_pic4;
+	}
 	public Date getItem_Date() {
 		return Item_Date;
 	}
@@ -87,12 +114,7 @@ public class ItemBean {
 	public void setItem_old_price(int item_old_price) {
 		Item_old_price = item_old_price;
 	}
-	public int getItem_new_price() {
-		return Item_new_price;
-	}
-	public void setItem_new_price(int item_new_price) {
-		Item_new_price = item_new_price;
-	}
+
 	public String getItem_category1() {
 		return Item_category1;
 	}
@@ -143,12 +165,12 @@ public class ItemBean {
 	public void setItem_weight(int item_weight) {
 		Item_weight = item_weight;
 	}
-	public String getItem_bgpic() {
-		return Item_bgpic;
-	}
-	public void setItem_bgpic(String item_bgpic) {
-		Item_bgpic = item_bgpic;
-	}
+//	public String getItem_bgpic() {
+//		return Item_bgpic;
+//	}
+//	public void setItem_bgpic(String item_bgpic) {
+//		Item_bgpic = item_bgpic;
+//	}
 	public int getItem_stock_count() {
 		return Item_stock_count;
 	}

@@ -5,13 +5,13 @@
 ItemBean itemBean = (ItemBean)request.getAttribute("article");
 String nowPage = (String)request.getAttribute("page");
 
+int sale_price = (10-(itemBean.getItem_sel_price()/(itemBean.getItem_old_price()/10)))*10;
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-코드값 불러와지는지 확인 : <%=itemBean.getItem_code() %><br>
 <style type="text/css">
 table {
 	border: #000000 solid;
@@ -65,7 +65,9 @@ form {
 					</tr>
 					<tr>
 						<th colspan="3">판매가(필수)</th>
-						<td colspan="5"><input type="text" name="old_price" value=<%=itemBean.getItem_old_price() %>></td>
+						<td colspan="5"><input type="text" name="old_price" value=<%=itemBean.getItem_old_price() %>> 
+						 할인율 : <input type="text" name="sale_price" value=<%=sale_price %>>%
+						</td>
 					</tr>
 					<tr>
 						<th colspan="3">상품요약설명</th>
@@ -93,23 +95,29 @@ form {
 </select>
 					</tr>
 					<tr>
-						<th colspan="2">첨부파일</th>
-						<td colspan="2"><input type="file" name="Item_bgpic" value=<%=itemBean.getItem_bgpic() %>></td>
+<!-- 						<th colspan="2">첨부파일</th> -->
+<%-- 						<td colspan="2"><input type="file" name="Item_bgpic" value=<%=itemBean.getItem_bgpic() %>></td> --%>
 						<th colspan="2">추가이미지</th>
 						<td colspan="2" id="tbody"><input type="file"
 							name="Item_pic1" class="addItemBtn" value=<%=itemBean.getItem_pic1() %>></td>
+						<td colspan="2" id="tbody"><input type="file"
+							name="Item_pic2" class="addItemBtn" value=<%=itemBean.getItem_pic2() %>></td>
+						<td colspan="2" id="tbody"><input type="file"
+							name="Item_pic3" class="addItemBtn" value=<%=itemBean.getItem_pic3() %>></td>
+						<td colspan="2" id="tbody"><input type="file"
+							name="Item_pic4" class="addItemBtn" value=<%=itemBean.getItem_pic4() %>></td>
 
-						<script src="//code.jquery.com/jquery.min.js"></script>
-						<script>
-							$('.addItemBtn')
-									.click(
-											function() {
-												// 		$('#itemtable > #tbody:last').append('<td><input type="file"> </td>');
-												$('#tbody:last')
-														.append(
-																'<tr><td><input type="file" class="addItemBtn"> </td></tr>');
-											});
-						</script>
+<!-- 						<script src="//code.jquery.com/jquery.min.js"></script> -->
+<!-- 						<script> 
+// 							$('.addItemBtn')
+// 									.click(
+// 											function() {
+// 												// 		$('#itemtable > #tbody:last').append('<td><input type="file"> </td>');
+// 												$('#tbody:last')
+// 														.append(
+// 																'<tr><td><input type="file" class="addItemBtn"> </td></tr>');
+// 											});
+ 						</script> -->
 
 					</tr>
 

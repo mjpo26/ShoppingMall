@@ -16,16 +16,24 @@ public class productUpdateProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ProductUpdateProAction");
 		
+		int sale_price =Integer.parseInt(request.getParameter("old_price"))*Integer.parseInt(request.getParameter("sale_price"));
+		int sel_price = Integer.parseInt(request.getParameter("old_price"))-sale_price;
+		int Item_point = sel_price /10;
+		
 		  ItemBean itemBean = new ItemBean();
-		  	itemBean.setItem_code(Integer.parseInt(request.getParameter("item_code")));
 		  	itemBean.setItem_title(request.getParameter("title"));
 		  	itemBean.setItem_old_price(Integer.parseInt(request.getParameter("old_price")));
+		  	itemBean.setItem_sel_price(sel_price);
 		  	itemBean.setItem_content1(request.getParameter("content1"));
 		  	itemBean.setItem_content2(request.getParameter("content2"));
-		  	itemBean.setItem_bgpic(request.getParameter("Item_bgpic"));
+//		  	itemBean.setItem_bgpic(request.getParameter("Item_bgpic"));
 		  	itemBean.setItem_pic1(request.getParameter("pic1"));
+		  	itemBean.setItem_pic1(request.getParameter("pic2"));
+		  	itemBean.setItem_pic1(request.getParameter("pic3"));
+		  	itemBean.setItem_pic1(request.getParameter("pic4"));
 		  	itemBean.setItem_display(request.getParameter("display"));
 		  	itemBean.setItem_sales(request.getParameter("sales"));
+		  	itemBean.setItem_point(Item_point);
 		  	itemBean.setItem_category1(request.getParameter("category"));
 		  	itemBean.setItem_stock_price(Integer.parseInt(request.getParameter("stock_price")));
 		  	itemBean.setItem_delivery_pee(Integer.parseInt(request.getParameter("delivery_pee")));
