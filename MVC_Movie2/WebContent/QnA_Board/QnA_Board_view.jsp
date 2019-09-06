@@ -5,6 +5,7 @@
     // 전달받은 request 객체에서 데이터 가져오기
 	QnA_BoardBean article = (QnA_BoardBean)request.getAttribute("article");
 	String nowPage = (String)request.getAttribute("page");
+	String id = (String)request.getAttribute("id");
 %>    
 <!DOCTYPE html>
 <html>
@@ -51,7 +52,7 @@
 			제목 : <%=article.getQnA_subject() %><br>
 			첨부파일 : 
 			<%if(article.getQnA_file1() != null) { %>
-					<a href="file_down?downFile=<%=article.getQnA_file1()%>"><%=article.getQnA_file1() %></a>
+					<a href="QnA_File.jsp?downFile=<%=article.getQnA_file1()%>"><%=article.getQnA_file1() %></a>
 			<%}%>
 		</section>
 		<section id="articleContentArea">
@@ -59,7 +60,19 @@
 		</section>
 	</section>
 	<section id="commandList">
-		<a href="QnA_BoardReplyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="답변" ></a>
+
+		<%
+		// 세션값이 존재하면  
+		// 세션값이 "admin" 같으면 
+		if(id!=null){
+			if(id.equals("admin12")){
+				%>
+				<a href="QnA_BoardReplyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="답변" ></a>
+					<%
+			}
+		}
+		%>
+		
 		<a href="QnA_BoardModifyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="수정" ></a>
 		<a href="QnA_BoardDeleteForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage %>"><input type="button" value="삭제" ></a>
 		<a href="QnA_BoardList.qa?page=<%=nowPage %>"><input type="button" value="목록" ></a>

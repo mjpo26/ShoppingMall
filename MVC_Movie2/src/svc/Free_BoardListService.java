@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import dao.Free_BoardDAO;
 import db.JdbcUtil;
+import vo.BoardSearchBean;
 import vo.Free_BoardBean;
 
 // static 메서드 호출을 위해 클래스명.메서드명() 으로 호출을 하지만
@@ -20,7 +21,7 @@ import static db.JdbcUtil.*; // db.JdbcUtil 클래스 내의 모든 static 메�
 public class Free_BoardListService {
     
     // 전체 게시물 수를 조회하여 리턴하는 getListCount()
-    public int getListCount() throws Exception {
+    public int getListCount(BoardSearchBean bb) throws Exception {
         int listCount = 0; // 전체 게시물 수 저장하는 변수
         
         // Connection 객체 가져오기
@@ -35,7 +36,7 @@ public class Free_BoardListService {
         boardDAO.setConnection(con);
         
         // selectListCount() 메서드 호출하여 전체 게시물 수 조회하여 listCount 변수에 저장
-        listCount = boardDAO.selectListCount();
+        listCount = boardDAO.selectListCount(bb);
 //        System.out.println(listCount);
         // Connection 객체 반환
         close(con);
@@ -46,7 +47,7 @@ public class Free_BoardListService {
     }
 
     // 전체 게시물 목록을 조회하여 리턴
-    public ArrayList<Free_BoardBean> getArticleList(int page, int limit) throws Exception {
+    public ArrayList<Free_BoardBean> getArticleList(BoardSearchBean bb) throws Exception {
         ArrayList<Free_BoardBean> articleList = null;
         
         Connection con = getConnection();  
@@ -54,7 +55,7 @@ public class Free_BoardListService {
         boardDAO.setConnection(con);
         
         System.out.println("svc:보드리스트 겟아티클리스트 서비스왔다 :arraylist로 전체 게시물 목록 가지러 dao간다");
-        articleList = boardDAO.selectArticleList(page, limit);
+        articleList = boardDAO.selectArticleList(bb);
         
 //        System.out.println(articleList);
         

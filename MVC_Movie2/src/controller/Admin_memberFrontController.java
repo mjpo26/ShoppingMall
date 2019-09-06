@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,77 +10,81 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.ProductInsertProAction;
-import action.basketAction;
-import action.productDetailAction;
-import action.productUpdateAction;
-import action.productUpdateProAction;
-import action.product_listAction;
+import action.MemberDeleteProAction;
+import action.MemberInfoAction;
+import action.MemberJoinProAction;
+import action.MemberLoginProAction;
+import action.MemberLogoutProAction;
+import action.MemberUpdateProAction;
 import vo.ActionForward;
 
-@WebServlet("*.sh")
-public class ProductFrontController extends HttpServlet {
+@WebServlet("*.kk")
+public class Admin_memberFrontController extends HttpServlet {
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8"); // 한글 설정
         
         // 서블릿 주소 가져오기
         String command = request.getServletPath();
-        
+        //
         Action action = null;
         ActionForward forward = null;
-        System.out.println("컨트롤러");
-        if(command.equals("/ItemInsert.sh")) {
-            action = new ProductInsertProAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if(command.equals("/product_list.sh")) {
-            action = new product_listAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }					
-        }else if(command.equals("/productDetail.sh")) {
-            action = new productDetailAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else if(command.equals("/basket.sh")) {
-            action = new basketAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else if(command.equals("/update.sh")) {
-            action = new productUpdateAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else if(command.equals("/updatePro.sh")) {
-            action = new productUpdateProAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
         
-        
+        if(command.equals("/MemberLoginForm.me")) {
+            forward = new ActionForward();
+            forward.setPath("/member/loginForm.jsp");
+        } else if(command.equals("/MemberJoinForm.me")) {
+            forward = new ActionForward();
+            forward.setPath("/member/joinForm.jsp");
+        } else if(command.equals("/MemberLoginPro.me")) {
+            action = new MemberLoginProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberLogoutPro.me")) {
+            action = new MemberLogoutProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberJoinPro.me")) {
+            action = new MemberJoinProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberInfo.me")) {
+            action = new MemberInfoAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberDeletePro.me")) {
+            action = new MemberDeleteProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberUpdatePro.me")) {
+            action = new MemberUpdateProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } 
         
         // 포워딩 처리
         if(forward != null) {

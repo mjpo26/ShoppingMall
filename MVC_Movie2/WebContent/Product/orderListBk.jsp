@@ -17,8 +17,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
+<title>Insert title here</title>
 <body>
 	<table border="1">
 

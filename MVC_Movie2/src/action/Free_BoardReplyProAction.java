@@ -7,6 +7,7 @@ import svc.Free_BoardReplyProService;
 import vo.ActionForward;
 import vo.Free_BoardBean;
 
+
 public class Free_BoardReplyProAction implements Action {
 
     @Override
@@ -23,11 +24,11 @@ public class Free_BoardReplyProAction implements Action {
         article.setFree_pass(request.getParameter("free_pass"));
         article.setFree_subject(request.getParameter("free_subject"));
         article.setFree_content(request.getParameter("free_content"));
-        article.setFree_re_ref(Integer.parseInt(request.getParameter("free_re_ref")));
-        article.setFree_re_lev(Integer.parseInt(request.getParameter("free_re_lev")));
-        article.setFree_re_seq(Integer.parseInt(request.getParameter("free_re_seq")));
+        article.setFree_ref(Integer.parseInt(request.getParameter("free_ref")));
+        article.setFree_lev(Integer.parseInt(request.getParameter("free_lev")));
+        article.setFree_seq(Integer.parseInt(request.getParameter("free_seq")));
         
-        System.out.println("ReplyProAction 클래스 : " + Integer.parseInt(request.getParameter("free_re_ref")) + ", " + Integer.parseInt(request.getParameter("free_re_lev")));
+        System.out.println("ReplyProAction 클래스 : " + Integer.parseInt(request.getParameter("free_ref")) + ", " + Integer.parseInt(request.getParameter("free_lev")));
         
         // BoardReplyProService 인스턴스 생성
         Free_BoardReplyProService boardReplyProService = new Free_BoardReplyProService();
