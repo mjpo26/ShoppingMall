@@ -64,10 +64,24 @@ public class OrderListDAO {
 		
 		try {
 
-			String sql = "SELECT * FROM item_order ORDER BY order_idx LIMIT ?,?";
+			String sql = "SELECT * FROM item_order   ORDER BY order_idx LIMIT ?,?";
+			//where order_item_title = ? and order_delivery_status = ?
+//			System.out.println("sql :" + sql);
+			
+			
 			pstmt = con.prepareStatement(sql);
+//			System.out.println("pstmt : "+ pstmt);
+//			
+//			pstmt.setString(1, "침대");
+//			pstmt.setString(2, "배송완료");
+			
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, limit);
+			
+			
+			
+//			System.out.println("pstmt2 : "+ pstmt);
+			
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
