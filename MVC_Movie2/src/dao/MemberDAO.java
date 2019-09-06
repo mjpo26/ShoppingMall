@@ -43,25 +43,27 @@ public class MemberDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         //query= "";
-        String sql = "SELECT * FROM member WHERE member_id ? AND member_pass ?";
+        String sql = "SELECT * FROM member WHERE member_id =? AND member_pass =?";
         
         try {
+        	
             pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.setString(2, pass);
             
-            
-            if(id.equals("")) {
-            	pstmt.setString(1, "is not null");	
-            }
-            else {
-            	pstmt.setString(1, "="+id);
-            }
-            
-            if(pass.equals("")) {
-            	pstmt.setString(2, "is not null");	
-            }
-            else {
-            	pstmt.setString(2, "="+pass);
-            }
+//            if(id.equals("")) {
+//            	pstmt.setString(1, "is not null");	
+//            }
+//            else {
+//            	pstmt.setString(1, "="+id);
+//            }
+//            
+//            if(pass.equals("")) {
+//            	pstmt.setString(2, "is not null");	
+//            }
+//            else {
+//            	pstmt.setString(2, "="+pass);
+//            }
             
             
             //pstmt.setString(2, pass);
