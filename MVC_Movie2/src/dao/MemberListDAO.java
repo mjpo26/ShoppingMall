@@ -45,6 +45,15 @@ public class MemberListDAO {
     	
     	String member_sms_ok = ams.getMember_sms_ok();
     	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	String sql = "SELECT COUNT(*) FROM member where member_sms_ok=?";
     	try {
 			pstmt = con.prepareStatement(sql);
@@ -78,6 +87,12 @@ public class MemberListDAO {
 		int startRow = (ams.getPage() - 1) * 10; 
 		
 		try {
+			
+			ams.getMember_id();
+			ams.getMember_email_ok();
+			ams.getMember_sms_ok();
+			
+			
 
 			String sql = "SELECT * FROM member ORDER BY member_id LIMIT ?,?";
 			

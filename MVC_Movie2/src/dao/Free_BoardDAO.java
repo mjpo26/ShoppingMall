@@ -125,26 +125,17 @@ public class Free_BoardDAO {
         try {
            
         	
+        	String sql;
         	
         	
-        	//String sql = "SELECT COUNT(*) FROM free_board where free_subject=?";
-             //       + "AND free_writer_id =? AND free_num =? ";
-       //    String korea = "select * from free_board where free_writer_id ? and free_num is not null";
-                   
-           
-           // pstmt = con.prepareStatement(sql);
-           // pstmt.setString(1, s_subject);  //제목          
-          //  pstmt.setString(2, s_id); //글쓴이
-          //  pstmt.setInt(3, s_num);//글넘버
-            
-          
-         
-        	String sql = "select count(*) from free_board";
-        	pstmt = con.prepareStatement(sql);
+        	//sql ="select * from free_board where free_writer_id like ? and free_subject like ? and free_num like '%%'";
+        	sql ="select * from free_board where free_writer_id like ?";
+        	pstmt=con.prepareStatement(sql);
+        	pstmt.setString(1,bb.getSubject());
+        	//pstmt.setString(2,bb.getSubject());
+        	//pstmt.setInt(3,'%%');
         	
         	
-            
-            
             rs = pstmt.executeQuery();
             
             if(rs.next()) {
