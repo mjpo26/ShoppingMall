@@ -99,7 +99,7 @@
 		</tr>
 
 		<tr>
-			<td colspan='14'>[검색결과 0건]&nbsp;
+			<td colspan='14'>[검색결과 <%=articleList.size()%>건]&nbsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -130,14 +130,14 @@
 		<tr>
 			<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
 			<th><input type="checkbox"></th>
-			<th><%=articleList.get(i).getOrder_date()%></th>
-			<th><%=articleList.get(i).getOrder_idx()%></th>
-			<th><%=articleList.get(i).getOrder_member_id()%></th>
-			<th><%=articleList.get(i).getOrder_item_title() %></th>
-			<th><%=articleList.get(i).getOrder_pay_status()%></th>
-			<th><%=articleList.get(i).getOrder_delivery_status()%></th>
-			<th><%=articleList.get(i).getOrder_payment()%></th>
-			<th><%=articleList.get(i).getOrder_memo() %></th>
+			<td><%=articleList.get(i).getOrder_date()%></td>
+			<td><%=articleList.get(i).getOrder_idx()%></td>
+			<td><%=articleList.get(i).getOrder_member_id()%></td>
+			<td><%=articleList.get(i).getOrder_item_title() %></td>
+			<td><%=articleList.get(i).getOrder_pay_status()%></td>
+			<td><%=articleList.get(i).getOrder_delivery_status()%></td>
+			<td><%=articleList.get(i).getOrder_payment()%></td>
+			<td><%=articleList.get(i).getOrder_memo() %></td>
 		</tr>
 		<%
 				}
