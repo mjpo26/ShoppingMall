@@ -88,21 +88,31 @@ public class MemberListDAO {
 		
 		try {
 			
-			ams.getMember_id();
-			ams.getMember_email_ok();
-			ams.getMember_sms_ok();
 			
 			
-
-			String sql = "SELECT * FROM member ORDER BY member_id LIMIT ?,?";
+			
+//setInt 처리하는거는 나중에 시간나면 하면 된다.
+//지금은 무조건 전체페이지 연결부터 해야 일이 될거야.		    
+//텍스트박스 공백 들어오는건 세터에서 null 처리해주면되더라.
+//누군가 시간 남는 사람이 고민한 번 해 보도록^^;
+//이런거 생각해보고 짜는 것이 공부가 될꺼야.
+		    
+			String sql = "SELECT * FROM member where "
+			        + "member_id like ifnull(?,'%%') "
+			        + "and member_name like ifnull(?,'%%') "
+			        + "and member_phone like ifnull(?,'%%') "
+			        + "and member_sms_ok like ifnull(?,'%%') "
+			        + "and  member_email_ok like ifnull(?,'%%')"
+			        + "ORDER BY member_id LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
-		//		pstmt.setInt(1, startRow);
-		//		pstmt.setInt(2, ams.getLimit());
-			
-		//	pstmt.setString(1, ams.getMember_sms_ok());
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, ams.getLimit());
+			pstmt.setString(1, ams.getMember_id());
+			pstmt.setString(2, ams.getMember_name());
+			pstmt.setString(3, ams.getMember_phone());
+			pstmt.setString(4, ams.getMember_sms_ok());
+			pstmt.setString(5, ams.getMember_email_ok());
+			pstmt.setInt(6, startRow);
+			pstmt.setInt(7, ams.getLimit());
 
 			rs = pstmt.executeQuery();
 			

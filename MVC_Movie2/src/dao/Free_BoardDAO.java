@@ -128,12 +128,10 @@ public class Free_BoardDAO {
         	String sql;
         	
         	
-        	//sql ="select * from free_board where free_writer_id like ? and free_subject like ? and free_num like '%%'";
-        	sql ="select * from free_board where free_writer_id like ?";
+        	
+        	sql ="select * from free_board ";
         	pstmt=con.prepareStatement(sql);
-        	pstmt.setString(1,bb.getSubject());
-        	//pstmt.setString(2,bb.getSubject());
-        	//pstmt.setInt(3,'%%');
+        	
         	
         	
             rs = pstmt.executeQuery();

@@ -30,11 +30,19 @@ public class Admin_memberListAction implements Action {
 	        }
 	        
 	        Admin_MemberSearchBean ams = new Admin_MemberSearchBean();
-	        ams.setMember_id("admin");
-	        ams.setMember_sms_ok("no");
-	        ams.setMember_email_ok("ok");
+            ams.setMember_id(request.getParameter("searchId"));
+            ams.setMember_name(request.getParameter("searchName"));
+            ams.setMember_phone(request.getParameter("searchPhone"));
+	        ams.setMember_sms_ok(request.getParameter("smsOk"));
+            ams.setMember_email_ok(request.getParameter("emailOk"));
 	        ams.setPage(page);
 	        ams.setLimit(limit);
+	        
+	        
+	        System.out.println("ams id request체크 :"+ams.getMember_id());
+	        System.out.println("ams 폰 request체크 :"+ams.getMember_phone());
+	        System.out.println("ams sms request체크 :"+ams.getMember_sms_ok());
+	        System.out.println("ams email request체크 :"+ams.getMember_email_ok());
 	        
 	        Admin_memberListService Admin_memberListService = new Admin_memberListService();
 	        int listCount = Admin_memberListService.getListCount(ams); // 전체 게시물 수 가져오기
