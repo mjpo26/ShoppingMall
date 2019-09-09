@@ -27,9 +27,24 @@ public class OrderListBKAction implements Action {
 	        }
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
-	        ob.setOrder_item_option_color("black");
+
+	        ob.setOrder_item_code(request.getParameter("ItemCode"));
+	        // 기간검색
+	        ob.setOrder_item_title(request.getParameter("ItemName"));
+	        ob.setOrder_member_id(request.getParameter("Buyer"));
+	        ob.setOrder_pay_status(request.getParameter("pay"));
+	        // 결제상태
+	        ob.setOrder_payment(request.getParameter("payment"));//  결제상태
+	        // 회원구분
+
 	        ob.setPage(page);
 	        ob.setLimit(limit);
+	        
+	        System.out.println("ob order_item_code request체크:"+ob.getOrder_item_code());
+	        System.out.println("ob order_item_title request체크:"+ob.getOrder_item_title());
+	        System.out.println("ob order_member_id request체크:"+ob.getOrder_member_id());
+	        System.out.println("ob order_pay_status request체크:"+ob.getOrder_pay_status());
+	        System.out.println("ob order_payment request체크:"+ob.getOrder_payment());
 	        
 	        OrderListService orderListService = new OrderListService();
 	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기

@@ -54,9 +54,9 @@ public class ReviewBoardWriteProAction implements Action {
             out.println("history.back()");
             out.println("</script>");
         } else { 
+            System.out.println();
             forward = new ActionForward();
             forward.setPath("ReviewBoardList.re"); 
-       
             forward.setRedirect(true); 
         }
               return forward;

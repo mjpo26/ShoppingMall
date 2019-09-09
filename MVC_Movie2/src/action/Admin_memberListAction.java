@@ -37,6 +37,7 @@ public class Admin_memberListAction implements Action {
             ams.setMember_phone(request.getParameter("searchPhone"));
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
             ams.setMember_email_ok(request.getParameter("emailOk"));
+
             
             System.out.println("액션 심플데이타포맷 위 에러인가?");
             //스트링을 date로 변환해야된다 ;;
@@ -46,6 +47,11 @@ public class Admin_memberListAction implements Action {
             ams.setPickEnd(null);
             ams.setPage(page);
 	        ams.setLimit(limit);
+
+	        ams.setPage(page);
+	        ams.setLimit(limit);     
+	        
+
 	        
 	        System.out.println("시작String"+ams.getPickStart());
 	        System.out.println("ams id request체크 :"+ams.getMember_id());

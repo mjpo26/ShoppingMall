@@ -47,8 +47,8 @@ h2 {
 	<section id="articleForm">
 		<section id="basicInfoArea">
 			제목:
-			<%=article.getReview_subject()%> <br>
-			별점:
+			<%=article.getReview_subject()%>
+			<br> 별점:
 			<%=article.getReview_starPoint()%>점
 		</section>
 		<section id="articleContentArea">
@@ -57,30 +57,13 @@ h2 {
 				height="300">
 		</section>
 		<section id="commandList">
-			<a
-				href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a>
-			<a
-				href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a>
-			<a href="ReviewBoardList.re?page=<%=nowPage%>">[목록]</a> &nbsp;&nbsp;
+<!--  아랫부분 답변은 admin일때만 나오게 조건주기-->
+		<a href="ReviewBoardReplyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[답변]</a>
+		<a	href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a>
+		<a href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a>
+		<a href="ReviewBoardList.re?page=<%=nowPage%>">[목록]</a> &nbsp;&nbsp;
 		</section>
-			</section>
-		<section>
-			<form action="ReviewBoardCommentWritePro.re" method="post"
-				enctype="multipart/form-data">
-				<table border="1">
-					<tr>
-						<td>글쓴이</td>
-						<td><input type="text" name="review_writer"></td>
-					</tr>
-					<tr>
-						<td>글내용</td>
-						<td><textarea name="review_content" rows="10" cols="20"></textarea></td>
-					</tr>
-				</table>
-				<div>
-					<input type="submit" value="댓글달기" class="btn">
-				</div>
-			</form>
-		</section>
+	</section>
+	<section></section>
 </body>
 </html>

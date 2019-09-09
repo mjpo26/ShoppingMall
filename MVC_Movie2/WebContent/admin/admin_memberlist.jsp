@@ -6,6 +6,7 @@
 
 
 <%
+<<<<<<< HEAD
 	//Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<MemberBean> memberList = (ArrayList<MemberBean>) request.getAttribute("memberList");
 	Admin_memberPageInfo pageInfo = (Admin_memberPageInfo) request.getAttribute("pageInfo");
@@ -22,6 +23,21 @@
 
 	// 만약, 회원만 게시판 목록 조회가 가능할 경우
 	// 세션 아이디 없으면 Main.bo 로 이동
+=======
+    //Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
+    ArrayList<MemberBean> memberList = (ArrayList<MemberBean>) request.getAttribute("memberList");
+    Admin_memberPageInfo pageInfo = (Admin_memberPageInfo) request.getAttribute("pageInfo");
+    // PageInfo 객체로부터 페이징 정보 가져오기
+    int listCount = pageInfo.getListCount();
+    int nowPage = pageInfo.getPage();
+    int startPage = pageInfo.getStartPage();
+    int endPage = pageInfo.getEndPage();
+    int maxPage = pageInfo.getMaxPage();
+    // 세션 아이디 가져오기
+    String sId = (String) session.getAttribute("sId");
+    // 만약, 회원만 게시판 목록 조회가 가능할 경우
+    // 세션 아이디 없으면 Main.bo 로 이동
+>>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
 %>
 
 
@@ -186,3 +202,4 @@
 	</table>
 </body>
 </html>
+
