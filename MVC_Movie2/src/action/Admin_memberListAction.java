@@ -41,8 +41,21 @@ public class Admin_memberListAction implements Action {
             
             System.out.println("액션 심플데이타포맷 위 에러인가?");
             //스트링을 date로 변환해야된다 ;;
-        	 
 
+        	 
+            System.out.println("날짜 형식 : "+ request.getParameter("pickStart"));
+            // 09/03/2019 mm/dd/yyyy
+            // yyyy-mm-dd로 되어야 한다
+            SimpleDateFormat beforeFormat = new SimpleDateFormat("yyyy-mm-dd");
+            /// beforeFormat = request.getParameter("pickStart");
+            /// ... 연구중
+         
+            
+            
+
+     
+            
+            
             ams.setPickStart(null);
             ams.setPickEnd(null);
             ams.setPage(page);
