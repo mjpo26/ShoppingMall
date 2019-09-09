@@ -71,18 +71,20 @@ public class OrderListDAO {
 			String sql = "SELECT * FROM item_order where "
 			        + "order_item_code like ifnull(?,'%%') "
 			        + "and order_item_title like ifnull(?,'%%') "
-			        + "and order_delivery_status like ifnull(?,'%%') "
+			        + "and order_member_id like ifnull(?,'%%') "
 			        + "and order_pay_status like ifnull(?,'%%') "
+			        + "and order_payment like ifnull(?,'%%') "
 			        + "ORDER BY order_item_code LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
 			pstmt.setString(1, ob.getOrder_item_code());
 			pstmt.setString(2, ob.getOrder_item_title());
-			pstmt.setString(3, ob.getOrder_delivery_status());
+			pstmt.setString(3, ob.getOrder_member_id());
 			pstmt.setString(4, ob.getOrder_pay_status());
-			pstmt.setInt(5, startRow);
-			pstmt.setInt(6, ob.getLimit());
+			pstmt.setString(5, ob.getOrder_payment());
+			pstmt.setInt(6, startRow);
+			pstmt.setInt(7, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			

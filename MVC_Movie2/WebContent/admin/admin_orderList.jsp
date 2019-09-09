@@ -42,42 +42,29 @@
 
 		<tr>
 			<th>상품 검색</th>
-			<td colspan='3'><select><option>상품명</option>
-					<option>주문자</option></select> 
-					<input type="text" size="20" name="ItemName">
-		</tr>
-
-		<tr>
-			<th>배송상태</th>
-			<td colspan='3'><input type="checkbox" name="delivery">전체 <input
-				type="checkbox" name="delivery">배송준비중 
-				<input type="checkbox" name="delivery">배송대기 
-				<input type="checkbox" name="delivery">배송중 
-				<input type="checkbox" name="delivery">배송완료
-		</tr>
-
-		<tr>
-			<th>주문상태</th>
-			<td colspan='3'><input type="checkbox" name="order">전체 
-			<input type="checkbox" name="order">정상
-			<input type="checkbox" name="order">교환 
-			<input type="checkbox" name="order">취소
-		    <input type="checkbox" name="order">교환 
-			<input type="checkbox" name="order">반품 
-	        <input type="checkbox" name="order">환불
+			<td colspan='3'><label>상품명</label>
+					<input type="text" size="20" name="ItemName"><br>
+			<label>주문자</label>
+					<input type="text" size="20" name="Buyer">
+					
 		</tr>
 
 		<tr>
 			<th>결제상태</th>
-			<td><input type="checkbox" name="payment">전체 
-			<input type="checkbox" name="payment">입금전
-			<input type="checkbox" name="payment">입금완료 
-			<input type="checkbox" name="payment">결제완료
+			<td colspan='3'><input type="radio" name="pay" value="*">전체 
+			<input type="radio" name="pay" value="입금대기">입금대기
+			<input type="radio" name="pay" value="입금완료">입금완료 
+			<input type="radio" name="pay" value="주문완료">주문완료
+		</tr>
+
+
+		<tr>
+			<th>결제방법</th>
+			<td colspan='3'><input type="radio" name="payment" value="*">전체 
+			<input type="radio" name="payment" value="현금">현금
+			<input type="radio" name="payment" value="포인트">포인트 
+			<input type="radio" name="payment" value="현금+포인트">현금+포인트
 			</td>
-			<th>회원구분</th>
-			<td><input type="checkbox" name="member">전체 
-			<input type="checkbox" name="member">회원
-			<input type="checkbox" name="member">비회원</td>
 		</tr>
 	</table>
 
@@ -122,9 +109,8 @@
 				<th>주문자</th>
 				<th>상품색깔</th>
 				<th>상품명</th>
-				<th>주문상태</th>
-				<th>배송상태</th>
 				<th>결제상태</th>
+				<th>결제방법</th>
 				<th>메모</th>
 			</tr>
 			<%
@@ -139,7 +125,6 @@
 				<td><%=articleList.get(i).getOrder_item_option_color() %></td>
 				<td><%=articleList.get(i).getOrder_item_title()%></td>
 				<td><%=articleList.get(i).getOrder_pay_status()%></td>
-				<td><%=articleList.get(i).getOrder_delivery_status()%></td>
 				<td><%=articleList.get(i).getOrder_payment()%></td>
 				<td><%=articleList.get(i).getOrder_memo()%></td>
 			</tr>

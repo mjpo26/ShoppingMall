@@ -22,7 +22,14 @@ public class OrderSearchBean {
    private Date order_date;
    private int page;
    private int limit;
- 
+   private String order_member_id;
+  
+   public String getOrder_member_id() {
+	return order_member_id;
+}
+public void setOrder_member_id(String order_member_id) {
+	this.order_member_id = order_member_id;
+}
 
 public int getOrder_idx() {
     return order_idx;
