@@ -36,7 +36,8 @@ public class Admin_memberListAction implements Action {
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
             ams.setMember_email_ok(request.getParameter("emailOk"));
 	        ams.setPage(page);
-	        ams.setLimit(limit);
+	        ams.setLimit(limit);     
+	        
 	        
 	        
 	        System.out.println("ams id request체크 :"+ams.getMember_id());
