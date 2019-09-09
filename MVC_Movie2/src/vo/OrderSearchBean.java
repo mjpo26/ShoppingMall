@@ -25,6 +25,10 @@ public class OrderSearchBean {
    private String order_member_id;
   
    public String getOrder_member_id() {
+	   
+	   if(order_member_id == "") {
+		   order_member_id = null;
+	   }
 	return order_member_id;
 }
 public void setOrder_member_id(String order_member_id) {

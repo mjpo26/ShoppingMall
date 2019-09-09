@@ -41,7 +41,6 @@ public class Admin_memberListAction implements Action {
 	        
 	        
 	        System.out.println("ams id request체크 :"+ams.getMember_id());
-	        
 	        System.out.println("ams 폰 request체크 :"+ams.getMember_phone());
 	        System.out.println("ams sms request체크 :"+ams.getMember_sms_ok());
 	        System.out.println("ams email request체크 :"+ams.getMember_email_ok());

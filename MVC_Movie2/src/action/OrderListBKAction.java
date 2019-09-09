@@ -28,8 +28,6 @@ public class OrderListBKAction implements Action {
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
 
-	        ob.setOrder_member_id("admin");
-
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
 	        // 기간검색
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
