@@ -32,6 +32,7 @@
 		<h3><a href="QnA_BoardList.qa">QnA_board리스트</a></h3>
 		<h3><a href="ReviewBoardList.re">리뷰게시판</a></h3>
 		<h3><a href="Admin_memberList.am">관리자 멤버리스트</a></h3>
+		<h3><a href="AdminBoardList.abl">관리자 게시판리스트</a></h3>
 
 		<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a> 
 		<a href="QnA_BoardWriteForm.qa"><input type="button" value="QnA_글쓰기"></a> 

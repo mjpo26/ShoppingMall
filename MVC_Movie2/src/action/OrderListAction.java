@@ -11,7 +11,7 @@ import vo.PageInfo;
 import vo.OrderListBean;
 import vo.OrderSearchBean;
 
-public class OrderListBKAction implements Action {
+public class OrderListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

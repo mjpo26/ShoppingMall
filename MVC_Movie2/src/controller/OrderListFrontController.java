@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.OrderListBKAction;
+import action.OrderListAction;
 import action.ReviewBoardListAction;
 import vo.ActionForward;
 import vo.OrderSearchBean;
 
 
 @WebServlet("*.ol")
-public class OrderListBKFrontController extends HttpServlet {
+public class OrderListFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -29,7 +29,7 @@ public class OrderListBKFrontController extends HttpServlet {
 		if (command.equals("/orderList.ol")) {
 			System.out.println("list controller 들어옴");
 			
-			action = new OrderListBKAction();
+			action = new OrderListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
