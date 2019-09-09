@@ -103,6 +103,7 @@ public class MemberListDAO {
 			        + "and member_phone like ifnull(?,'%%') "
 			        + "and member_sms_ok like ifnull(?,'%%') "
 			        + "and  member_email_ok like ifnull(?,'%%')"
+			     //   + "and joinDate >= ifnull(?,now())&& joinDate<=ifnull(?,now())"
 			        + "ORDER BY member_id LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -111,6 +112,8 @@ public class MemberListDAO {
 			pstmt.setString(3, ams.getMember_phone());
 			pstmt.setString(4, ams.getMember_sms_ok());
 			pstmt.setString(5, ams.getMember_email_ok());
+			//pstmt.setDate(6, ams.getPickStart());
+			//pstmt.setDate(7, ams.getPickEnd());
 			pstmt.setInt(6, startRow);
 			pstmt.setInt(7, ams.getLimit());
 

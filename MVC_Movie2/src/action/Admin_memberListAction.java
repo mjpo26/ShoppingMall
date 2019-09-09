@@ -1,5 +1,7 @@
 package action;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,10 +37,17 @@ public class Admin_memberListAction implements Action {
             ams.setMember_phone(request.getParameter("searchPhone"));
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
             ams.setMember_email_ok(request.getParameter("emailOk"));
-	        ams.setPage(page);
+            
+            System.out.println("액션 심플데이타포맷 위 에러인가?");
+            //스트링을 date로 변환해야된다 ;;
+        	 
+
+            ams.setPickStart(null);
+            ams.setPickEnd(null);
+            ams.setPage(page);
 	        ams.setLimit(limit);
 	        
-	        
+	        System.out.println("시작String"+ams.getPickStart());
 	        System.out.println("ams id request체크 :"+ams.getMember_id());
 	        System.out.println("ams 폰 request체크 :"+ams.getMember_phone());
 	        System.out.println("ams sms request체크 :"+ams.getMember_sms_ok());

@@ -1,5 +1,7 @@
 package vo;
 
+import java.sql.Date;
+
 public class MemberBean {
   private String member_id;
   private String member_pass;
@@ -39,7 +41,31 @@ public class MemberBean {
   private  String member_address_y4;
   private  String member_address_x5;
   private  String member_address_y5;
+  private Date pickStart;
+  private Date joinDate;
+  private Date pickEnd;
+  
+  
+  
 
+public Date getPickStart() {
+	return pickStart;
+}
+public void setPickStart(Date pickStart) {
+	this.pickStart = pickStart;
+}
+public Date getJoinDate() {
+	return joinDate;
+}
+public void setJoinDate(Date joinDate) {
+	this.joinDate = joinDate;
+}
+public Date getPickEnd() {
+	return pickEnd;
+}
+public void setPickEnd(Date pickEnd) {
+	this.pickEnd = pickEnd;
+}
 public String getMember_id() {
     return member_id;
 }
