@@ -107,7 +107,6 @@
 				<th>주문일(결제일)</th>
 				<th>주문번호</th>
 				<th>주문자</th>
-				<th>상품색깔</th>
 				<th>상품명</th>
 				<th>결제상태</th>
 				<th>결제방법</th>
@@ -122,7 +121,6 @@
 				<td><%=articleList.get(i).getOrder_date()%></td>
 				<td><%=articleList.get(i).getOrder_idx()%></td>
 				<td><%=articleList.get(i).getOrder_member_id()%></td>
-				<td><%=articleList.get(i).getOrder_item_option_color() %></td>
 				<td><%=articleList.get(i).getOrder_item_title()%></td>
 				<td><%=articleList.get(i).getOrder_pay_status()%></td>
 				<td><%=articleList.get(i).getOrder_payment()%></td>

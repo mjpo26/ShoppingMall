@@ -18,7 +18,28 @@ public class ReviewBoardBean {
 	private String review_file5;
 	private int review_starPoint;
 	private int review_orderNo;
+	private int review_re_ref ;
+	private int review_re_lev ;
+	private int review_re_seq ;
 	
+	public int getReview_re_ref() {
+		return review_re_ref;
+	}
+	public void setReview_re_ref(int review_re_ref) {
+		this.review_re_ref = review_re_ref;
+	}
+	public int getReview_re_lev() {
+		return review_re_lev;
+	}
+	public void setReview_re_lev(int review_re_lev) {
+		this.review_re_lev = review_re_lev;
+	}
+	public int getReview_re_seq() {
+		return review_re_seq;
+	}
+	public void setReview_re_seq(int review_re_seq) {
+		this.review_re_seq = review_re_seq;
+	}
 	public int getReview_num() {
 		return review_num;
 	}

@@ -35,17 +35,17 @@ public class OrderListDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String order_item_option_color=ob.getOrder_item_option_color();
+		String order_member_id=ob.getOrder_member_id();
 
 		try {
-			String sql = "SELECT COUNT(*) FROM item_order where order_item_option_color=?";
+			String sql = "SELECT COUNT(*) FROM item_order where order_member_id=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, order_item_option_color);  //제목  
+			pstmt.setString(1, order_member_id);  //제목  
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 				listCount = rs.getInt(1);
-				System.out.println("색깔은"+ob.getOrder_item_option_color()+"갯수는"+listCount);
+				System.out.println("작성자는"+ob.getOrder_member_id()+"갯수는"+listCount);
 			}
 
 		} catch (SQLException e) {
@@ -100,7 +100,6 @@ public class OrderListDAO {
 				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 				listBean.setOrder_payment(rs.getString("order_payment"));
 				listBean.setOrder_memo(rs.getString("order_memo"));
-				listBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 				articleList.add(listBean);
 			}
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + articleList);
