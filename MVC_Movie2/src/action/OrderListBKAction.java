@@ -27,9 +27,9 @@ public class OrderListBKAction implements Action {
 	        }
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
-<<<<<<< HEAD
+
 	        ob.setOrder_member_id("admin");
-=======
+
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
 	        // 기간검색
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
@@ -38,7 +38,7 @@ public class OrderListBKAction implements Action {
 	        // 결제상태
 	        ob.setOrder_payment(request.getParameter("payment"));//  결제상태
 	        // 회원구분
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
+
 	        ob.setPage(page);
 	        ob.setLimit(limit);
 	        
