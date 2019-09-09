@@ -102,12 +102,12 @@ table {
 				</tr>
 				<tr>
 					<td class="td_left"><label for="review_subject">별점</label></td>
-					<td class="td_right">
-					    <input type="radio" name="review_starPoint" value="1">1
-						<input type="radio" name="review_starPoint" value="2">2 
-						<input type="radio" name="review_starPoint" value="3">3 
-						<input type="radio" name="review_starPoint" value="4">4
-					    <input type="radio" name="review_starPoint" value="5">5</td>
+					<td class="td_right"><input type="radio"
+						name="review_starPoint" value="1">1 <input type="radio"
+						name="review_starPoint" value="2">2 <input type="radio"
+						name="review_starPoint" value="3">3 <input type="radio"
+						name="review_starPoint" value="4">4 <input type="radio"
+						name="review_starPoint" value="5">5</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="review_file1">이미지</label></td>

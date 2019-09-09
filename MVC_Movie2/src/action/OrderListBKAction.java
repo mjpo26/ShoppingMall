@@ -27,7 +27,7 @@ public class OrderListBKAction implements Action {
 	        }
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
-	        ob.setOrder_item_option_color("black");
+	        ob.setOrder_member_id("admin");
 	        ob.setPage(page);
 	        ob.setLimit(limit);
 	        

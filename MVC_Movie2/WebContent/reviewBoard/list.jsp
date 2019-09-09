@@ -68,7 +68,7 @@ a {
 </head>
 <body>
 	<section id="listForm">
-		<h2>글 목록</h2>
+		<h2>리뷰게시판목록</h2>
 		<table>
 			<%
 				if (articleList != null & listCount > 0) {
@@ -88,10 +88,22 @@ a {
 				<td align="center"><%=articleList.get(i).getReview_num()%></td>
 				<td align="center"><img
 					src="../image/<%=articleList.get(i).getReview_file1()%>"></td>
-				<td><a
+				<td>
+					<%
+						if (articleList.get(i).getReview_re_lev() != 0) {
+					%> <%
+ 	for (int j = 0; j <= articleList.get(i).getReview_re_lev() * 2; j++) {
+ %> &nbsp; <%
+ 	}
+ %>▶ <%
+ 	} else {
+ %> ▶ <%
+ 	}
+ %> <a
 					href="ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>">
 						<%=articleList.get(i).getReview_subject()%>
-				</a></td>
+				</a>
+				</td>
 				<td align="center"><%=articleList.get(i).getReview_writer()%></td>
 				<td align="center"><%=articleList.get(i).getReview_date()%></td>
 				<td align="center"><%=articleList.get(i).getReview_readcount()%></td>
