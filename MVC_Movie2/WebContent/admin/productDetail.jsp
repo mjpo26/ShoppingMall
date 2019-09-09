@@ -157,7 +157,7 @@
               <tbody>
                 <tr>
                   <td>
-                    <h5>Width</h5>
+                    <h5>너비</h5>
                   </td>
                   <td>
                     <h5>128mm</h5>
@@ -165,7 +165,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h5>Height</h5>
+                    <h5>높이</h5>
                   </td>
                   <td>
                     <h5>508mm</h5>
@@ -173,7 +173,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h5>Depth</h5>
+                    <h5>깊이</h5>
                   </td>
                   <td>
                     <h5>85mm</h5>
@@ -181,7 +181,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h5>Weight</h5>
+                    <h5>무게</h5>
                   </td>
                   <td>
                     <h5>52gm</h5>
@@ -189,10 +189,10 @@
                 </tr>
                 <tr>
                   <td>
-                    <h5>Quality checking</h5>
+                    <h5>품질 검사</h5>
                   </td>
                   <td>
-                    <h5>yes</h5>
+                    <h5>완료</h5>
                   </td>
                 </tr>
                 <tr>

@@ -5455,6 +5455,28 @@ ul {
   padding: 5px;
 }
 
+
+.s_product_text .item_head{
+    position: relative;    	
+    overflow: hidden;
+
+}
+
+.s_product_text .item_head h5{
+    float: left;
+    
+}
+
+.s_product_text .item_head .admin_btn{
+    float: right;
+    margin: 0 10px;
+        
+}
+
+
+
+
+
 /* line 1988, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .card_area {
   border-top: 1px solid #dddddd;
@@ -5483,6 +5505,32 @@ ul {
   width: 60px;
 }
 
+/* line 2032, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
+.s_product_text .product_buying{
+    margin-top: 10px;
+    border : none;
+}
+.product_buying .like_us {
+
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 10px 20px 0px rgba(153, 153, 153, 0.3);
+  width: 50px;
+  height: 50px;
+  line-height: 56px;
+  color: #7f7f7f;
+  text-align: center;
+}
+
+
+.product_buying .like_us:active {
+
+  background-color: #ff3368;
+  color: white;
+
+}
+
+
 @media (max-width: 576px) {
   /* line 2007, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
   .s_product_text .product_count .input-number {
@@ -5500,24 +5548,37 @@ ul {
   z-index: 365;
 }
 
-/* line 2032, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
-.s_product_text .like_us {
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 0px 10px 20px 0px rgba(153, 153, 153, 0.3);
-  width: 50px;
-  height: 50px;
-  line-height: 56px;
-  color: #7f7f7f;
-  text-align: center;
-}
 
 
 /* line 2042, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .btn_3 {
   padding: 13px 36px;
-  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+  box-shadow: 0px 10px 20px 0px rgba(153, 153, 153, 0.3) !important;
+/*   box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18); */
   border: 1px solid #ff3368;
+}
+
+.s_product_text .btn_3:hover {
+  border: none; 
+  color: #ff3368 !important;
+	
+  background-color: #fff !important;
+
+}
+.s_product_text input.btn_3.buy{
+  border: none; 
+/*   border: 1px solid #ff3368; */
+  background-color: #fff !important;
+  box-shadow: 0px 10px 20px 0px rgba(153, 153, 153, 0.3) !important;
+  color: #ff3368 !important;
+}
+
+
+.s_product_text input.btn_3.buy:hover{
+  background-color: #ff3368 !important;
+  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18) !important;
+  color: #ecfdff !important;
+
 }
 
 
