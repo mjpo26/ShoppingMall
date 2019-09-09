@@ -147,12 +147,11 @@
 				<th>주문번호</th>
 				<th>주문자</th>
 				<th>상품명</th>
-				<th>수량</th>
 				<th>색상</th>
 				<th>사이즈</th>
+				<th>수량</th>
 				<th>상품금액</th>
-				<th>할인금액</th>
-				<th>할인적용금액</th>
+				<th>판매금액</th>
 				<th>적립포인트</th>
 				<th>배송비</th>
 				<th>주문</th>
@@ -173,7 +172,6 @@
 				<th><%=articleList.get(i).getBasket_new_price()%></th>
 				<th><%=articleList.get(i).getBasket_point()%></th>
 				<th><%=articleList.get(i).getBasket_delivery_pee() %></th>
-				<th><%=articleList.get(i).getBasket_date()%></th>
 				<th><input type="button" value="주문하기"><br>
 			<input type="button" value="삭제하기"></th>
 			</tr>

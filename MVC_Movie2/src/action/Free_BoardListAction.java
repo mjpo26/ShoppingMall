@@ -34,13 +34,13 @@ public class Free_BoardListAction implements Action {
         BoardSearchBean bb = new BoardSearchBean();
         bb.setPage(page);
         bb.setLimit(limit);
-        bb.setId("admin");
+        bb.setId("%%");
         bb.setSubject("침대");
-        bb.setNum(9);
+//        bb.setNum("%%");
         
         
         
-        //
+        //A
         
         System.out.println("보드리스트 액션 왔다.");
         Free_BoardListService boardListService = new Free_BoardListService();

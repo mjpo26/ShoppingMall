@@ -101,13 +101,26 @@
 		<tr>
 
 			<td><input type="checkbox"></td>
-			<td>아이디</td>
+
 			<td>이름</td>
-			<td>주소</td>
-			<td>휴대전화</td>	
+
+			<td>아이디</td>
+
+			<td>가입일</td>
+
+			<td>휴대전화</td>
+
+			<td>나이</td>
+
+			<td>지역</td>
+
 			<td>메일수신</td>
+
 			<td>sns수신</td>
+
 			<td>메모</td>
+
+			<td>추가항목?</td>
 
 		</tr>
 

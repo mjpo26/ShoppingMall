@@ -27,9 +27,24 @@ public class OrderListBKAction implements Action {
 	        }
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
+<<<<<<< HEAD
 	        ob.setOrder_member_id("admin");
+=======
+	        ob.setOrder_item_code(request.getParameter("ItemCode"));
+	        // 기간검색
+	        ob.setOrder_item_title(request.getParameter("ItemName"));
+	        ob.setOrder_delivery_status(request.getParameter("delivery"));	// 배송상태
+	        // 결제상태
+	        ob.setOrder_pay_status(request.getParameter("payment"));	//  결제상태
+	        // 회원구분
+>>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
 	        ob.setPage(page);
 	        ob.setLimit(limit);
+	        
+	        System.out.println("ob order_item_code request체크:"+ob.getOrder_item_code());
+	        System.out.println("ob order_item_title request체크:"+ob.getOrder_item_title());
+	        System.out.println("ob order_delivery_status request체크:"+ob.getOrder_delivery_status());
+	        System.out.println("ob order_pay_status request체크:"+ob.getOrder_pay_status());
 	        
 	        OrderListService orderListService = new OrderListService();
 	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기
@@ -56,9 +71,7 @@ public class OrderListBKAction implements Action {
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);
 	        request.setAttribute("articleList", articleList);
-	        
-	                	        	        	        	       	        
-	        
+	        	                	        	        	        	       	             
 	        
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();

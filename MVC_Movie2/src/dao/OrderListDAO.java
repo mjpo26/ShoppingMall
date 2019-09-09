@@ -68,14 +68,21 @@ public class OrderListDAO {
 
 		try {
 
-			String sql = "SELECT * FROM item_order ORDER BY order_idx LIMIT ?,?";
+			String sql = "SELECT * FROM item_order where "
+			        + "order_item_code like ifnull(?,'%%') "
+			        + "and order_item_title like ifnull(?,'%%') "
+			        + "and order_delivery_status like ifnull(?,'%%') "
+			        + "and order_pay_status like ifnull(?,'%%') "
+			        + "ORDER BY order_item_code LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
-			//pstmt.setInt(1, startRow);
-			//pstmt.setInt(2, ob.getLimit());
 //			pstmt.setString(1, ob.getOrder_item_option_color());
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, ob.getLimit());
+			pstmt.setString(1, ob.getOrder_item_code());
+			pstmt.setString(2, ob.getOrder_item_title());
+			pstmt.setString(3, ob.getOrder_delivery_status());
+			pstmt.setString(4, ob.getOrder_pay_status());
+			pstmt.setInt(5, startRow);
+			pstmt.setInt(6, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			
@@ -93,7 +100,7 @@ public class OrderListDAO {
 				listBean.setOrder_memo(rs.getString("order_memo"));
 				articleList.add(listBean);
 			}
-
+			System.out.println("OrderDAO: orderList 담긴거 확인:" + articleList);
 		} catch (SQLException e) {
 			System.out.println("selectArticleList() 에러 - " + e.getMessage());
 		} finally {

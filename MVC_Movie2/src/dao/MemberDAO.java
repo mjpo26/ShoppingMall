@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import vo.Admin_MemberSearchBean;
 import vo.Free_BoardBean;
 import vo.MemberBean;
 import vo.OrderListBean;
@@ -378,8 +379,7 @@ public class MemberDAO {
 
 		return memberList;
 	}
-    
-    
+  
     
 }
 

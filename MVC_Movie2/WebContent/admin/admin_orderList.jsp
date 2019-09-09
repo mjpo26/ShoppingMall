@@ -16,6 +16,9 @@
 </head>
 <body>
 	<header> </header>
+	
+	<form action ="./orderList.ol"  name ="fr" method="post">
+	
 	<table border="1">
 		<tr>
 			<th colspan='4'>주문관리전체주문목록</th>
@@ -24,7 +27,7 @@
 		<tr>
 			<th>검색어</th>
 			<td colspan='3'><select><option>주문번호</select> <input
-				type="text" size="12"></td>
+				type="text" size="12" name="ItemCode"></td>
 		</tr>
 
 		<tr>
@@ -40,39 +43,48 @@
 		<tr>
 			<th>상품 검색</th>
 			<td colspan='3'><select><option>상품명</option>
-					<option>주문자</option></select> <input type="text" size="20"><input
-				type="button" value="검색"></td>
+					<option>주문자</option></select> 
+					<input type="text" size="20" name="ItemName">
 		</tr>
 
 		<tr>
 			<th>배송상태</th>
-			<td colspan='3'><input type="checkbox">전체 <input
-				type="checkbox">배송준비중 <input type="checkbox">배송대기 <input
-				type="checkbox">배송중 <input type="checkbox">배송완료
+			<td colspan='3'><input type="checkbox" name="delivery">전체 <input
+				type="checkbox" name="delivery">배송준비중 
+				<input type="checkbox" name="delivery">배송대기 
+				<input type="checkbox" name="delivery">배송중 
+				<input type="checkbox" name="delivery">배송완료
 		</tr>
 
 		<tr>
 			<th>주문상태</th>
-			<td colspan='3'><input type="checkbox">전체 <input
-				type="checkbox">정상 <input type="checkbox">교환 <input
-				type="checkbox">취소 <input type="checkbox">교환 <input
-				type="checkbox">반품 <input type="checkbox">환불
+			<td colspan='3'><input type="checkbox" name="order">전체 
+			<input type="checkbox" name="order">정상
+			<input type="checkbox" name="order">교환 
+			<input type="checkbox" name="order">취소
+		    <input type="checkbox" name="order">교환 
+			<input type="checkbox" name="order">반품 
+	        <input type="checkbox" name="order">환불
 		</tr>
 
 		<tr>
 			<th>결제상태</th>
-			<td><input type="checkbox">전체 <input type="checkbox">입금전
-				<input type="checkbox">입금완료 <input type="checkbox">결제완료
+			<td><input type="checkbox" name="payment">전체 
+			<input type="checkbox" name="payment">입금전
+			<input type="checkbox" name="payment">입금완료 
+			<input type="checkbox" name="payment">결제완료
 			</td>
 			<th>회원구분</th>
-			<td><input type="checkbox">전체 <input type="checkbox">회원
-				<input type="checkbox">비회원</td>
+			<td><input type="checkbox" name="member">전체 
+			<input type="checkbox" name="member">회원
+			<input type="checkbox" name="member">비회원</td>
 		</tr>
 	</table>
 
-	<input type="button" value="검색">
+	<input type="submit" value="검색">
 
 	<input type="reset" value="초기화">
+	</form>
 	<br>
 	<br>
 
