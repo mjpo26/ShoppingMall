@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 import vo.Admin_DeliveryListBean;
+import vo.Admin_DeliverySearchBean;
 
 import static db.JdbcUtil.*;
 
@@ -34,7 +35,7 @@ public class DeliveryDAO {
         this.con = con;
     }
 
-    public int getDeliveryCount(Admin_DeliveryListBean adb) {
+    public int getDeliveryCount(Admin_DeliverySearchBean adb) {
     	int listCount = 0;
     	PreparedStatement pstmt = null;
     	ResultSet rs = null;
@@ -64,7 +65,7 @@ public class DeliveryDAO {
       
     
     //어드민 회원리스트 조회
-    public ArrayList<Admin_DeliveryListBean> selectDelivery(Admin_DeliveryListBean adb) {
+    public ArrayList<Admin_DeliveryListBean> selectDelivery(Admin_DeliverySearchBean adb) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 

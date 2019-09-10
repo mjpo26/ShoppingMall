@@ -10,14 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.Admin_DeliveryListAction;
-import action.Admin_memberListAction;
-import action.OrderListBKAction;
-import action.ReviewBoardListAction;
+import action.AdminBoardListAction;
 import vo.ActionForward;
 
-@WebServlet("*.dl")
-public class Admin_DeliveryListController extends HttpServlet {
+@WebServlet("*.abl")
+public class AdminBoardListController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -26,9 +23,9 @@ public class Admin_DeliveryListController extends HttpServlet {
 		String command = request.getServletPath();
 		Action action = null;
 		ActionForward forward = null;
-		if (command.equals("/DeliveryList.dl")) {
-			System.out.println("Admin_DeliveryList controller 들어옴");
-			action = new Admin_DeliveryListAction();
+		if (command.equals("/AdminBoardList.abl")) {
+			System.out.println("adminBoardList controller 들어옴");
+			action = new AdminBoardListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -46,7 +43,6 @@ public class Admin_DeliveryListController extends HttpServlet {
 		}
 	}
 
-	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

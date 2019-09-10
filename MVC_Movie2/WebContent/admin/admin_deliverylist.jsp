@@ -14,10 +14,12 @@
     int startPage = pageInfo.getStartPage();
     int endPage = pageInfo.getEndPage();
     int maxPage = pageInfo.getMaxPage();
+    
     // 세션 아이디 가져오기
-//    String sId = (String) session.getAttribute("sId");
+    String sId = (String) session.getAttribute("sId");
     // 만약, 회원만 게시판 목록 조회가 가능할 경우
     // 세션 아이디 없으면 Main.bo 로 이동
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +29,7 @@
 </head>
 <body>
 
-	<form action="./Admin_DeliveryList.dl" name="fr" method="get">
+	<form action="./DeliveryList.dl" name="fr" method="get">
 	
 	<table border="1">
 
@@ -69,10 +71,10 @@
 
 			<th>검색어</th>
 
-				<td><label>Id검색</label>
+				<td><label>주문번호 검색</label>
 				<input type="text" size="10" name="delivery_code"></td>
 				
-				<td><label>이름 검색</label>
+				<td><label>주문자 검색</label>
 				<input type="text" size="10" name="delivery_member"></td>
 
 		</tr>
@@ -103,18 +105,16 @@
 		</tr>
 		<tr>
 		<th>입금 상태</th><td>
-		<input type="radio" name="delivery_price" value="전체">전체
-		<input type="radio" name="delivery_price" value="입금전">입금전
-		<input type="radio" name="delivery_price" value="입금완료(수동)">입금완료(수동)
-		<input type="radio" name="delivery_price" value="입금완료(자동)">입금완료(자동)</td>
+		<input type="radio" name="delivery_ok" value="전체">전체
+		<input type="radio" name="delivery_ok" value="입금전">입금전
+		<input type="radio" name="delivery_ok" value="입금완료(수동)">입금완료(수동)
+		<input type="radio" name="delivery_ok" value="입금완료(자동)">입금완료(자동)</td>
 		
-		<td>입금은행</td>
-		<td><select id="delivery_bank">
-		<option value="전체">전체</option>
-		<option value="부산은행">부산은행</option>
-		<option value="농협은행">농협은행</option>
-		<option value="국민은행">국민은행</option>
-		</select>
+		<th>입금은행</th><td>
+		<input type="radio" name="delivery_bank" value="전체">전체
+		<input type="radio" name="delivery_bank" value="부산은행">부산은행
+		<input type="radio" name="delivery_bank" value="농협은행">농협은행
+		<input type="radio" name="delivery_bank" value="국민은행">국민은행</td>
 <tr>
 </tr>
 
@@ -157,7 +157,7 @@
 		</tr>
 
 		<tr>
-
+			<th>체크</th>
 			<th>주문일</th>
 
 			<th>주문번호</th>
@@ -188,9 +188,8 @@
 			<th><%=deliveryList.get(i).getDelivery_member_id()%></th>
 			<th><%=deliveryList.get(i).getDelivery_sel_price()%></th>
 			<th><%=deliveryList.get(i).getDelivery_bank()%></th>
-			<th><%=deliveryList.get(i).getDelivery_date()%></th>
+			<th><%=deliveryList.get(i).getDelivery_ok()%></th>
 			<th><%=deliveryList.get(i).getDelivery_memo()%></th>
-			<th>
 			
 		</tr>
 		<%
@@ -208,7 +207,7 @@
 			<%
 				} else {
 			%>
-			<a href="orderList.ol?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+			<a href="deliveryList.dl?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
 			<%
 				}
 			%>

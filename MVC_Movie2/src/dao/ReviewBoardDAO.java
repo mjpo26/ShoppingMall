@@ -290,7 +290,7 @@ public class ReviewBoardDAO {
 	        
 	        try {
 	            // 현재 게시물에서 가장 큰 번호 조회
-	            String sql = "SELECT MAX(Review_num) FROM Review_Board";
+	            String sql = "SELECT MAX(review_num) FROM Review_Board";
 	            pstmt = con.prepareStatement(sql);
 	            rs = pstmt.executeQuery();
 	            
