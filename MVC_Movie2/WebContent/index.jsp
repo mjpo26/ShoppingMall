@@ -37,6 +37,7 @@
 		<a href="QnA_BoardWriteForm.qa"><input type="button" value="QnA_글쓰기"></a> 
 		
 		<h3><a href="BasketList.bl">카트Test</a></h3>
+		<h3><a href="./admin/admin_deliverylist.jsp">배송Test</a></h3>
 </body>
 </html>
 
