@@ -92,8 +92,8 @@ public class MemberListDAO {
 			        + "and member_phone like ifnull(?,'%%') "
 			        + "and member_sms_ok like ifnull(?,'%%') "
 			        + "and  member_email_ok like ifnull(?,'%%')"
-			        + "and joinDate >= ifnull(?,'01/01/2018')"
-			    	+ "and joinDate <= ifnull(?,'01/01/2022')"
+			        + "and joinDate >= ?"
+			    	+ "and joinDate <=?"
 			        + "ORDER BY member_id LIMIT ?,?";
 			
 

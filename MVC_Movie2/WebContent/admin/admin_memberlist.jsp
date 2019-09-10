@@ -60,18 +60,17 @@
 
 <script type = "text/javascript">
 function pickNullCheck(){
-	if(document.fr.pickStart.value==""){
-// 		document.fr.pickStart.value=="2015-01-01";
-		var pickStart = $('#pickStart').val('2015-01-01');
-		alert("널 들왔네");
-		
-		return true;
+	if(document.fr1.pickStart.value==""){
+//		document.fr1.pickStart.value=="2015-01-01";
+		var pickStart = $('#pickStart').val('01/01/2010');
+
+		return false;
 	}
-	if(document.fr.pickEnd.value==""){
-// 		document.fr.pickEnd.value=="2020-01-01";
-		var pickEnd =  $('#pickEnd').val('2020-01-01');
-		alert("널 들왔네");
-		return true;
+	if(document.fr1.pickEnd.value==""){
+ 	//	document.fr1.pickEnd.value=="2020-01-01";
+		var pickEnd =  $('#pickEnd').val('01/01/2020');
+	
+		return false;
 	}
 	
 	//
@@ -89,7 +88,7 @@ function pickNullCheck(){
 </head>
 <body>
 
-	<form action="./Admin_memberList.am" name="fr" method="post" onsubmit="return pickNullCheck()">
+	<form action="./Admin_memberList.am" name="fr1" method="post" onsubmit="return pickNullCheck()">
 
 		<table border="1">
 			<tr>
