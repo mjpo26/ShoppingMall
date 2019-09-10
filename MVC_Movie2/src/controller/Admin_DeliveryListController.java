@@ -26,7 +26,7 @@ public class Admin_DeliveryListController extends HttpServlet {
 		String command = request.getServletPath();
 		Action action = null;
 		ActionForward forward = null;
-		if (command.equals("/Admin_DeliveryList.dl")) {
+		if (command.equals("/DeliveryList.dl")) {
 			System.out.println("Admin_DeliveryList controller 들어옴");
 			action = new Admin_DeliveryListAction();
 			try {

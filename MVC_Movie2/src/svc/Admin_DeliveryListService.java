@@ -11,12 +11,12 @@ import dao.MemberDAO;
 import dao.MemberListDAO;
 import dao.OrderListDAO;
 import vo.Admin_DeliveryListBean;
-import vo.Admin_MemberSearchBean;
+import vo.Admin_DeliverySearchBean;
 import vo.MemberBean;
 import vo.OrderListBean;
 
 public class Admin_DeliveryListService {
-	  public int getListCount(Admin_DeliveryListBean adb) throws Exception {
+	  public int getListCount(Admin_DeliverySearchBean adb) throws Exception {
 	        int listCount = 0; 
 	      
 	        Connection con = getConnection();	        
@@ -29,7 +29,7 @@ public class Admin_DeliveryListService {
 	        return listCount;
 	    }
 
-	    public ArrayList<Admin_DeliveryListBean> getDeliveryList(Admin_DeliveryListBean adb) throws Exception {
+	    public ArrayList<Admin_DeliveryListBean> getDeliveryList(Admin_DeliverySearchBean adb) throws Exception {
 	        ArrayList<Admin_DeliveryListBean> deliveryList = null;
 	        
 	        Connection con = getConnection();	        

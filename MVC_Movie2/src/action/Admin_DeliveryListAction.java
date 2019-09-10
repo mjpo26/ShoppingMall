@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import svc.Admin_DeliveryListService;
 import vo.ActionForward;
 import vo.Admin_DeliveryListBean;
+import vo.Admin_DeliverySearchBean;
 import vo.PageInfo;
 
 
@@ -26,11 +27,12 @@ public class Admin_DeliveryListAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 	        
-	        Admin_DeliveryListBean adb = new Admin_DeliveryListBean();
+	        
+	        Admin_DeliverySearchBean adb = new Admin_DeliverySearchBean();
             adb.setDelivery_code(request.getParameter("delivery_code"));
             adb.setDelivery_title(request.getParameter("delivery_title"));
             adb.setDelivery_member_id(request.getParameter("delivery_member"));
-	        adb.setDelivery_sel_price(request.getParameter("delivery_price"));
+	        adb.setDelivery_ok(request.getParameter("delivery_ok"));
             adb.setDelivery_bank(request.getParameter("delivery_bank"));
 	        adb.setPage(page);
 	        adb.setLimit(limit);     
@@ -40,7 +42,7 @@ public class Admin_DeliveryListAction implements Action {
 	        System.out.println("adb code request체크 :"+adb.getDelivery_code());
 	        System.out.println("adb title request체크 :"+adb.getDelivery_title());
 	        System.out.println("adb member request체크 :"+adb.getDelivery_member_id());
-	        System.out.println("adb price request체크 :"+adb.getDelivery_sel_price());
+	        System.out.println("adb ok request체크 :"+adb.getDelivery_ok());
 	        System.out.println("adb bank request체크: "+adb.getDelivery_bank());
 	        
 	        Admin_DeliveryListService Admin_DeliveryListService = new Admin_DeliveryListService();
@@ -68,7 +70,7 @@ public class Admin_DeliveryListAction implements Action {
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);
-	        request.setAttribute("DeliveryList", deliveryList);
+	        request.setAttribute("deliveryList", deliveryList);
 	        
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();

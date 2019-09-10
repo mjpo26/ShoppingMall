@@ -2,7 +2,7 @@ package vo;
 
 import java.sql.Date;
 
-public class Admin_DeliveryListBean {
+public class Admin_DeliverySearchBean {
 	
 	private int delivery_idx;
 	private Date delivery_date;
@@ -13,6 +13,21 @@ public class Admin_DeliveryListBean {
 	private String delivery_bank;
 	private String delivery_ok;
 	private String delivery_memo;
+	private int page;
+	private int limit;
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
+	public int getLimit() {
+		return limit;
+	}
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
 	
 	public String getDelivery_memo() {
 		return delivery_memo;
