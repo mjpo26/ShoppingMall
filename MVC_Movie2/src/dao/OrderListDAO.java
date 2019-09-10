@@ -94,8 +94,8 @@ public class OrderListDAO {
 				OrderListBean listBean = new OrderListBean();
 				listBean.setOrder_date(rs.getDate("order_date"));
 				listBean.setOrder_idx(rs.getInt("order_idx"));
-				listBean.setOrder_member_id(rs.getString("order_member_id"));
 				listBean.setOrder_item_title(rs.getString("order_item_title"));
+				listBean.setOrder_member_id(rs.getString("order_member_id"));
 				listBean.setOrder_pay_status(rs.getString("order_pay_status"));
 				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 				listBean.setOrder_payment(rs.getString("order_payment"));

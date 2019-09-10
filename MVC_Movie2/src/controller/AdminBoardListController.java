@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.Admin_memberListAction;
-import action.adminBoardListAction;
+import action.AdminBoardListAction;
 import vo.ActionForward;
 
 @WebServlet("*.abl")
@@ -26,7 +25,7 @@ public class AdminBoardListController extends HttpServlet {
 		ActionForward forward = null;
 		if (command.equals("/AdminBoardList.abl")) {
 			System.out.println("adminBoardList controller 들어옴");
-			action = new adminBoardListAction();
+			action = new AdminBoardListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

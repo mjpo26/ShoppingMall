@@ -44,16 +44,7 @@ public class MemberListDAO {
     	ResultSet rs = null;
     	
     	String member_sms_ok = ams.getMember_sms_ok();
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+    	  	
     	String sql = "SELECT COUNT(*) FROM member where member_sms_ok=?";
     	try {
 			pstmt = con.prepareStatement(sql);
@@ -87,8 +78,6 @@ public class MemberListDAO {
 		int startRow = (ams.getPage() - 1) * 10; 
 		
 		try {
-			
-			
 			
 			
 //setInt 처리하는거는 나중에 시간나면 하면 된다.

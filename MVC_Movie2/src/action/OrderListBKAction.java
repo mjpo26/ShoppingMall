@@ -5,19 +5,18 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.Admin_memberListService;
+import svc.OrderListService;
 import vo.ActionForward;
-import vo.Admin_MemberSearchBean;
-import vo.Admin_memberPageInfo;
-import vo.MemberBean;
-import vo.ReviewBoardBean;
+import vo.PageInfo;
+import vo.OrderListBean;
+import vo.OrderSearchBean;
 
-public class adminBoardListAction implements Action {
+public class OrderListBKAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		  ArrayList<ReviewBoardBean> memberList = new ArrayList<ReviewBoardBean>();
-	        System.out.println("adminBoardListAction 실행됨");
+		  ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+	        System.out.println("OrderListBKAction실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 10; // 한 페이지 당 표시할 게시물 수
@@ -27,20 +26,30 @@ public class adminBoardListAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 	        
-	        ReviewBoardBean rbb = new ReviewBoardBean();
-            rbb.setReview_writer(request.getParameter("review_writer"));
-	        
-	        
-//	        System.out.println("rbb id request체크 :"+rbb.getMember_id());
-//	        
-//	        System.out.println("rbb 폰 request체크 :"+rbb.getMember_phone());
-//	        System.out.println("rbb sms request체크 :"+rbb.getMember_sms_ok());
-//	        System.out.println("rbb email request체크 :"+rbb.getMember_email_ok());
-	        
-	        Admin_memberListService Admin_memberListService = new Admin_memberListService();
-	        int listCount = Admin_memberListService.getListCount(rbb); // 전체 게시물 수 가져오기
+	        OrderSearchBean ob = new OrderSearchBean();
 
-	        memberList = Admin_memberListService.getArticleList(rbb); // 전체 게시물 목록 가져오기(10개 한정)
+	        ob.setOrder_item_code(request.getParameter("ItemCode"));
+	        // 기간검색
+	        ob.setOrder_item_title(request.getParameter("ItemName"));
+	        ob.setOrder_member_id(request.getParameter("Buyer"));
+	        ob.setOrder_pay_status(request.getParameter("pay"));
+	        // 결제상태
+	        ob.setOrder_payment(request.getParameter("payment"));//  결제상태
+	        // 회원구분
+
+	        ob.setPage(page);
+	        ob.setLimit(limit);
+	        
+	        System.out.println("ob order_item_code request체크:"+ob.getOrder_item_code());
+	        System.out.println("ob order_item_title request체크:"+ob.getOrder_item_title());
+	        System.out.println("ob order_member_id request체크:"+ob.getOrder_member_id());
+	        System.out.println("ob order_pay_status request체크:"+ob.getOrder_pay_status());
+	        System.out.println("ob order_payment request체크:"+ob.getOrder_payment());
+	        
+	        OrderListService orderListService = new OrderListService();
+	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기
+
+	        articleList = orderListService.getArticleList(ob); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
 	        int maxPage = (int)((double)listCount / limit + 0.95);
@@ -56,20 +65,19 @@ public class adminBoardListAction implements Action {
 	            endPage = maxPage;
 	        }
 	        
-	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-	        Admin_memberPageInfo pageInfo = new Admin_memberPageInfo(page, maxPage, startPage, endPage, listCount);
+	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);
-	        request.setAttribute("memberList", memberList);
+	        request.setAttribute("articleList", articleList);
+	        	                	        	        	        	       	             
 	        
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
-	        forward.setPath("/admin/admin_memberlist.jsp");
+	        forward.setPath("/admin/admin_orderList.jsp");
 	        
 	        return forward;
 		}
-
 }

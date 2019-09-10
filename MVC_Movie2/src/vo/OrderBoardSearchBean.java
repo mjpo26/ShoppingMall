@@ -2,8 +2,8 @@ package vo;
 
 import java.sql.Date;
 
-public class OrderSearchBean {
-
+public class OrderBoardSearchBean {
+	
    private int order_idx ;
    private String order_item_code ;
    private String order_item_title ;
@@ -20,21 +20,7 @@ public class OrderSearchBean {
    private String order_payment ;
    private String order_memo;
    private Date order_date;
-   private int page;
-   private int limit;
-   private String order_member_id;
-  
-   public String getOrder_member_id() {
-	   
-	   if(order_member_id == "") {
-		   order_member_id = null;
-	   }
-	return order_member_id;
-}
-public void setOrder_member_id(String order_member_id) {
-	this.order_member_id = order_member_id;
-}
-
+   
 public int getOrder_idx() {
     return order_idx;
 }
@@ -42,26 +28,14 @@ public void setOrder_idx(int order_idx) {
     this.order_idx = order_idx;
 }
 public String getOrder_item_code() {
-	
-	if(order_item_code == "") {
-		order_item_code = null;
-	}
-	
     return order_item_code;
 }
-
 public void setOrder_item_code(String order_item_code) {
     this.order_item_code = order_item_code;
 }
 public String getOrder_item_title() {
-	
-	if(order_item_title == "") {
-		order_item_title = null;
-	}
-	
     return order_item_title;
 }
-
 public void setOrder_item_title(String order_item_title) {
     this.order_item_title = order_item_title;
 }
@@ -143,18 +117,8 @@ public Date getOrder_date() {
 public void setOrder_date(Date order_date) {
     this.order_date = order_date;
 }
-public int getPage() {
-	return page;
-}
-public void setPage(int page) {
-	this.page = page;
-}
-public int getLimit() {
-	return limit;
-}
-public void setLimit(int limit) {
-	this.limit = limit;
-}
     
+    
+   
    
 }
