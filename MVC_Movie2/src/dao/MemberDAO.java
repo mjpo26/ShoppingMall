@@ -106,7 +106,10 @@ public class MemberDAO {
                 + "member_used_point,"
                 + "member_postcode1,"
                 + "member_address_x1,"
-                + "member_address_y1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "member_address_y1,"
+                + "pickStart,"
+                + "joinDate,"
+                + "pickEnd ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),?)";
         
         try {
             pstmt = con.prepareStatement(sql);
@@ -126,6 +129,8 @@ public class MemberDAO {
             pstmt.setString(14, memberBean.getMember_postcode1());
             pstmt.setString(15, memberBean.getMember_address_x1());
             pstmt.setString(16, memberBean.getMember_address_y1());
+            pstmt.setDate(17, memberBean.getPickStart());
+            pstmt.setDate(18, memberBean.getPickEnd());
                  
             
             insertCount = pstmt.executeUpdate();

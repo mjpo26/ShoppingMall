@@ -4,17 +4,7 @@
 	
 	String sId = (String)session.getAttribute("sId");
 %>
-<%if(sId != null) {
-	if(!sId.equals("admin")){
-	%><script>
-	alert("관리자 아님꼬죵");
-	history.back();
-	</script>
-	<%} else{ %>
-			<a href="MemberInfo.me"><%=sId %>님</a> | <a href="MemberLogoutPro.me">로그아웃</a> 
-		<%}} else { %>	
-			<a href="MemberLoginForm.me">로그인</a> 
-		<%} %>  
+
 <!DOCTYPE html>
 <html>
 <head>

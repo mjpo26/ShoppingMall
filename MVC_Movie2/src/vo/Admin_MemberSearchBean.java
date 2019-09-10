@@ -1,5 +1,7 @@
 package vo;
 
+import java.sql.Date;
+
 public class Admin_MemberSearchBean {
 	
 	private String member_id;
@@ -8,6 +10,24 @@ public class Admin_MemberSearchBean {
     private String member_sms_ok;
 	private String member_email_ok;
 	
+	private Date pickStart;
+	private Date pickEnd;
+	
+	public Date getPickStart() {
+		
+		return pickStart;
+	}
+	public void setPickStart(Date pickStart) {
+		
+		this.pickStart = pickStart;
+	}
+	public Date getPickEnd() {
+		
+		return pickEnd;
+	}
+	public void setPickEnd(Date pickEnd) {
+		this.pickEnd = pickEnd;
+	}
 	private int page;
 	private int limit;
 	
