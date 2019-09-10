@@ -1,6 +1,7 @@
 package action;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,7 +42,6 @@ public class Admin_memberListAction implements Action {
             
             if(request.getParameter("pickStart") !=null) {
     	        String pickStart = request.getParameter("pickStart");
-    	        System.out.println(request.getParameter("pickStart"));
                SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
               java.util.Date tempDate = null;
@@ -55,13 +55,14 @@ public class Admin_memberListAction implements Action {
               Date start = Date.valueOf(transDate);
               
               ams.setPickStart(start);
-              System.out.println("시작"+ start);
+              System.out.println("시작 이다"+ start);
 
+            }else {
+            	ams.setPickStart(Date.valueOf("2010-01-01"));
             }
             
             if(request.getParameter("pickEnd")!=null) {
     	        String pickEnd = request.getParameter("pickEnd");
-    	        System.out.println(request.getParameter("pickEnd"));
                SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
               java.util.Date tempDate = null;
@@ -74,7 +75,9 @@ public class Admin_memberListAction implements Action {
               String transDate = afterFormat.format(tempDate);
               Date end = Date.valueOf(transDate);
               ams.setPickEnd(end);
-              System.out.println("끝"+ end);
+              System.out.println("끝 이다"+ end);
+            }else {
+            	ams.setPickEnd(Date.valueOf("2020-01-01"));
             }
 
 //                        
@@ -82,23 +85,14 @@ public class Admin_memberListAction implements Action {
             //스트링을 date로 변환해야된다 ;;
 
 
-            
-            
-
-     
-            
-            
-          
             ams.setPage(page);
 	        ams.setLimit(limit);
 
-	        ams.setPage(page);
-	        ams.setLimit(limit);     
 	        
 
 	        
-	        System.out.println("시작String"+ams.getPickStart());
-	        System.out.println("시작End"+ams.getPickEnd());
+	        System.out.println("시작"+ams.getPickStart());
+	        System.out.println("끝"+ams.getPickEnd());
 	        System.out.println("ams id request체크 :"+ams.getMember_id());
 	        System.out.println("ams 폰 request체크 :"+ams.getMember_phone());
 	        System.out.println("ams sms request체크 :"+ams.getMember_sms_ok());

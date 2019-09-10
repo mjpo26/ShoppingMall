@@ -10,13 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.Admin_memberListAction;
-import action.OrderListAction;
-import action.ReviewBoardListAction;
+import action.AdminBoardListAction;
 import vo.ActionForward;
 
-@WebServlet("*.am")
-public class Admin_memberListController extends HttpServlet {
+@WebServlet("*.abl")
+public class AdminBoardListController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -25,9 +23,9 @@ public class Admin_memberListController extends HttpServlet {
 		String command = request.getServletPath();
 		Action action = null;
 		ActionForward forward = null;
-		if (command.equals("/Admin_memberList.am")) {
-			System.out.println("Admin_memberList controller 들어옴");
-			action = new Admin_memberListAction();
+		if (command.equals("/AdminBoardList.abl")) {
+			System.out.println("adminBoardList controller 들어옴");
+			action = new AdminBoardListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
