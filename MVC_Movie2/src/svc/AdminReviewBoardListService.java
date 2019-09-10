@@ -6,20 +6,20 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.BoardListDAO;
+import dao.ReviewBoardListDAO;
 import dao.MemberListDAO;
 import vo.AdminBoardSearchBean;
 import vo.MemberBean;
 import vo.ReviewBoardBean;
 
-public class AdminBoardListService {
+public class AdminReviewBoardListService {
 
 	public int getListCount(AdminBoardSearchBean abb) throws Exception {
         int listCount = 0; 
 	      
         Connection con = getConnection();
         
-        BoardListDAO BDAO = BoardListDAO.getInstance();
+        ReviewBoardListDAO BDAO = ReviewBoardListDAO.getInstance();
         BDAO.setConnection(con);
         
         listCount = BDAO.getBoardCount(abb);
@@ -32,10 +32,10 @@ public class AdminBoardListService {
         ArrayList<ReviewBoardBean> articleList = null;
         
         Connection con = getConnection();  
-        BoardListDAO BDAO = BoardListDAO.getInstance();
+        ReviewBoardListDAO BDAO = ReviewBoardListDAO.getInstance();
         BDAO.setConnection(con);
         
-        articleList = BDAO.selectMemberList(abb);
+        articleList = BDAO.selectBoardList(abb);
         
         close(con);
         System.out.println("Admin_memberListService의  ArrayList<MemberBean> 실행됨");

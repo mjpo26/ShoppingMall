@@ -12,18 +12,18 @@ import vo.AdminBoardSearchBean;
 import vo.MemberBean;
 import vo.ReviewBoardBean;
 
-public class BoardListDAO {
+public class ReviewBoardListDAO {
 	// -----------------------------------------------------
 	// DAO 인스턴스 생성 관리를 위한 싱글톤 디자인 패턴
-	private static BoardListDAO instance;
+	private static ReviewBoardListDAO instance;
 
-	private BoardListDAO() {
+	private ReviewBoardListDAO() {
 	}
 
-	public static BoardListDAO getInstance() {
+	public static ReviewBoardListDAO getInstance() {
 		// 기존의 MemberDAO 인스턴스가 없을 경우에만 인스턴스를 새로 생성
 		if (instance == null) {
-			instance = new BoardListDAO();
+			instance = new ReviewBoardListDAO();
 		}
 
 		return instance;
@@ -65,7 +65,7 @@ public class BoardListDAO {
 	}
 
 	// 어드민 보드리스트 조회
-	public ArrayList<ReviewBoardBean> selectMemberList(AdminBoardSearchBean abs) {
+	public ArrayList<ReviewBoardBean> selectBoardList(AdminBoardSearchBean abs) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<ReviewBoardBean> boardlist = new ArrayList<ReviewBoardBean>();
@@ -93,6 +93,9 @@ public class BoardListDAO {
 				ReviewBoardBean listBean = new ReviewBoardBean();
 		        listBean.setReview_subject(rs.getString("review_subject"));
 		        listBean.setReview_writer(rs.getString("review_writer"));
+		        listBean.setReview_date(rs.getDate("review_date"));
+		        listBean.setReview_num(rs.getInt("review_num"));
+		        listBean.setReview_re_lev(rs.getInt("review_re_lev"));
 		        boardlist.add(listBean);
 			}
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + boardlist);

@@ -5,7 +5,6 @@ public class AdminBoardSearchBean {
 	private String board_title;
 	private String board_writer;
 	private String board_replyCheck;
-	private String board_imageCheck;
 	private int page;
 	private int limit;
 
@@ -60,17 +59,6 @@ public class AdminBoardSearchBean {
 
 	public void setBoard_replyCheck(String board_replyCheck) {
 		this.board_replyCheck = board_replyCheck;
-	}
-
-	public String getBoard_imageCheck() {
-		if (board_imageCheck == "") {
-			board_imageCheck = null;
-		}
-		return board_imageCheck;
-	}
-
-	public void setBoard_imageCheck(String board_imageCheck) {
-		this.board_imageCheck = board_imageCheck;
 	}
 	
 	public int getPage() {

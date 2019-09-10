@@ -117,8 +117,8 @@
 
 			</tr>
 			<tr>
-				<td>시작날짜:<input type="text" name="pickStart" id="pickStart">
-				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
+				<td>시작날짜:<input type="text" name="pickStart" id="pickStart" >
+				끝 날짜:<input type="text" name="pickEnd" id="pickEnd" ></td>
 
 
 			</tr>
