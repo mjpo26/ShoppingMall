@@ -19,6 +19,7 @@
     String sId = (String) session.getAttribute("sId");
     // 만약, 회원만 게시판 목록 조회가 가능할 경우
     // 세션 아이디 없으면 Main.bo 로 이동
+    
 %>
 <!DOCTYPE html>
 <html>
