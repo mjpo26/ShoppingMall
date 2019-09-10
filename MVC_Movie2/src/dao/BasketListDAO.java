@@ -71,7 +71,7 @@ public class BasketListDAO {
 
 			while (rs.next()) {
 				BasketListBean listBean = new BasketListBean();
-				listBean.setBasket_code(rs.getString("Basket_code"));
+				listBean.setBasket_code(rs.getInt("Basket_code"));
 				listBean.setBasket_member_id(rs.getString("Basket_member_id"));
 				listBean.setBasket_title(rs.getString("Basket_title"));
 				listBean.setBasket_option_color(rs.getString("Basket_option_color"));
@@ -93,5 +93,35 @@ public class BasketListDAO {
 		}
 
 		return articleList;
+	}
+
+	public int insertItem(BasketListBean basketListBean, String sId) {
+		int insertCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = "INSERT INTO basket(basket_code,basket_member_id,basket_title,basket_sel_price,"
+				+ "basket_new_price,basket_point,basket_code_count,basket_delivery_pee) VALUES(?,?,?,?,?,?,?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, basketListBean.getBasket_code());// 상품명
+			pstmt.setString(2, basketListBean.getBasket_member_id()); // 회원아이디
+			pstmt.setString(3, basketListBean.getBasket_title()); // 상품명
+			pstmt.setInt(4, basketListBean.getBasket_sel_price()); //판매할인후가격
+			pstmt.setInt(5, basketListBean.getBasket_new_price()); // 판매정가
+			pstmt.setInt(6, basketListBean.getBasket_point()); // 적립금
+			pstmt.setInt(7, basketListBean.getBasket_code_count()); // 상품선택수량
+			pstmt.setInt(8, basketListBean.getBasket_delivery_pee()); // 배송비
+			
+			insertCount = pstmt.executeUpdate();
+			System.out.println("DB성공");
+		} catch (SQLException e) {
+			System.out.println("insertItem 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return insertCount;
 	}
 }

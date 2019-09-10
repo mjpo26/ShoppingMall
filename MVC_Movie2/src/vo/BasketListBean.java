@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BasketListBean {
 	
-	private String basket_code;
+	private int basket_code;
 	private String basket_title;
 	private String basket_option_color;
 	private String basket_option_size;
@@ -17,10 +17,11 @@ public class BasketListBean {
 	private int basket_idx;
 	private String basket_member_id;
 	
-	public String getBasket_code() {
+	
+	public int getBasket_code() {
 		return basket_code;
 	}
-	public void setBasket_code(String basket_code) {
+	public void setBasket_code(int basket_code) {
 		this.basket_code = basket_code;
 	}
 	public String getBasket_title() {

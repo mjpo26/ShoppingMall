@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.BasketListAction;
+import action.BasketListAction2;
 import action.ReviewBoardListAction;
 import vo.ActionForward;
 
@@ -27,6 +28,14 @@ public class BasketListFrontController extends HttpServlet {
 		if (command.equals("/BasketList.bl")) {
 			System.out.println("list controller 들어옴");
 			action = new BasketListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/BasketList2.bl")) {
+			System.out.println("list controller 들어옴");
+			action = new BasketListAction2();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
