@@ -54,6 +54,29 @@
 		$("#pickEnd").datepicker();
 
 	});
+	
+	
+</script>
+
+<script type = "text/javascript">
+function pickNullCheck(){
+	if(document.fr.pickStart.value==""){
+// 		document.fr.pickStart.value=="2015-01-01";
+		var pickStart = $('#pickStart').val('2015-01-01');
+		alert("널 들왔네");
+		
+		return true;
+	}
+	if(document.fr.pickEnd.value==""){
+// 		document.fr.pickEnd.value=="2020-01-01";
+		var pickEnd =  $('#pickEnd').val('2020-01-01');
+		alert("널 들왔네");
+		return true;
+	}
+	
+	
+}
+
 </script>
 
 <!-- 날짜선택 스크립트 끝 -->
@@ -64,7 +87,7 @@
 </head>
 <body>
 
-	<form action="./Admin_memberList.am" name="fr" method="get">
+	<form action="./Admin_memberList.am" name="fr" method="post" onsubmit="return pickNullCheck()">
 
 		<table border="1">
 			<tr>
@@ -117,8 +140,8 @@
 
 			</tr>
 			<tr>
-				<td>시작날짜:<input type="text" name="pickStart" id="pickStart">
-				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
+				<td>시작날짜:<input type="text" name="pickStart" id="pickStart" >
+				끝 날짜:<input type="text" name="pickEnd" id="pickEnd" ></td>
 
 
 			</tr>
@@ -126,7 +149,7 @@
 
 
 		</table>
-		<input type="submit" value="검색">
+		<input type="submit" value="검색" >
 	</form>
 	<br>
 	<br>

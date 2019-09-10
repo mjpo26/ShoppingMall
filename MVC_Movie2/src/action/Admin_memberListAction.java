@@ -40,12 +40,14 @@ public class Admin_memberListAction implements Action {
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
             ams.setMember_email_ok(request.getParameter("emailOk"));
             
+            System.out.println("jsp script 로 널값 변환되나 보자 ㅅㅂ ["+request.getParameter("pickStart")+"]");
+           
             if(request.getParameter("pickStart") !=null) {
     	        String pickStart = request.getParameter("pickStart");
                SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
               java.util.Date tempDate = null;
-              try {
+             try {
                  tempDate = beforeFormat.parse(pickStart);
 
               } catch (ParseException e) {
@@ -55,11 +57,15 @@ public class Admin_memberListAction implements Action {
               Date start = Date.valueOf(transDate);
               
               ams.setPickStart(start);
-              System.out.println("시작 이다"+ start);
+             
 
-            }else {
-            	ams.setPickStart(Date.valueOf("2010-01-01"));
-            }
+           }else{
+				ams.setPickStart(Date.valueOf("2010-01-01"));
+			
+        	   }
+            
+            
+            
             
             if(request.getParameter("pickEnd")!=null) {
     	        String pickEnd = request.getParameter("pickEnd");
@@ -76,9 +82,9 @@ public class Admin_memberListAction implements Action {
               Date end = Date.valueOf(transDate);
               ams.setPickEnd(end);
               System.out.println("끝 이다"+ end);
-            }else {
+            }else{
             	ams.setPickEnd(Date.valueOf("2020-01-01"));
-            }
+            	}
 
 //                        
             System.out.println("액션 심플데이타포맷 위 에러인가?");
