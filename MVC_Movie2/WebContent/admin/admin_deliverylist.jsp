@@ -110,13 +110,11 @@
 		<input type="radio" name="delivery_ok" value="입금완료(수동)">입금완료(수동)
 		<input type="radio" name="delivery_ok" value="입금완료(자동)">입금완료(자동)</td>
 		
-		<td>입금은행</td>
-		<td><select id="delivery_bank">
-		<option value="전체">전체</option>
-		<option value="부산은행">부산은행</option>
-		<option value="농협은행">농협은행</option>
-		<option value="국민은행">국민은행</option>
-		</select>
+		<th>입금은행</th><td>
+		<input type="radio" name="delivery_bank" value="전체">전체
+		<input type="radio" name="delivery_bank" value="부산은행">부산은행
+		<input type="radio" name="delivery_bank" value="농협은행">농협은행
+		<input type="radio" name="delivery_bank" value="국민은행">국민은행</td>
 <tr>
 </tr>
 
