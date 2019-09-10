@@ -38,14 +38,14 @@ public class OrderListDAO {
 		String order_item_option_color=ob.getOrder_item_option_color();
 
 		try {
-			String sql = "SELECT COUNT(*) FROM item_order where order_item_option_color=?";
+			String sql = "SELECT COUNT(*) FROM item_order ";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, order_item_option_color);  //제목  
+			
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 				listCount = rs.getInt(1);
-				System.out.println("색깔은"+ob.getOrder_item_option_color()+"갯수는"+listCount);
+			//	System.out.println("색깔은"+ob.getOrder_item_option_color()+"갯수는"+listCount);
 			}
 
 		} catch (SQLException e) {

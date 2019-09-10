@@ -23,7 +23,9 @@
 
 		<tr>
 			<th>검색어</th>
-			<td colspan='3'><select><option>주문번호</select> <input
+			<td colspan='3'><select>
+			
+			<option>주문번호</select> <input
 				type="text" size="12"></td>
 		</tr>
 
