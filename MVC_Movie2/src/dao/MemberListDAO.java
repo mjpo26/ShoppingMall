@@ -92,11 +92,9 @@ public class MemberListDAO {
 			        + "and member_phone like ifnull(?,'%%') "
 			        + "and member_sms_ok like ifnull(?,'%%') "
 			        + "and  member_email_ok like ifnull(?,'%%')"
-			        + "and  pickStart like ifnull(?,'%%')"
-			        + "and  pickEnd like ifnull(?,'%%')"
+			        + "and joinDate >= ifnull(?,now())&& joinDate<=ifnull(?,now())"
 			        + "ORDER BY member_id LIMIT ?,?";
 
-			     //   + "and joinDate >= ifnull(?,now())&& joinDate<=ifnull(?,now())"
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ams.getMember_id());

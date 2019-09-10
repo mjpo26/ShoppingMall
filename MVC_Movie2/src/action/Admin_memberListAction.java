@@ -53,10 +53,11 @@ public class Admin_memberListAction implements Action {
               }
               String transDate = afterFormat.format(tempDate);
               Date start = Date.valueOf(transDate);
+              
               ams.setPickStart(start);
+              System.out.println("시작"+ start);
 
             }
-
             
             if(request.getParameter("pickEnd")!=null) {
     	        String pickEnd = request.getParameter("pickEnd");
@@ -73,6 +74,7 @@ public class Admin_memberListAction implements Action {
               String transDate = afterFormat.format(tempDate);
               Date end = Date.valueOf(transDate);
               ams.setPickEnd(end);
+              System.out.println("끝"+ end);
             }
 
 //                        
@@ -86,8 +88,7 @@ public class Admin_memberListAction implements Action {
      
             
             
-            ams.setPickStart(null);
-            ams.setPickEnd(null);
+          
             ams.setPage(page);
 	        ams.setLimit(limit);
 

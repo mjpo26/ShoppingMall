@@ -18,6 +18,7 @@ public class Admin_MemberSearchBean {
 		return pickStart;
 	}
 	public void setPickStart(Date pickStart) {
+		
 		this.pickStart = pickStart;
 	}
 	public Date getPickEnd() {
