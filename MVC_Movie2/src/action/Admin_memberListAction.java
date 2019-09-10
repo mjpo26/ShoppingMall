@@ -1,5 +1,9 @@
 package action;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,17 +32,73 @@ public class Admin_memberListAction implements Action {
 	        if(request.getParameter("page") != null) {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
-	        
+
 	        Admin_MemberSearchBean ams = new Admin_MemberSearchBean();
             ams.setMember_id(request.getParameter("searchId"));
             ams.setMember_name(request.getParameter("searchName"));
             ams.setMember_phone(request.getParameter("searchPhone"));
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
             ams.setMember_email_ok(request.getParameter("emailOk"));
-	        ams.setPage(page);
+            
+            System.out.println("jsp script 로 널값 변환되나 보자 ㅅㅂ ["+request.getParameter("pickStart")+"]");
+           
+            if(request.getParameter("pickStart") !=null) {
+    	        String pickStart = request.getParameter("pickStart");
+               SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+              SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+              java.util.Date tempDate = null;
+             try {
+                 tempDate = beforeFormat.parse(pickStart);
+
+              } catch (ParseException e) {
+                  e.printStackTrace();
+              }
+              String transDate = afterFormat.format(tempDate);
+              Date start = Date.valueOf(transDate);
+              
+              ams.setPickStart(start);
+             
+
+           }else{
+				ams.setPickStart(Date.valueOf("2010-01-01"));
+			
+        	   }
+            
+            
+            
+            
+            if(request.getParameter("pickEnd")!=null) {
+    	        String pickEnd = request.getParameter("pickEnd");
+               SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+              SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+              java.util.Date tempDate = null;
+              try {
+                 tempDate = beforeFormat.parse(pickEnd);
+
+              } catch (ParseException e) {
+                  e.printStackTrace();
+              }
+              String transDate = afterFormat.format(tempDate);
+              Date end = Date.valueOf(transDate);
+              ams.setPickEnd(end);
+              System.out.println("끝 이다"+ end);
+            }else{
+            	ams.setPickEnd(Date.valueOf("2020-01-01"));
+            	}
+
+//                        
+            System.out.println("액션 심플데이타포맷 위 에러인가?");
+            //스트링을 date로 변환해야된다 ;;
+
+
+            ams.setPage(page);
 	        ams.setLimit(limit);
+
 	        
+
 	        
+	        System.out.println("시작"+ams.getPickStart());
+	        System.out.println("끝"+ams.getPickEnd());
 	        System.out.println("ams id request체크 :"+ams.getMember_id());
 	        System.out.println("ams 폰 request체크 :"+ams.getMember_phone());
 	        System.out.println("ams sms request체크 :"+ams.getMember_sms_ok());

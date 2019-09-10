@@ -14,8 +14,7 @@ public class OrderListService {
 	public int getListCount(OrderSearchBean ob) throws Exception {
 	        int listCount = 0; 
 	      
-	        Connection con = getConnection();
-	        
+	        Connection con = getConnection();	        
 	        OrderListDAO listDAO = OrderListDAO.getInstance();
 	        listDAO.setConnection(con);
 	        

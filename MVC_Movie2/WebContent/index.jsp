@@ -27,19 +27,22 @@
 		<h3><a href="Free_BoardList.bo">Free_board리스트</a></h3>
 		<h3><a href="OrderInsert.or">인서트오더</a></h3>
 		<h3><a href="./admin/product_main.jsp">상품메인보기</a></h3>
-<<<<<<< HEAD
 		<h3><a href="./admin/orderList.ol">관리자_주문관리</a></h3>
+		<h3><a href="orderList.ol">관리자_오더리스트</a></h3>
+		<h3><a href="QnA_BoardList.qa">QnA_board리스트</a></h3>
+		<h3><a href="ReviewBoardList.re">리뷰게시판</a></h3>
+		<h3><a href="Admin_memberList.am">관리자 멤버리스트</a></h3>
+<<<<<<< HEAD
+		<h3><a href="AdminBoardList.abl">관리자 게시판리스트</a></h3>
 
 =======
-			<h3><a href="orderList.ol">관리자_오더리스트</a></h3>
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
-		<h3><a href="QnA_BoardList.qa">QnA_board리스트</a></h3>
-		<h3><a href="Admin_memberList.am">관리자 멤버리스트</a></h3>
 
+>>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
 		<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a> 
 		<a href="QnA_BoardWriteForm.qa"><input type="button" value="QnA_글쓰기"></a> 
 		
 		<h3><a href="BasketList.bl">카트Test</a></h3>
+		<h3><a href="DeliveryList.dl">배송Test</a></h3>
 </body>
 </html>
 

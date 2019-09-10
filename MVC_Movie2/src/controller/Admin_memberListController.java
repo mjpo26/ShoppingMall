@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.Admin_memberListAction;
-import action.OrderListBKAction;
+import action.OrderListAction;
 import action.ReviewBoardListAction;
 import vo.ActionForward;
 
