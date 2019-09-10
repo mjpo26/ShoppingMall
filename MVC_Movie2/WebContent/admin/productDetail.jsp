@@ -4,6 +4,7 @@
 <%
 	ItemBean itemBean = (ItemBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
+	
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -287,7 +288,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <img src="img/product/single-product/review-1.png" alt="" />
+                      <img src="./assets/img/product/single-product/review-1.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -308,7 +309,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <img src="img/product/single-product/review-2.png" alt="" />
+                      <img src="./assets/img/product/single-product/review-2.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -329,7 +330,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <img src="img/product/single-product/review-3.png" alt="" />
+                      <img src="./assets/img/product/single-product/review-3.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -419,35 +420,70 @@
 
 
 
+  <!-- product_list part start-->
+  <section class="product_list best_seller">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="section_tittle text-center">
+            <h2>코디 상품 <!-- <span>shop</span> --></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-between">
+        <div class="col-lg-12">
+          <div class="best_product_slider owl-carousel">
+            <div class="single_product_item">
+              <img src="./assets/img/product/single-product/0006_1.jpg" alt="">
+              <div class="single_product_text">
+                <h4>올리브 벽걸이 장식장</h4>
+                <h3>15,000</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="./assets/img/product/single-product/0005_1.jpg" alt="">
+              <div class="single_product_text">
+                <h4>올리브 벽걸이 장식장</h4>
+                <h3>15,000</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="./assets/img/product/single-product/0004_1.jpg" alt="">
+              <div class="single_product_text">
+                <h4>올리브 벽걸이 장식장</h4>
+                <h3>15,000</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="./assets/img/product/single-product/0003_1.jpg" alt="">
+              <div class="single_product_text">
+                <h4>올리브 벽걸이 장식장</h4>
+                <h3>15,000</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="./assets/img/product/single-product/0002_1.jpg" alt="">
+              <div class="single_product_text">
+                <h4>올리브 벽걸이 장식장</h4>
+                <h3>15,000</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- product_list part end-->
 
-
-
-
-<div>
-
-	<h3>*일괄구매 또는 코디세트</h3>
-	<table>
-		<tr>
-			<td><img alt="" src="../image/doodle.png" width="150px"
-				height="150px"></td>
-			<td><img alt="" src="../image/doodle.png" width="150px"
-				height="150px"></td>
-			<td><img alt="" src="../image/doodle.png" width="150px"
-				height="150px"></td>
-			<td><img alt="" src="../image/doodle.png" width="150px"
-				height="150px"></td>
-		</tr>
-	</table>
-</div>
-
+<!-- 
 <h3>상품 이름</h3>
-<!-- 정렬 기준 -->
+정렬 기준
 <select>
 	<option>설명</option>
 	<option>가격</option>
 	<option>옵션</option>
 </select>
-
+ -->
 
 <br>
 
