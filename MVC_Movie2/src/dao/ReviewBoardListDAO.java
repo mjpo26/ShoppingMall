@@ -75,7 +75,8 @@ public class ReviewBoardListDAO {
 
 			String sql = "SELECT * FROM Review_Board where "
 			        + "review_subject like ifnull(?,'%%') "
-			        + "and review_writer like ifnull(?,'%%') ";
+			        + "and review_writer like ifnull(?,'%%') "
+			        +"and review_replycount like ifnull(?,'%%')";
 //			        + "and review_file1 like ifnull(?,'%%') ";
 //			        + "ORDER BY order_item_code LIMIT ?,?"; 답글달렸는지여부 아직체크 안함, 이미지여부도..
 			
@@ -84,7 +85,7 @@ public class ReviewBoardListDAO {
 			System.out.println(abs.getBoard_title());
 			pstmt.setString(1, abs.getBoard_title());
 			pstmt.setString(2, abs.getBoard_writer());
-			
+			pstmt.setString(3, abs.getBoard_replyCheck());
 			rs = pstmt.executeQuery();
 			
 			System.out.println(startRow+"와"+abs.getLimit());
@@ -96,6 +97,7 @@ public class ReviewBoardListDAO {
 		        listBean.setReview_date(rs.getDate("review_date"));
 		        listBean.setReview_num(rs.getInt("review_num"));
 		        listBean.setReview_re_lev(rs.getInt("review_re_lev"));
+		        listBean.setReview_replycount(rs.getString("review_replycount"));
 		        boardlist.add(listBean);
 			}
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + boardlist);

@@ -51,8 +51,8 @@
 				<th>답변여부</th>
 				<td colspan='12'><input type="radio" name="replyCheck"
 					value="*">전체 <input type="radio" name="replyCheck"
-					value="답변전">답변전 <input type="radio" name="replyCheck"
-					value="답변완료">답변완료</td>
+					value="0">답변전 <input type="radio" name="replyCheck"
+					value="1">답변완료</td>
 			</tr>
 			<tr>
 				<td colspan='12'><input type="submit" value="검색"></td>
@@ -152,17 +152,6 @@
 					// 				String[] reviewStatus = new String[100];
 					if (boardList.get(i).getReview_re_lev() != 0)
 						continue; //답변은 표시안함
-					// 				if (i!= boardList.size()) {
-					// 					for (int j = 0; j < i; j++) {
-					// 						if (boardList.get(j).getReview_re_ref() == boardList.get(i).getReview_re_ref()) {
-					// 							reviewStatus[i] = "답변전";
-					// 							reviewStatus[j] =reviewStatus[i];
-					// 						}
-					// 					}
-					// 				} else {
-
-					// 					reviewStatus[i] = "답변완료";
-					// 				}
 		%>
 		<tr>
 			<td><input type="checkbox"></td>
@@ -170,21 +159,27 @@
 			<td><%=boardList.get(i).getReview_subject()%></td>
 			<td><%=boardList.get(i).getReview_writer()%></td>
 			<td><%=boardList.get(i).getReview_date()%></td>
-			<td>답변상태</td>
+			<td>
+				<%
+					if (boardList.get(i).getReview_replycount().equals("1")) {
+				%> 답변완료 <%
+					} else {
+				%> 답변전 <%
+					}
+				%>
+			</td>
 			<td><a
 				href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getReview_num()%>&page=<%=nowPage%>"><input
 					type="button" value="게시글 보기"></a></td>
 		</tr>
-		<%} %>
+		<%
+			}
+		%>
 	</table>
 	<!-- QnA 게시판!!!!!!!!!!!!!! -->
 
-
-
-	<!-- QnA 게시판!!!!!!!!!!!!!! -->
-
-	<%}
-         else if (abb.getBoard_list().equals("QnA게시판"))  {
+	<%
+		} else if (abb.getBoard_list().equals("QnA게시판")) {
 			ArrayList<QnA_BoardBean> boardList = (ArrayList<QnA_BoardBean>) request.getAttribute("boardList");
 			PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 			int listCount = pageInfo.getListCount();
@@ -247,15 +242,15 @@
 			<td><%=boardList.get(i).getQnA_subject()%></td>
 			<td><%=boardList.get(i).getQnA_writer_id()%></td>
 			<td><%=boardList.get(i).getQnA_date()%></td>
-			<td>답변상태</td>
+			<td></td>
 			<td><a
 				href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>"><input
 					type="button" value="게시글 보기"></a></td>
 		</tr>
 		<%
-		}
-		}
-	%>
+			}
+			}
+		%>
 	</table>
 </body>
 </html>

@@ -84,7 +84,7 @@ public class QnA_BoardDAO {
             pstmt.setInt(8, 0); // 들여쓰기 레벨 = 새 글이므로 0
             pstmt.setInt(9, 0); // 글 순서번호 = 새 글이므로 0
             pstmt.setInt(10, 0); // 조회수 = 새 글이므로 0
-            pstmt.setInt(11, 0); //리플라이카운트 일단 0으로 만들자
+            pstmt.setString(11,"0"); //리플라이카운트 일단 0으로 만들자
             //12번 라인은 date
             pstmt.setString(12, article.getQnA_file2());
             pstmt.setString(13, article.getQnA_file3());

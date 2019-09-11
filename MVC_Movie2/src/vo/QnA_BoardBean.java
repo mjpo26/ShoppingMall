@@ -11,7 +11,7 @@ public class QnA_BoardBean {
 	private String QnA_pass ;
 	private Date QnA_date ;
 	private int QnA_readcount ;
-	private int QnA_replycount ;
+	private String QnA_replycount ;
 	private int QnA_re_ref ;
 	private int QnA_re_lev ;
 	private int QnA_re_seq ;
@@ -63,10 +63,10 @@ public class QnA_BoardBean {
 	public void setQnA_readcount(int qnA_readcount) {
 		QnA_readcount = qnA_readcount;
 	}
-	public int getQnA_replycount() {
+	public String getQnA_replycount() {
 		return QnA_replycount;
 	}
-	public void setQnA_replycount(int qnA_replycount) {
+	public void setQnA_replycount(String qnA_replycount) {
 		QnA_replycount = qnA_replycount;
 	}
 	public int getQnA_re_ref() {

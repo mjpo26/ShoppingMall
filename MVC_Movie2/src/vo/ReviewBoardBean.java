@@ -11,6 +11,7 @@ public class ReviewBoardBean {
 	private String review_pass;
 	private Date review_date;
 	private int review_readcount;
+	private String review_replycount ;
 	private String review_file1;
 	private String review_file2;
 	private String review_file3;
@@ -21,6 +22,7 @@ public class ReviewBoardBean {
 	private int review_re_ref ;
 	private int review_re_lev ;
 	private int review_re_seq ;
+	
 	
 	public int getReview_re_ref() {
 		return review_re_ref;
@@ -130,6 +132,13 @@ public class ReviewBoardBean {
 	public void setReview_orderNo(int review_orderNo) {
 		this.review_orderNo = review_orderNo;
 	}
+	public String getReview_replycount() {
+		return review_replycount;
+	}
+	public void setReview_replycount(String review_replycount) {
+		this.review_replycount = review_replycount;
+	}
+	
 
 	
 }
