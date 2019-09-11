@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.AdminBoardSearchBean;
-import vo.MemberBean;
 import vo.ReviewBoardBean;
 
 public class ReviewBoardListDAO {
@@ -82,6 +81,7 @@ public class ReviewBoardListDAO {
 			
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, abs.getOrder_item_option_color());
+			System.out.println(abs.getBoard_title());
 			pstmt.setString(1, abs.getBoard_title());
 			pstmt.setString(2, abs.getBoard_writer());
 			

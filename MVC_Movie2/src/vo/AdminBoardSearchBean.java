@@ -17,7 +17,7 @@ public class AdminBoardSearchBean {
 //			
 //		}
 
-		if (board_list == "") {
+		if (board_list == null) {
 			board_list = null;
 		}
 		return board_list;

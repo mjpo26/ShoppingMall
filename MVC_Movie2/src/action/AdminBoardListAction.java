@@ -26,8 +26,8 @@ public class AdminBoardListAction implements Action {
 		}
 
 		AdminBoardSearchBean abb = new AdminBoardSearchBean();
-//		abb.setBoard_list(request.getParameter("list"));
-		abb.setBoard_list("QnA게시판");
+		abb.setBoard_list(request.getParameter("list"));
+//		abb.setBoard_list("리뷰게시판");
 		abb.setBoard_title(request.getParameter("title"));
 		abb.setBoard_writer(request.getParameter("writer"));
 		abb.setBoard_replyCheck(request.getParameter("replyCheck"));
@@ -39,142 +39,99 @@ public class AdminBoardListAction implements Action {
 		System.out.println("작성자" + abb.getBoard_writer());
 		System.out.println("답변여부" + abb.getBoard_replyCheck());
 //		tr1.equals("AA")
-		
-		System.out.println("이건 나오나"+abb.getBoard_list());
-		
-		
-		
-		 if (abb.getBoard_list()==null) {
+
+		System.out.println("이건 나오나" + abb.getBoard_list());
+
+		if (abb.getBoard_list() == null) {
+
+			System.out.println("게시판 미선택 기본");
 			
-		  System.out.println("게시판 미선택 기본");
+			request.setAttribute("abb", abb);
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false); // 생략 가능
+			forward.setPath("/admin/admin_boardlist.jsp");
+			System.out.println("실행");
+			return forward;
 
-		}else if (abb.getBoard_list().equals("리뷰게시판")) {
-            ArrayList<ReviewBoardBean> boardList = new ArrayList<ReviewBoardBean>();
-            System.out.println("리뷰게시판 adminBoardListAction 실행됨");
-            // 페이징 처리를 위한 변수 선언
+		} else if (abb.getBoard_list().equals("리뷰게시판")) {
+			ArrayList<ReviewBoardBean> boardList = new ArrayList<ReviewBoardBean>();
+			System.out.println("리뷰게시판 adminBoardListAction 실행됨");
+			// 페이징 처리를 위한 변수 선언
 
-            // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
+			// 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
 
-            AdminReviewBoardListService adminBoardListService = new AdminReviewBoardListService();
-            int listCount = adminBoardListService.getListCount(abb); // 전체 게시물 수 가져오기
+			AdminReviewBoardListService adminBoardListService = new AdminReviewBoardListService();
+			int listCount = adminBoardListService.getListCount(abb); // 전체 게시물 수 가져오기
 
-            boardList = adminBoardListService.getArticleList(abb); // 전체 게시물 목록 가져오기(10개 한정)
+			boardList = adminBoardListService.getArticleList(abb); // 전체 게시물 목록 가져오기(10개 한정)
 
-            // 전체 페이지(마지막 페이지) 수 계산
-            int maxPage = (int) ((double) listCount / limit + 0.95);
+			// 전체 페이지(마지막 페이지) 수 계산
+			int maxPage = (int) ((double) listCount / limit + 0.95);
 
-            // 시작 페이지 수 계산
-            int startPage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
+			// 시작 페이지 수 계산
+			int startPage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
 
-            // 끝 페이지 수 계산
-            int endPage = startPage + 10 - 1;
+			// 끝 페이지 수 계산
+			int endPage = startPage + 10 - 1;
 
-            // 끝 페이지 수가 전체 페이지 수 보다 클 경우 전체 페이지 수를 끝 페이지로 지정
-            if (endPage > maxPage) {
-                endPage = maxPage;
-            }
+			// 끝 페이지 수가 전체 페이지 수 보다 클 경우 전체 페이지 수를 끝 페이지로 지정
+			if (endPage > maxPage) {
+				endPage = maxPage;
+			}
 
-            // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-            PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
+			// PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
+			PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
 
-            // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
-            request.setAttribute("pageInfo", pageInfo);
-            request.setAttribute("boardList", boardList);
-
-        } else if(abb.getBoard_list().equals("QnA게시판")){
+			// request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
+			request.setAttribute("pageInfo", pageInfo);
+			request.setAttribute("boardList", boardList);
+			request.setAttribute("abb", abb);
 			
-         // 게시물 목록 정보를 받아와서 저장할 ArrayList 타입 변수 선언(제네릭 타입 BoardBean 타입으로 지정)
-            ArrayList<QnA_BoardBean> articleList = new ArrayList<QnA_BoardBean>();
-            
-            // 페이징 처리를 위한 변수 선언
-            int page = 1; // 현재 페이지
-            int limit = 10; // 한 페이지 당 표시할 게시물 수
-            
-            // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
-            if(request.getParameter("page") != null) {
-                page = Integer.parseInt(request.getParameter("page"));
-            }
-            System.out.println("BoardListAction is Connected");
-            QnA_BoardListService boardListService = new QnA_BoardListService();
-            int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
-            
-            articleList = boardListService.getArticleList(page, limit); // 전체 게시물 목록 가져오기(10개 한정)
-            
-            // 전체 페이지(마지막 페이지) 수 계산
-            int maxPage = (int)((double)listCount / limit + 0.95);
-            
-            // 시작 페이지 수 계산
-            int startPage = (((int)((double)page / 10 + 0.9)) - 1) * 10 + 1;
-            
-            // 끝 페이지 수 계산
-            int endPage = startPage + 10 - 1;
-            
-            // 끝 페이지 수가 전체 페이지 수 보다 클 경우 전체 페이지 수를 끝 페이지로 지정
-            if(endPage > maxPage) {
-                endPage = maxPage;
-            }
-            
-            // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-            QnA_PageInfo pageInfo = new QnA_PageInfo(page, maxPage, startPage, endPage, listCount);
-            
-            // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
-            request.setAttribute("pageInfo", pageInfo);
-            request.setAttribute("articleList", articleList);
-            
-            // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
-            ActionForward forward = new ActionForward();
-            forward.setRedirect(false); // 생략 가능
-            forward.setPath("/QnA_Board/QnA_Board_list.jsp");
-            
-            return forward;
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false); // 생략 가능
+			forward.setPath("/admin/admin_boardlist.jsp");
+			System.out.println("실행");
+			return forward;
+		} else {
+
+			// 게시물 목록 정보를 받아와서 저장할 ArrayList 타입 변수 선언(제네릭 타입 BoardBean 타입으로 지정)
+			ArrayList<QnA_BoardBean> boardList = new ArrayList<QnA_BoardBean>();
+
+			System.out.println("QnA게시판 들어옴");
+			AdminQnABoardListService boardListService = new AdminQnABoardListService();
+			int listCount = boardListService.getListCount(abb); // 전체 게시물 수 가져오기
+
+			boardList = boardListService.getArticleList(abb); // 전체 게시물 목록 가져오기(10개 한정)
+
+			// 전체 페이지(마지막 페이지) 수 계산
+			int maxPage = (int) ((double) listCount / limit + 0.95);
+
+			// 시작 페이지 수 계산
+			int startPage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
+
+			// 끝 페이지 수 계산
+			int endPage = startPage + 10 - 1;
+
+			// 끝 페이지 수가 전체 페이지 수 보다 클 경우 전체 페이지 수를 끝 페이지로 지정
+			if (endPage > maxPage) {
+				endPage = maxPage;
+			}
+
+			// PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
+			PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
+
+			// request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
+			request.setAttribute("pageInfo", pageInfo);
+			request.setAttribute("boardList", boardList);
 			
-		
-		} 
-		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false); // 생략 가능
-		forward.setPath("/admin/admin_boardlist.jsp");
-		System.out.println("실행");
-		return forward;
-		
-		
-		
-		
-//			else i( {
-//			ArrayList<QnA_BoardBean> QboardList = new ArrayList<QnA_BoardBean>();
-//			System.out.println("QnA adminBoardListAction 실행됨");
-//
-//			AdminQnABoardListService adminBoardListService = new AdminQnABoardListService();
-//			int listCount = adminBoardListService.getListCount(abb); // 전체 게시물 수 가져오기
-//
-//			QboardList = adminBoardListService.getArticleList(abb); // 전체 게시물 목록 가져오기(10개 한정)
-//
-//			// 전체 페이지(마지막 페이지) 수 계산
-//			int maxPage = (int) ((double) listCount / limit + 0.95);
-//
-//			// 시작 페이지 수 계산
-//			int startPage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
-//
-//			// 끝 페이지 수 계산
-//			int endPage = startPage + 10 - 1;
-//
-//			// 끝 페이지 수가 전체 페이지 수 보다 클 경우 전체 페이지 수를 끝 페이지로 지정
-//			if (endPage > maxPage) {
-//				endPage = maxPage;
-//			}
-//
-//			// PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-//			PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
-//
-//			// request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
-//			request.setAttribute("pageInfo", pageInfo);
-//			request.setAttribute("QboardList", QboardList);
-//
-//			ActionForward forward = new ActionForward();
-//			forward.setRedirect(false); // 생략 가능
-//			forward.setPath("/admin/admin_boardlist.jsp");
-//			System.out.println("실행");
-//			return forward;
-//		}
+			request.setAttribute("abb", abb);
+			
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false); // 생략 가능
+			forward.setPath("/admin/admin_boardlist.jsp");
+			System.out.println("qna실행");
+			return forward;
+			
+		}
 	}
 }

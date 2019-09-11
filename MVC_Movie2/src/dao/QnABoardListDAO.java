@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import vo.AdminBoardSearchBean;
 import vo.QnA_BoardBean;
-import vo.ReviewBoardBean;
 
 public class QnABoardListDAO {
 	

@@ -6,14 +6,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ArrayList<ReviewBoardBean> boardList = (ArrayList<ReviewBoardBean>) request.getAttribute("boardList");
-	// 	ArrayList<QnA_BoardBean> QboardList = (ArrayList<QnA_BoardBean>) request.getAttribute("QboardList");
-	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-	int listCount = pageInfo.getListCount();
-	int nowPage = pageInfo.getPage();
-	int startPage = pageInfo.getStartPage();
-	int endPage = pageInfo.getEndPage();
-	int maxPage = pageInfo.getMaxPage();
+	AdminBoardSearchBean abb = new AdminBoardSearchBean();
+	abb = (AdminBoardSearchBean) request.getAttribute("abb");
 %>
 <!DOCTYPE html>
 <html>
@@ -22,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- 폼 선택!!!!!!!!!!!!!!-->
 	<form action="./AdminBoardList.abl" name="fr" method="post">
 		<table border="1">
 			<tr>
@@ -38,9 +33,9 @@
 				<td colspan='5'>날짜선택 <input type="date" value="2019-08-23"></td>
 			</tr>
 			<tr>
-				<td>게시판 선택</td>
+				<th>게시판 선택 *필수*</th>
 				<td colspan='12'><select name="list">
-						<option>게시판목록</option>
+						<option value="">게시판목록</option>
 						<option value="리뷰게시판">리뷰게시판</option>
 						<option value="QnA게시판">QnA게시판</option>
 				</select></td>
@@ -65,17 +60,68 @@
 		</table>
 	</form>
 
+	<%
+		if (abb.getBoard_list() == null) {
+	%>
 	<br>
 	<table border="1">
-
 		<tr>
+			<th colspan='12'>게시판 검색목록</th>
+		</tr>
+		<tr>
+			<td colspan='12'>[검색결과0건]
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				&emsp;&emsp;&emsp;&emsp; <select>
+					<option>정렬방식</option>
+					<option>오름차순</option>
+					<option>내림차순</option>
 
-			<th colspan='12'>리뷰게시판 검색목록</th>
-
+			</select><select>
+					<option>10개</option>
+					<option>20개</option>
+					<option>50개</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th><input type="checkbox"></th>
+			<th>글번호</th>
+			<th>글제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>답변상태</th>
+			<th>게시글보기</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 
+	</table>
+	<!-- 리뷰게시판 게시판!!!!!!!!!!!!!! -->
+	<%
+		} else if (abb.getBoard_list().equals("리뷰게시판")) {
+			ArrayList<ReviewBoardBean> boardList = (ArrayList<ReviewBoardBean>) request.getAttribute("boardList");
+			PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+			int listCount = pageInfo.getListCount();
+			int nowPage = pageInfo.getPage();
+			int startPage = pageInfo.getStartPage();
+			int endPage = pageInfo.getEndPage();
+			int maxPage = pageInfo.getMaxPage();
+	%>
+	<br>
+	<table border="1">
 		<tr>
-
+			<th colspan='12'>리뷰게시판 검색목록</th>
+		</tr>
+		<tr>
 			<td colspan='12'>[검색결과 <%=listCount%>건]
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -103,20 +149,20 @@
 		</tr>
 		<%
 			for (int i = 0; i < boardList.size(); i++) {
-// 				String[] reviewStatus = new String[100];
-				if (boardList.get(i).getReview_re_lev() != 0)
-					continue; //답변은 표시안함
-// 				if (i!= boardList.size()) {
-// 					for (int j = 0; j < i; j++) {
-// 						if (boardList.get(j).getReview_re_ref() == boardList.get(i).getReview_re_ref()) {
-// 							reviewStatus[i] = "답변전";
-// 							reviewStatus[j] =reviewStatus[i];
-// 						}
-// 					}
-// 				} else {
+					// 				String[] reviewStatus = new String[100];
+					if (boardList.get(i).getReview_re_lev() != 0)
+						continue; //답변은 표시안함
+					// 				if (i!= boardList.size()) {
+					// 					for (int j = 0; j < i; j++) {
+					// 						if (boardList.get(j).getReview_re_ref() == boardList.get(i).getReview_re_ref()) {
+					// 							reviewStatus[i] = "답변전";
+					// 							reviewStatus[j] =reviewStatus[i];
+					// 						}
+					// 					}
+					// 				} else {
 
-// 					reviewStatus[i] = "답변완료";
-// 				}
+					// 					reviewStatus[i] = "답변완료";
+					// 				}
 		%>
 		<tr>
 			<td><input type="checkbox"></td>
@@ -129,10 +175,87 @@
 				href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getReview_num()%>&page=<%=nowPage%>"><input
 					type="button" value="게시글 보기"></a></td>
 		</tr>
-		<%
-			}
-		%>
+		<%} %>
 	</table>
+	<!-- QnA 게시판!!!!!!!!!!!!!! -->
 
+
+
+	<!-- QnA 게시판!!!!!!!!!!!!!! -->
+
+	<%}
+         else if (abb.getBoard_list().equals("QnA게시판"))  {
+			ArrayList<QnA_BoardBean> boardList = (ArrayList<QnA_BoardBean>) request.getAttribute("boardList");
+			PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+			int listCount = pageInfo.getListCount();
+			int nowPage = pageInfo.getPage();
+			int startPage = pageInfo.getStartPage();
+			int endPage = pageInfo.getEndPage();
+			int maxPage = pageInfo.getMaxPage();
+	%>
+	<table border="1">
+
+		<tr>
+			<th colspan='12'>QnA게시판 검색목록</th>
+		</tr>
+		<tr>
+			<td colspan='12'>[검색결과 <%=listCount%>건]
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				&emsp;&emsp;&emsp;&emsp; <select>
+					<option>정렬방식</option>
+					<option>오름차순</option>
+					<option>내림차순</option>
+
+			</select><select>
+					<option>10개</option>
+					<option>20개</option>
+					<option>50개</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th><input type="checkbox"></th>
+			<th>글번호</th>
+			<th>글제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>답변상태</th>
+			<th>게시글보기</th>
+		</tr>
+		<%
+			for (int i = 0; i < boardList.size(); i++) {
+					// 				String[] reviewStatus = new String[100];
+					if (boardList.get(i).getQnA_re_lev() != 0)
+						continue; //답변은 표시안함
+					// 				if (i!= boardList.size()) {
+					// 					for (int j = 0; j < i; j++) {
+					// 						if (boardList.get(j).getReview_re_ref() == boardList.get(i).getReview_re_ref()) {
+					// 							reviewStatus[i] = "답변전";
+					// 							reviewStatus[j] =reviewStatus[i];
+					// 						}
+					// 					}
+					// 				} else {
+
+					// 					reviewStatus[i] = "답변완료";
+					// 				}
+		%>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td><%=boardList.get(i).getQnA_num()%></td>
+			<td><%=boardList.get(i).getQnA_subject()%></td>
+			<td><%=boardList.get(i).getQnA_writer_id()%></td>
+			<td><%=boardList.get(i).getQnA_date()%></td>
+			<td>답변상태</td>
+			<td><a
+				href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>"><input
+					type="button" value="게시글 보기"></a></td>
+		</tr>
+		<%
+		}
+		}
+	%>
+	</table>
 </body>
 </html>
