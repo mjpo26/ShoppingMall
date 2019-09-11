@@ -73,7 +73,8 @@ public class QnABoardListDAO {
 
 			String sql = "SELECT * FROM QnA_Board where "
 			        + "QnA_subject like ifnull(?,'%%') "
-			        + "and QnA_writer_id like ifnull(?,'%%') ";
+			        + "and QnA_writer_id like ifnull(?,'%%') "
+			        +"and QnA_replycount like ifnull(?,'%%')";
 //			        + "and QnA_file1 like ifnull(?,'%%') ";
 //			        + "ORDER BY order_item_code LIMIT ?,?"; 답글달렸는지여부 아직체크 안함, 이미지여부도..
 			
@@ -81,6 +82,7 @@ public class QnABoardListDAO {
 //			pstmt.setString(1, abs.getOrder_item_option_color());
 			pstmt.setString(1, abb.getBoard_title());
 			pstmt.setString(2, abb.getBoard_writer());
+			pstmt.setString(3, abb.getBoard_replyCheck());
 			
 			rs = pstmt.executeQuery();
 			
@@ -91,8 +93,9 @@ public class QnABoardListDAO {
 		        listBean.setQnA_subject(rs.getString("QnA_subject"));
 		        listBean.setQnA_writer_id(rs.getString("QnA_writer_id"));
 		        listBean.setQnA_date(rs.getDate("QnA_date"));
-		        listBean.setQnA_num(rs.getInt("QnA_NUM"));
+		        listBean.setQnA_num(rs.getInt("QnA_num"));
 		        listBean.setQnA_re_lev(rs.getInt("QnA_re_lev"));
+		        listBean.setQnA_replycount(rs.getString("QnA_replycount"));
 		        Qboardlist.add(listBean);
 			}
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + Qboardlist);
