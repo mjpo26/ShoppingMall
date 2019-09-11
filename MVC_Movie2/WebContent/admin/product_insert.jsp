@@ -76,8 +76,8 @@ form {
 					</tr>
 					<tr>
 						<th colspan="3">판매가(필수)</th>
-						<td colspan="5"><input type="text" name="old_price"></td>
-						할인율 : <input type="text" name="sale_price">%
+						<td colspan="5"><input type="text" name="old_price"> 할인율 : <input type="text" name="sale_price">%</td>
+						
 					</tr>
 					<tr>
 						<th colspan="3">상품요약설명</th>
@@ -110,14 +110,14 @@ form {
 <!-- 						<th colspan="2">첨부파일</th> -->
 <!-- 						<td colspan="2"><input type="file" name="Item_bgpic"></td> -->
 						<th colspan="2">이미지추가</th>
-						<td colspan="2" id="tbody"><input type="file"
-							name="Item_pic1" class="addItemBtn"></td>
-							<td colspan="2" id="tbody"><input type="file"
-							name="Item_pic2" class="addItemBtn"></td>
-							<td colspan="2" id="tbody"><input type="file"
-							name="Item_pic3" class="addItemBtn"></td>
-							<td colspan="2" id="tbody"><input type="file"
-							name="Item_pic4" class="addItemBtn"></td>
+						<td colspan="2" ><input type="file"
+							name="Item_pic1" ></td>
+							<td colspan="2" ><input type="file"
+							name="Item_pic2" ></td>
+							<td colspan="2" ><input type="file"
+							name="Item_pic3" ></td>
+							<td colspan="2" ><input type="file"
+							name="Item_pic4" ></td>
 
 <!-- 						<script src="//code.jquery.com/jquery.min.js"></script> -->
 <!-- 						<script> -->
