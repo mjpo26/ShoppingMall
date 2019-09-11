@@ -2,6 +2,145 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="top.jsp"></jsp:include>
 
+<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js" type="text/javascript"></script>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js" type="text/javascript"></script>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if IE 6]>
+ <script src="../script/DD_belatedPNG_0.0.8a.js"></script>
+ <script>
+   /* EXAMPLE */
+   DD_belatedPNG.fix('#wrap');
+   DD_belatedPNG.fix('#main_img');   
+
+ </script>
+ <![endif]-->
+<script type="text/javascript">
+    function passCheck(val) {
+
+        if (val.length < 3) {
+
+            document.getElementById('result').value = "A-test";
+
+            document.getElementById('result').style.color = "red";
+
+        } else if (val.length < 8) {
+
+            document.getElementById('result').value = "B-test";
+
+            document.getElementById('result').style.color = "orange";
+
+        } else {
+
+            document.getElementById('result').value = "C-test";
+
+            document.getElementById('result').style.color = "green";
+
+        }
+
+    }
+
+    function check() {
+
+        if (document.fr.id.value == "") {
+            alert("아이디를 입력하세요!");
+            document.fr.id.focus();
+            return false;
+        }
+        if (document.fr.pass.value == "") {
+            alert("비밀번호를 입력하세요");
+            document.fr.id.focus();
+            return false;
+        }
+        if (document.fr.pass.value.length < 4) {
+            alert("비밀번호는 4자 이상으로 설정하세요!")
+            document.fr.pass.focus();
+            return false;
+        }
+
+        if (document.fr.passChecked.value != "yes") {
+            var fpass = document.fr.pass.value;
+
+            window.open("passCheckPro.jsp?fpass=" + fpass, "",
+                    "width=400,height=200");
+
+            return false;
+
+        }
+        if (document.fr.pass2.value.length == "") {
+            alert("비밀번호 확인란을 입력하세요!")
+            document.fr.pass2.focus();
+            return false;
+        }
+        if (document.fr.pass.value != document.fr.pass2.value) {
+            alert("비밀번호가 일치되지 않습니다.");
+            document.fr.pass2.focus();
+            return false;
+        }
+
+        if (document.fr.name.value.length == "") {
+            alert("이름을 입력하세요!")
+            document.fr.name.focus();
+            return false;
+        }
+
+        if (document.fr.detailaddress.value.length == "") {
+            alert("주소를 입력하세요!")
+            document.fr.name.focus();
+            return false;
+        }
+
+        if (document.fr.email.value.length == "") {
+            alert("이메일을 입력하세요!")
+            document.fr.email.focus();
+            return false;
+        }
+        if (document.fr.email2.value.length == "") {
+            alert("이메일 확인란을 입력하세요!")
+            document.fr.email2.focus();
+            return false;
+        }
+
+        if (document.fr.pass.value != document.fr.pass2.value) {
+            alert("이메일이  일치되지 않습니다.");
+            document.fr.pass2.focus();
+            return false;
+        }
+        //   비밀번호유효성체크
+
+        //비밀번호 유효성체크 끝
+    }
+
+    // E-Mail 도메인 선택
+    function chkEmailDomainSelect(domain) {
+        document.joinForm.domain.value = domain.value;
+        document.joinForm.domain2.value = domain.value;
+        
+    }
+    
+    
+    function idcheck() {
+        // id 텍스트 상자가 비어있으면  "아이디입력" 제어
+
+        var fid = encodeURIComponent(document.fr.id.value);
+        //한글 안깨지는 ie 폼 불러오기
+        //fid = document.wfr.id.value;
+        //opener.document.fr.id.value = document.wfr.id.value;
+        if (fid == "") {
+            alert("아이디입력");
+            document.fr.id.focus();
+            return;
+        }
+        //  아이디 입력되어있으면 새창열기  "idcheck.jsp"
+        //  window.open("파일이름","창이름","옵션");
+        window.open("idcheck.jsp?fid=" + fid, "", "width=400,height=200");
+    }
+</script>
+<%
+    request.setCharacterEncoding("utf-8");
+%>
     <!-- breadcrumb start -->
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
@@ -23,7 +162,7 @@
     <section class="join_part padding_top">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8 col-md-8 col-sm-12 mx-auto clear-fix">
+                <div class="col-lg-8 col-md-8 col-sm-12 mx-auto">
                     <h3 class="mb-30 float-left">필수 정보</h3>
                     <div class="mb-30 single-element-widget float-right">
                         <!--                         <h4 class="mb-30">회원</h4> -->
@@ -37,19 +176,27 @@
                     </div>
 
 
-                    <form action="#">
+                    <form action="MemberJoinPro.me" id="join" method="post" name="joinForm" onsubmit="return check()">
 
-                        <div class="mt-10">
-                            <input type="text" name="member_id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용물가'" onblur="this.placeholder = 'id'" required class="single-input">
+                        <div class="mt-10 row">
+                            <div class="col-8">
+                            <input type="text" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용물가'" onblur="this.placeholder = 'id'" required class="single-input">
+                            </div>
+                            <div class="col-4">
+                            <input type="button" class="genric-btn primary radius col-6" value="중복체크" onclick="idcheck()">
+                            
+                            </div>
                         </div>
                         <div class="mt-10">
-                            <input type="password" name="member_pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input">
+                            <input type="password" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input">
                         </div>
                         <div class="mt-10">
-                            <input type="password" name="member_pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '위 입력하신 비밀번호를 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
+                            <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '위 입력하신 비밀번호를 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
                         </div>
+                        <input type="hidden" name="passChecked" value="no">
                         <div class="mt-10">
-                            <input type="text" name="member_name" placeholder="이름" onfocus="this.placeholder = '한글 2~10자'" onblur="this.placeholder = '이름'" required class="single-input">
+                            <input type="text" name="name" placeholder="이름" onkeyup="passCheck(this.value)" 
+                            onfocus="this.placeholder = '한글 2~10자'" onblur="this.placeholder = '이름'" required class="single-input">
                         </div>
                         <div class="mt-10">
                             <input type="email" name="member_email" placeholder="Email" onfocus="this.placeholder = 'ex. korea@naver.com'" onblur="this.placeholder = 'Email'" required class="single-input">
