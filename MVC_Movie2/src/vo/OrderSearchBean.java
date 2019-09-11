@@ -19,10 +19,24 @@ public class OrderSearchBean {
    private String order_pay_status ;
    private String order_payment ;
    private String order_memo;
-   private Date order_date;
+   private Date pickStart;
+   private Date pickEnd;
    private int page;
    private int limit;
    private String order_member_id;
+   
+   public Date getPickStart() {
+	return pickStart;
+}
+public void setPickStart(Date pickStart) {
+	this.pickStart = pickStart;
+}
+public Date getPickEnd() {
+	return pickEnd;
+}
+public void setPickEnd(Date pickEnd) {
+	this.pickEnd = pickEnd;
+}
   
    public String getOrder_member_id() {
 	   
@@ -137,12 +151,7 @@ public String getOrder_memo() {
 public void setOrder_memo(String order_memo) {
     this.order_memo = order_memo;
 }
-public Date getOrder_date() {
-    return order_date;
-}
-public void setOrder_date(Date order_date) {
-    this.order_date = order_date;
-}
+
 public int getPage() {
 	return page;
 }

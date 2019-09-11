@@ -5,7 +5,6 @@ import java.sql.Date;
 public class Admin_DeliverySearchBean {
 	
 	private int delivery_idx;
-	private Date delivery_date;
 	private String delivery_code;
 	private String delivery_title;
 	private String delivery_member_id;
@@ -13,9 +12,23 @@ public class Admin_DeliverySearchBean {
 	private String delivery_bank;
 	private String delivery_ok;
 	private String delivery_memo;
+	private Date pickStart;
+	private Date pickEnd;
 	private int page;
 	private int limit;
 	
+	public Date getPickStart() {
+		return pickStart;
+	}
+	public void setPickStart(Date pickStart) {
+		this.pickStart = pickStart;
+	}
+	public Date getPickEnd() {
+		return pickEnd;
+	}
+	public void setPickEnd(Date pickEnd) {
+		this.pickEnd = pickEnd;
+	}
 	public int getPage() {
 		return page;
 	}
@@ -41,13 +54,7 @@ public class Admin_DeliverySearchBean {
 	public void setDelivery_idx(int delivery_idx) {
 		this.delivery_idx = delivery_idx;
 	}
-	public Date getDelivery_date() {
-		return delivery_date;
-	}
-	public void setDelivery_date(Date delivery_date) {
-		this.delivery_date = delivery_date;
-	}
-	
+
 	public String getDelivery_code() {
 		
 		if(delivery_code == "") {

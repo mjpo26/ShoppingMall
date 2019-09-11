@@ -8,8 +8,7 @@ public class Admin_MemberSearchBean {
 	private String member_name;
 	private String member_phone;
     private String member_sms_ok;
-	private String member_email_ok;
-	
+	private String member_email_ok;	
 	private Date pickStart;
 	private Date pickEnd;
 	

@@ -13,11 +13,65 @@
 	int endPage = pageInfo.getEndPage();
 	int maxPage = pageInfo.getMaxPage();
 %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 날짜선택 임포트 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 날짜선택임포트 끝 -->
+
+<!-- 날짜선택 스크립트 -->
+<script>
+	$(function() {
+
+		$("#pickStart").datepicker();
+
+	});
+
+	$(function() {
+
+		$("#pickEnd").datepicker();
+
+	});
+</script>
+
+<script type = "text/javascript">
+function pickNullCheck(){
+	if(document.fr1.pickStart.value==""){
+//		document.fr1.pickStart.value=="2015-01-01";
+		var pickStart = $('#pickStart').val('01/01/2010');
+
+		return false;
+	}
+	if(document.fr1.pickEnd.value==""){
+ 	//	document.fr1.pickEnd.value=="2020-01-01";
+		var pickEnd =  $('#pickEnd').val('01/01/2020');
+	
+		return false;
+	}
+	
+	//
+	
+	
+}
+
+</script>
+<!-- 날짜선택 스크립트 끝 -->
+
+
+<title>관리자 주문관리</title>
 </head>
 <body>
-	<header> </header>
+	<header> 
+	</header>
 	
-	<form action ="./orderList.ol"  name ="fr" method="post">
+	<form action ="./orderList.ol"  name ="fr1" method="get" onsubmit="return pickNullCheck()">
 	
 	<table border="1">
 		<tr>
@@ -32,12 +86,8 @@
 
 		<tr>
 			<th>기간검색</th>
-			<td colspan="4"><select name="search">
-					<option>오늘
-					<option>7일
-					<option>15일
-					<option>1개월
-			</select> 날짜선택 <input type="date" value="2019-08-23"></td>
+			<td>시작날짜:<input type="text" name="pickStart" id="pickStart">
+				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
 		</tr>
 
 		<tr>

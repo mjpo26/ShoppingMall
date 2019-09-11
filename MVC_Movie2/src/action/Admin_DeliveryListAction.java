@@ -1,5 +1,8 @@
 package action;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,28 +30,68 @@ public class Admin_DeliveryListAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 	        
-	        
 	        Admin_DeliverySearchBean adb = new Admin_DeliverySearchBean();
             adb.setDelivery_code(request.getParameter("delivery_code"));
             adb.setDelivery_title(request.getParameter("delivery_title"));
             adb.setDelivery_member_id(request.getParameter("delivery_member"));
 	        adb.setDelivery_ok(request.getParameter("delivery_ok"));
             adb.setDelivery_bank(request.getParameter("delivery_bank"));
+            
+            if(request.getParameter("pickStart") !=null) {
+      	      String pickStart = request.getParameter("pickStart");
+                SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+                SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+                java.util.Date tempDate = null;
+                try {
+                   tempDate = beforeFormat.parse(pickStart);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String transDate = afterFormat.format(tempDate);
+                Date start = Date.valueOf(transDate);
+                
+                adb.setPickStart(start);
+                System.out.println("시작 이다"+ start);
+
+              }else {
+              	adb.setPickStart(Date.valueOf("2010-01-01"));
+              }
+              
+              if(request.getParameter("pickEnd")!=null) {
+      	      String pickEnd = request.getParameter("pickEnd");
+                SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+                SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+                java.util.Date tempDate = null;
+                try {
+                   tempDate = beforeFormat.parse(pickEnd);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String transDate = afterFormat.format(tempDate);
+                Date end = Date.valueOf(transDate);
+                adb.setPickEnd(end);
+                System.out.println("끝 이다"+ end);
+              }else {
+              	adb.setPickEnd(Date.valueOf("2020-01-01"));
+              }
+              
 	        adb.setPage(page);
 	        adb.setLimit(limit);     
 	        
-	        
-	        
+	        System.out.println("시작"+adb.getPickStart());
+	        System.out.println("끝"+adb.getPickEnd());
 	        System.out.println("adb code request체크 :"+adb.getDelivery_code());
 	        System.out.println("adb title request체크 :"+adb.getDelivery_title());
 	        System.out.println("adb member request체크 :"+adb.getDelivery_member_id());
 	        System.out.println("adb ok request체크 :"+adb.getDelivery_ok());
 	        System.out.println("adb bank request체크: "+adb.getDelivery_bank());
 	        
-	        Admin_DeliveryListService Admin_DeliveryListService = new Admin_DeliveryListService();
-	        int listCount = Admin_DeliveryListService.getListCount(adb); // 전체 게시물 수 가져오기
+	        Admin_DeliveryListService admin_DeliveryListService = new Admin_DeliveryListService();
+	        int listCount = admin_DeliveryListService.getListCount(adb); // 전체 게시물 수 가져오기
 
-	        deliveryList = Admin_DeliveryListService.getDeliveryList(adb); // 전체 게시물 목록 가져오기(10개 한정)
+	        deliveryList = admin_DeliveryListService.getDeliveryList(adb); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
 	        int maxPage = (int)((double)listCount / limit + 0.95);

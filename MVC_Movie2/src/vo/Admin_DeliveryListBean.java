@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Admin_DeliveryListBean {
 	
 	private int delivery_idx;
-	private Date delivery_date;
+	private Date order_date;
 	private String delivery_code;
 	private String delivery_title;
 	private String delivery_member_id;
@@ -26,11 +26,11 @@ public class Admin_DeliveryListBean {
 	public void setDelivery_idx(int delivery_idx) {
 		this.delivery_idx = delivery_idx;
 	}
-	public Date getDelivery_date() {
-		return delivery_date;
+	public Date getOrder_date() {
+		return order_date;
 	}
-	public void setDelivery_date(Date delivery_date) {
-		this.delivery_date = delivery_date;
+	public void setOrder_date(Date order_date) {
+		this.order_date = order_date;
 	}
 	
 	public String getDelivery_code() {

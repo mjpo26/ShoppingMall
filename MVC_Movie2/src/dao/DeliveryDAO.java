@@ -42,7 +42,7 @@ public class DeliveryDAO {
     	
     	String Delivery_title = adb.getDelivery_title();
     	  	
-    	String sql = "SELECT COUNT(*) FROM Delivery where Delivery_title=?";
+    	String sql = "SELECT COUNT(*) FROM delivery where Delivery_title=?";
     	try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, Delivery_title);
@@ -83,9 +83,11 @@ public class DeliveryDAO {
 //누군가 시간 남는 사람이 고민한 번 해 보도록^^;
 //이런거 생각해보고 짜는 것이 공부가 될꺼야.
 		    
-			String sql = "SELECT * FROM Delivery where "
+			String sql = "SELECT * FROM delivery where "
 			        + "Delivery_code like ifnull(?,'%%') "
 			        + "and Delivery_member_id like ifnull(?,'%%') "
+					+ "and order_date >= ?"
+					+ "and order_date <= ?"
 			        + "and Delivery_title like ifnull(?,'%%') "
 			        + "and Delivery_ok like ifnull(?,'%%') "
 			        + "and Delivery_bank like ifnull(?,'%%')"
@@ -94,11 +96,13 @@ public class DeliveryDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, adb.getDelivery_code());
 			pstmt.setString(2, adb.getDelivery_member_id());
-			pstmt.setString(3, adb.getDelivery_title());
-			pstmt.setString(4, adb.getDelivery_ok());
-			pstmt.setString(5, adb.getDelivery_bank());
-			pstmt.setInt(6, startRow);
-			pstmt.setInt(7, adb.getLimit());
+			pstmt.setDate(3, adb.getPickStart());
+			pstmt.setDate(4, adb.getPickEnd());
+			pstmt.setString(5, adb.getDelivery_title());
+			pstmt.setString(6, adb.getDelivery_ok());
+			pstmt.setString(7, adb.getDelivery_bank());
+			pstmt.setInt(8, startRow);
+			pstmt.setInt(9, adb.getLimit());
 
 			rs = pstmt.executeQuery();
 			
@@ -106,7 +110,7 @@ public class DeliveryDAO {
 			
 			while (rs.next()) {
 				Admin_DeliveryListBean deliveryBean = new Admin_DeliveryListBean();
-				deliveryBean.setDelivery_date(rs.getDate("delivery_date"));
+				deliveryBean.setOrder_date(rs.getDate("order_date"));
 				deliveryBean.setDelivery_code(rs.getString("delivery_code"));
 				deliveryBean.setDelivery_title(rs.getString("delivery_title"));
 				deliveryBean.setDelivery_member_id(rs.getString("delivery_member_id"));
@@ -116,9 +120,9 @@ public class DeliveryDAO {
 				deliveryBean.setDelivery_memo(rs.getString("delivery_memo"));		
 				deliveryList.add(deliveryBean);
 			}
-			System.out.println("mDAO: 멤버빈 담긴거 확인:" +deliveryList);
+			System.out.println("DeliveryDAO: 딜리버리빈 담긴거 확인:" +deliveryList);
 		} catch (SQLException e) {
-			System.out.println("MemberDAO: selectMemberList() 에러 - " + e.getMessage());
+			System.out.println("DeliveryDAO: selectMemberList() 에러 - " + e.getMessage());
 		} finally {
 			close(rs);
 			close(pstmt);

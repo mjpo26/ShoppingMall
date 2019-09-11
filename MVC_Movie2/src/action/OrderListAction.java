@@ -1,5 +1,8 @@
 package action;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +19,7 @@ public class OrderListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		  ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
-	        System.out.println("OrderListBKAction실행됨");
+	        System.out.println("OrderListAction실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 10; // 한 페이지 당 표시할 게시물 수
@@ -27,21 +30,61 @@ public class OrderListAction implements Action {
 	        }
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
-
-	        ob.setOrder_member_id("admin");
-
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
-	        // 기간검색
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
 	        ob.setOrder_member_id(request.getParameter("Buyer"));
 	        ob.setOrder_pay_status(request.getParameter("pay"));
-	        // 결제상태
 	        ob.setOrder_payment(request.getParameter("payment"));//  결제상태
-	        // 회원구분
+	        
+	        System.out.println("jsp script 로 널값 변환되나 보자  ["+request.getParameter("pickStart")+"]");
+	        
+	        if(request.getParameter("pickStart") !=null) {
+    	      String pickStart = request.getParameter("pickStart");
+              SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+              SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+              java.util.Date tempDate = null;
+              try {
+                 tempDate = beforeFormat.parse(pickStart);
 
+              } catch (ParseException e) {
+                  e.printStackTrace();
+              }
+              String transDate = afterFormat.format(tempDate);
+              Date start = Date.valueOf(transDate);
+              
+              ob.setPickStart(start);
+              System.out.println("시작 이다"+ start);
+
+            }else {
+            	ob.setPickStart(Date.valueOf("2010-01-01"));
+            }
+            
+            if(request.getParameter("pickEnd")!=null) {
+    	      String pickEnd = request.getParameter("pickEnd");
+              SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+              SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+              java.util.Date tempDate = null;
+              try {
+                 tempDate = beforeFormat.parse(pickEnd);
+
+              } catch (ParseException e) {
+                  e.printStackTrace();
+              }
+              String transDate = afterFormat.format(tempDate);
+              Date end = Date.valueOf(transDate);
+              ob.setPickEnd(end);
+              System.out.println("끝 이다"+ end);
+            }else {
+            	ob.setPickEnd(Date.valueOf("2020-01-01"));
+            }
+            
+            System.out.println("액션 심플데이타포맷 위 에러인가?");
+            
 	        ob.setPage(page);
 	        ob.setLimit(limit);
 	        
+	        System.out.println("시작"+ob.getPickStart());
+	        System.out.println("끝"+ob.getPickEnd());
 	        System.out.println("ob order_item_code request체크:"+ob.getOrder_item_code());
 	        System.out.println("ob order_item_title request체크:"+ob.getOrder_item_title());
 	        System.out.println("ob order_member_id request체크:"+ob.getOrder_member_id());
