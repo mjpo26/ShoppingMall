@@ -236,10 +236,6 @@ public class MemberDAO {
                 memberBean.setMember_postcode1(rs.getString("member_postcode1"));
                 memberBean.setMember_address_x1(rs.getString("member_address_x1"));
                 memberBean.setMember_address_y1(rs.getString("member_address_y1"));
-                
-                
-                
-                
               
             }
             

@@ -11,11 +11,11 @@ import svc.MemberLoginProService;
 import vo.ActionForward;
 import vo.MemberBean;
 
-public class MemberInfoAction implements Action {
+public class MemberUpdateAction implements Action {
 
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("MemberInfoAction");
+        System.out.println("MemberUpdateAction");
         
         ActionForward forward = null;
         
@@ -39,7 +39,7 @@ public class MemberInfoAction implements Action {
                 request.setAttribute("memberBean", memberBean);
                 
                 forward = new ActionForward();
-                forward.setPath("/member/Minfo.jsp");
+                forward.setPath("/member/memberUpdate.jsp");
 //                forward.setPath("/member/memberInfo.jsp");
                 forward.setRedirect(false);
             }

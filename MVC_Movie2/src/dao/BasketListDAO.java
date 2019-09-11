@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.BasketListBean;
+import vo.ItemBean;
+import vo.MemberBean;
 import vo.OrderListBean;
 
 public class BasketListDAO {
@@ -97,11 +99,11 @@ public class BasketListDAO {
 
 	public int insertItem(BasketListBean basketListBean, String sId) {
 		int insertCount = 0;
-
+		System.out.println("DB접속");
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO basket(basket_code,basket_member_id,basket_title,basket_sel_price,"
-				+ "basket_new_price,basket_point,basket_code_count,basket_delivery_pee) VALUES(?,?,?,?,?,?,?,?)";
+				+ "basket_new_price,basket_point,basket_code_count,basket_delivery_pee,basket_date) VALUES(?,?,?,?,?,?,?,?,now())";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -123,5 +125,85 @@ public class BasketListDAO {
 		}
 
 		return insertCount;
+	}
+
+	public BasketListBean selectBasketInfo(String member_id) {
+		BasketListBean basketListBean = null;
+        
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            String sql = "SELECT * FROM basket WHERE basket_member_id=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, member_id);
+            rs = pstmt.executeQuery();
+            
+            if(rs.next()) {
+                basketListBean = new BasketListBean();
+                basketListBean.setBasket_idx(rs.getInt("basket_idx"));
+                basketListBean.setBasket_code(rs.getInt("basket_code"));
+                basketListBean.setBasket_member_id(rs.getString("basket_member_id"));
+                basketListBean.setBasket_title(rs.getString("basket_title"));
+                basketListBean.setBasket_sel_price(rs.getInt("basket_sel_price"));
+                basketListBean.setBasket_new_price(rs.getInt("basket_new_price"));
+                basketListBean.setBasket_point(rs.getInt("basket_point"));
+                basketListBean.setBasket_code_count(rs.getInt("basket_code_count"));
+                basketListBean.setBasket_delivery_pee(rs.getInt("basket_delivery_pee"));
+                basketListBean.setBasket_date(rs.getDate("basket_date"));
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectBasketInfo 실패! - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        return basketListBean;
+        
+    }
+
+	public ArrayList<BasketListBean> selectArticleList(String member_id) {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        ArrayList<BasketListBean> articleList = new ArrayList<BasketListBean>();
+
+         
+        
+        try {
+            String sql = "SELECT * FROM basket where basket_member_id=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, member_id);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	BasketListBean basketListBean = new BasketListBean();
+                 basketListBean.setBasket_idx(rs.getInt("basket_idx"));
+                 basketListBean.setBasket_code(rs.getInt("basket_code"));
+                 basketListBean.setBasket_member_id(rs.getString("basket_member_id"));
+                 basketListBean.setBasket_title(rs.getString("basket_title"));
+                 basketListBean.setBasket_sel_price(rs.getInt("basket_sel_price"));
+                 basketListBean.setBasket_new_price(rs.getInt("basket_new_price"));
+                 basketListBean.setBasket_point(rs.getInt("basket_point"));
+                 basketListBean.setBasket_code_count(rs.getInt("basket_code_count"));
+                 basketListBean.setBasket_delivery_pee(rs.getInt("basket_delivery_pee"));
+                 basketListBean.setBasket_date(rs.getDate("basket_date"));
+                
+                articleList.add(basketListBean);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return articleList;
 	}
 }

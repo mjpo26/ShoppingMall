@@ -15,6 +15,7 @@ import action.MemberInfoAction;
 import action.MemberJoinProAction;
 import action.MemberLoginProAction;
 import action.MemberLogoutProAction;
+import action.MemberUpdateAction;
 import action.MemberUpdateProAction;
 import vo.ActionForward;
 
@@ -78,6 +79,14 @@ public class MemberFrontController extends HttpServlet {
             }
         } else if(command.equals("/MemberUpdatePro.me")) {
             action = new MemberUpdateProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberUpdate.me")) {
+            action = new MemberUpdateAction();
             
             try {
                 forward = action.execute(request, response);

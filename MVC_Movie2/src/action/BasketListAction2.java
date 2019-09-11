@@ -49,6 +49,7 @@ public class BasketListAction2 implements Action {
 	        // ActionForward 객체를 생성하여 Dispatcher 방식으로 board 폴더 내의 qna_board_list.jsp 페이지로 이동
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
+	        
 	        forward.setPath("index.jsp");
 	        
 	        return forward;

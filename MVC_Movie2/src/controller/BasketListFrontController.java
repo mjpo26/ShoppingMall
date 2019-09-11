@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.BasketInfoAction;
 import action.BasketListAction;
 import action.BasketListAction2;
 import action.ReviewBoardListAction;
@@ -33,9 +34,17 @@ public class BasketListFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("/BasketList2.bl")) {
+		}else if (command.equals("/BasketInsert.bl")) {
 			System.out.println("list controller 들어옴");
 			action = new BasketListAction2();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/BasketInfo.bl")) {
+			System.out.println("BasketInfo.bl controller 들어옴");
+			action = new BasketInfoAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
