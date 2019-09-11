@@ -61,10 +61,10 @@
 
                             <div class="col-md-12 clearfix">
                                 <figure class="col-6 float-left">
-                                    <img src="../assets/img/bnt/naver_login_small_grren.PNG">
+                                    <img src="../assets/img/btn/login/naver_login_small_grren.PNG">
                                 </figure>
                                 <figure class="col-6 float-left">
-                                    <img src="../assets/img/bnt/kakao_login_btn_large.png">
+                                    <img src="../assets/img/btn/login/kakao_login_btn_large.png">
                                 </figure>
 
                             </div>
