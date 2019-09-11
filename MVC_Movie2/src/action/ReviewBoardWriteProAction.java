@@ -22,7 +22,7 @@ public class ReviewBoardWriteProAction implements Action {
         ActionForward forward = null;
         
         String realFolder = ""; 
-        String saveFolder = "/reviewBoardUpload"; 
+        String saveFolder = "./reviewBoardUpload"; 
         int fileSize = 10 * 1024 * 1024; 
         
         ServletContext context = request.getServletContext();

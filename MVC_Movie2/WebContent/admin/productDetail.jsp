@@ -46,8 +46,8 @@
 				<div class="col-lg-7 col-xl-7">
 					<div class="product_slider_img">
 						<div id="vertical">
-							<div data-thumb="./assets/img/product/single-product/<%=itemBean.getItem_pic1()%>">
-								<img src="./assets/img/product/single-product/<%=itemBean.getItem_pic1()%>" />
+							<div data-thumb="./WebContent/assets/img/product/single-product/<%=itemBean.getItem_pic1()%>">
+								<img src="./WebContent/assets/img/product/single-product/<%=itemBean.getItem_pic1()%>" />
 							</div>
 							<div data-thumb="./assets/img/product/single-product/<%=itemBean.getItem_pic2()%>">
 								<img src="./assets/img/product/single-product/<%=itemBean.getItem_pic2()%>" />

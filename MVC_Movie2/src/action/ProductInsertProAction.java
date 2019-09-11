@@ -25,9 +25,9 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_content2(request.getParameter("content2"));
 //		  	itemBean.setItem_bgpic(request.getParameter("Item_bgpic"));
 		  	itemBean.setItem_pic1(request.getParameter("pic1"));
-		  	itemBean.setItem_pic1(request.getParameter("pic2"));
-		  	itemBean.setItem_pic1(request.getParameter("pic3"));
-		  	itemBean.setItem_pic1(request.getParameter("pic4"));
+		  	itemBean.setItem_pic2(request.getParameter("pic2"));
+		  	itemBean.setItem_pic3(request.getParameter("pic3"));
+		  	itemBean.setItem_pic4(request.getParameter("pic4"));
 		  	itemBean.setItem_display(request.getParameter("display"));
 		  	itemBean.setItem_sales(request.getParameter("sales"));
 		  	itemBean.setItem_point(Item_point);
