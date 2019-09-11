@@ -110,14 +110,10 @@ form {
 <!-- 						<th colspan="2">첨부파일</th> -->
 <!-- 						<td colspan="2"><input type="file" name="Item_bgpic"></td> -->
 						<th colspan="2">이미지추가</th>
-						<td colspan="2" ><input type="file"
-							name="Item_pic1" ></td>
-							<td colspan="2" ><input type="file"
-							name="Item_pic2" ></td>
-							<td colspan="2" ><input type="file"
-							name="Item_pic3" ></td>
-							<td colspan="2" ><input type="file"
-							name="Item_pic4" ></td>
+						<td colspan="2" ><input type="file"	name="pic1" ></td>
+							<td colspan="2" ><input type="file"	name="pic2" ></td>
+							<td colspan="2" ><input type="file"	name="pic3" ></td>
+							<td colspan="2" ><input type="file"	name="pic4" ></td>
 
 <!-- 						<script src="//code.jquery.com/jquery.min.js"></script> -->
 <!-- 						<script> -->
