@@ -193,12 +193,29 @@
                                 <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" onclick="idcheck()">            
                             </div>
                         </div>
-                        <div class="mt-10">
+                        
+                        
+                        
+                        <div class="mt-10 row clearfix">
+                            <div class="float-left col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_id">비밀번호</label> 
+                            </div>
+                            <div class="col-lg-5 col-sm-8 col-8 float-left">
                             <input type="password" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input">
-                        </div>
-                        <div class="mt-10">
+                            </div>
+                            <div class="col-lg-5 col-sm-4 col-4 float-right clearfix">
                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '위 입력하신 비밀번호를 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
+                            </div>
                         </div>
+                     
+                        
+<!--                         <div class="mt-10"> -->
+<!--                             <input type="password" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input"> -->
+<!--                         </div> -->
+<!--                         <div class="mt-10"> -->
+<!--                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '위 입력하신 비밀번호를 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input"> -->
+<!--                         </div> -->
+
                         <input type="hidden" name="passChecked" value="no">
                         <div class="mt-10">
                             <input type="text" name="name" placeholder="이름" onkeyup="passCheck(this.value)" 
