@@ -225,10 +225,10 @@
 
                          <div class="mt-10 row clearfix">
                             <div class="float-left col-lg-2 d-md-block d-sm-none d-none">
-                                <label for="member_postcode">우편번호</label> 
+                                <label for="postcode">우편번호</label> 
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
-                                <input type="number" id="member_postcode" name="postcode" placeholder="우편번호" onfocus="this.placeholder = '우편번호 찾기를 통해 입력해주십시오 '" onblur="this.placeholder = '우편번호'" class="single-input">
+                                <input type="number" id="postcode" name="postcode" placeholder="우편번호" onfocus="this.placeholder = '우편번호 찾기를 통해 입력해주십시오 '" onblur="this.placeholder = '우편번호'" class="single-input">
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
                                 <input type="button" class="genric-btn primary radius float-right col-12" value="우편번호 찾기" onclick="sample6_execDaumPostcode()">            
@@ -237,10 +237,10 @@
 
                         <div class="mt-10 row">
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
-                                <label for="member_address">기본 주소</label> 
+                                <label for="address">기본 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="member_address" name="address" placeholder="기본 주소" onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
+                            <input type="text" id="address" name="address" placeholder="기본 주소" onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
                             </div>
                         </div>
 
@@ -250,21 +250,29 @@
                             </div>
                             <div class="col-lg-10 col-sm-12">
                             <input type="text" id="detailaddress" name="address" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
-<!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->
                             </div>
+<!--                             <div class="col-lg-2 col-sm-2"> -->
+<!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->
+<!--                             </div> -->
                         </div>
 
-                        <script 
-                                src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+                             <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
                             <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-                            <script
-                                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=872a5db04ceea145a453ef88d096e9a6&libraries=services"></script>
+                            <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=872a5db04ceea145a453ef88d096e9a6&libraries=services"></script>
                 
                 
-                            <div id="map"
-                                style="width: 450px; height: 300px; margin-top: 10px; display: none"></div>
-                            <br> 
+                
+                
+                         <div class="mt-10 row mx-auto">
+            
+                            <div class="col-12 px-3" id="map" style="width: 100%; height: 300px; display: none">
+                      
+                             </div>
 
+
+                        </div>
+                
+                
             
                         <script>
                             //-------------------------------------
@@ -304,42 +312,37 @@
             
                                                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                                                 if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                                                    addr = data.roadAddress;
-                                                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                                                    addr = data.jibunAddress;
-                                                }
-                                                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-                                                if (data.userSelectedType === 'R') {
+                                                    addr = data.roadAddress;                                                
+                                                
                                                     // 법정동명이 있을 경우 추가한다. (법정리는 제외)
                                                     // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
                                                     if (data.bname !== ''
                                                             && /[동|로|가]$/g.test(data.bname)) {
-                                                        extraAddr += data.bname;
+                                                    	extraAddr += data.bname;
                                                     }
                                                     // 건물명이 있고, 공동주택일 경우 추가한다.
                                                     if (data.buildingName !== ''
                                                             && data.apartment === 'Y') {
-                                                        extraAddr += (extraAddr !== '' ? ', '
+                                                    	extraAddr += (extraAddr !== '' ? ', '
                                                                 + data.buildingName
                                                                 : data.buildingName);
                                                     }
                                                     // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
                                                     if (extraAddr !== '') {
-                                                        extraAddr = ' (' + extraAddr + ')';
+                                                        addr = addr+ ' (' + extraAddr + ')';
                                                     }
                                                     // 조합된 참고항목을 해당 필드에 넣는다.
-                                                    document.getElementById("extraaddress").value = extraAddr;
+                                                    document.getElementById("address").value = addr;
             
-                                                } else {
-                                                    document.getElementById("extraaddress").value = '';
+                                                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                                                    addr = data.jibunAddress;
                                                 }
-            
+                                           
                                                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                                                 document.getElementById('postcode').value = data.zonecode;
                                                 document.getElementById("address").value = addr;
                                                 // 커서를 상세주소 필드로 이동한다.
-                                                document.getElementById("detailaddress")
-                                                        .focus();
+                                                document.getElementById("detailaddress").focus();
             
                                                 //--------------------------------
             
