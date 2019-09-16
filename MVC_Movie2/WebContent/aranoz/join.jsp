@@ -161,30 +161,36 @@
     <!--================login_part Area =================-->
     <section class="join_part padding_top">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="align-items-center">
                 <div class="col-lg-8 col-md-8 col-sm-12 mx-auto">
-                    <h3 class="mb-30 float-left">필수 정보</h3>
-                    <div class="mb-30 single-element-widget float-right">
-                        <!--                         <h4 class="mb-30">회원</h4> -->
-                        <div class="default-select" id="default-select_2">
-                            <select disabled>
-                                <option value="일반회원">일반회원</option>
-                                <option value="2">VIP</option>
-                            </select>
-                        </div>
-
+                
+                    <div class="clearfix overflow-hidden">                    
+	                    <div class="float-left">
+	                        <h3 class="mb-30 ">필수 정보</h3>
+	                    </div>
+	                    <div class="mb-30 single-element-widget float-right">
+	                        <!--                         <h4 class="mb-30">회원</h4> -->
+	                        <div class="default-select" id="default-select_2">
+	                            <select disabled>
+	                                <option value="일반회원">일반회원</option>
+	                                <option value="2">VIP</option>
+	                            </select>
+	                        </div>
+		
+	                    </div>
                     </div>
-
-
+            
                     <form action="MemberJoinPro.me" id="join" method="post" name="joinForm" onsubmit="return check()">
 
-                        <div class="mt-10 row">
-                            <div class="col-8">
-                            <input type="text" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용물가'" onblur="this.placeholder = 'id'" required class="single-input">
+                        <div class="mt-10 row clearfix">
+                            <div class="float-left col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_id">아이디</label> 
                             </div>
-                            <div class="col-4">
-                            <input type="button" class="genric-btn primary radius col-6" value="중복체크" onclick="idcheck()">
-                            
+                            <div class="col-lg-7 col-sm-8 col-8 float-left">
+                                <input type="text" id="member_id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용물가'" onblur="this.placeholder = 'id'" required class="single-input">
+                            </div>
+                            <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
+                                <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" onclick="idcheck()">            
                             </div>
                         </div>
                         <div class="mt-10">
