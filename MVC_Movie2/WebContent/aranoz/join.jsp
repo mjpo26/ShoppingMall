@@ -196,52 +196,204 @@
                         
                         
                         
-                        <div class="mt-10 row clearfix">
-                            <div class="float-left col-lg-2 d-md-block d-sm-none d-none">
-                                <label for="member_id">비밀번호</label> 
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_pass">비밀번호</label> 
                             </div>
-                            <div class="col-lg-5 col-sm-8 col-8 float-left">
-                            <input type="password" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input">
+                            <div class="col-lg-5 col-sm-6 col-12">
+                            <input type="password" id="member_pass"name="pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input">
                             </div>
-                            <div class="col-lg-5 col-sm-4 col-4 float-right clearfix">
-                            <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '위 입력하신 비밀번호를 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
+                            <div class="col-lg-5 col-sm-6 col-12 mt-sm-0 mt-10">
+                            <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '입력하신 비밀번호를 다시 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
                             </div>
                         </div>
-                     
+                        <input type="hidden" name="passChecked" value="no">                     
+
+
+
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_name">이름</label> 
+                            </div>
+                            <div class="col-lg-10 col-sm-12">
+                              <input type="text" id="member_name" name="name" placeholder="이름" onkeyup="passCheck(this.value)" onfocus="this.placeholder = '한글 2~10자'" onblur="this.placeholder = '이름'" required class="single-input">
+                            </div>
+                        </div>
                         
-<!--                         <div class="mt-10"> -->
-<!--                             <input type="password" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '6~12자 영소문자, 영대문자, 숫자 조합'" onblur="this.placeholder = '비밀번호'" required class="single-input"> -->
-<!--                         </div> -->
-<!--                         <div class="mt-10"> -->
-<!--                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '위 입력하신 비밀번호를 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input"> -->
-<!--                         </div> -->
-
-                        <input type="hidden" name="passChecked" value="no">
-                        <div class="mt-10">
-                            <input type="text" name="name" placeholder="이름" onkeyup="passCheck(this.value)" 
-                            onfocus="this.placeholder = '한글 2~10자'" onblur="this.placeholder = '이름'" required class="single-input">
-                        </div>
-                        <div class="mt-10">
-                            <input type="email" name="member_email" placeholder="Email" onfocus="this.placeholder = 'ex. korea@naver.com'" onblur="this.placeholder = 'Email'" required class="single-input">
-                        </div>
+<!--                         <input type="text" id="result" readonly style="border: 0px; background-color: transparent"><br> -->
 
 
+                         <div class="mt-10 row clearfix">
+                            <div class="float-left col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_postcode">우편번호</label> 
+                            </div>
+                            <div class="col-lg-7 col-sm-8 col-8 float-left">
+                                <input type="number" id="member_postcode" name="postcode" placeholder="우편번호" onfocus="this.placeholder = '우편번호 찾기를 통해 입력해주십시오 '" onblur="this.placeholder = '우편번호'" class="single-input">
+                            </div>
+                            <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
+                                <input type="button" class="genric-btn primary radius float-right col-12" value="우편번호 찾기" onclick="sample6_execDaumPostcode()">            
+                            </div>
+                        </div>
 
-                        <div class="mt-10">
-                            <input type="number" name="member_postcode1" placeholder="우편번호" onfocus="this.placeholder = '활성시 우편번호 API 팝업이 뜨도록'" onblur="this.placeholder = '우편번호'" class="single-input">
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_address">기본 주소</label> 
+                            </div>
+                            <div class="col-lg-10 col-sm-12">
+                            <input type="text" id="member_address" name="address" placeholder="기본 주소" onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
+                            </div>
                         </div>
-                        <div class="mt-10">
-                            <input type="text" name="member_address1" placeholder="기본 주소" onfocus="this.placeholder = '활성시 우편번호 API 팝업이 뜨도록'" onblur="this.placeholder = '기본 주소'" class="single-input">
+
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="detailaddress">상세 주소</label> 
+                            </div>
+                            <div class="col-lg-10 col-sm-12">
+                            <input type="text" id="detailaddress" name="address" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
+<!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->
+                            </div>
                         </div>
-                        <div class="mt-10">
-                            <input type="text" name="member_address2" placeholder="상세 주소" onfocus="this.placeholder = '상세 주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
-                        </div>
+
+				        <script 
+				                src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+				            <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+				            <script
+				                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=872a5db04ceea145a453ef88d096e9a6&libraries=services"></script>
+				
+				
+				            <div id="map"
+				                style="width: 450px; height: 300px; margin-top: 10px; display: none"></div>
+				            <br> 
+
+			
+			            <script>
+			                //-------------------------------------
+			
+			                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+			                mapOption = {
+			                    center : new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+			                    level : 5
+			                // 지도의 확대 레벨
+			                };
+			
+			                //지도를 미리 생성
+			                var map = new daum.maps.Map(mapContainer, mapOption);
+			                //주소-좌표 변환 객체를 생성
+			                var geocoder = new daum.maps.services.Geocoder();
+			                //마커를 미리 생성
+			                var marker = new daum.maps.Marker({
+			                    position : new daum.maps.LatLng(37.537187, 127.005476),
+			                    map : map
+			                });
+			
+			                //-------------------------------------
+			
+			                function sample6_execDaumPostcode() {
+			                    new daum.Postcode(
+			                            {
+			                                oncomplete : function(data) {
+			
+			                                    //=-----------해보자
+			
+			                                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+			
+			                                    // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+			                                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+			                                    var addr = ''; // 주소 변수
+			                                    var extraAddr = ''; // 참고항목 변수
+			
+			                                    //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+			                                    if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+			                                        addr = data.roadAddress;
+			                                    } else { // 사용자가 지번 주소를 선택했을 경우(J)
+			                                        addr = data.jibunAddress;
+			                                    }
+			                                    // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+			                                    if (data.userSelectedType === 'R') {
+			                                        // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+			                                        // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+			                                        if (data.bname !== ''
+			                                                && /[동|로|가]$/g.test(data.bname)) {
+			                                            extraAddr += data.bname;
+			                                        }
+			                                        // 건물명이 있고, 공동주택일 경우 추가한다.
+			                                        if (data.buildingName !== ''
+			                                                && data.apartment === 'Y') {
+			                                            extraAddr += (extraAddr !== '' ? ', '
+			                                                    + data.buildingName
+			                                                    : data.buildingName);
+			                                        }
+			                                        // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+			                                        if (extraAddr !== '') {
+			                                            extraAddr = ' (' + extraAddr + ')';
+			                                        }
+			                                        // 조합된 참고항목을 해당 필드에 넣는다.
+			                                        document.getElementById("extraaddress").value = extraAddr;
+			
+			                                    } else {
+			                                        document.getElementById("extraaddress").value = '';
+			                                    }
+			
+			                                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+			                                    document.getElementById('postcode').value = data.zonecode;
+			                                    document.getElementById("address").value = addr;
+			                                    // 커서를 상세주소 필드로 이동한다.
+			                                    document.getElementById("detailaddress")
+			                                            .focus();
+			
+			                                    //--------------------------------
+			
+			                                    var addr2 = data.address; // 최종 주소 변수
+			
+			                                    // 주소 정보를 해당 필드에 넣는다.
+			                                    //  document.getElementById("sample5_address").value = addr;
+			                                    // 주소로 상세 정보를 검색
+			                                    geocoder
+			                                            .addressSearch(
+			                                                    data.address,
+			                                                    function(results, status) {
+			                                                        // 정상적으로 검색이 완료됐으면
+			                                                        if (status === daum.maps.services.Status.OK) {
+			
+			                                                            var result = results[0]; //첫번째 결과의 값을 활용
+			
+			                                                            // 해당 주소에 대한 좌표를 받아서
+			                                                            var coords = new daum.maps.LatLng(
+			                                                                    result.y,
+			                                                                    result.x);
+			                                                            // 주소 정보를 해당 필드에 넣는다.
+			                                                            document
+			                                                                    .getElementById("resulty").value = result.y;
+			                                                            document
+			                                                                    .getElementById("resultx").value = result.x;
+			
+			                                                            // 지도를 보여준다.
+			                                                            mapContainer.style.display = "block";
+			                                                            map.relayout();
+			                                                            // 지도 중심을 변경한다.
+			                                                            map
+			                                                                    .setCenter(coords);
+			                                                            // 마커를 결과값으로 받은 위치로 옮긴다.
+			                                                            marker
+			                                                                    .setPosition(coords)
+			                                                        }
+			                                                    });
+			
+			                                    //---------------------------------
+			                                }
+			                            }).open();
+			                }
+			            </script>
 
                         <div class="row mt-10">
-                            <div class="input-group-icon my-auto col-xs-4 col-sm-4 col-4">
-                                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                             <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_phone">휴대전화</label> 
+                            </div>
+                        
+                            <div class="input-group-icon col-lg-3 col-4 mt-0">
+                                <div class="icon"><i class="fa fa-mobile" aria-hidden="true"></i></div>
                                 <div class="form-select" id="default-select">
-                                    <select name="member_phone1">
+                                    <select name="phone1">
                                         <option value="010">010</option>
                                         <option value="011">011</option>
                                         <option value="017">017</option>
@@ -249,20 +401,67 @@
                                     </select>
                                 </div>
                              </div>
-
-                            <div class="col-sm-1 d-none d-xs-block my-auto">
-                                <span>-</span>
+                             <div class="d-lg-block d-md-none d-none">_</div>
+                            <div class="col-lg-3 col-4">
+                                <input type="number" id="member_phone" name="phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
                             </div>
-                            <div class="col-sm-3 col-xs-3 my-auto col-4">
-                                <input type="number" name="member_phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
-                            </div>
-                            <div class="col-sm-1 d-none d-xs-block my-auto">
-                                <span>-</span>
-                            </div>
-                            <div class="col-sm-3 col-xs-3 my-auto col-4">
+                             <div class="d-lg-block d-md-none d-none">_</div>
+                            <div class="col-lg-3 col-4">
                                 <input type="number" name="member_phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
                             </div>
                         </div>
+
+
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_email">이메일</label> 
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-6">
+	                            <input type="text" id="member_email"name="email" placeholder="이메일" onfocus="this.placeholder = '이메일'" onblur="this.placeholder = '이메일'" required class="single-input">
+                            </div>
+                            <div class="col-sm-1 col-1">@</div>                            
+                            <div class="col-lg-5 col-sm-5 col-5">
+	                            <input type="text" name="domain" placeholder="직접입력" onfocus="this.placeholder = '직접입력'" onblur="this.placeholder = '직접입력'" required class="single-input">
+                            </div>                           
+                        </div>
+          
+                        
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for=""></label> 
+                            </div>
+
+                            <div class="input-group-icon col-lg-10">
+                                <div class="icon"><i class="fa fa-at" aria-hidden="true"></i></div>
+                                <div class="form-select" id="default-select2">
+                                    <select onchange="chkEmailDomainSelect(this)">
+                                       <option value="">직접입력</option>
+                                       <option value="naver.com">naver.com</option>
+                                       <option value="nate.com">nate.com</option>
+                                       <option value="itwillbs.co.kr">daum.net</option>      
+                                    </select>
+                                </div>
+                             </div>
+
+
+                        </div>
+
+
+
+                        <div class="mt-10 row">
+                            <div class="col-lg-2 d-md-block d-sm-none d-none">
+                                <label for="member_email2">이메일확인</label> 
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-6">
+                                <input type="text" id="member_email2"name="email2" placeholder="이메일 확인" onfocus="this.placeholder = '이메일 확인'" onblur="this.placeholder = '이메일 확인'" required class="single-input">
+                            </div>
+                            <div class="col-sm-1 col-1">@</div>                            
+                            <div class="col-lg-5 col-sm-5 col-5">
+                                <input type="text" name="domain2" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = ''" required class="single-input">
+                            </div>                           
+                        </div>
+          
+
 
                         <div class="row">
                             
@@ -270,23 +469,27 @@
 
                                 <p class="my-auto">SMS 수신 여부</p>
                                 <div class="primary-switch my-auto">
-                                    <input type="checkbox" id="default-switch1" checked>
+                                    <input type="checkbox" name="isSmsOk" id="default-switch1" checked>
                                     <label for="default-switch1"></label>
                                 </div>
                             </div>
                             <div class="switch-wrap d-flex justify-content-between mt-10 col-6">
                                 <p class="my-auto">E-Mail 수신 여부</p>
                                 <div class="primary-switch my-auto">
-                                    <input type="checkbox" id="default-switch2" checked>
+                                    <input type="checkbox" name="isEmailOk" id="default-switch2" checked>
                                     <label for="default-switch2"></label>
                                 </div>
                             </div>
                         </div>
 
+                       <input type="hidden" name="resulty"  id="resulty" placeholder="y좌표"> 
+                       <input type="hidden" name="resultx" id="resultx" placeholder="x좌표"><br>
+    
+
                        <div class="row mt-30">
                           <div class="col-xs-12 col-sm-6 mx-auto row">
-                           <input type="submit" class="genric-btn primary radius col-6" value="회원가입">
-                           <input type="button" class="genric-btn default radius col-6" value="취소">
+                           <input type="submit" class="genric-btn primary radius col-6 submit" value="회원가입">
+                           <input type="reset" class="genric-btn default radius col-6 cancel" value="초기화">
                           </div>
                            
                            

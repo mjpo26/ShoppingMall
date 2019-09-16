@@ -179,12 +179,14 @@
 
 		
 			<label>우편번호</label> <input type="text" name="postcode" id="postcode"
-				placeholder="우편번호"> <input type="button"
+				placeholder="우편번호"> 
+				<input type="button"
 				onclick="sample6_execDaumPostcode();" value="우편번호 찾기"><br>
-			<label>주소</label> <input type="text" name="address" id="address"
-				placeholder="주소" size="46"><br> <label>상세주소</label> <input
-				type="text" name="detailaddress" id="detailaddress"
-				placeholder="상세주소"> <input type="text" name="extraaddress"
+			<label>주소</label> 
+			<input type="text" name="address" id="address" placeholder="주소" size="46"><br> 
+				<label>상세주소</label> 
+				<input type="text" name="detailaddress" id="detailaddress" placeholder="상세주소"> 
+				<input type="text" name="extraaddress"
 				id="extraaddress" placeholder="참고항목"><br>
 
 			<script 
@@ -326,16 +328,38 @@
 
 
 
-			<label>휴대전화</label> <input type="text" name="phone1"size="3">- <input type="text" name="phone2" size="4">- <input type="text" name="phone3" size="4"><br>
-		<label>이메일&nbsp;</label> <input type="text" name="email" size="6">&nbsp;@&nbsp;<input type="text" name="domain" size="6">&nbsp;<select onchange="chkEmailDomainSelect(this)">
-						<option value="">직접입력</option>
-						<option value="naver.com">naver.com</option>
-						<option value="nate.com">nate.com</option>
-						<option value="itwillbs.co.kr">daum.net</option>				
-					</select><br>
-			<label>이메일확인</label> <input type="text" name="email2" size="6">&nbsp;@&nbsp;<input type="text" name="domain2" size="6"><br>
-			<label>sms수신여부</label><input type="radio" name="isSmsOk" checked="checked" value="ok">동의<input type="radio" name="isSmsOk" value="no">동의안함<br>
-	<label>email수신여부</label><input type="radio" name="isEmailOk" checked="checked" value="ok">동의<input type="radio" name="isEmailOk" value="no">동의안함<br>
+			<label>휴대전화</label> 
+			
+			<input type="text" name="phone1"size="3">
+			- <input type="text" name="phone2" size="4">
+			- <input type="text" name="phone3" size="4"><br>
+			
+			
+			
+		<label>이메일&nbsp;</label> 
+		<input type="text" name="email" size="6">
+		&nbsp;@&nbsp;<input type="text" name="domain" size="6">
+		&nbsp;<select onchange="chkEmailDomainSelect(this)">
+					<option value="">직접입력</option>
+					<option value="naver.com">naver.com</option>
+					<option value="nate.com">nate.com</option>
+					<option value="itwillbs.co.kr">daum.net</option>				
+		</select>
+		<br>
+	
+        <label>이메일확인</label> 
+        <input type="text" name="email2" size="6">
+        &nbsp;@&nbsp;
+        <input type="text" name="domain2" size="6"><br>
+        
+        
+        
+			<label>sms수신여부</label>
+			<input type="radio" name="isSmsOk" checked="checked" value="ok">동의
+			<input type="radio" name="isSmsOk" value="no">동의안함<br>
+	<label>email수신여부</label>
+	<input type="radio" name="isEmailOk" checked="checked" value="ok">동의
+	<input type="radio" name="isEmailOk" value="no">동의안함<br>
 	
 	<label></label> <input type="hidden" name="resulty"
 				id="resulty" placeholder="y좌표"> <input type="hidden"
