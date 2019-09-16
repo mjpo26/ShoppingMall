@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import vo.ItemBean;
 
@@ -240,10 +241,10 @@ public class ItemDAO {
 		return updateCount;
 	}
 
-	public ItemBean selectItem(String item_category1) {
+	public List<ItemBean> selectItem(String item_category1) {
 		 PreparedStatement pstmt = null;
 	        ResultSet rs = null;
-	        ItemBean itemBean = null;
+	        List<ItemBean> products = new ArrayList<ItemBean>();
 	        
 	        try {
 	            String sql = "SELECT * FROM Item WHERE Item_category1=?";
@@ -252,6 +253,7 @@ public class ItemDAO {
 	            rs = pstmt.executeQuery();
 	            
 	            if(rs.next()) { 	                
+	            	ItemBean itemBean = null;
 	            	itemBean = new ItemBean();
 	                itemBean.setItem_code(rs.getInt("Item_code"));
 	                itemBean.setItem_title(rs.getString("Item_title"));
@@ -273,6 +275,7 @@ public class ItemDAO {
 	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
 	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
 	                itemBean.setItem_Date(rs.getDate("Item_Date"));
+	                products.add(itemBean);
 	            }
 	        } catch (SQLException e) {
 	            System.out.println("selectItem(String item_category1)- " + e.getMessage());
@@ -281,7 +284,7 @@ public class ItemDAO {
 	            close(pstmt);
 	        }
 	        
-	        return itemBean;
+	        return products;
 		
 	}
 	

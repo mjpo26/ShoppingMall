@@ -34,23 +34,7 @@ public class MainController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if(command.equals("/product_list.sh")) {
-            action = new product_listAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }					
-        }else if(command.equals("/productDetail.sh")) {
-            action = new productDetailAction();
-            
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        } 
         
         
         
