@@ -139,7 +139,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>awesome <span>shop</span></h2>
+                        <h2>Best <span>가장 인기있는 상품</span></h2>
                     </div>
                 </div>
             </div>

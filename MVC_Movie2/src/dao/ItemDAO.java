@@ -239,4 +239,53 @@ public class ItemDAO {
 
 		return updateCount;
 	}
+
+	public ItemBean selectItem(String item_category1) {
+		 PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        ItemBean itemBean = null;
+	        
+	        try {
+	            String sql = "SELECT * FROM Item WHERE Item_category1=?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, item_category1);
+	            rs = pstmt.executeQuery();
+	            
+	            if(rs.next()) { 	                
+	            	itemBean = new ItemBean();
+	                itemBean.setItem_code(rs.getInt("Item_code"));
+	                itemBean.setItem_title(rs.getString("Item_title"));
+	                itemBean.setItem_category1(rs.getString("Item_category1"));
+	                itemBean.setItem_content1(rs.getString("Item_content1"));
+	                itemBean.setItem_content2(rs.getString("Item_content2"));
+	                itemBean.setItem_point(rs.getInt("item_point"));
+//	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
+	                itemBean.setItem_pic2(rs.getString("Item_pic2"));
+	                itemBean.setItem_pic3(rs.getString("Item_pic3"));
+	                itemBean.setItem_pic4(rs.getString("Item_pic4"));
+	                itemBean.setItem_display(rs.getString("Item_display"));
+	                itemBean.setItem_sales(rs.getString("Item_sales"));
+	                itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+	                itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
+	                itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
+	                itemBean.setItem_weight(rs.getInt("Item_weight"));
+	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
+	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
+	                itemBean.setItem_Date(rs.getDate("Item_Date"));
+	            }
+	        } catch (SQLException e) {
+	            System.out.println("selectItem(String item_category1)- " + e.getMessage());
+	        } finally {
+	            close(rs);
+	            close(pstmt);
+	        }
+	        
+	        return itemBean;
+		
+	}
+	
+	
+	
+	
 }
