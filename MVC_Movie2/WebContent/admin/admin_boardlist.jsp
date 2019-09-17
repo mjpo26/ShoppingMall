@@ -264,18 +264,7 @@ function pickNullCheck(){
 			for (int i = 0; i < boardList.size(); i++) {
 					// 				String[] reviewStatus = new String[100];
 					if (boardList.get(i).getQnA_re_lev() != 0)
-						continue; //답변은 표시안함
-					// 				if (i!= boardList.size()) {
-					// 					for (int j = 0; j < i; j++) {
-					// 						if (boardList.get(j).getReview_re_ref() == boardList.get(i).getReview_re_ref()) {
-					// 							reviewStatus[i] = "답변전";
-					// 							reviewStatus[j] =reviewStatus[i];
-					// 						}
-					// 					}
-					// 				} else {
-
-					// 					reviewStatus[i] = "답변완료";
-					// 				}
+						continue;
 		%>
 		<tr>
 			<td><input type="checkbox"></td>

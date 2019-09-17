@@ -91,7 +91,7 @@ public class OrderInsertAction implements Action {
         if(!isWriteSuccess) { // 글 쓰기에 실패했을 경우
             // 자바스크립트 활용하여 "등록 실패" 메세지 출력 후 이전 페이지로 돌아가기
             response.setContentType("text/html;charset=UTF-8"); // 응답 문서 타입 설정
-            PrintWriter out = response.getWriter(); // 출력스트림 객체 가져오기
+            PrintWriter out = response.getWriter(); // 출력스트림 객체 가져오......기
             out.println("<script>");
             out.println("alert('등록실패!')");
             out.println("history.back()");
