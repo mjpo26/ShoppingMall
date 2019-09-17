@@ -15,7 +15,7 @@ import vo.ItemBean;
 
 public class MainPageService {
 	
-	public ArrayList<ItemBean> getItem(String item_category1) { // item_category1 - new, best, hot, recommand 등 가능
+	public ArrayList<ItemBean> getItem(String item_category1) { // item_category1 - new, best, hot, recommend 등 가능
 	     // Connection 객체 가져오기 - getConnection()
        Connection con = getConnection();       
        // ItemDAO 객체 가져오기 - getInstance()

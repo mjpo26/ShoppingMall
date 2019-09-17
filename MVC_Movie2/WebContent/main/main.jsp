@@ -12,8 +12,8 @@ bestProduct = (ArrayList<ItemBean>) request.getAttribute("bestProduct");
 ArrayList<ItemBean> newProduct = new ArrayList<ItemBean>();
 newProduct = (ArrayList<ItemBean>) request.getAttribute("newProduct");
 
-ArrayList<ItemBean> recommandProduct = new ArrayList<ItemBean>();
-recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct");
+ArrayList<ItemBean> recommendProduct = new ArrayList<ItemBean>();
+recommendProduct = (ArrayList<ItemBean>) request.getAttribute("recommendProduct");
 
     
 %>
@@ -30,8 +30,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Wood & Cloth
-                                                Sofa</h1>
+                                            <h1>Wood & Cloth Sofa</h1>
                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum
                                                 suspendisse ultrices gravida. Risus commodo viverra</p>
                                             <a href="#" class="btn_2">buy now</a>
@@ -47,8 +46,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Cloth & Wood
-                                                Sofa</h1>
+                                            <h1>Cloth & Wood Sofa</h1>
                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum
                                                 suspendisse ultrices gravida. Risus commodo viverra</p>
                                             <a href="#" class="btn_2">buy now</a>
@@ -156,7 +154,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>BestSeller <span>가장 인기있는 상품</span></h2>
+                        <h2>Recommend <span>이달의 추천 상품</span></h2>
                     </div>
                 </div>
             </div>
@@ -245,41 +243,26 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-12">
                     <div class="best_product_slider owl-carousel">
+                    
+                    <%
+	                 if(bestProduct!=null){
+	                     int arraySize = bestProduct.size();                                     
+	                     if(arraySize>8) arraySize=8;                              
+	                     for(int i = 0; i<arraySize; i++){ 
+                    %> 
                         <div class="single_product_item">
-                            <img src="./assets/img/product/product_1.png" alt="">
+                            <img src="./assets/img/product/single-product/<%=bestProduct.get(i).getItem_pic1() %>" alt=""
+                            onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+                                <h4><%=bestProduct.get(i).getItem_title()%></h4>
+                                <h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
                             </div>
                         </div>
-                        <div class="single_product_item">
-                            <img src="./assets/img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="./assets/img/product/product_3.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="./assets/img/product/product_4.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="./assets/img/product/product_5.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
+                     <%    
+                           }// bestProduct for 문 종료9
+                     }// bestProduct!=null if문 종료
+                     %>
+
                     </div>
                 </div>
             </div>

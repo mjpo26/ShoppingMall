@@ -22,12 +22,12 @@ public class MainPageAction implements Action {
 	        
 	        ArrayList<ItemBean> newProduct =  mainPageService.getItem("new");
 	        
-	        ArrayList<ItemBean> recommandProduct = mainPageService.getItem("recommand");
+	        ArrayList<ItemBean> recommendProduct = mainPageService.getItem("recommend");
 
 			        
 	        request.setAttribute("bestProduct", bestProduct);
 	        request.setAttribute("newProduct", newProduct);
-	        request.setAttribute("recommandProduct", recommandProduct);
+	        request.setAttribute("recommendProduct", recommendProduct);
 
 		
 	        // /main/main.jsp 페이지로 포워딩(Dispatcher 방식)
