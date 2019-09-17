@@ -6,7 +6,8 @@
 <%
 ArrayList<ItemBean> bestProduct = new ArrayList<ItemBean>();
 bestProduct = (ArrayList<ItemBean>) request.getAttribute("bestProduct");
-out.println(bestProduct);
+/* out.println(bestProduct);
+ */out.println(bestProduct.size());
 
 ArrayList<ItemBean> newProduct = new ArrayList<ItemBean>();
 newProduct = (ArrayList<ItemBean>) request.getAttribute("newProduct");
@@ -16,7 +17,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
 
     
 %>
-<jsp:include page="top.jsp"></jsp:include>
+<jsp:include page="../assets/top.jsp"></jsp:include>
   
     <!-- banner part start-->
     <section class="banner_part">
@@ -38,7 +39,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="../assets/img/banner_img.png" alt="">
+                                    <img src="./assets/img/banner_img.png" alt="">
                                 </div>
                             </div>
                         </div><div class="single_banner_slider">
@@ -55,7 +56,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="../assets/img/banner_img.png" alt="">
+                                    <img src="./assets/img/banner_img.png" alt="">
                                 </div>
                             </div>
                         </div><div class="single_banner_slider">
@@ -72,7 +73,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="../assets/img/banner_img.png" alt="">
+                                    <img src="./assets/img/banner_img.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -89,7 +90,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="../assets/img/banner_img.png" alt="">
+                                    <img src="./assets/img/banner_img.png" alt="">
                                 </div>
                             </div>
                         </div> -->
@@ -117,7 +118,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                         <p>Premium Quality</p>
                         <h3>Latest foam Sofa</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="../assets/img/feature/feature_1.png" alt="">
+                        <img src="./assets/img/feature/feature_1.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -125,7 +126,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                         <p>Premium Quality</p>
                         <h3>Latest foam Sofa</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="../assets/img/feature/feature_2.png" alt="">
+                        <img src="./assets/img/feature/feature_2.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -133,7 +134,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                         <p>Premium Quality</p>
                         <h3>Latest foam Sofa</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="../assets/img/feature/feature_3.png" alt="">
+                        <img src="./assets/img/feature/feature_3.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7 col-sm-6">
@@ -141,7 +142,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                         <p>Premium Quality</p>
                         <h3>Latest foam Sofa</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="../assets/img/feature/feature_4.png" alt="">
+                        <img src="./assets/img/feature/feature_4.png" alt="">
                     </div>
                 </div>
             </div>
@@ -168,7 +169,14 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                             
                                 <%
                                   if(bestProduct!=null){
-                                	  for(int i = 0; i < bestProduct.size(); i++){ // List<ItemBean>이 아니라 제네릭 타입으로 받아야함.
+                                	  int arraySize = 1;
+                                	  if(bestProduct.size()>8){
+                                		  arraySize = 8;
+                                	  }else{
+                                		  arraySize = bestProduct.size();
+                                	  }
+                                	  
+                                	  for(int i = 0; i<=arraySize; i++){ 
                                           %>   
                                               <div class="col-lg-3 col-sm-6">
                                                  <div class="single_product_item">
@@ -203,7 +211,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6">
                     <div class="offer_img">
-                        <img src="../assets/img/offer_img.png" alt="">
+                        <img src="./assets/img/offer_img.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -246,35 +254,35 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                 <div class="col-lg-12">
                     <div class="best_product_slider owl-carousel">
                         <div class="single_product_item">
-                            <img src="../assets/img/product/product_1.png" alt="">
+                            <img src="./assets/img/product/product_1.png" alt="">
                             <div class="single_product_text">
                                 <h4>Quartz Belt Watch</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
-                            <img src="../assets/img/product/product_2.png" alt="">
+                            <img src="./assets/img/product/product_2.png" alt="">
                             <div class="single_product_text">
                                 <h4>Quartz Belt Watch</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
-                            <img src="../assets/img/product/product_3.png" alt="">
+                            <img src="./assets/img/product/product_3.png" alt="">
                             <div class="single_product_text">
                                 <h4>Quartz Belt Watch</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
-                            <img src="../assets/img/product/product_4.png" alt="">
+                            <img src="./assets/img/product/product_4.png" alt="">
                             <div class="single_product_text">
                                 <h4>Quartz Belt Watch</h4>
                                 <h3>$150.00</h3>
                             </div>
                         </div>
                         <div class="single_product_item">
-                            <img src="../assets/img/product/product_5.png" alt="">
+                            <img src="./assets/img/product/product_5.png" alt="">
                             <div class="single_product_text">
                                 <h4>Quartz Belt Watch</h4>
                                 <h3>$150.00</h3>
@@ -316,39 +324,39 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_1.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_1.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_2.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_2.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_3.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_3.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_4.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_4.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_5.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_5.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_3.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_3.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_1.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_1.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_2.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_2.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_3.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_3.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="../assets/img/client_logo/client_logo_4.png" alt="">
+                        <img src="./assets/img/client_logo/client_logo_4.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--::subscribe_area part end::-->
-<jsp:include page="foot.jsp"></jsp:include>
+<jsp:include page="../assets/foot.jsp"></jsp:include>
     

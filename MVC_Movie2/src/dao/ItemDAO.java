@@ -252,7 +252,7 @@ public class ItemDAO {
 	            pstmt.setString(1, item_category1);
 	            rs = pstmt.executeQuery();
 	            
-	            if(rs.next()) { 	                
+	            while(rs.next()) { 	                
 	            	ItemBean itemBean = null;
 	            	itemBean = new ItemBean();
 	                itemBean.setItem_code(rs.getInt("Item_code"));
@@ -277,6 +277,7 @@ public class ItemDAO {
 	                itemBean.setItem_Date(rs.getDate("Item_Date"));
 	                products.add(itemBean);
 	            }
+	          
 	        } catch (SQLException e) {
 	            System.out.println("selectItem(String item_category1)- " + e.getMessage());
 	        } finally {

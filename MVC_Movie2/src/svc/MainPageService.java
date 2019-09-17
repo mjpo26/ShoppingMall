@@ -25,9 +25,7 @@ public class MainPageService {
        
 				
        // ItemDAO 객체의 selectItem() 메서드를 호출하여 Item의 상세 스펙 (ItemBean 객체) 리턴받기
-       ArrayList<ItemBean> products = new ArrayList<ItemBean>();
-       
-       products = itemDAO.selectItem(item_category1);
+       ArrayList<ItemBean> products = itemDAO.selectItem(item_category1);
 
        // Connection 객체 반환
        close(con);

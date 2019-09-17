@@ -14,7 +14,7 @@ import action.Action;
 import action.MainPageAction;
 import vo.ActionForward;
 
-@WebServlet("*.main")
+@WebServlet("*.ma")
 public class MainController extends HttpServlet {
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
