@@ -167,15 +167,15 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                             
                             
                                 <%
-                                  for(ItemBean best : bestProduct){ // List<ItemBean>이 아니라 제네릭 타입으로 받아야함.
+                                  for(int i = 0; i < bestProduct.size(); i++){ // List<ItemBean>이 아니라 제네릭 타입으로 받아야함.
                                  %>	  
 	                                 <div class="col-lg-3 col-sm-6">
 	                                    <div class="single_product_item">
-	                                        <img src="./assets/img/product/single-product/<%=best.getItem_pic1() %>" alt="" 
-	                                        onclick="location.href='productDetail.sh?Item_code=<%=best.getItem_code()%>&page=1'">
+	                                        <img src="./assets/img/product/single-product/<%=bestProduct.get(i).getItem_pic1() %>" alt="" 
+	                                        onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
 	                                        <div class="single_product_text">
-	                                            <h4><%=best.getItem_title()%></h4>
-	                                            <h3><%=best.getItem_sel_price()%></h3>
+	                                            <h4><%=bestProduct.get(i).getItem_title()%></h4>
+	                                            <h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
 	                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
 	                                        </div>
 	                                    </div>
