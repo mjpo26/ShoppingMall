@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    String sId = (String)session.getAttribute("sId");
+
+    %>
 <!doctype html>
 <html lang="ko">
 
@@ -100,6 +104,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.html">Contact</a>
                                 </li>
+                                <%
+                                if(sId!=null && sId.equals("admin")) {%>
+                               	   <li class="nav-item">
+                                       <a class="nav-link" href="./admin.map">관리자</a>
+                                   </li>
+								<%}
+                                %>
+                                
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
