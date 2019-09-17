@@ -33,7 +33,7 @@ public class MemberInfoAction implements Action {
         } else {
             MemberInfoService memberInfoService = new MemberInfoService();
             MemberBean memberBean = memberInfoService.getMemberInfo(sId); // 세션 아이디값을 파라미터로 전달
-            
+          
             if(memberBean != null) {
                 // 조회된 회원정보(MemberBean)를 request 객체에 저장
                 request.setAttribute("memberBean", memberBean);

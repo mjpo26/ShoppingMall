@@ -90,7 +90,6 @@
 						</td>
 						<td align="center">관리자</td>
 						<td align="center"><%=articleList.get(i).getItem_Date() %></td>
-						
 					</tr>
 			<%} %>
 		</table>		

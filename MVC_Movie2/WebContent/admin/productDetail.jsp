@@ -107,9 +107,8 @@
 						</div>
 						<div
 							class="card_area d-flex justify-content-between align-items-center product_buying">
-							<input type="submit" value="장바구니 담기" formaction="./basket.sh"
-								class="btn_3"> <input type="submit" value="즉시구매"
-								formaction="./order.sh" class="btn_3 buy"> <a href="#"
+							<input type="submit" value="장바구니 담기" formaction="basket.sh"
+								class="btn_3"> <input type="submit" value="즉시구매" formaction="order.sh" class="btn_3 buy"> <a href="#"
 								class="like_us" onclick="./wish.sh"> <i class="ti-heart"></i>
 							</a>
 						</div>

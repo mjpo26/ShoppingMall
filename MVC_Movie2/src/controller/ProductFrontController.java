@@ -14,6 +14,8 @@ import action.Action;
 import action.ProductInsertProAction;
 import action.basketAction;
 import action.productDetailAction;
+import action.productOrderAction;
+import action.productOrderProAction;
 import action.productUpdateAction;
 import action.productUpdateProAction;
 import action.product_listAction;
@@ -33,7 +35,7 @@ public class ProductFrontController extends HttpServlet {
         System.out.println("컨트롤러");
         if(command.equals("/ItemInsert.sh")) {
             action = new ProductInsertProAction();
-            
+            //뭐 넣는건지 알 수 없음 = 보경
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {
@@ -73,6 +75,24 @@ public class ProductFrontController extends HttpServlet {
             }
         }else if(command.equals("/updatePro.sh")) {
             action = new productUpdateProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if(command.equals("/order.sh")) {
+            action = new productOrderAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if(command.equals("/orderPro.sh")) {
+            action = new ProductInsertProAction();
             
             try {
                 forward = action.execute(request, response);

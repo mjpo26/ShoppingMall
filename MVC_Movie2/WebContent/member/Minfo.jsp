@@ -22,7 +22,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="./MemberUpdate.me">회원수정</a> <a href="./BasketInfo.bl">장바구니 조회</a>
+<a href="./MemberUpdate.me">회원수정</a><br>
+<a href="./BasketInfo.bl">장바구니 조회</a><br>
+<a href="./productInfo.sh">장바구니 조회</a>
 <fieldset>
 			<legend>회원 정보</legend>
 <br>아이디 : <%=memberBean.getMember_id() %>
@@ -36,8 +38,6 @@
 
 <br>sms 수신여부 : <%=memberBean.getMember_sms_ok() %>  |  email수신여부 : <%=memberBean.getMember_email_ok() %>
 </fieldset>
-<h2>장바구니 현황</h2>
-
 
 </body>
 </html>
