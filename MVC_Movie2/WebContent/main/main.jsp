@@ -6,8 +6,8 @@
 <%
 ArrayList<ItemBean> bestProduct = new ArrayList<ItemBean>();
 bestProduct = (ArrayList<ItemBean>) request.getAttribute("bestProduct");
-/* out.println(bestProduct);
- */out.println(bestProduct.size());
+// out.println(bestProduct);
+// out.println(bestProduct.size());
 
 ArrayList<ItemBean> newProduct = new ArrayList<ItemBean>();
 newProduct = (ArrayList<ItemBean>) request.getAttribute("newProduct");
@@ -156,7 +156,7 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>Best <span>가장 인기있는 상품</span></h2>
+                        <h2>BestSeller <span>가장 인기있는 상품</span></h2>
                     </div>
                 </div>
             </div>
@@ -164,38 +164,30 @@ recommandProduct = (ArrayList<ItemBean>) request.getAttribute("recommandProduct"
                 <div class="col-lg-12">
                     <div class="product_list_slider owl-carousel">
                         <div class="single_product_list_slider">
-                            <div class="row align-items-center justify-content-between">
-                            
-                            
+                            <div class="row align-items-center"> <!-- justify-content-between 해제 -->                        
                                 <%
                                   if(bestProduct!=null){
-                                	  int arraySize = 1;
-                                	  if(bestProduct.size()>8){
-                                		  arraySize = 8;
-                                	  }else{
-                                		  arraySize = bestProduct.size();
-                                	  }
-                                	  
-                                	  for(int i = 0; i<=arraySize; i++){ 
-                                          %>   
-                                              <div class="col-lg-3 col-sm-6">
-                                                 <div class="single_product_item">
-                                                     <img src="./assets/img/product/single-product/<%=bestProduct.get(i).getItem_pic1() %>" alt="" 
-                                                     onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
-                                                     <div class="single_product_text">
-                                                         <h4><%=bestProduct.get(i).getItem_title()%></h4>
-                                                         <h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
-                                                         <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                         <%    
-                                           }// bestProduct for 문 종료
+                                	  int arraySize = bestProduct.size();                                	  
+                                	  if(arraySize>12) arraySize=12;                         	  
+                                	  for(int i = 0; i<arraySize; i++){ 
+// 	                                     for(int i = 1; i<=1; i++){ 
+//                                       out.println(i);
+                                         %> 
+                                         <div class="col-lg-3 col-sm-6">
+                                            <div class="single_product_item">
+                                                <img src="./assets/img/product/single-product/<%=bestProduct.get(i).getItem_pic1() %>" alt="" 
+                                                onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
+                                                <div class="single_product_text">
+                                                    <h4><%=bestProduct.get(i).getItem_title()%></h4>
+                                                    <h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
+                                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%    
+                                           }// bestProduct for 문 종료9
                                   }// bestProduct!=null if문 종료
                                          %>
-                                 
-                                		
-                            
                             </div>
                         </div>
                     </div>
