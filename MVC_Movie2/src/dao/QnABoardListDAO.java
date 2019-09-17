@@ -76,7 +76,7 @@ public class QnABoardListDAO {
 					+ "and QnA_date >= ?"
 			        + "and QnA_date <= ?"
 			        + "and QnA_writer_id like ifnull(?,'%%') "
-					+ "and QnA_replycount like ifnull(?, '%%')";
+					+ "and QnA_replycount like ifnull(?,'%%')";
 
 //			        + "and QnA_file1 like ifnull(?,'%%') ";
 //			        + "ORDER BY order_item_code LIMIT ?,?"; 답글달렸는지여부 아직체크 안함, 이미지여부도..
@@ -99,6 +99,7 @@ public class QnABoardListDAO {
 		        listBean.setQnA_date(rs.getDate("QnA_date"));
 		        listBean.setQnA_num(rs.getInt("QnA_NUM"));
 		        listBean.setQnA_re_lev(rs.getInt("QnA_re_lev"));
+		        listBean.setQnA_replycount(rs.getString("QnA_replycount"));
 		        Qboardlist.add(listBean);
 			}
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + Qboardlist);
