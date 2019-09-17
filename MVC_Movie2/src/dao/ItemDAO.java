@@ -241,10 +241,10 @@ public class ItemDAO {
 		return updateCount;
 	}
 
-	public List<ItemBean> selectItem(String item_category1) {
+	public ArrayList<ItemBean> selectItem(String item_category1) {
 		 PreparedStatement pstmt = null;
 	        ResultSet rs = null;
-	        List<ItemBean> products = new ArrayList<ItemBean>();
+	        ArrayList<ItemBean> products = new ArrayList<ItemBean>();
 	        
 	        try {
 	            String sql = "SELECT * FROM Item WHERE Item_category1=?";

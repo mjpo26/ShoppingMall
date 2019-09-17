@@ -18,14 +18,11 @@ public class MainPageAction implements Action {
 		
 	        MainPageService mainPageService = new MainPageService();
 
-	        List<ItemBean> bestProduct = new ArrayList<ItemBean>();
-	        bestProduct = mainPageService.getItem("best");
+	        ArrayList<ItemBean> bestProduct = mainPageService.getItem("best");
 	        
-	        List<ItemBean> newProduct = new ArrayList<ItemBean>();
-	        newProduct = mainPageService.getItem("new");
+	        ArrayList<ItemBean> newProduct =  mainPageService.getItem("new");
 	        
-	        List<ItemBean> recommandProduct = new ArrayList<ItemBean>();
-	        recommandProduct = mainPageService.getItem("recommand");
+	        ArrayList<ItemBean> recommandProduct = mainPageService.getItem("recommand");
 
 			        
 	        request.setAttribute("bestProduct", bestProduct);

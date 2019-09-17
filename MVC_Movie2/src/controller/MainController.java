@@ -26,7 +26,7 @@ public class MainController extends HttpServlet {
         Action action = null;
         ActionForward forward = null;
         System.out.println("컨트롤러");
-        if(command.equals("/main.main")) {
+        if(command.equals("/main.ma")) {
             action = new MainPageAction();
             
             try {
