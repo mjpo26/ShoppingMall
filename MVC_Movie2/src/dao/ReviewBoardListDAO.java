@@ -75,8 +75,10 @@ public class ReviewBoardListDAO {
 
 			String sql = "SELECT * FROM Review_Board where "
 			        + "review_subject like ifnull(?,'%%') "
+					+ "and review_date >= ?"
+			        + "and review_date <= ?"
 			        + "and review_writer like ifnull(?,'%%') "
-			        +"and review_replycount like ifnull(?,'%%')";
+			        + "and review_replycount like ifnull(?,'%%')";
 //			        + "and review_file1 like ifnull(?,'%%') ";
 //			        + "ORDER BY order_item_code LIMIT ?,?"; 답글달렸는지여부 아직체크 안함, 이미지여부도..
 			
@@ -84,8 +86,10 @@ public class ReviewBoardListDAO {
 //			pstmt.setString(1, abs.getOrder_item_option_color());
 			System.out.println(abs.getBoard_title());
 			pstmt.setString(1, abs.getBoard_title());
-			pstmt.setString(2, abs.getBoard_writer());
-			pstmt.setString(3, abs.getBoard_replyCheck());
+			pstmt.setDate(2, abs.getPickStart());
+			pstmt.setDate(3, abs.getPickEnd());
+			pstmt.setString(4, abs.getBoard_writer());
+			pstmt.setString(5, abs.getBoard_replyCheck());
 			rs = pstmt.executeQuery();
 			
 			System.out.println(startRow+"와"+abs.getLimit());

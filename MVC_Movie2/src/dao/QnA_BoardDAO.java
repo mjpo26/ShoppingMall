@@ -436,23 +436,3 @@ public class QnA_BoardDAO {
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

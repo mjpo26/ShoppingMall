@@ -1,10 +1,14 @@
 package vo;
 
+import java.sql.Date;
+
 public class AdminBoardSearchBean {
 	private String board_list;
 	private String board_title;
 	private String board_writer;
 	private String board_replyCheck;
+	private Date pickStart;
+	private Date pickEnd;
 	private int page;
 	private int limit;
 
@@ -77,4 +81,19 @@ public class AdminBoardSearchBean {
 		this.limit = limit;
 	}
 
+	public Date getPickStart() {
+		return pickStart;
+	}
+	
+	public void setPickStart(Date pickStart) {
+		this.pickStart = pickStart;
+	}
+	
+	public Date getPickEnd() {
+		return pickEnd;
+	}
+	
+	public void setPickEnd(Date pickEnd) {
+		this.pickEnd = pickEnd;
+	}
 }

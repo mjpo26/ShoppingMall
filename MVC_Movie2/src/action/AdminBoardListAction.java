@@ -1,5 +1,8 @@
 package action;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +34,48 @@ public class AdminBoardListAction implements Action {
 		abb.setBoard_title(request.getParameter("title"));
 		abb.setBoard_writer(request.getParameter("writer"));
 		abb.setBoard_replyCheck(request.getParameter("replyCheck"));
+		
+		// 날짜 계산 코드
+		 if(request.getParameter("pickStart") !=null) {
+     	      String pickStart = request.getParameter("pickStart");
+               SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+               java.util.Date tempDate = null;
+               try {
+                  tempDate = beforeFormat.parse(pickStart);
+
+               } catch (ParseException e) {
+                   e.printStackTrace();
+               }
+               String transDate = afterFormat.format(tempDate);
+               Date start = Date.valueOf(transDate);
+               
+               abb.setPickStart(start);
+               System.out.println("시작 이다"+ start);
+
+             }else {
+             	abb.setPickStart(Date.valueOf("2010-01-01"));
+             }
+             
+             if(request.getParameter("pickEnd")!=null) {
+     	      String pickEnd = request.getParameter("pickEnd");
+               SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+               java.util.Date tempDate = null;
+               try {
+                  tempDate = beforeFormat.parse(pickEnd);
+
+               } catch (ParseException e) {
+                   e.printStackTrace();
+               }
+               String transDate = afterFormat.format(tempDate);
+               Date end = Date.valueOf(transDate);
+               abb.setPickEnd(end);
+               System.out.println("끝 이다"+ end);
+             }else {
+             	abb.setPickEnd(Date.valueOf("2020-01-01"));
+             }
+             
 		abb.setPage(page);
 		abb.setLimit(limit);
 
