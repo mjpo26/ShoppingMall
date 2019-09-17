@@ -13,25 +13,66 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 날짜선택 임포트 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 날짜선택임포트 끝 -->
+
+<!-- 날짜선택 스크립트 -->
+<script>
+	$(function() {
+
+		$("#pickStart").datepicker();
+
+	});
+
+	$(function() {
+
+		$("#pickEnd").datepicker();
+
+	});
+</script>
+
+<script type = "text/javascript">
+function pickNullCheck(){
+	if(document.fr1.pickStart.value==""){
+//		document.fr1.pickStart.value=="2015-01-01";
+		var pickStart = $('#pickStart').val('01/01/2010');
+
+		return false;
+	}
+	if(document.fr1.pickEnd.value==""){
+ 	//	document.fr1.pickEnd.value=="2020-01-01";
+		var pickEnd =  $('#pickEnd').val('01/01/2020');
+	
+		return false;
+	}
+	
+	//
+	
+	
+}
+
+</script>
+<!-- 날짜선택 스크립트 끝 -->
 <title>Insert title here</title>
 </head>
 <body>
 	<!-- 폼 선택!!!!!!!!!!!!!!-->
-	<form action="./AdminBoardList.abl" name="fr" method="post">
+	<form action="./AdminBoardList.abl" name="fr" method="get" onsubmit="return pickNullCheck()">
 		<table border="1">
 			<tr>
 				<th colspan='10'>관리자 게시물 관리</th>
 			</tr>
-			<tr>
-				<th>기간 관리</th>
-				<td colspan='5'><select>
-						<option>오늘</option>
-						<option>7일</option>
-						<option>15일</option>
-						<option>1개월</option>
-				</select></td>
-				<td colspan='5'>날짜선택 <input type="date" value="2019-08-23"></td>
-			</tr>
+		<tr>
+			<th>기간검색</th>
+			<td>시작날짜:<input type="text" name="pickStart" id="pickStart">
+				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
+		</tr>
 			<tr>
 				<th>게시판 선택 *필수*</th>
 				<td colspan='12'><select name="list">
@@ -224,6 +265,17 @@
 					// 				String[] reviewStatus = new String[100];
 					if (boardList.get(i).getQnA_re_lev() != 0)
 						continue; //답변은 표시안함
+					// 				if (i!= boardList.size()) {
+					// 					for (int j = 0; j < i; j++) {
+					// 						if (boardList.get(j).getReview_re_ref() == boardList.get(i).getReview_re_ref()) {
+					// 							reviewStatus[i] = "답변전";
+					// 							reviewStatus[j] =reviewStatus[i];
+					// 						}
+					// 					}
+					// 				} else {
+
+					// 					reviewStatus[i] = "답변완료";
+					// 				}
 		%>
 		<tr>
 			<td><input type="checkbox"></td>
@@ -238,8 +290,8 @@
 					} else {
 				%> 답변전 <%
 					}
-				%>
-			</td>
+				%> 
+			</td> 
 			<td><a
 				href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>"><input
 					type="button" value="게시글 보기"></a></td>
