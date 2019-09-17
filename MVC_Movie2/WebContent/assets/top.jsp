@@ -16,10 +16,8 @@
     <!-- Bootstrap CSS -->
  
        
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-           
-            
-                
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">       
+
     <!-- animate CSS -->
     <link rel="stylesheet" href="./assets/css/animate.css">
     <!-- owl carousel CSS -->

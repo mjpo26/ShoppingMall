@@ -16,6 +16,7 @@ String sId = (String)session.getAttribute("sId");
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
   
+  
     <!-- banner part start-->
     <section class="banner_part">
         <div class="container">
@@ -96,6 +97,46 @@ String sId = (String)session.getAttribute("sId");
         </div>
     </section>
     <!-- banner part start-->
+    <!-- product_list part start 베스트 상품-->
+    <section class="product_list best_seller section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="section_tittle text-center">
+                        <h2>Best Sellers <span>베스트 상품</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-12">
+                    <div class="best_product_slider owl-carousel">
+                    
+                    <%
+                     if(bestProduct!=null){
+                         int arraySize = bestProduct.size();                                     
+                         if(arraySize>8) arraySize=8;                              
+                         for(int i = 0; i<arraySize; i++){ 
+                    %> 
+                        <div class="single_product_item">
+                            <img src="./assets/img/product/single-product/<%=bestProduct.get(i).getItem_pic1() %>" alt=""
+                            onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
+                            <div class="single_product_text">
+                                <h4><%=bestProduct.get(i).getItem_title()%></h4>
+                                <h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
+                            </div>
+                        </div>
+                     <%    
+                           }// bestProduct for 문 종료9
+                     }// bestProduct!=null if문 종료
+                     %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product_list part end-->
+
 
     <!-- feature_part start-->
     <section class="feature_part padding_top">
@@ -228,46 +269,7 @@ String sId = (String)session.getAttribute("sId");
     </section>
     <!-- awesome_shop part start-->
 
-    <!-- product_list part start-->
-    <section class="product_list best_seller section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section_tittle text-center">
-                        <h2>Best Sellers <span>shop</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-12">
-                    <div class="best_product_slider owl-carousel">
-                    
-                    <%
-	                 if(bestProduct!=null){
-	                     int arraySize = bestProduct.size();                                     
-	                     if(arraySize>8) arraySize=8;                              
-	                     for(int i = 0; i<arraySize; i++){ 
-                    %> 
-                        <div class="single_product_item">
-                            <img src="./assets/img/product/single-product/<%=bestProduct.get(i).getItem_pic1() %>" alt=""
-                            onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
-                            <div class="single_product_text">
-                                <h4><%=bestProduct.get(i).getItem_title()%></h4>
-                                <h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
-                            </div>
-                        </div>
-                     <%    
-                           }// bestProduct for 문 종료9
-                     }// bestProduct!=null if문 종료
-                     %>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- product_list part end-->
-
+   
     <!-- subscribe_area part start-->
     <section class="subscribe_area section_padding">
         <div class="container">

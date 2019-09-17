@@ -4,7 +4,8 @@
 <%
 	ItemBean itemBean = (ItemBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
-	
+    String sId = (String)session.getAttribute("sId");
+
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -35,11 +36,13 @@
 <div class="product_image_area section_padding">
 	<div class="container">
 		<form method="post">
+		    <input type="hidden" name="sId" value=<%=sId%>>
 			<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code()%>> 
 			<input type="hidden" name="Item_delivery_pee" value=<%=itemBean.getItem_delivery_pee()%>>
 			<input type="hidden" name="Item_stock_count" value=<%=itemBean.getItem_stock_count()%>> 
 			<input type="hidden" name="Item_title" value=<%=itemBean.getItem_title()%>>
-			<input type="hidden" name="Item_sel_price" value=<%=itemBean.getItem_sel_price()%>> 
+            <input type="hidden" name="Item_sel_price" value=<%=itemBean.getItem_sel_price()%>> 
+            <input type="hidden" name="Item_old_price" value=<%=itemBean.getItem_old_price()%>> 
 			<input type="hidden" name="Item_point" value=<%=itemBean.getItem_point()%>>
 			
 			<div class="row s_product_inner justify-content-between">
@@ -85,15 +88,15 @@
 						</div>
 						<div class="card_area d-flex justify-content-between align-items-center">
 							색상 : <div class="product_option">
-								<select>
+								<select name="Item_color">
 									<%-- 	                    <%if (itemBean.getItem_option_color1() != null) {if (itemBean.getItem_option_color1().equals("블랙")) {%> --%>
-									<option>Black</option>
+									<option value="black">Black</option>
 									<%-- 	                    <%}}if (itemBean.getItem_option_color2() != null) { if (itemBean.getItem_option_color2().equals("화이트")) {%> --%>
-									<option>White</option>
+									<option value="white">White</option>
 									<%-- 	                    <%}}if (itemBean.getItem_option_color3() != null) {if (itemBean.getItem_option_color3().equals("레드")) {%> --%>
-									<option>Red</option>
+									<option value="red">Red</option>
 									<%-- 	                    <%}}if (itemBean.getItem_option_color4() != null) {if (itemBean.getItem_option_color4().equals("옐로우")) {%> --%>
-									<option>Yellow</option>
+									<option value="yellow">Yellow</option>
 									<%-- 	                    <%}}%> --%>
 								</select>
 							</div>
@@ -107,7 +110,7 @@
 						</div>
 						<div
 							class="card_area d-flex justify-content-between align-items-center product_buying">
-							<input type="submit" value="장바구니 담기" formaction="basket.sh"
+							<input type="submit" value="장바구니 담기" formaction="./BasketInsert.bl"
 								class="btn_3"> <input type="submit" value="즉시구매" formaction="order.sh" class="btn_3 buy"> <a href="#"
 								class="like_us" onclick="./wish.sh"> <i class="ti-heart"></i>
 							</a>
