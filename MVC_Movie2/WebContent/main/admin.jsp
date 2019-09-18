@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>관리자페이지</title>
   <link rel="stylesheet" href="./main/admin.css">
+  <%
+    // 저장된 세션 아이디 가져오기
+    String sId = (String)session.getAttribute("sId");
+  %>  
 
 </head>
 <body>
@@ -18,30 +22,44 @@
                 <ul class="mainMenu">
                     <li>상품관리
                         <ul class="subMenu">
-                            <li>상품등록</li>
-                            <li>상품목록</li>
+                            <li><a href="./admin/product_insert.jsp">상품등록</a></li>
+                            <li><a href="./admin/product_list.jsp">상품목록</a></li>
+                            <li><a href="product_category.jsp">상품분류관리</a></li>
+                            <li><a href="./product_list.sh">test목록</a></li>
                         </ul>
                     </li>
                     <li>주문관리
                         <ul class="subMenu">
-                            <li>전체주문목록</li>
-                            <li>배송관리</li>
-                            <li>취소교환반품환불</li>
+                            <li><a href="./admin/orderList.ol">주문관리</a></li>
+                            <li><a>배송관리</a></li>
+                            <li><a>취소교환반품환불</a></li>
                         </ul>
                     </li>
-                    <li>고객관리</li>
+                    <li>고객관리
+                        <ul class="subMenu">
+                            <li><a href="Admin_memberList.am">관리자 멤버리스트</a></li>
+                        
+                        </ul>
+                    
+                    </li>
 
 
 
                     <li>게시판관리
                         <ul class="subMenu">
-                            <li>게시물통합관리</li>
-                            <li>게시물관리</li>
+                            <li><a>게시물통합관리</a></li>
+                            <li><a href="AdminBoardList.abl">관리자 게시판리스트</a></li>
+                            <li><a href="Free_BoardList.bo">Free_board리스트</a></li>
                         </ul>
 
                     </li>
 
-                    <li>기타페이지</li>
+                    <li>기타페이지
+                        <ul class="subMenu">
+                            <li><a>게시물통합관리</a></li>
+                            <li><a>게시물관리</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </nav>
@@ -53,8 +71,15 @@
 
                     <div class="header">
                         <h3>관리자 페이지 메인</h3>
+                        <div class="login">
+				        <%if(sId != null) { %>
+                            <a class="member_id" href="./MemberInfo.me"><%=sId %>님</a><a href="./MemberLogoutPro.me">로그아웃</a> 
+                        <%} else { %>   
+                            <a href="./MemberLoginForm.me">로그인</a> 
+                        <%} %>
+                        </div>
                     </div>
-
+                    
                 </div>
             </header>
 
@@ -64,7 +89,7 @@
 
                     <section class="content today_income">
                         <div class="content_title">
-                            <h1>오늘 매출 현황</h1>
+                            <h1>이번달 매출 현황</h1>
                         </div>
                         <div class="content_div">
                             <div class="con con1  content_today_order">
@@ -72,7 +97,7 @@
                                     <h3>결제</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>144,555,000 </span>원</h5>
+                                    <h5><span>144,555,000</span>원</h5>
                                 </div>
                             </div>
                             <div class="con con2 today_payed">
@@ -80,7 +105,7 @@
                                     <h3>주문</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>144,555,000 </span>원</h5>
+                                    <h5><span>544,555,000</span>원</h5>
                                 </div>
                             </div>
                             <div class="con con3 today_refund">
@@ -88,7 +113,7 @@
                                     <h3>환불</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>144,555,000 </span>원</h5>
+                                    <h5><span>555,000</span>원</h5>
                                 </div>
                             </div>
                             <div class="con con4 today_total">
@@ -96,7 +121,7 @@
                                     <h3>총계</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>44,555,000</span>원</h5>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +136,7 @@
                                     <h3>입금전</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>33</span></h5>
                                 </div>
                             </div>
                             <div class="con con2 prepared_count">
@@ -119,7 +144,7 @@
                                     <h3>배송준비중</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>200</span></h5>
                                 </div>
                             </div>
                             <div class="con con3 readied_count">
@@ -127,7 +152,7 @@
                                     <h3>배송대기</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>198</span></h5>
                                 </div>
                             </div>
                             <div class="con con4 going_count">
@@ -135,7 +160,7 @@
                                     <h3>배송중</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>325</span></h5>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +175,7 @@
                                     <h3>취소</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>300</span></h5>
                                 </div>
                             </div>
                             <div class="con con2 change_count">
@@ -158,7 +183,7 @@
                                     <h3>교환</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>187</span></h5>
                                 </div>
                             </div>
                             <div class="con con3 return_count">
@@ -166,7 +191,7 @@
                                     <h3>반품</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>58</span></h5>
                                 </div>
                             </div>
                             <div class="con con4 refund_count">
@@ -174,7 +199,7 @@
                                     <h3>환불</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span>44,555,000 </span>원</h5>
+                                    <h5><span>47</span></h5>
                                 </div>
                             </div>
                         </div>
