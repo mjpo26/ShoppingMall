@@ -18,30 +18,44 @@
                 <ul class="mainMenu">
                     <li>상품관리
                         <ul class="subMenu">
-                            <li>상품등록</li>
-                            <li>상품목록</li>
+                            <li><a href="./admin/product_insert.jsp">상품등록</a></li>
+                            <li><a href="./admin/product_list.jsp">상품목록</a></li>
+                            <li><a href="product_category.jsp">상품분류관리</a></li>
+                            <li><a href="./product_list.sh">test목록</a></li>
                         </ul>
                     </li>
                     <li>주문관리
                         <ul class="subMenu">
-                            <li>전체주문목록</li>
-                            <li>배송관리</li>
-                            <li>취소교환반품환불</li>
+                            <li><a href="./admin/orderList.ol">주문관리</a></li>
+                            <li><a>배송관리</a></li>
+                            <li><a>취소교환반품환불</a></li>
                         </ul>
                     </li>
-                    <li>고객관리</li>
+                    <li>고객관리
+                        <ul class="subMenu">
+                            <li><a href="Admin_memberList.am">관리자 멤버리스트</a></li>
+                        
+                        </ul>
+                    
+                    </li>
 
 
 
                     <li>게시판관리
                         <ul class="subMenu">
-                            <li>게시물통합관리</li>
-                            <li>게시물관리</li>
+                            <li><a>게시물통합관리</a></li>
+                            <li><a href="AdminBoardList.abl">관리자 게시판리스트</a></li>
+                            <li><a href="Free_BoardList.bo">Free_board리스트</a></li>
                         </ul>
 
                     </li>
 
-                    <li>기타페이지</li>
+                    <li>기타페이지
+                        <ul class="subMenu">
+                            <li><a>게시물통합관리</a></li>
+                            <li><a>게시물관리</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </nav>
@@ -53,8 +67,11 @@
 
                     <div class="header">
                         <h3>관리자 페이지 메인</h3>
+                        <div class="login">
+                            <a class="member_id" href="./MemberInfo.me">님</a><a href="./MemberLogoutPro.me">로그아웃</a>                       
+                        </div>
                     </div>
-
+                    
                 </div>
             </header>
 
