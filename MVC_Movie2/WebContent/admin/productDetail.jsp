@@ -5,7 +5,6 @@
 	ItemBean itemBean = (ItemBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
     String sId = (String)session.getAttribute("sId");
-
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
 

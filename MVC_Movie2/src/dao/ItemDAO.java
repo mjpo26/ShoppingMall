@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -102,102 +101,98 @@ public class ItemDAO {
 		return listCount;
 	}
 
+	public ArrayList<ItemBean> selectArticleList(int page, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
+		ArrayList<ItemBean> articleList = new ArrayList<ItemBean>();
 
-	 public ArrayList<ItemBean> selectArticleList(int page, int limit) {
-	        PreparedStatement pstmt = null;
-	        ResultSet rs = null;
-	        
-	        ArrayList<ItemBean> articleList = new ArrayList<ItemBean>();
+		int startRow = (page - 1) * 10;
 
-	        int startRow = (page - 1) * 10; 
-	        
-	        try {
-	            String sql = "SELECT * FROM Item";
-	            pstmt = con.prepareStatement(sql);
-	            rs = pstmt.executeQuery();
-	            
+		try {
+			String sql = "SELECT * FROM Item";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 
-	            while(rs.next()) {
-	                ItemBean itemBean = new ItemBean();
-	                itemBean.setItem_code(rs.getInt("Item_code"));
-	                itemBean.setItem_title(rs.getString("Item_title"));
-	                itemBean.setItem_category1(rs.getString("Item_category1"));
-	                itemBean.setItem_content1(rs.getString("Item_content1"));
-	                itemBean.setItem_content2(rs.getString("Item_content2"));
-	                itemBean.setItem_point(rs.getInt("item_point"));
+			while (rs.next()) {
+				ItemBean itemBean = new ItemBean();
+				itemBean.setItem_code(rs.getInt("Item_code"));
+				itemBean.setItem_title(rs.getString("Item_title"));
+				itemBean.setItem_category1(rs.getString("Item_category1"));
+				itemBean.setItem_content1(rs.getString("Item_content1"));
+				itemBean.setItem_content2(rs.getString("Item_content2"));
+				itemBean.setItem_point(rs.getInt("item_point"));
 //	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
-	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
-	                itemBean.setItem_pic2(rs.getString("Item_pic2"));
-	                itemBean.setItem_pic3(rs.getString("Item_pic3"));
-	                itemBean.setItem_pic4(rs.getString("Item_pic4"));
-	                itemBean.setItem_display(rs.getString("Item_display"));
-	                itemBean.setItem_sales(rs.getString("Item_sales"));
-	                itemBean.setItem_old_price(rs.getInt("Item_old_price"));
-	                itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
-	                itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
-	                itemBean.setItem_weight(rs.getInt("Item_weight"));
-	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
-	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
-	                itemBean.setItem_Date(rs.getDate("Item_Date"));
-	                
-	                articleList.add(itemBean);
-	            }
-	            
-	        } catch (SQLException e) {
-	            System.out.println("selectArticleList() - " + e.getMessage());
-	        } finally {
-	            close(rs);
-	            close(pstmt);
-	        }
-	        
-	        
-	        return articleList;
-	    }
+				itemBean.setItem_pic1(rs.getString("Item_pic1"));
+				itemBean.setItem_pic2(rs.getString("Item_pic2"));
+				itemBean.setItem_pic3(rs.getString("Item_pic3"));
+				itemBean.setItem_pic4(rs.getString("Item_pic4"));
+				itemBean.setItem_display(rs.getString("Item_display"));
+				itemBean.setItem_sales(rs.getString("Item_sales"));
+				itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+				itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
+				itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
+				itemBean.setItem_weight(rs.getInt("Item_weight"));
+				itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
+				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
+				itemBean.setItem_Date(rs.getDate("Item_Date"));
+
+				articleList.add(itemBean);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectArticleList() - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+	}
 
 	public ItemBean selectArticle(int item_code) {
-		 PreparedStatement pstmt = null;
-	        ResultSet rs = null;
-	        ItemBean itemBean = null;
-	        
-	        try {
-	            String sql = "SELECT * FROM Item WHERE Item_code=?";
-	            pstmt = con.prepareStatement(sql);
-	            pstmt.setInt(1, item_code);
-	            rs = pstmt.executeQuery();
-	            
-	            if(rs.next()) { 
-	                
-	            	itemBean = new ItemBean();
-	                itemBean.setItem_code(rs.getInt("Item_code"));
-	                itemBean.setItem_title(rs.getString("Item_title"));
-	                itemBean.setItem_category1(rs.getString("Item_category1"));
-	                itemBean.setItem_content1(rs.getString("Item_content1"));
-	                itemBean.setItem_content2(rs.getString("Item_content2"));
-	                itemBean.setItem_point(rs.getInt("item_point"));
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ItemBean itemBean = null;
+
+		try {
+			String sql = "SELECT * FROM Item WHERE Item_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, item_code);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				itemBean = new ItemBean();
+				itemBean.setItem_code(rs.getInt("Item_code"));
+				itemBean.setItem_title(rs.getString("Item_title"));
+				itemBean.setItem_category1(rs.getString("Item_category1"));
+				itemBean.setItem_content1(rs.getString("Item_content1"));
+				itemBean.setItem_content2(rs.getString("Item_content2"));
+				itemBean.setItem_point(rs.getInt("item_point"));
 //	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
-	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
-	                itemBean.setItem_pic2(rs.getString("Item_pic2"));
-	                itemBean.setItem_pic3(rs.getString("Item_pic3"));
-	                itemBean.setItem_pic4(rs.getString("Item_pic4"));
-	                itemBean.setItem_display(rs.getString("Item_display"));
-	                itemBean.setItem_sales(rs.getString("Item_sales"));
-	                itemBean.setItem_old_price(rs.getInt("Item_old_price"));
-	                itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
-	                itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
-	                itemBean.setItem_weight(rs.getInt("Item_weight"));
-	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
-	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
-	                itemBean.setItem_Date(rs.getDate("Item_Date"));
-	            }
-	        } catch (SQLException e) {
-	            System.out.println("selectArticle() ���� - " + e.getMessage());
-	        } finally {
-	            close(rs);
-	            close(pstmt);
-	        }
-	        
-	        return itemBean;
+				itemBean.setItem_pic1(rs.getString("Item_pic1"));
+				itemBean.setItem_pic2(rs.getString("Item_pic2"));
+				itemBean.setItem_pic3(rs.getString("Item_pic3"));
+				itemBean.setItem_pic4(rs.getString("Item_pic4"));
+				itemBean.setItem_display(rs.getString("Item_display"));
+				itemBean.setItem_sales(rs.getString("Item_sales"));
+				itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+				itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
+				itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
+				itemBean.setItem_weight(rs.getInt("Item_weight"));
+				itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
+				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
+				itemBean.setItem_Date(rs.getDate("Item_Date"));
+			}
+		} catch (SQLException e) {
+			System.out.println("selectArticle() ���� - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return itemBean;
 	}
 
 	public int UpdateItem(ItemBean itemBean) {
@@ -242,54 +237,97 @@ public class ItemDAO {
 	}
 
 	public ArrayList<ItemBean> selectItem(String item_category1) {
-		 PreparedStatement pstmt = null;
-	        ResultSet rs = null;
-	        ArrayList<ItemBean> products = new ArrayList<ItemBean>();
-	        
-	        try {
-	            String sql = "SELECT * FROM Item WHERE Item_category1=?";
-	            pstmt = con.prepareStatement(sql);
-	            pstmt.setString(1, item_category1);
-	            rs = pstmt.executeQuery();
-	            
-	            while(rs.next()) { 	                
-	            	ItemBean itemBean = null;
-	            	itemBean = new ItemBean();
-	                itemBean.setItem_code(rs.getInt("Item_code"));
-	                itemBean.setItem_title(rs.getString("Item_title"));
-	                itemBean.setItem_category1(rs.getString("Item_category1"));
-	                itemBean.setItem_content1(rs.getString("Item_content1"));
-	                itemBean.setItem_content2(rs.getString("Item_content2"));
-	                itemBean.setItem_point(rs.getInt("item_point"));
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ItemBean> products = new ArrayList<ItemBean>();
+
+		try {
+			String sql = "SELECT * FROM Item WHERE Item_category1=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, item_category1);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				ItemBean itemBean = null;
+				itemBean = new ItemBean();
+				itemBean.setItem_code(rs.getInt("Item_code"));
+				itemBean.setItem_title(rs.getString("Item_title"));
+				itemBean.setItem_category1(rs.getString("Item_category1"));
+				itemBean.setItem_content1(rs.getString("Item_content1"));
+				itemBean.setItem_content2(rs.getString("Item_content2"));
+				itemBean.setItem_point(rs.getInt("item_point"));
 //	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
-	                itemBean.setItem_pic1(rs.getString("Item_pic1"));
-	                itemBean.setItem_pic2(rs.getString("Item_pic2"));
-	                itemBean.setItem_pic3(rs.getString("Item_pic3"));
-	                itemBean.setItem_pic4(rs.getString("Item_pic4"));
-	                itemBean.setItem_display(rs.getString("Item_display"));
-	                itemBean.setItem_sales(rs.getString("Item_sales"));
-	                itemBean.setItem_old_price(rs.getInt("Item_old_price"));
-	                itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
-	                itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
-	                itemBean.setItem_weight(rs.getInt("Item_weight"));
-	                itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
-	                itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
-	                itemBean.setItem_Date(rs.getDate("Item_Date"));
-	                products.add(itemBean);
-	            }
-	          
-	        } catch (SQLException e) {
-	            System.out.println("selectItem(String item_category1)- " + e.getMessage());
-	        } finally {
-	            close(rs);
-	            close(pstmt);
-	        }
-	        
-	        return products;
-		
+				itemBean.setItem_pic1(rs.getString("Item_pic1"));
+				itemBean.setItem_pic2(rs.getString("Item_pic2"));
+				itemBean.setItem_pic3(rs.getString("Item_pic3"));
+				itemBean.setItem_pic4(rs.getString("Item_pic4"));
+				itemBean.setItem_display(rs.getString("Item_display"));
+				itemBean.setItem_sales(rs.getString("Item_sales"));
+				itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+				itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
+				itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
+				itemBean.setItem_weight(rs.getInt("Item_weight"));
+				itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
+				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
+				itemBean.setItem_Date(rs.getDate("Item_Date"));
+				products.add(itemBean);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectItem(String item_category1)- " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return products;
+
 	}
-	
-	
-	
-	
+
+	public ItemBean selectItemInfo(int itemCode) {
+		ItemBean itemBean = null;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT * FROM Item WHERE Item_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, itemCode);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				itemBean = new ItemBean();
+				itemBean.setItem_code(rs.getInt("Item_code"));
+				itemBean.setItem_title(rs.getString("Item_title"));
+				itemBean.setItem_category1(rs.getString("Item_category1"));
+				itemBean.setItem_content1(rs.getString("Item_content1"));
+				itemBean.setItem_content2(rs.getString("Item_content2"));
+				itemBean.setItem_point(rs.getInt("item_point"));
+//	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+				itemBean.setItem_pic1(rs.getString("Item_pic1"));
+				itemBean.setItem_pic2(rs.getString("Item_pic2"));
+				itemBean.setItem_pic3(rs.getString("Item_pic3"));
+				itemBean.setItem_pic4(rs.getString("Item_pic4"));
+				itemBean.setItem_display(rs.getString("Item_display"));
+				itemBean.setItem_sales(rs.getString("Item_sales"));
+				itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+				itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
+				itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
+				itemBean.setItem_weight(rs.getInt("Item_weight"));
+				itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
+				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
+				itemBean.setItem_Date(rs.getDate("Item_Date"));
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectItemInfo 실패! - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return itemBean;
+	}
+
 }

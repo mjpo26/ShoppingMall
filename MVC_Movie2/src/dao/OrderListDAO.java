@@ -82,6 +82,8 @@ public class OrderListDAO {
 			        + "and order_item_title like ifnull(?,'%%') "
 			        + "and order_member_id like ifnull(?,'%%') "
 			        + "and order_pay_status like ifnull(?,'%%') "
+			        + "and order_delivery_status like ifnull(?,'%%')"
+			        + "and order_bank like ifnull(?,'%%')"
 			        + "and order_payment like ifnull(?,'%%') "
 			        + "ORDER BY order_item_code LIMIT ?,?";
 			
@@ -93,9 +95,11 @@ public class OrderListDAO {
 			pstmt.setString(4, ob.getOrder_item_title());
 			pstmt.setString(5, ob.getOrder_member_id());
 			pstmt.setString(6, ob.getOrder_pay_status());
-			pstmt.setString(7, ob.getOrder_payment());
-			pstmt.setInt(8, startRow);
-			pstmt.setInt(9, ob.getLimit());
+			pstmt.setString(7, ob.getOrder_delivery_status());
+			pstmt.setString(8, ob.getOrder_bank());
+			pstmt.setString(9, ob.getOrder_payment());
+			pstmt.setInt(10, startRow);
+			pstmt.setInt(11, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			
@@ -108,11 +112,14 @@ public class OrderListDAO {
 				listBean.setOrder_item_title(rs.getString("order_item_title"));
 				listBean.setOrder_member_id(rs.getString("order_member_id"));
 				listBean.setOrder_pay_status(rs.getString("order_pay_status"));
-				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
+				listBean.setOrder_item_sel_price(rs.getInt("order_item_sel_price"));
+				listBean.setOrder_bank(rs.getString("order_bank"));
 				listBean.setOrder_payment(rs.getString("order_payment"));
+				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 				listBean.setOrder_memo(rs.getString("order_memo"));
 				articleList.add(listBean);
 			}
+			
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + articleList);
 		} catch (SQLException e) {
 			System.out.println("selectArticleList() 에러 - " + e.getMessage());
@@ -123,4 +130,6 @@ public class OrderListDAO {
 
 		return articleList;
 	}
+	
+	
 }

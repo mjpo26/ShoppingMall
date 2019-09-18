@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import vo.Free_BoardBean;
 import vo.OrderBean;
+import vo.OrderListBean;
 
 public class OrderDAO {
     // -----------------------------------------------------
@@ -36,7 +37,7 @@ public class OrderDAO {
     
     
     // 글 등록 요청을 처리하는 insertArticle() 메서드
-    public int insertOrder(OrderBean article) throws Exception {
+    public int insertOrder(OrderListBean orderListBean) throws Exception {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         
@@ -48,37 +49,38 @@ public class OrderDAO {
                     //   + "order_idx ,"
                        + "order_item_code ,"
                        + "order_item_title ,"
-                       + "order_item_option_color ,"
-                       + "order_item_option_size ,"
-                       + "order_item_sel_price ,"
-                       + "order_item_point ,"
-                       + "order_item_code_count ,"
-                       + "order_delivery_pee ,"
-                       + "order_plus_point ,"
-                       + "order_used_point ,"
+//                       + "order_item_option_color ,"
+//                       + "order_item_option_size ,"
+//                       + "order_item_sel_price ,"
+//                       + "order_item_point ,"
+//                       + "order_item_code_count ,"
+//                       + "order_delivery_pee ,"
+//                       + "order_plus_point ,"
+//                       + "order_used_point ,"
                        + "order_delivery_status ,"
-                       + "order_pay_status ,"
-                       + "order_payment ,"
-                       + "order_memo ,"
-                       + "order_date  ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+//                       + "order_pay_status ,"
+//                       + "order_payment ,"
+//                       + "order_memo ,"
+                       + "order_date,"+"order_member_name, "+"order_member_id) VALUES (?,?,?,now(),?,?)";
             
-           
-           
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, article.getOrder_item_code()); 
-            pstmt.setString(2, article.getOrder_item_title());
-            pstmt.setString(3, article.getOrder_item_option_color());
-            pstmt.setString(4, article.getOrder_item_option_size());
-            pstmt.setInt(5, article.getOrder_item_sel_price());
-            pstmt.setInt(6, article.getOrder_item_point());
-            pstmt.setInt(7, article.getOrder_item_code_count()); 
-            pstmt.setInt(8, article.getOrder_delivery_pee()); 
-            pstmt.setInt(9, article.getOrder_plus_point()); 
-            pstmt.setInt(10, article.getOrder_used_point()); 
-            pstmt.setString(11, article.getOrder_delivery_status());
-            pstmt.setString(12, article.getOrder_pay_status());
-            pstmt.setString(13, article.getOrder_payment());
-            pstmt.setString(14, article.getOrder_memo());
+            pstmt.setInt(1, orderListBean.getOrder_item_code()); 
+            pstmt.setString(2, orderListBean.getOrder_item_title());
+//            pstmt.setString(3, orderListBean.getOrder_item_option_color());
+//            pstmt.setString(4, article.getOrder_item_option_size());
+//            pstmt.setString(4, "M");
+//            pstmt.setInt(5, orderListBean.getOrder_item_sel_price());
+//            pstmt.setInt(6, orderListBean.getOrder_item_point());
+//            pstmt.setInt(7, orderListBean.getOrder_item_code_count()); 
+//            pstmt.setInt(8, orderListBean.getOrder_delivery_pee()); 
+//            pstmt.setInt(9, orderListBean.getOrder_plus_point()); 
+//            pstmt.setInt(10, orderListBean.getOrder_used_point()); 
+            pstmt.setString(3, "배송전");
+            pstmt.setString(4, orderListBean.getOrder_member_name());
+            pstmt.setString(5, orderListBean.getOrder_member_id());
+//            pstmt.setString(12, orderListBean.getOrder_pay_status());
+//            pstmt.setString(13, orderListBean.getOrder_payment());
+//            pstmt.setString(14, orderListBean.getOrder_memo());
             
             
             insertCount = pstmt.executeUpdate(); // 글 등록 처리 결과를 int 형 값으로 리턴받음
@@ -86,7 +88,7 @@ public class OrderDAO {
         } catch (SQLException e) {
 //            e.printStackTrace();
             System.out.println("오더DAO에서 insertOrder() 에러 - " + e.getMessage());
-          System.out.println("오더DAO,아티클 안에는 값 들어가있나"+article.getOrder_item_code());
+          System.out.println("오더DAO,아티클 안에는 값 들어가있나"+orderListBean.getOrder_item_code());
             
             // 만약, 외부로 예외를 던질 때 메세지를 직접 지정하고 싶을 경우 throw 키워드 사용하여
             // Exception 객체 생성 시 예외 메세지를 지정하면 된다! => throws 키워드로 예외 던지기 필요!
