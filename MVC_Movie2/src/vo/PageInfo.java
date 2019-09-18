@@ -2,18 +2,59 @@ package vo;
 
 // 페이징 처리를 위한 정보를 저장하는 클래스
 public class PageInfo {
-    private int page;
+	
+	private int page;
     private int maxPage;
     private int startPage;
     private int endPage;
     private int listCount;
-    
+	private int delivery1_Count;
+    private int delivery2_Count;
+    private int delivery3_Count;
     public PageInfo(int page, int maxPage, int startPage, int endPage, int listCount) {
-        this.page = page;
-        this.maxPage = maxPage;
-        this.startPage = startPage;
-        this.endPage = endPage;
-        this.listCount = listCount;
+    	super();
+    	this.page = page;
+    	this.maxPage = maxPage;
+    	this.startPage = startPage;
+    	this.endPage = endPage;
+    	this.listCount = listCount;
+    }
+    
+    public PageInfo(int page, int maxPage, int startPage, int endPage, int listCount, int delivery1_Count,
+    		int delivery2_Count, int delivery3_Count) {
+    	super();
+    	this.page = page;
+    	this.maxPage = maxPage;
+    	this.startPage = startPage;
+    	this.endPage = endPage;
+    	this.listCount = listCount;
+    	this.delivery1_Count = delivery1_Count;
+    	this.delivery2_Count = delivery2_Count;
+    	this.delivery3_Count = delivery3_Count;
+    }
+    
+    public int getDelivery1_Count() {
+    	return delivery1_Count;
+    }
+    
+    public void setDelivery1_Count(int delivery1_Count) {
+    	this.delivery1_Count = delivery1_Count;
+    }
+    
+    public int getDelivery2_Count() {
+    	return delivery2_Count;
+    }
+    
+    public void setDelivery2_Count(int delivery2_Count) {
+    	this.delivery2_Count = delivery2_Count;
+    }
+    
+    public int getDelivery3_Count() {
+    	return delivery3_Count;
+    }
+    
+    public void setDelivery3_Count(int delivery3_Count) {
+    	this.delivery3_Count = delivery3_Count;
     }
     
     public int getPage() {

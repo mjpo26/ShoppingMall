@@ -16,7 +16,6 @@ public class OrderListBean {
 	private int order_plus_point;
 	private int order_used_point;
 	private String order_bank;
-
 	private String order_delivery_status;
 	private String order_pay_status;
 	private String order_payment;

@@ -12,6 +12,9 @@
 	int startPage = pageInfo.getStartPage();
 	int endPage = pageInfo.getEndPage();
 	int maxPage = pageInfo.getMaxPage();
+	int delivery1_Count = pageInfo.getDelivery1_Count();
+	int delivery2_Count = pageInfo.getDelivery2_Count();
+	int delivery3_Count = pageInfo.getDelivery3_Count();
 %>
 <!DOCTYPE html>
 <html>
@@ -109,7 +112,7 @@ function pickNullCheck(){
 		<tr>
 		
 		<tr>
-		<th>결제은행</th><td>
+		<th>배송상태</th><td>
 		<input type="radio" name="delivery"  checked="checked" value="">전체
 		<input type="radio" name="delivery" value="배송전">배송전
 		<input type="radio" name="delivery" value="배송중">배송중
@@ -141,15 +144,15 @@ function pickNullCheck(){
 
 		<tr>
 
-			<th colspan='5'>관리자_주문관리_배송관리</th>
+			<th colspan='5'>관리자_주문관리_배송관리 (배송상태 당 갯수)</th>
 
 		</tr>
 
 		<tr>
-			<th>배송전<br>//db 배송대기수량 작성
+			<th>배송전<br><%=delivery1_Count %> EA
 			</th>
-			<th>배송중<br>//db 배송중인수량 작성
-			<th>배송완료<br>//db 배송완료수량 작성
+			<th>배송중<br><%=delivery2_Count %> EA
+			<th>배송완료<br><%=delivery3_Count %> EA
 			</th>
 
 		</tr>

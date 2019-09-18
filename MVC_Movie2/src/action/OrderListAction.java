@@ -98,9 +98,9 @@ public class OrderListAction implements Action {
 	        OrderListService orderListService = new OrderListService();
 	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기
 	        
-	//        int deliveryCount1 = orderListService.getdeliveryCount1(ob);
-	 //       int deliveryCount2 = orderListService.getdeliveryCount2(ob);
-	 //       int deliveryCount3 = orderListService.getdeliveryCount3(ob);
+	        int delivery1_Count = orderListService.getdelivery1_Count(ob);
+	        int delivery2_Count = orderListService.getdelivery2_Count(ob);
+	        int delivery3_Count = orderListService.getdelivery3_Count(ob);
 
 	        articleList = orderListService.getArticleList(ob); // 전체 게시물 목록 가져오기(10개 한정)
 	        
@@ -119,7 +119,7 @@ public class OrderListAction implements Action {
 	        }
 	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
+	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount, delivery1_Count, delivery2_Count, delivery3_Count);
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);

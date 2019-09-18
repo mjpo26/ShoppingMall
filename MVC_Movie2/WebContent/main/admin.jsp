@@ -24,15 +24,14 @@
                         <ul class="subMenu">
                             <li><a href="./admin/product_insert.jsp">상품등록</a></li>
                             <li><a href="./admin/product_list.jsp">상품목록</a></li>
-                            <li><a href="product_category.jsp">상품분류관리</a></li>
+                            <li><a href="./admin/product_category.jsp">상품분류관리</a></li>
                             <li><a href="./product_list.sh">test목록</a></li>
                         </ul>
                     </li>
                     <li>주문관리
                         <ul class="subMenu">
-                            <li><a href="./admin/orderList.ol">주문관리</a></li>
-                            <li><a>배송관리</a></li>
-                            <li><a>취소교환반품환불</a></li>
+                            <li><a href="OrderList.ol">주문관리</a></li>
+                            <li><a>주문상태변경</a></li>
                         </ul>
                     </li>
                     <li>고객관리
@@ -43,21 +42,22 @@
                     
                     </li>
 
-
-
                     <li>게시판관리
                         <ul class="subMenu">
-                            <li><a>게시물통합관리</a></li>
                             <li><a href="AdminBoardList.abl">관리자 게시판리스트</a></li>
-                            <li><a href="Free_BoardList.bo">Free_board리스트</a></li>
+                            <li><a href="Free_BoardList.bo">Free_board</a></li>
+                            <li><a href="ReviewBoardList.re">Review_board</a></li>
+                            <li><a href="QnA_BoardList.qa">QnA_board</a></li>
                         </ul>
 
                     </li>
 
                     <li>기타페이지
                         <ul class="subMenu">
-                            <li><a>게시물통합관리</a></li>
-                            <li><a>게시물관리</a></li>
+                            <li><a href="MemberInfo.me">회원정보수정</a></li>
+                            <li><a href="BasketInfo.bl">장바구니</a></li>
+                            <li><a href="productInfo.sh">구매목록</a></li>
+                            <li><a href="orderPro.sh">결제페이지</a></li>
                         </ul>
                     </li>
                 </ul>

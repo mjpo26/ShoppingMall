@@ -38,5 +38,43 @@ public class OrderListService {
 	        return articleList;
 	    }
 
-	    
+		public int getdelivery1_Count(OrderSearchBean ob) {
+	        int delivery1_Count = 0; 
+		      
+	        Connection con = getConnection();	        
+	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        listDAO.setConnection(con);
+	        
+	        delivery1_Count = listDAO.selectdelivery1_Count(ob);
+	        close(con);
+	        System.out.println("OrderListService의 getListCount() 실행됨"+delivery1_Count+"조회");
+	        return delivery1_Count;
+	    }
+
+		public int getdelivery2_Count(OrderSearchBean ob) {
+	        int delivery2_Count = 0; 
+		      
+	        Connection con = getConnection();	        
+	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        listDAO.setConnection(con);
+	        
+	        delivery2_Count = listDAO.selectdelivery2_Count(ob);
+	        close(con);
+	        System.out.println("OrderListService의 getListCount() 실행됨"+delivery2_Count+"조회");
+	        return delivery2_Count;
+	    }
+		
+		public int getdelivery3_Count(OrderSearchBean ob) {
+	        int delivery3_Count = 0; 
+		      
+	        Connection con = getConnection();	        
+	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        listDAO.setConnection(con);
+	        
+	        delivery3_Count = listDAO.selectdelivery3_Count(ob);
+	        close(con);
+	        System.out.println("OrderListService의 getListCount() 실행됨"+delivery3_Count+"조회");
+	        return delivery3_Count;
+	    }
+
 }
