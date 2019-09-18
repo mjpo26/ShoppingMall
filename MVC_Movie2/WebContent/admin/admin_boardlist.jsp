@@ -51,7 +51,11 @@ function pickNullCheck(){
 	
 		return false;
 	}
-	
+	if(document.fr1.list.value==""){
+	 	alert("검색 할 게시판 선택은 필수입니다.")
+		
+			return false;
+		}
 	//
 	
 	
@@ -63,7 +67,7 @@ function pickNullCheck(){
 </head>
 <body>
 	<!-- 폼 선택!!!!!!!!!!!!!!-->
-	<form action="./AdminBoardList.abl" name="fr" method="get" onsubmit="return pickNullCheck()">
+	<form action="./AdminBoardList.abl" name="fr1" method="post" onsubmit="return pickNullCheck()">
 		<table border="1">
 			<tr>
 				<th colspan='10'>관리자 게시물 관리</th>
