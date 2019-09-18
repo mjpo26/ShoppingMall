@@ -21,21 +21,22 @@ public class productOrderAction implements Action {
 
 		HttpSession session = request.getSession();
 
-		int item_code = Integer.parseInt(request.getParameter("Item_code"));
+		int itemCode = Integer.parseInt(request.getParameter("Item_code"));
 		String page = request.getParameter("page");
 		String sId = (String) session.getAttribute("sId");
 		ProductDetailService productDetailService = new ProductDetailService();
 		MemberInfoService memberInfoService = new MemberInfoService();
 		MemberBean memberBean = memberInfoService.getMemberInfo(sId);
-
-		ItemBean article = productDetailService.getArticle(item_code);
+		ItemBean itemBean = productDetailService.getArticle(itemCode);
 
 		request.setAttribute("memberBean", memberBean);
 		request.setAttribute("page", page);
-		request.setAttribute("article", article);
+		request.setAttribute("itemBean", itemBean);
 		if (memberBean != null) {
 			// 조회된 회원정보(MemberBean)를 request 객체에 저장
 			request.setAttribute("memberBean", memberBean);
+			request.setAttribute("itemBean", itemBean);
+			request.setAttribute("page", page);
 			forward = new ActionForward();
 			forward.setPath("/Product/productPay.jsp");
 

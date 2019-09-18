@@ -3,9 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ItemBean itemBean = (ItemBean) request.getAttribute("article");
+	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	String nowPage = (String) request.getAttribute("page");
+	String sId = (String)session.getAttribute("sId");
+	int itemCode = itemBean.getItem_code();
 %>
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,7 @@
 </head>
 <body>
 	<form action="orderPro.sh" method="post" name="orderForm">
+	  <input type="hidden" name="itemCode" value=<%=itemCode%>>
 		<table border="1">
 			<tr>
 				<th width="100">상품이미지</th>
@@ -26,7 +29,7 @@
 
 			<tr>
 				<td align="center">상품이미지</td>
-				<td align="center"><%=itemBean.getItem_title()%></td>
+				<td align="center"><input type="text" name="item_title" value="<%=itemBean.getItem_title()%>"></td>
 				<td align="center">불러오기</td>
 				<td align="center"><%=itemBean.getItem_old_price() * 0.01%></td>
 				<td align="center"><%=itemBean.getItem_old_price()%></td>
@@ -82,8 +85,7 @@
 
 			<tr>
 				<th width="100" align="center">무통장 입금자명</th>
-				<td align="center" colspan="3"><input type="text">(주문자와
-					동일시 생략)</td>
+				<td align="center" colspan="3"><input type="text">(주문자와 동일시 생략)</td>
 			</tr>
 		</table>
 		<br> <br>
@@ -94,7 +96,7 @@
 			</tr>
 
 			<tr>
-				<td align="center">상품금액 상품가격불러오기 + 할인금액 할인금액불러오기 = 총금액 총금액불러오기</td>
+				<td align="center">상품금액 <%=itemBean.getItem_old_price()%> + 할인금액 = 총금액  <%=itemBean.getItem_old_price()%> </td>
 			</tr>
 			<tr>
 				<td align="right" colspan="3"><input type="text">적립금사용<input

@@ -92,7 +92,7 @@ public class ProductFrontController extends HttpServlet {
             }
         }
         else if(command.equals("/orderPro.sh")) {
-            action = new ProductInsertProAction();
+            action = new productOrderProAction();
             
             try {
                 forward = action.execute(request, response);
