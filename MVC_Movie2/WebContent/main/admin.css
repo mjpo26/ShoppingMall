@@ -1,36 +1,16 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Nanum+Myeongjo|Do+Hyeon|Nanum+Gothic|Nanum+Gothic+Coding|Noto+Sans+KR|Noto+Serif+KR&display=swap&subset=korean');
+/*
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Raleway|Nanum+Myeongjo|Do+Hyeon|Nanum+Gothic|Nanum+Gothic+Coding|Noto+Sans+KR|Noto+Serif+KR&display=swap&subset=korean');
+*/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 
 
 
 
 /* 여백 초기화 */
-body,
-div,
-ul,
-li,
-dl,
-dd,
-dt,
-ol,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-input,
-fieldset,
-legend,
-p,
-select,
-table,
-th,
-td,
-tr,
-textarea,
-button,
-form {
+body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,
+input,fieldset,legend,p,select,table,th,td,tr,textarea,
+button,form {
     margin: 0;
     padding: 0;
 }
@@ -46,13 +26,8 @@ a:hover {
 }
 
 /* 폰트 초기화 */
-body,
-input,
-textarea,
-select,
-button,
-table {
-    font-family: 'Nanum Gothic', AppleSDGothicNeo-Regular, 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+body,input,textarea,select,button,table {
+    font-family: 'Noto Sans KR', 'Nanum Gothic', AppleSDGothicNeo-Regular, 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
     color: #222;
     font-size: 13px;
     line-height: 1.5;
@@ -60,21 +35,12 @@ table {
 }
 
 /* 블릿기호 초기화 */
-dl,
-ul,
-li,
-ol,
-menu {
+dl,ul,li,ol,menu {
     list-style: none;
 }
 
 /* 제목 태그 초기화 */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
     font-size: 13px;
     font-weight: normal;
 }
@@ -167,11 +133,13 @@ img {
 }
 
 #sideMenu {
-    display: inline-block;
+    display: inline-block;   
+    background-image: linear-gradient(16deg, #ffba00 0%, #ff5d2d 30%, #ff005a 100%);
     background-color: #E9E9EA;
-    width: 18%;
+    width: 15%;
+    min-width: 15em;
     float: left;
-    padding-top: 8em;
+    padding-top: 5em;
     box-sizing: border-box;
     height: 100%;
     position: absolute;
@@ -181,7 +149,7 @@ img {
 }
 
 #sideMenu:hover {
-    width: 20%;
+    width: 16%;
     position: absolute;
     z-index: 5;
     box-shadow: 10px 0px 23px -15px rgba(120, 120, 120, 1);
@@ -192,16 +160,18 @@ img {
     display: inline-block;
     position: relative;
     clear: both;
-    background-color: #EAEFF8;
-    width: 82%;
+/*    background-color: #EAEFF8;*/
+    background-color: white;
+    width: 85%;
     height: 100%;
     float: right;
 }
 
 #header {
     width: 100%;
-    height: 8em;
-    background-color: #BFD0E6;
+    height: 5em;
+    background-color: #ffba00;
+/*    background-color: #BFD0E6;*/
     position: sticky;
     z-index: 4;
     box-shadow: 10px 0px 23px -15px rgba(120, 120, 120, 1);
@@ -210,24 +180,29 @@ img {
 }
 
 #content {
-    background-color: #EAEFF8;
-}
+    background-color: #fbf9ff;
+/*    background-color: #ecfdff;*/
+/*    background-color: #EAEFF8;*/
 
+
+}
 
 
 
 
 .sideMenu .mainMenu > li {
     padding-left: 2em;
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 1.5em;
-    color: #798F8C;
+/*    color: #798F8C;*/
+    color: white;
     line-height: 2em;
 
 }
 
 .sideMenu .mainMenu > li:hover {
-    color: #505F5C;
+/*    color: #505F5C;*/
+    font-weight: 500;
     /*    color: #E9CBD1;*/
     /*    border-bottom-width: 0.05em;
     border-bottom-style: solid;
@@ -241,7 +216,7 @@ img {
 
 .sideMenu .subMenu > li {
     padding-left: 1em;
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 0.85em;
     color: #798F8C;
     line-height: 2em;
@@ -250,10 +225,86 @@ img {
 
 .sideMenu .subMenu > li:hover {
     color: #66626B;
+    font-weight: 500;
+
+}
+
+
+.container{
+    padding-left: 2.5em;
+    padding-top: 1em;
+}
+
+.header h3{
+    font-size: 2em;
+}
+
+.mainDiv .content{
+    height: 20em;
+    padding-left: 1em;
+
+}
+.mainDiv .content_title{
+    margin-bottom: 1.5em;
+}
+.mainDiv .content_title h1{
+    font-size: 1.5em;
+    color: dimgray;
+}
+
+.mainDiv .content_div{
+    position: relative;
+    clear: both;
+}
+
+
+.mainDiv .content_div .con{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 22%;
+    background-color: rgba(255, 255,255, 0.5);
+    margin-left: 2%;
+    height: 15em;
+    padding: 3em;
+    box-shadow: 0px 0px 39px -14px rgba(200,200,200,1);
+}
+
+
+
+.con .con_title h3{
+    font-size: 2em;
+    text-align: center;    
+    box-sizing: border-box;
+    color : #555;
 
 }
 
 
 
+.con .con_count h5{
+    text-align: center;
+    font-size: 2em;
+    color : #505F5C;
 
-.container {}
+}
+.con .con_count h5 span{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    transition: all 0.5;
+    
+}
+.mainDiv .content_div .con:hover{
+     box-shadow: 0px 0px 39px -14px rgba(120,120,120,0.7);
+    
+}
+
+.mainDiv .content_div .con:hover .con_count h5 span{
+    font-size: 1.6em;
+    color: #ffba00;
+}
+
+.mainDiv .content_div .con:hover .con_title h3{
+    font-weight: 500;
+}
+
