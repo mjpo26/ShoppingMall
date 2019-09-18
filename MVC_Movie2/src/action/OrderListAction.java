@@ -33,8 +33,10 @@ public class OrderListAction implements Action {
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
 	        ob.setOrder_member_id(request.getParameter("Buyer"));
-	        ob.setOrder_pay_status(request.getParameter("pay"));
-	        ob.setOrder_payment(request.getParameter("payment"));//  결제상태
+	        ob.setOrder_pay_status(request.getParameter("pay")); // 결제상태
+	        ob.setOrder_payment(request.getParameter("payment"));//  결제방법
+	        ob.setOrder_bank(request.getParameter("bank"));
+	        ob.setOrder_delivery_status(request.getParameter("delivery")); // 배송상태
 	        
 	        System.out.println("jsp script 로 널값 변환되나 보자  ["+request.getParameter("pickStart")+"]");
 	        
@@ -89,10 +91,16 @@ public class OrderListAction implements Action {
 	        System.out.println("ob order_item_title request체크:"+ob.getOrder_item_title());
 	        System.out.println("ob order_member_id request체크:"+ob.getOrder_member_id());
 	        System.out.println("ob order_pay_status request체크:"+ob.getOrder_pay_status());
+	        System.out.println("ob.order_bank request체크:"+ob.getOrder_bank());
 	        System.out.println("ob order_payment request체크:"+ob.getOrder_payment());
+	        System.out.println("ob order_delivery_status request체크:" + ob.getOrder_delivery_status());
 	        
 	        OrderListService orderListService = new OrderListService();
 	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기
+	        
+	//        int deliveryCount1 = orderListService.getdeliveryCount1(ob);
+	 //       int deliveryCount2 = orderListService.getdeliveryCount2(ob);
+	 //       int deliveryCount3 = orderListService.getdeliveryCount3(ob);
 
 	        articleList = orderListService.getArticleList(ob); // 전체 게시물 목록 가져오기(10개 한정)
 	        

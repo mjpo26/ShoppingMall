@@ -11,9 +11,12 @@ public class OrderListBean {
 	private String order_item_option_size;
 	private int order_item_sel_price;
 	private int order_item_point;
+	private int order_item_code_count;
 	private int order_delivery_pee;
 	private int order_plus_point;
 	private int order_used_point;
+	private String order_bank;
+
 	private String order_delivery_status;
 	private String order_pay_status;
 	private String order_payment;
@@ -21,6 +24,22 @@ public class OrderListBean {
 	private Date order_date;
 	private String order_member_id;
 	private String order_member_name;
+	
+	public int getOrder_item_code_count() {
+		return order_item_code_count;
+	}
+	
+	public void setOrder_item_code_count(int order_item_code_count) {
+		this.order_item_code_count = order_item_code_count;
+	}
+	
+	public String getOrder_bank() {
+		return order_bank;
+	}
+	
+	public void setOrder_bank(String order_bank) {
+		this.order_bank = order_bank;
+	}
 
 	public String getOrder_member_name() {
 		return order_member_name;

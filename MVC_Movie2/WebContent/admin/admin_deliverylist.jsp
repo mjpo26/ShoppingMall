@@ -93,9 +93,6 @@ function pickNullCheck(){
 
 			</th>
 
-			<th>배송준비중<br>//db 배송준비중인수량 작성
-
-			</th>
 
 			<th>배송대기<br>//db 배송대기수량 작성
 

@@ -19,15 +19,23 @@ public class OrderSearchBean {
    private String order_pay_status ;
    private String order_payment ;
    private String order_memo;
-   private Date pickStart;
+   private String order_bank;
+private Date pickStart;
    private Date pickEnd;
    private int page;
    private int limit;
    private String order_member_id;
    
-   public Date getPickStart() {
-	return pickStart;
+public String getOrder_bank() {
+	 return order_bank;
 }
+public void setOrder_bank(String order_bank) {
+	 this.order_bank = order_bank;
+}
+ public Date getPickStart() {
+	 return pickStart;
+}
+   
 public void setPickStart(Date pickStart) {
 	this.pickStart = pickStart;
 }
