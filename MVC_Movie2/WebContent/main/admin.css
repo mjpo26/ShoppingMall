@@ -136,7 +136,7 @@ img {
     display: inline-block;   
     background-image: linear-gradient(16deg, #ffba00 0%, #ff5d2d 30%, #ff005a 100%);
     background-color: #E9E9EA;
-    width: /* 15% */288px;
+    width: 15%;
     min-width: 15em;
     float: left;
     padding-top: 5em;
@@ -149,7 +149,7 @@ img {
 }
 
 #sideMenu:hover {
-    width: /* 16% */ 307px;
+    width: 16%;
     position: absolute;
     z-index: 5;
     box-shadow: 10px 0px 23px -15px rgba(120, 120, 120, 1);
@@ -162,7 +162,7 @@ img {
     clear: both;
 /*    background-color: #EAEFF8;*/
     background-color: #fbf9ff;
-    width: /* 85% */1632px;
+    width: 85%;
     height: 100%;
     float: right;
 }
@@ -308,21 +308,21 @@ img {
     display: inline-block;
     box-sizing: border-box;
     width: 22%;
-    background: linear-gradient(45deg, rgba(241,231,103,0.1) 0%, rgba(254,182,69,0.3) 100%);
-    background-color: rgba(255, 255,255, 0.5);
+    background: linear-gradient(45deg, rgba(148, 148, 148, 0.15)  0%, rgba(239, 239, 239, 0.3)100%);
+    background-color: rgba(255, 255,255, 0.3);
     margin-left: 2%;
     height: 15em;
     padding: 3em;
-    box-shadow: 0px 0px 39px -14px rgba(200,200,200,1);
+    box-shadow: 0px 0px 39px -14px rgba(200,200,200,0.5);
 }
 
 
 
 .con .con_title h3{
-    font-size: 2em;
+    font-size: 1.8em;
     text-align: center;    
     box-sizing: border-box;
-    color : #777;
+    color: #ff005a;
     margin-bottom: -0.2em;
 
 }
@@ -330,7 +330,9 @@ img {
 
 
 .con .con_count h5{
-    text-align: center;
+	border-top : 1px solid #CCC;
+	margin-top : 0.5em;
+	text-align: center;
     font-size: 2em;
     color : #505F5C;
 
@@ -343,8 +345,7 @@ img {
     
 }
 .mainDiv .content_div .con:hover{
-     box-shadow: 0px 0px 39px -14px rgba(120,120,120,0.7);
-    
+     box-shadow: 0px 0px 39px -14px rgba(120,120,120,0.5);    
 }
 
 
@@ -356,7 +357,8 @@ img {
 }
 
 .mainDiv .content_div .con:hover .con_title h3{
-    font-weight: 500;
-    font-size: 2.2em;
+	color : #777;
+/* 	font-weight: 500; */
+/*     font-size: 1.9em; */
 }
 
