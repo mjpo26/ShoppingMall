@@ -5315,7 +5315,7 @@ ul {
 .login_part .login_part_text, .login_part .login_part_form {
   padding: 80px 70px;
   height: 600px;
-  display: table;
+/*   display: table;   크롬에서는 정상 출력되는데 익스플로러에서 width값이 작게 출력됨*/ 
 }
 
 @media (max-width: 991px) {
@@ -5336,7 +5336,7 @@ ul {
 
 /* line 1896, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .login_part .login_part_text .login_part_text_iner, .login_part .login_part_text .login_part_form_iner, .login_part .login_part_form .login_part_text_iner, .login_part .login_part_form .login_part_form_iner {
-  display: table-cell;
+/*   display: table-cell; 익스플로러에서 에러*/
   vertical-align: middle;
 }
 
