@@ -193,7 +193,6 @@ String domain = memberBean.getMember_email().split("@")[1];
 
 	<h1>Join Us</h1>
 
-
 	<form action="MemberUpdatePro.me" id="update" method="post" name="updateForm"
 		onsubmit="return check()">
 		<fieldset>
@@ -356,19 +355,9 @@ String domain = memberBean.getMember_email().split("@")[1];
 								}
 							}).open();
 				}
-				
-				
-			
-				
+		
 				
 			</script>
-
-
-
-
-
-
-
 
 			<label>휴대전화</label> <input type="text" name="phone1"size="3"value="<%=phone1%>">- <input type="text" name="phone2" size="4"value="<%=phone2%>">- <input type="text" name="phone3" size="4"value="<%=phone3 %>"><br>
 		<label>이메일&nbsp;</label> <input type="text" name="email" size="6" value="<%=email%>">&nbsp;@&nbsp;<input type="text" name="domain" size="6" value="<%=domain %>">&nbsp;<select onchange="chkEmailDomainSelect(this)">

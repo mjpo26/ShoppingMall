@@ -23,19 +23,16 @@
         if (val.length < 3) {
 
             document.getElementById('result').value = "A-test";
-
             document.getElementById('result').style.color = "red";
 
         } else if (val.length < 8) {
 
             document.getElementById('result').value = "B-test";
-
             document.getElementById('result').style.color = "orange";
 
         } else {
 
             document.getElementById('result').value = "C-test";
-
             document.getElementById('result').style.color = "green";
 
         }
