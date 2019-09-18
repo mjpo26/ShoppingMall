@@ -195,14 +195,14 @@ img {
     font-weight: 400;
     font-size: 1.5em;
 /*    color: #798F8C;*/
-    color: white;
+    color: rgba(255, 255, 255,0.7);
     line-height: 2em;
 
 }
 
 .sideMenu .mainMenu > li:hover {
-/*    color: #505F5C;*/
-    font-weight: 500;
+    color: rgba(255, 255, 255,1);
+    font-weight: 400;
     /*    color: #E9CBD1;*/
     /*    border-bottom-width: 0.05em;
     border-bottom-style: solid;
@@ -218,13 +218,16 @@ img {
     padding-left: 1em;
     font-weight: 400;
     font-size: 0.85em;
-    color: #798F8C;
+    color: rgba(255, 255, 255,0.8);
+/*    color: #798F8C;*/
     line-height: 2em;
     display: none;
 }
 
 .sideMenu .subMenu > li:hover {
-    color: #66626B;
+/*    color: #66626B;*/
+    color: rgba(255, 255, 255,1);
+
     font-weight: 500;
 
 }
@@ -237,6 +240,10 @@ img {
 
 .header h3{
     font-size: 2em;
+    font-weight: 100;
+    color: rgba(255, 255, 255,0.8);
+    
+
 }
 
 .mainDiv .content{
