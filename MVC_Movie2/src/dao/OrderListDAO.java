@@ -40,7 +40,7 @@ public class OrderListDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String order_member_id=ob.getOrder_member_id();
-
+		// String before배송= "배송전";
 		try {
 			String sql = "SELECT COUNT(*) FROM item_order where order_member_id=?";
 			pstmt = con.prepareStatement(sql);
@@ -129,6 +129,90 @@ public class OrderListDAO {
 		}
 
 		return articleList;
+	}
+	
+	public int selectdelivery1_Count(OrderSearchBean ob) {
+		int delivery1_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_before="배송전";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_before);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery1_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery1_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery1_Count;
+	}
+	
+	public int selectdelivery2_Count(OrderSearchBean ob) {
+		int delivery2_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_ing="배송중";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_ing);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery2_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery2_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery2_Count;
+	}
+	
+	public int selectdelivery3_Count(OrderSearchBean ob) {
+		int delivery3_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_end="배송완료";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_end);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery3_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery3_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery3_Count;
 	}
 	
 	

@@ -21,12 +21,12 @@
 
 	// 만약, 회원만 게시판 목록 조회가 가능할 경우
 	// 세션 아이디 없으면 Main.qa 로 이동
-	if (sId == null) {
+/* 	if (sId == null) {
 		out.println("<script>");
 		out.println("alert('로그인이 필요한 메뉴입니다!')");
 		out.println("location.href='Main.qa'");
 		out.println("</script>");
-	}
+	} */
 %>
 <!DOCTYPE html>
 <html>

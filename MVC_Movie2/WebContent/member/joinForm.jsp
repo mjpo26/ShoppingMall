@@ -41,7 +41,7 @@
 
     function check() {
 
-        if (document.fr.id.value == "") {
+        if (document.joinform.id.value == "") {
             alert("아이디를 입력하세요!");
             document.fr.id.focus();
             return false;
@@ -132,7 +132,7 @@
         }
         //  아이디 입력되어있으면 새창열기  "idcheck.jsp"
         //  window.open("파일이름","창이름","옵션");
-        window.open("idcheck.jsp?fid=" + fid, "", "width=400,height=200");
+        window.open("./member/idcheck.jsp?fid=" + fid, "", "width=400,height=200");
     }
 </script>
 <%
