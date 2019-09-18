@@ -107,14 +107,16 @@ function pickNullCheck(){
 			<input type="radio" name="pay" value="주문완료">주문완료
 		</tr>
 		<tr>
-		<th>배송상태</th><td>
+		
+		<tr>
+		<th>결제은행</th><td>
 		<input type="radio" name="delivery" value="전체">전체
 		<input type="radio" name="delivery" value="배송전">배송전
 		<input type="radio" name="delivery" value="배송중">배송중
 		<input type="radio" name="delivery" value="배송완료">배송완료</td>
 		
 		<tr>
-		<th>결재은행</th><td>
+		<th>결제은행</th><td>
 		<input type="radio" name="bank" value="전체">전체
 		<input type="radio" name="bank" value="신한은행">신한은행
 		<input type="radio" name="bank" value="국민은행">국민은행
@@ -187,8 +189,8 @@ function pickNullCheck(){
 				<th>상품명</th>
 				<th>결제상태</th>
 				<th>결제금액</th>
-				<th>결재은행</th>
 				<th>배송상태</th>
+				<th>결제은행</th>
 				<th>결제방법</th>
 				<th>메모</th>
 			</tr>
@@ -204,8 +206,8 @@ function pickNullCheck(){
 				<td><%=articleList.get(i).getOrder_item_title()%></td>
 				<td><%=articleList.get(i).getOrder_pay_status()%></td>
 				<td><%=articleList.get(i).getOrder_item_sel_price()%></td>
-		  		<td><%=articleList.get(i).getOrder_bank() %></td> 
 				<td><%=articleList.get(i).getOrder_delivery_status()%></td>
+		  		<td><%=articleList.get(i).getOrder_bank() %></td> 
 				<td><%=articleList.get(i).getOrder_payment()%></td>
 				<td><%=articleList.get(i).getOrder_memo()%></td>
 			</tr>

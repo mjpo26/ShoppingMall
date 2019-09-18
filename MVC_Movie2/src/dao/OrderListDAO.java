@@ -82,6 +82,7 @@ public class OrderListDAO {
 			        + "and order_item_title like ifnull(?,'%%') "
 			        + "and order_member_id like ifnull(?,'%%') "
 			        + "and order_pay_status like ifnull(?,'%%') "
+			        + "and order_delivery_status like ifnull(?,'%%')"
 			        + "and order_bank like ifnull(?,'%%')"
 			        + "and order_payment like ifnull(?,'%%') "
 			        + "ORDER BY order_item_code LIMIT ?,?";
@@ -94,10 +95,11 @@ public class OrderListDAO {
 			pstmt.setString(4, ob.getOrder_item_title());
 			pstmt.setString(5, ob.getOrder_member_id());
 			pstmt.setString(6, ob.getOrder_pay_status());
-			pstmt.setString(7, ob.getOrder_bank());
-			pstmt.setString(8, ob.getOrder_payment());
-			pstmt.setInt(9, startRow);
-			pstmt.setInt(10, ob.getLimit());
+			pstmt.setString(7, ob.getOrder_delivery_status());
+			pstmt.setString(8, ob.getOrder_bank());
+			pstmt.setString(9, ob.getOrder_payment());
+			pstmt.setInt(10, startRow);
+			pstmt.setInt(11, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			
