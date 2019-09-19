@@ -4,34 +4,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 	
-	
-	<link href="./summernote.css" rel="stylesheet">
-	<script src="./summernote.js"></script>
+	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
+    <script src="../js/jquery-3.4.1.js"></script>
+    <link href="../dist/summernote-lite.css" rel="stylesheet" type="text/css">
+<script src="../dist/summernote-lite.js"></script>
+<script src="../dist/lang/summernote-ko-KR.js"></script>
     
-	<script type="text/javascript">
+	<script type="text/javascript">    
+	
         /* summernote에서 이미지 업로드시 실행할 함수 */
-	 	function sendFile(file, editor) {
-            // 파일 전송을 위한 폼생성
-	 		data = new FormData();
-	 	    data.append("uploadFile", file);
-	 	    $.ajax({ // ajax를 통해 파일 업로드 처리
-	 	        data : data,
-	 	        type : "POST",
-	 	        url : "./summernote_imageUpload.jsp",
-	 	        cache : false,
-	 	        contentType : false,
-	 	        processData : false,
-	 	        success : function(data) { // 처리가 성공할 경우
-                    // 에디터에 이미지 출력
-	 	        	$(editor).summernote('editor.insertImage', data.url);
-	 	        }
-	 	    });
-	 	}
+        function sendFile(file, editor) {
+	            // 파일 전송을 위한 폼생성
+		 		data = new FormData();
+		 	    data.append("uploadFile", file);
+		 	    $.ajax({ // ajax를 통해 파일 업로드 처리
+		 	        data : data,
+		 	        type : "POST",
+		 	        url : "./summernote_imageUpload.jsp",
+		 	        cache : false,
+		 	        contentType : false,
+		 	        processData : false,
+		 	        async:false, //용훈햄꺼
+		 	        success : function(data) { // 처리가 성공할 경우
+	                    // 에디터에 이미지 출력
+	                    alert(data.url);
+		 	        console.log(data.url);
+		 	        	$(editor).summernote('editor.insertImage', data.url);
+		 	        }
+		 	    });
+		 	}
+        <!-- 섬머노트 이미지 업로드시 아작스를 이용하여 업로드폴더에 저장후 summernote editor에 화면 출력됩니다. -->
+            $(document).ready(function() {
+                $('#summernote').summernote({ // summernote를 사용하기 위한 선언
+                    height: 400,
+                    placeholder: '내용을 입력하세요',
+					callbacks: { // 콜백을 사용
+                        // 이미지를 업로드할 경우 이벤트를 발생
+					    onImageUpload: function(files, editor, welEditable) {
+					    	for (var i = files.length - 1; i >= 0; i--) {
+				            	sendFile(files[i], this);}
+						}
+					}
+				});
+			});
+		
 	</script>
+
+
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -81,29 +102,12 @@ form {
 					</tr>
 					<tr>
 						<th colspan="3">상품요약설명</th>
-						<td colspan="12"><textarea rows="5" cols="30" name="content1"></textarea></td>
+						<td colspan="12"><textarea rows="5" cols="130" name="content1"></textarea></td>
 					</tr>
 					<tr>
 						<th colspan="12">상품상세설명</th></tr><tr>
 				
-  	<td colspan="12">	<textarea id="summernote" name="content2">Hello Summernote</textarea></td>
-        <script>
-            $(document).ready(function() {
-                $('#summernote').summernote({ // summernote를 사용하기 위한 선언
-                    height: 400,
-					callbacks: { // 콜백을 사용
-                        // 이미지를 업로드할 경우 이벤트를 발생
-					    onImageUpload: function(files, editor, welEditable) {
-						    sendFile(files[0], this);
-						}
-					}
-				});
-			});
-		</script>
-
-
-
-
+  	<td colspan="12">	<textarea id="summernote" name="content2"></textarea></td>
 
 					</tr>
 					<tr>

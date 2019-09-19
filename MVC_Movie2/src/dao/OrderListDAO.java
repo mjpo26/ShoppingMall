@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.OrderListBean;
+import vo.OrderListBean;
 import vo.OrderSearchBean;
 
 public class OrderListDAO {
@@ -214,6 +215,41 @@ public class OrderListDAO {
 
 		return delivery3_Count;
 	}
-	
+
+	public ArrayList<OrderListBean> selectArticleList(String sId) {
+		 PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        
+	        ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+
+	         
+	        
+	        try {
+	            String sql = "SELECT * FROM item_order where order_member_id=?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, sId);
+	            rs = pstmt.executeQuery();
+	            
+
+	            while(rs.next()) {
+	            	OrderListBean orderListBean = new OrderListBean();
+	            	orderListBean.setOrder_idx(rs.getInt("order_idx"));
+	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
+	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
+	            	orderListBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
+	                orderListBean.setOrder_date(rs.getDate("order_date"));
+	            	articleList.add(orderListBean);
+	            }
+	            
+	        } catch (SQLException e) {
+	            System.out.println("selectArticleList() - " + e.getMessage());
+	        } finally {
+	            close(rs);
+	            close(pstmt);
+	        }
+	        
+	        
+	        return articleList;
+		}
 	
 }

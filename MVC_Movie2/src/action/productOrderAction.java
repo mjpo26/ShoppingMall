@@ -28,7 +28,8 @@ public class productOrderAction implements Action {
 		MemberInfoService memberInfoService = new MemberInfoService();
 		MemberBean memberBean = memberInfoService.getMemberInfo(sId);
 		ItemBean itemBean = productDetailService.getArticle(itemCode);
-
+		String item_code_count =request.getParameter("Item_code_count");
+		
 		request.setAttribute("memberBean", memberBean);
 		request.setAttribute("page", page);
 		request.setAttribute("itemBean", itemBean);
@@ -36,6 +37,7 @@ public class productOrderAction implements Action {
 			// 조회된 회원정보(MemberBean)를 request 객체에 저장
 			request.setAttribute("memberBean", memberBean);
 			request.setAttribute("itemBean", itemBean);
+			request.setAttribute("item_code_count", item_code_count);
 			request.setAttribute("page", page);
 			forward = new ActionForward();
 			forward.setPath("/Product/productPay.jsp");

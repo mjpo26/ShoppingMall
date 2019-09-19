@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.BasketInfoAction;
+import action.OrderInfoAction;
 import action.ProductInsertProAction;
 import action.basketAction;
 import action.productDetailAction;
@@ -100,7 +102,15 @@ public class ProductFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }else if (command.equals("/orderInfo.sh")) {
+			System.out.println("orderInfo controller 들어옴");
+			action = new OrderInfoAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
         
         
         

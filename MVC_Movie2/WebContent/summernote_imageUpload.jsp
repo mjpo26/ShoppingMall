@@ -19,7 +19,8 @@ String DateDir="\\"+year+"\\"+month+"\\"+date+"\\";
 
 // 이미지 업로드할 경로
 String uploadPath = request.getRealPath("/upload")+DateDir;
-
+// String uploadPath = "C:/Users/ITWILL/git/ShoppingMall1/MVC_Movie2/WebContent/upload"+DateDir;
+// String uploadPath = "http://localhost:8080/MVC_Movie/upload"+DateDir;
 //경로에 폴더가 없으면 만들어 준다
 File targetDir = new File(uploadPath.replace('\\','/'));
 if(!targetDir.exists()){
@@ -47,7 +48,7 @@ try{
 }
 
    // 업로드된 경로와 파일명을 통해 이미지의 경로를 생성
-uploadPath ="../upload"+ DateDir.replace("\\","/")+fileName;
+uploadPath ="./upload"+ DateDir.replace("\\","/")+fileName;
 
    // 생성된 경로를 JSON 형식으로 보내주기 위한 설정
 JSONObject jobj = new JSONObject();
