@@ -92,6 +92,7 @@ public class ProductFrontController extends HttpServlet {
             }
         }
         else if(command.equals("/orderPro.sh")) {
+        	System.out.println("여길들어오고있다고 ??");
             action = new productOrderProAction();
             
             try {

@@ -46,18 +46,18 @@
             document.fr.id.focus();
             return false;
         }
-        if (document.fr.pass.value == "") {
+        if (document.joinForm.pass.value == "") {
             alert("비밀번호를 입력하세요");
             document.fr.id.focus();
             return false;
         }
-        if (document.fr.pass.value.length < 4) {
+        if (document.joinForm.pass.value.length < 4) {
             alert("비밀번호는 4자 이상으로 설정하세요!")
             document.fr.pass.focus();
             return false;
         }
 
-        if (document.fr.passChecked.value != "yes") {
+        if (document.joinForm.passChecked.value != "yes") {
             var fpass = document.fr.pass.value;
 
             window.open("passCheckPro.jsp?fpass=" + fpass, "",
@@ -66,41 +66,41 @@
             return false;
 
         }
-        if (document.fr.pass2.value.length == "") {
+        if (document.joinForm.pass2.value.length == "") {
             alert("비밀번호 확인란을 입력하세요!")
             document.fr.pass2.focus();
             return false;
         }
-        if (document.fr.pass.value != document.fr.pass2.value) {
+        if (document.joinForm.pass.value != document.fr.pass2.value) {
             alert("비밀번호가 일치되지 않습니다.");
             document.fr.pass2.focus();
             return false;
         }
 
-        if (document.fr.name.value.length == "") {
+        if (document.joinForm.name.value.length == "") {
             alert("이름을 입력하세요!")
             document.fr.name.focus();
             return false;
         }
 
-        if (document.fr.detailaddress.value.length == "") {
+        if (document.joinForm.detailaddress.value.length == "") {
             alert("주소를 입력하세요!")
             document.fr.name.focus();
             return false;
         }
 
-        if (document.fr.email.value.length == "") {
+        if (document.joinForm.email.value.length == "") {
             alert("이메일을 입력하세요!")
             document.fr.email.focus();
             return false;
         }
-        if (document.fr.email2.value.length == "") {
+        if (document.joinForm.email2.value.length == "") {
             alert("이메일 확인란을 입력하세요!")
             document.fr.email2.focus();
             return false;
         }
 
-        if (document.fr.pass.value != document.fr.pass2.value) {
+        if (document.joinForm.pass.value != document.fr.pass2.value) {
             alert("이메일이  일치되지 않습니다.");
             document.fr.pass2.focus();
             return false;
@@ -116,24 +116,42 @@
         document.joinForm.domain2.value = domain.value;
         
     }
-    
+    function inputIdChk() {
+		document.joinForm.idDuplication.value = "idUncheck";
+	}
     
     function idcheck() {
         // id 텍스트 상자가 비어있으면  "아이디입력" 제어
-
-        var fid = encodeURIComponent(document.fr.id.value);
+       
+        var fid = encodeURIComponent(document.joinForm.id.value);
+        var fcheck = document.joinForm.idDuplication.value;
         //한글 안깨지는 ie 폼 불러오기
         //fid = document.wfr.id.value;
         //opener.document.fr.id.value = document.wfr.id.value;
         if (fid == "") {
             alert("아이디입력");
-            document.fr.id.focus();
+            document.joinForm.id.focus();
             return;
         }
         //  아이디 입력되어있으면 새창열기  "idcheck.jsp"
         //  window.open("파일이름","창이름","옵션");
-        window.open("./member/idcheck.jsp?fid=" + fid, "", "width=400,height=200");
+        window.open("./member/idcheck.jsp?fid=" + fid+"&check=2", "", "width=400,height=200");
     }
+
+	// 아이디 중복체크
+	$('.dup').click(function() {
+		if ($('#id').val() == "") {
+			alert("아이디중복을 확인하세요.");
+			$('#id').focus();
+			return false;
+		}
+		$.ajax('idcheck2.jsp',{
+			data:{id:$('#id').val()},
+			success : function (data) {
+				
+			}
+		});
+	});
 </script>
 <%
     request.setCharacterEncoding("utf-8");
@@ -184,10 +202,11 @@
                                 <label for="member_id">아이디</label> 
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
-                                <input type="text" id="member_id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용물가'" onblur="this.placeholder = 'id'" required class="single-input">
+                                <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용물가'" onblur="this.placeholder = 'id'" required class="single-input" onkeydown="inputIdChk()">
+                            	<input type="hidden" name="idDuplication" value="idUnCheck" id="idUnCheck"> 
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
-                                <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" onclick="idcheck()">            
+                                <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" class="dup" onclick="idcheck()">            
                             </div>
                         </div>
                         
