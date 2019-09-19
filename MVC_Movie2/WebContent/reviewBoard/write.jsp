@@ -14,7 +14,7 @@ int num=  Integer.parseInt(request.getParameter("num"));
 	<article>
 		<h1>Notice Write</h1>
 		<!-- enctype="multipart/form-data" -->
-		<form action="ReviewBoardWritePro.re" method="get" 
+		<form action="ReviewBoardWritePro.re" method="post" 
 			enctype="multipart/form-data">
 			<input type="hidden" name="num" value="<%=num%>">
 			<table>
