@@ -7,7 +7,7 @@ int num=  Integer.parseInt(request.getParameter("num"));
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Inserttitle here</title>
 </head>
 <body>
 	<!-- 게시판 -->
