@@ -23,7 +23,6 @@ public class ReviewBoardBean {
 	private int review_re_lev ;
 	private int review_re_seq ;
 	
-	
 	public int getReview_re_ref() {
 		return review_re_ref;
 	}
