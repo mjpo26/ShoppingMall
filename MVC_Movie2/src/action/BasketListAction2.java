@@ -30,6 +30,7 @@ public class BasketListAction2 implements Action {
 	        System.out.println(request.getParameter("Item_delivery_pee"));
 	        System.out.println(request.getParameter("Item_point"));
 	        System.out.println(request.getParameter("Item_code_count"));
+	        System.out.println(request.getParameter("Item_color"));
 	        
 	        basketListBean.setBasket_member_id(request.getParameter("sId"));
 	        basketListBean.setBasket_code(Integer.parseInt(request.getParameter("Item_code")));

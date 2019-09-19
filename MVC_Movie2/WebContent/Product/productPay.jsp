@@ -7,8 +7,22 @@
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	String nowPage = (String) request.getAttribute("page");
 	String sId = (String)session.getAttribute("sId");
+	String item_code_count = (String)request.getAttribute("item_code_count");
 	int itemCode = itemBean.getItem_code();
 %>
+<script src="../js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#checkBoxId").change(function(){
+        if($("#checkBoxId").is(":checked")){
+            alert("체크");
+        }else{
+            alert("체크 해제");
+        }
+    });
+});
+
+</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +44,9 @@
 			<tr>
 				<td align="center">상품이미지</td>
 				<td align="center"><input type="text" name="item_title" value="<%=itemBean.getItem_title()%>"></td>
-				<td align="center">불러오기</td>
-				<td align="center"><%=itemBean.getItem_old_price() * 0.01%></td>
-				<td align="center"><%=itemBean.getItem_old_price()%></td>
+				<td align="center"><%=item_code_count%></td>
+				<td align="center"><%=itemBean.getItem_point()%></td>
+				<td align="center"><%=itemBean.getItem_sel_price()%></td>
 			</tr>
 		</table>
 
@@ -84,9 +98,16 @@
 			</tr>
 
 			<tr>
+			<td>무통장 은행</td><td><select name="order_bank">
+			<option value="신한은행">신한은행</option>
+			<option value="국민은행">국민은행</option>
+			<option value="농협은행">농협은행</option>
+			</select>
 				<th width="100" align="center">무통장 입금자명</th>
-				<td align="center" colspan="3"><input type="text">(주문자와 동일시 생략)</td>
+				<td align="center" colspan="3"><input type="text" value="<%=memberBean.getMember_name()%>"></td>
 			</tr>
+			<tr><td>배송문의</td><td colspan="3"><textarea name="order_memo" rows="15" cols="60"></textarea>
+			
 		</table>
 		<br> <br>
 
@@ -96,11 +117,11 @@
 			</tr>
 
 			<tr>
-				<td align="center">상품금액 <%=itemBean.getItem_old_price()%> + 할인금액 = 총금액  <%=itemBean.getItem_old_price()%> </td>
+				<td align="center">상품금액 <%=itemBean.getItem_old_price()%> + 할인금액<%=itemBean.getItem_old_price()-itemBean.getItem_sel_price() %> = 총금액  <%=itemBean.getItem_sel_price()%> </td>
 			</tr>
 			<tr>
-				<td align="right" colspan="3"><input type="text">적립금사용<input
-					type="checkbox">사용가능금액(<%=memberBean.getMember_mypoint()%>)</td>
+				<td align="right" colspan="3"><input type="text" id="usedPoint" name="usedPoint">적립금사용
+				<input type="checkbox" id="checkBoxId" name="checkBoxId" onclick="usedpoint()">사용가능금액(<%=memberBean.getMember_mypoint()%>)</td>
 			</tr>
 		</table>
 		<input type="submit" value="상품주문"> 

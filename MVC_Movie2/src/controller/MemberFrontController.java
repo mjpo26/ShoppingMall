@@ -17,6 +17,7 @@ import action.MemberLoginProAction;
 import action.MemberLogoutProAction;
 import action.MemberUpdateAction;
 import action.MemberUpdateProAction;
+import action.MemberUsercheckAction;
 import vo.ActionForward;
 
 @WebServlet("*.me")
@@ -39,6 +40,15 @@ public class MemberFrontController extends HttpServlet {
             forward.setPath("/member/joinForm.jsp");
         } else if(command.equals("/MemberLoginPro.me")) {
             action = new MemberLoginProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } 
+        else if(command.equals("/MemberUsercheck.me")) {
+            action = new MemberUsercheckAction();
             
             try {
                 forward = action.execute(request, response);

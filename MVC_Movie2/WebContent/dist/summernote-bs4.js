@@ -74,6 +74,10 @@
   var toolbar = renderer.create('<div class="note-toolbar card-header" role="toolbar"></div>');
   var editingArea = renderer.create('<div class="note-editing-area"/>');
   var codable = renderer.create('<textarea class="note-codable" role="textbox" aria-multiline="true"/>');
+  var submitEditData = renderer.create('<textarea id="submit-data" name="submitData" role="textbox" aria-multiline="true" style="display:none;"/>');
+//수정 코더블밑에 한줄 추가
+
+
   var editable = renderer.create('<div class="note-editable card-block" contentEditable="true" role="textbox" aria-multiline="true"/>');
   var statusbar = renderer.create([
       '<output class="note-status-output" aria-live="polite"/>',
@@ -193,11 +197,14 @@
       tagName = tagName || 'i';
       return '<' + tagName + ' class="' + iconClassName + '"/>';
   };
+  
   var ui = {
       editor: editor,
       toolbar: toolbar,
       editingArea: editingArea,
       codable: codable,
+      //추가
+      submitData:submitEditData,
       editable: editable,
       statusbar: statusbar,
       airEditor: airEditor,
@@ -257,6 +264,8 @@
               ui.editingArea([
                   ui.codable(),
                   ui.editable(),
+                  //추가
+                  ui.submitData(),
               ]),
               ui.statusbar(),
           ])).render();
@@ -6519,6 +6528,7 @@
           context.memo('help.linkDialog.show', this.options.langInfo.help['linkDialog.show']);
       }
       LinkDialog.prototype.initialize = function () {
+    	  
           var $container = this.options.dialogsInBody ? this.$body : this.$editor;
           var body = [
               '<div class="form-group note-form-group">',
