@@ -60,6 +60,7 @@ public class ReviewBoardWriteProAction implements Action {
             forward.setPath("ReviewBoardList.re"); 
             forward.setRedirect(true); 
         }
+        
               return forward;
 	}
 

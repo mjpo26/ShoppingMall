@@ -13,7 +13,7 @@
 <title>주문내역</title>
 </head>
 <body>
-	<h1>주문내역</h1>
+	<h1>주문 내역</h1>
 	<table border="1">
 		<tr>
 			<td>주분번호</td>
