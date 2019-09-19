@@ -380,7 +380,33 @@ public class MemberDAO {
 
 		return memberList;
 	}
-  
+
+	public int idcheck(String id) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int ch = 0;
+		
+		try {	
+			String sql = "select * from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			if(id.equals(rs.getString("id"))) {
+				ch=1; //아이디 중복
+			} else {
+				ch=0; //아이디사용가능
+			}
+		} 	
+		catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return ch;
+	} 
     
 }
 

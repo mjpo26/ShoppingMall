@@ -116,9 +116,9 @@
         document.joinForm.domain2.value = domain.value;
         
     }
-    function inputIdChk() {
-		document.joinForm.idDuplication.value = "idUncheck";
-	}
+//     function  {
+// 		document.joinForm.idDuplication.value = "idUncheck";
+// 	}
     
     function idcheck() {
         // id 텍스트 상자가 비어있으면  "아이디입력" 제어
@@ -135,7 +135,7 @@
         }
         //  아이디 입력되어있으면 새창열기  "idcheck.jsp"
         //  window.open("파일이름","창이름","옵션");
-        window.open("./member/idcheck.jsp?fid=" + fid+"&check=2", "", "width=400,height=200");
+        window.open("./idcheck.jsp?fid=" + fid, "", "width=400,height=200");
     }
 
 	// 아이디 중복체크

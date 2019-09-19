@@ -30,7 +30,7 @@
                     </li>
                     <li>주문관리
                         <ul class="subMenu">
-                            <li><a href="OrderList.ol">주문관리</a></li>
+                            <li><a href="orderList.ol">주문관리</a></li>
                             <li><a>주문상태변경</a></li>
                         </ul>
                     </li>
