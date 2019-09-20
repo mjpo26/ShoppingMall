@@ -21,8 +21,8 @@ public class ReviewBoardWriteProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ActionForward forward = null;
         
-        String realFolder = ""; 
-        String saveFolder = "./reviewBoardUpload"; 
+        String realFolder = "./upload/review"; 
+        String saveFolder = "./upload/review"; 
         int fileSize = 10 * 1024 * 1024; 
 //        int review_orderNo = Integer.parseInt(request.getParameter("num"));
         ServletContext context = request.getServletContext();
@@ -42,8 +42,7 @@ public class ReviewBoardWriteProAction implements Action {
         boardBean.setReview_file1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
         boardBean.setReview_starPoint(Integer.parseInt(multi.getParameter("review_starPoint")));
         boardBean.setReview_orderNo(Integer.parseInt(multi.getParameter("num")));
-        ReviewBoardWriteProService reviewBoardWriteProService = new ReviewBoardWriteProService();
-       
+        ReviewBoardWriteProService reviewBoardWriteProService = new ReviewBoardWriteProService();       
         boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
         
       
