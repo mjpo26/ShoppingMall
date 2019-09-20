@@ -76,5 +76,18 @@ public class OrderListService {
 	        System.out.println("OrderListService의 getListCount() 실행됨"+delivery3_Count+"조회");
 	        return delivery3_Count;
 	    }
+		
+		public int getdelivery4_Count(OrderSearchBean ob) {
+	        int delivery4_Count = 0; 
+		      
+	        Connection con = getConnection();	        
+	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        listDAO.setConnection(con);
+	        
+	        delivery4_Count = listDAO.selectdelivery4_Count(ob);
+	        close(con);
+	        System.out.println("OrderListService의 getListCount() 실행됨"+delivery4_Count+"조회");
+	        return delivery4_Count;
+	    }
 
 }

@@ -37,6 +37,7 @@ public class OrderListAction implements Action {
 	        ob.setOrder_payment(request.getParameter("payment"));//  결제방법
 	        ob.setOrder_bank(request.getParameter("bank"));
 	        ob.setOrder_delivery_status(request.getParameter("delivery")); // 배송상태
+	        ob.setOrder_item_status(request.getParameter("item_status"));
 	        
 	        System.out.println("jsp script 로 널값 변환되나 보자  ["+request.getParameter("pickStart")+"]");
 	        
@@ -94,6 +95,7 @@ public class OrderListAction implements Action {
 	        System.out.println("ob.order_bank request체크:"+ob.getOrder_bank());
 	        System.out.println("ob order_payment request체크:"+ob.getOrder_payment());
 	        System.out.println("ob order_delivery_status request체크:" + ob.getOrder_delivery_status());
+	        System.out.println("ob order_item_status request체크:" + ob.getOrder_item_status());
 	        
 	        OrderListService orderListService = new OrderListService();
 	        int listCount = orderListService.getListCount(ob); // 전체 게시물 수 가져오기
@@ -101,6 +103,7 @@ public class OrderListAction implements Action {
 	        int delivery1_Count = orderListService.getdelivery1_Count(ob);
 	        int delivery2_Count = orderListService.getdelivery2_Count(ob);
 	        int delivery3_Count = orderListService.getdelivery3_Count(ob);
+	        int delivery4_Count = orderListService.getdelivery4_Count(ob);
 
 	        articleList = orderListService.getArticleList(ob); // 전체 게시물 목록 가져오기(10개 한정)
 	        
@@ -119,7 +122,7 @@ public class OrderListAction implements Action {
 	        }
 	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount, delivery1_Count, delivery2_Count, delivery3_Count);
+	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount, delivery1_Count, delivery2_Count, delivery3_Count, delivery4_Count);
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);

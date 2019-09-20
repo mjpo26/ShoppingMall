@@ -84,8 +84,9 @@ public class OrderListDAO {
 			        + "and order_member_id like ifnull(?,'%%') "
 			        + "and order_pay_status like ifnull(?,'%%') "
 			        + "and order_delivery_status like ifnull(?,'%%')"
+			        + "and order_item_status like ifnull(?,'%%')"
 			        + "and order_bank like ifnull(?,'%%')"
-			        + "and order_payment like ifnull(?,'%%') "
+			        + "and order_payment like ifnull(?,'%%')"
 			        + "ORDER BY order_item_code LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -97,10 +98,11 @@ public class OrderListDAO {
 			pstmt.setString(5, ob.getOrder_member_id());
 			pstmt.setString(6, ob.getOrder_pay_status());
 			pstmt.setString(7, ob.getOrder_delivery_status());
-			pstmt.setString(8, ob.getOrder_bank());
-			pstmt.setString(9, ob.getOrder_payment());
-			pstmt.setInt(10, startRow);
-			pstmt.setInt(11, ob.getLimit());
+			pstmt.setString(8, ob.getOrder_item_status());
+			pstmt.setString(9, ob.getOrder_bank());
+			pstmt.setString(10, ob.getOrder_payment());
+			pstmt.setInt(11, startRow);
+			pstmt.setInt(12, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			
@@ -117,6 +119,7 @@ public class OrderListDAO {
 				listBean.setOrder_bank(rs.getString("order_bank"));
 				listBean.setOrder_payment(rs.getString("order_payment"));
 				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
+				listBean.setOrder_item_status(rs.getString("order_item_status"));
 				listBean.setOrder_memo(rs.getString("order_memo"));
 				articleList.add(listBean);
 			}
@@ -137,12 +140,12 @@ public class OrderListDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String delivery_before="배송전";
+		String delivery_start="입금전";
 		// String before배송= "배송전";
 		try {
 			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, delivery_before);  //제목  
+			pstmt.setString(1, delivery_start);  //제목  
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -165,12 +168,12 @@ public class OrderListDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String delivery_ing="배송중";
+		String delivery_before="배송전";
 		// String before배송= "배송전";
 		try {
 			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, delivery_ing);  //제목  
+			pstmt.setString(1, delivery_before);  //제목  
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -193,12 +196,12 @@ public class OrderListDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String delivery_end="배송완료";
+		String delivery_ing="배송중";
 		// String before배송= "배송전";
 		try {
 			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, delivery_end);  //제목  
+			pstmt.setString(1, delivery_ing);  //제목  
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -214,6 +217,34 @@ public class OrderListDAO {
 		}
 
 		return delivery3_Count;
+	}
+	
+	public int selectdelivery4_Count(OrderSearchBean ob) {
+		int delivery4_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_end="배송완료";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_end);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery4_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery4_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery4_Count;
 	}
 
 	public ArrayList<OrderListBean> selectArticleList(String sId) {

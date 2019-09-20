@@ -20,6 +20,14 @@ public class OrderBean {
    private String order_payment ;
    private String order_memo;
    private Date order_date;
+   private String order_item_status;
+   
+   public String getOrder_item_status() {
+	return order_item_status;
+}
+public void setOrder_item_status(String order_item_status) {
+	this.order_item_status = order_item_status;
+}
    
 public int getOrder_idx() {
     return order_idx;

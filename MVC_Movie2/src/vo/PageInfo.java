@@ -11,6 +11,8 @@ public class PageInfo {
 	private int delivery1_Count;
     private int delivery2_Count;
     private int delivery3_Count;
+    private int delivery4_Count;
+    
     public PageInfo(int page, int maxPage, int startPage, int endPage, int listCount) {
     	super();
     	this.page = page;
@@ -21,7 +23,7 @@ public class PageInfo {
     }
     
     public PageInfo(int page, int maxPage, int startPage, int endPage, int listCount, int delivery1_Count,
-    		int delivery2_Count, int delivery3_Count) {
+    		int delivery2_Count, int delivery3_Count, int delivery4_Count) {
     	super();
     	this.page = page;
     	this.maxPage = maxPage;
@@ -31,6 +33,7 @@ public class PageInfo {
     	this.delivery1_Count = delivery1_Count;
     	this.delivery2_Count = delivery2_Count;
     	this.delivery3_Count = delivery3_Count;
+    	this.delivery4_Count = delivery4_Count;
     }
     
     public int getDelivery1_Count() {
@@ -55,6 +58,14 @@ public class PageInfo {
     
     public void setDelivery3_Count(int delivery3_Count) {
     	this.delivery3_Count = delivery3_Count;
+    }
+    
+    public int getDelivery4_Count() {
+    	return delivery4_Count;
+    }
+    
+    public void setDelivery4_Count(int delivery4_Count) {
+    	this.delivery4_Count = delivery4_Count;
     }
     
     public int getPage() {

@@ -15,6 +15,7 @@
 	int delivery1_Count = pageInfo.getDelivery1_Count();
 	int delivery2_Count = pageInfo.getDelivery2_Count();
 	int delivery3_Count = pageInfo.getDelivery3_Count();
+	int delivery4_Count = pageInfo.getDelivery4_Count();
 %>
 <!DOCTYPE html>
 <html>
@@ -114,9 +115,18 @@ function pickNullCheck(){
 		<tr>
 		<th>배송상태</th><td>
 		<input type="radio" name="delivery"  checked="checked" value="">전체
+		<input type="radio" name="delivery" value="입금전">입금전
 		<input type="radio" name="delivery" value="배송전">배송전
 		<input type="radio" name="delivery" value="배송중">배송중
 		<input type="radio" name="delivery" value="배송완료">배송완료</td>
+		
+		<tr>
+		<th>주문취소</th><td>
+		<input type="radio" name="item_status"  checked="checked" value="">전체
+		<input type="radio" name="item_status" value="취소">취소
+		<input type="radio" name="item_status" value="교환">교환
+		<input type="radio" name="item_status" value="반품">반품
+		<input type="radio" name="item_status" value="환불">환불</td>
 		
 		<tr>
 		<th>결제은행</th><td>
@@ -149,10 +159,11 @@ function pickNullCheck(){
 		</tr>
 
 		<tr>
-			<th>배송전<br><%=delivery1_Count %> EA
+			<th>입금전<br><%=delivery1_Count %> EA
+			<th>배송전<br><%=delivery2_Count %> EA
 			</th>
-			<th>배송중<br><%=delivery2_Count %> EA
-			<th>배송완료<br><%=delivery3_Count %> EA
+			<th>배송중<br><%=delivery3_Count %> EA
+			<th>배송완료<br><%=delivery4_Count %> EA
 			</th>
 
 		</tr>
@@ -193,6 +204,7 @@ function pickNullCheck(){
 				<th>결제상태</th>
 				<th>결제금액</th>
 				<th>배송상태</th>
+				<th>주문상태</th>
 				<th>결제은행</th>
 				<th>결제방법</th>
 				<th>메모</th>
@@ -210,6 +222,7 @@ function pickNullCheck(){
 				<td><%=articleList.get(i).getOrder_pay_status()%></td>
 				<td><%=articleList.get(i).getOrder_item_sel_price()%></td>
 				<td><%=articleList.get(i).getOrder_delivery_status()%></td>
+				<td><%=articleList.get(i).getOrder_item_status() %>
 		  		<td><%=articleList.get(i).getOrder_bank() %></td> 
 				<td><%=articleList.get(i).getOrder_payment()%></td>
 				<td><%=articleList.get(i).getOrder_memo()%></td>

@@ -25,6 +25,14 @@ public class OrderSearchBean {
    private int page;
    private int limit;
    private String order_member_id;
+   private String order_item_status;
+   
+   public String getOrder_item_status() {
+	return order_item_status;
+}
+public void setOrder_item_status(String order_item_status) {
+	this.order_item_status = order_item_status;
+}
    
 public String getOrder_bank() {
 	if(order_bank == "") {
