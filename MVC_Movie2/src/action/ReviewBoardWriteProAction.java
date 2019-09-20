@@ -24,7 +24,7 @@ public class ReviewBoardWriteProAction implements Action {
         String realFolder = ""; 
         String saveFolder = "./reviewBoardUpload"; 
         int fileSize = 10 * 1024 * 1024; 
-        
+//        int review_orderNo = Integer.parseInt(request.getParameter("num"));
         ServletContext context = request.getServletContext();
         realFolder = context.getRealPath(saveFolder); 
        
@@ -41,6 +41,7 @@ public class ReviewBoardWriteProAction implements Action {
         boardBean.setReview_content(multi.getParameter("review_content"));
         boardBean.setReview_file1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
         boardBean.setReview_starPoint(Integer.parseInt(multi.getParameter("review_starPoint")));
+        boardBean.setReview_orderNo(Integer.parseInt(multi.getParameter("num")));
         ReviewBoardWriteProService reviewBoardWriteProService = new ReviewBoardWriteProService();
        
         boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
@@ -59,6 +60,7 @@ public class ReviewBoardWriteProAction implements Action {
             forward.setPath("ReviewBoardList.re"); 
             forward.setRedirect(true); 
         }
+        
               return forward;
 	}
 

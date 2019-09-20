@@ -20,7 +20,7 @@ public class OrderSearchBean {
    private String order_payment ;
    private String order_memo;
    private String order_bank;
-private Date pickStart;
+   private Date pickStart;
    private Date pickEnd;
    private int page;
    private int limit;

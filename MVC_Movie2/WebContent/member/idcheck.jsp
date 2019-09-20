@@ -21,15 +21,11 @@
 	<%
 		// member/idcheck.jsp
 		// String id = fid 파라미터 가져와서 변수에 저장
+		MemberDAO memberDAO = (MemberDAO)request.getAttribute("memberDAO");
 		String id = request.getParameter("fid");
-		String check = request.getParameter("fcheck");
-		// MembedrDAO mdao 객체생성
-// 		MemberDAO mdao = new MemberDAO();
-		// int check= idcheck(id) 메서드 호출
+		int check=memberDAO.idcheck(id);
 		
-// 		int check = mdao.idCheck(id);
-		// check==1   "아이디중복" 
-		// check==0   "아이디사용가능"
+		// MembedrDAO mdao 객체생성
 	%>
 	<form action="MemberIdCheck.me" name="joinForm" method="get">
 		아이디:<input type="text" name="fid" value="<%=id%>"> <input

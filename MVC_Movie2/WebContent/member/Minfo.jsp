@@ -24,7 +24,7 @@
 <body>
 <a href="./MemberUpdate.me">회원수정</a><br>
 <a href="./BasketInfo.bl">장바구니 조회</a><br>
-<a href="./productInfo.sh">장바구니 조회</a>
+<a href="./orderInfo.sh">주문정보 조회</a>
 <fieldset>
 			<legend>회원 정보</legend>
 <br>아이디 : <%=memberBean.getMember_id() %>

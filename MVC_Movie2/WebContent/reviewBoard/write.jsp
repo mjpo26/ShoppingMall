@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+int num=  Integer.parseInt(request.getParameter("num"));
+%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Inserttitle here</title>
 </head>
 <body>
 	<!-- 게시판 -->
 	<article>
 		<h1>Notice Write</h1>
 		<!-- enctype="multipart/form-data" -->
-		<form action="ReviewBoardWritePro.re" method="post"
+		<form action="ReviewBoardWritePro.re" method="post" 
 			enctype="multipart/form-data">
+			<input type="hidden" name="num" value="<%=num%>">
 			<table>
 				<tr>
 					<td>글쓴이</td>
