@@ -48,7 +48,11 @@ public class ProductFrontController extends HttpServlet {
                 forward = action.execute(request, response);
             } catch (Exception e) {
                 e.printStackTrace();
-            }					
+            }	
+        } else if(command.equals("/Item_insertform.sh")) {
+            forward = new ActionForward();
+            forward.setPath("/admin/product_insert.jsp");
+              					
         }else if(command.equals("/productDetail.sh")) {
             action = new productDetailAction();
             

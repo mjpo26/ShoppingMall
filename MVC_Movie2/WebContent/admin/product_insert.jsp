@@ -6,10 +6,10 @@
 <head>
 	
 	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
-    <script src="../js/jquery-3.4.1.js"></script>
-    <link href="../dist/summernote-lite.css" rel="stylesheet" type="text/css">
-<script src="../dist/summernote-lite.js"></script>
-<script src="../dist/lang/summernote-ko-KR.js"></script>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
+<script src="./dist/summernote-lite.js"></script>
+<script src="./dist/lang/summernote-ko-KR.js"></script>
     
 	<script type="text/javascript">    
 	
@@ -87,7 +87,7 @@ form {
 				</ul>
 			</nav>
 		</div>
-		<form action="../ItemInsert.sh" method="get">
+		<form action="./ItemInsert.sh" method="get">
 			<div style="height: 500px; width: 400px; float: left;">
 				<h3>오늘매출현황</h3>
 				<table border="1" id="itemtable">

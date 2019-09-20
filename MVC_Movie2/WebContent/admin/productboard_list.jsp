@@ -84,7 +84,7 @@
 					<tr>
 						<td align="center"><%=articleList.get(i).getItem_code() %></td>
 						<td>
-						<a href="productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>">
+						<a href="./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>">
 								<%=articleList.get(i).getItem_title() %>
 							</a>
 						</td>
