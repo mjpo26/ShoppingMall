@@ -3,7 +3,7 @@
     
     <!--::footer_part start::-->
     <footer class="footer_part">
-        <div class="container">
+        <div class="container" >
             <div class="row justify-content-around">
                 <div class="col-sm-6 col-lg-2">
                     <div class="single_footer_part">
