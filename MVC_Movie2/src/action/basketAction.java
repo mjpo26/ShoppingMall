@@ -10,7 +10,7 @@ public class basketAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println("가나"+request.getParameter("nowPage"));
+		System.out.println("가나 "+request.getParameter("nowPage"));
 		return null;
 	}
 
