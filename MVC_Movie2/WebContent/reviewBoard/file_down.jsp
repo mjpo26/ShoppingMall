@@ -9,8 +9,8 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-    String fileName = request.getParameter( "file_name" );
- System.out.println(fileName);
+     String fileName = request.getParameter( "file_name" );
+     System.out.println(fileName);
      String savePath = "upload";
      ServletContext context = getServletContext();
      String sDownloadPath = context.getRealPath(savePath);

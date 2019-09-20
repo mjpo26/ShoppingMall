@@ -1,6 +1,8 @@
 /*Color Variables*/
 /**************** extend css start ****************/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
 .btn_2, .form-contact .form-group .btn_1 i {
   background-image: linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%);
@@ -7500,7 +7502,7 @@ h6 {
 
 /* line 10, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_breadcrumb.scss */
 .breadcrumb .breadcrumb_iner {
-  height: 240px;
+  height: 300px;
   width: 100%;
   display: table;
 }
@@ -7849,3 +7851,48 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.review_board_list .review_title {
+    height:30%;
+    background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
+    width: 90%;
+}
+
+
+
+.review_board_list .review_title p {
+    font-family: Noto Sans KR;
+    color:white;
+    padding :5px 10px;
+}
+
+.review_board_list .review_title {
+    height:30%;
+    background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
+    width: 90%;
+}
+
+
+.review_board_list .review_writer {
+    height:30%;
+    background: linear-gradient(0deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
+    width: 90%;
+    display: none;
+}
+
+
+
+
+
+.review_board_list .review_photo:hover{
+    background: #fff;
+}
+
+
+
+
+
+
+
+
