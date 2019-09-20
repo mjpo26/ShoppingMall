@@ -66,11 +66,11 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Shop
+                                        상품
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="category.html"> shop category</a>
-                                        <a class="dropdown-item" href="single-product.html">product details</a>
+                                        <a class="dropdown-item" href="./product_list.sh"> 상품 목록</a>
+                                        <a class="dropdown-item" href="./productDetail.sh?Item_code=1&page=1">상세페이지</a>
                                         
                                     </div>
                                 </li>
