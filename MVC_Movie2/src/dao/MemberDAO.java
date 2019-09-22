@@ -413,11 +413,13 @@ public class MemberDAO {
 		int ch = 0;
 		
 		try {	
-			String sql = "select * from member where id=?";
+		    System.out.println("멤버아이디체크-DAO"+id);
+			String sql = "select * from member where member_id=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			rs.next();
-			if(id.equals(rs.getString("id"))) {
+			if(id.equals(rs.getString("member_id"))) {
 				ch=1; //아이디 중복
 			} else {
 				ch=0; //아이디사용가능
@@ -429,7 +431,7 @@ public class MemberDAO {
 			close(rs);
 			close(pstmt);
 		}
-
+		System.out.println("idcheckDAO 리턴값 ch 확인"+ch);
 		return ch;
 	} 
     

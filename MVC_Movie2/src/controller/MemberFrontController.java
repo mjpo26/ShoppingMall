@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import action.Action;
 import action.MemberDeleteProAction;
 import action.MemberIdCheckAction;
@@ -106,9 +108,11 @@ public class MemberFrontController extends HttpServlet {
             }
         } else if(command.equals("/MemberIdCheck.me")) {
             action = new MemberIdCheckAction();
-            
+            JSONObject json =(JSONObject)request.getAttribute("json");
+            request.setAttribute("json", json);
             try {
                 forward = action.execute(request, response);
+              
             } catch (Exception e) {
                 e.printStackTrace();
             }
