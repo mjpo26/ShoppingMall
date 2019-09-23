@@ -34,8 +34,12 @@
 				<div class="content_title">
 				<%=article.getReview_subject()%>
 				</div>
-				<div class="content_score">
-				<%=article.getReview_starPoint()%>
+				<div class="review_score">
+				<%for(int i=0; i<article.getReview_starPoint(); i++ ){
+				%>
+					<a><i class="fa fa-star"></i></a>
+				<%} %>
+			
 				</div>
 				<div class="content_content">
 					<div class="content_img">

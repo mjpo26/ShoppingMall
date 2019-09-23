@@ -51,8 +51,17 @@
                                 <%=articleList.get(i).getReview_content() %>
                                 <% }%>
                                       
-                                <figcaption class="figure-caption position-absolute fixed-top review_title mx-auto"><p><%=articleList.get(i).getReview_subject()%></p></figcaption>
-                                <figcaption class="figure-caption position-absolute fixed-bottom review_writer mx-auto"><p><%=articleList.get(i).getReview_subject()%></p></figcaption>
+                                <figcaption class="figure-caption position-absolute fixed-top review_title mx-auto">
+                                <p><%=articleList.get(i).getReview_subject()%><br>
+                                <%for(int j=0; j<articleList.get(i).getReview_starPoint(); j++ ){
+								%> <a><i class="fa fa-star review_score"></i></a>
+								<%} %>
+								</p>
+								
+								</figcaption>
+                                <figcaption class="figure-caption position-absolute fixed-bottom review_writer mx-auto">
+                                	<p><%=articleList.get(i).getReview_content()%></p>
+                               	</figcaption>
                              </figure>
                          </div>
                 <%--         <div class="row clearfix">

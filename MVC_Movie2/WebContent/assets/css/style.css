@@ -7882,9 +7882,13 @@ h6 {
 }
 
 
-.review_photo:hover .review_writer {
+
+figure:hover .review_writer {
     display: block !important;
 }
+
+
+
 
 
 .board_paging a{
@@ -7900,4 +7904,9 @@ h6 {
 .board_content .content_title{
 	text-align: center;
 } 
+
+
+.review_score{
+	color : #fbd600;
+}
 
