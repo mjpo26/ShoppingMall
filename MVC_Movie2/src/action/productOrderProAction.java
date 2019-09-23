@@ -47,6 +47,7 @@ public class productOrderProAction implements Action {
 				orderListBean.setOrder_item_title(itemBean.getItem_title());
 				orderListBean.setOrder_member_id(memberBean.getMember_id());
 				orderListBean.setOrder_member_name(memberBean.getMember_name());
+				orderListBean.setOrder_item_point(memberBean.getMember_mypoint());
 				OrderInsertService orderInsertService = new OrderInsertService();
 				boolean isInsertSuccess = orderInsertService.insertOrder(orderListBean);
 				if (!isInsertSuccess) {
