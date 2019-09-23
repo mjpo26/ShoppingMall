@@ -237,19 +237,16 @@
 		   $('[name=pass2]').keyup(function(){
 			  
 			   
-			   if(document.getElementById('isPassOk').value=="yes"){
-				   
-			   if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
-				   $("#text3").css("color","red");
-				   $("#text2").text('');
-				   $("#text3").text(' 비밀번호가 일치하지 않습니다!');
-				   
-		        }else{
-					$("#text2").text('');
-		        	$("#text3").css("color","blue");
-			    	$("#text3").text(' 비밀번호가 일치합니다!');
-		        	
-		        }
+			   if(document.getElementById('isPassOk').value=="yes"){				   
+				   if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
+					   $("#text3").css("color","red");
+					   $("#text2").text('');
+					   $("#text3").text('비밀번호가 일치하지 않습니다!');				   
+			        }else{
+						$("#text2").text('');
+			        	$("#text3").css("color","blue");
+				    	$("#text3").text('비밀번호가 일치합니다!');		        	
+			        }
 			   }
 			   else{
 					$("#member_pass").focus();
@@ -333,7 +330,7 @@
                             <div class="col-sm-6 col-12 mt-sm-0 mt-10">
                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '입력하신 비밀번호를 다시 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
                             </div>
-                            <span id="text2" style="padding-left:1em;"></span><span id="text3" style="padding-left:1em;"></span><input type ="hidden" id="isPassOk" value="no">
+                            <span id="text2" style="padding-left:1em;"></span><span id="text3" style="padding-left:0.5em;"></span><input type ="hidden" id="isPassOk" value="no">
                             </div>
                            			
                         </div>
