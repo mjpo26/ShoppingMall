@@ -46,7 +46,7 @@ public class ReviewBoardDAO {
 			if (rs.next()) {
 				num = rs.getInt(1) + 1;
 			}
-			sql = "INSERT INTO Review_Board VALUES (?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql = "INSERT INTO Review_Board VALUES (?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 
@@ -66,7 +66,7 @@ public class ReviewBoardDAO {
 			pstmt.setInt(15, num);
 			pstmt.setInt(16, 0);
 			pstmt.setInt(17, 0);
-			pstmt.setString(18,"0");
+			pstmt.setInt(18,article.getReview_order_item_code());
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("insertArticle() 에러 - " + e.getMessage());

@@ -77,7 +77,7 @@ public class OrderListDAO {
 			System.out.println("디에오 체크/"+ob.getPickStart() + "/" +ob.getPickEnd());
 			
 			String sql = "SELECT * FROM item_order where "
-			        + "order_item_code like ifnull(?,'%%') "
+			        + "order_idx like ifnull(?,'%%') "
 					+ "and order_date >= ?"
 					+ "and order_date <= ?"
 			        + "and order_item_title like ifnull(?,'%%') "
@@ -91,7 +91,7 @@ public class OrderListDAO {
 			
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
-			pstmt.setString(1, ob.getOrder_item_code());
+			pstmt.setInt(1, ob.getOrder_idx());
 			pstmt.setDate(2, ob.getPickStart());
 			pstmt.setDate(3, ob.getPickEnd());
 			pstmt.setString(4, ob.getOrder_item_title());
@@ -266,10 +266,12 @@ public class OrderListDAO {
 	            while(rs.next()) {
 	            	OrderListBean orderListBean = new OrderListBean();
 	            	orderListBean.setOrder_idx(rs.getInt("order_idx"));
+	            	orderListBean.setOrder_item_code((rs.getInt("order_item_code")));
 	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
 	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 	            	orderListBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 	                orderListBean.setOrder_date(rs.getDate("order_date"));
+	                orderListBean.setOrder_item_title((rs.getString("order_item_title")));
 	            	articleList.add(orderListBean);
 	            }
 	            

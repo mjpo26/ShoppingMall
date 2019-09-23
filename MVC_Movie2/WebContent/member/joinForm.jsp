@@ -182,15 +182,19 @@
 				//	alert(data);
 					if(s_id =="") {
 						//alert("s_id 아이디 입력 하세요");
-						$("#text").css("color","gray");
-						$("#text").text("아이디를 입력해주세요.");
+						$("#text").css("color","red");
+						$("#text").text(" 아이디를 입력해주세요.");
+						$('#id').focus();
 					} else if (data == '0') {
 						$("#text").css("color","blue");
-						$("#text").text("사용가능한 아이디 입니다.");
+						$("#text").text(" 사용가능한 아이디 입니다.");						
 						document.getElementById('isIdOk').value = "yes";
 					} else if (data =="1") {
 						$("#text").css("color","red");
-						$("#text").text("이미 사용중인 아이디 입니다.");
+						$("#text").text(" "+ $('#id').val()+ "는 이미 사용중인 아이디 입니다.");
+						$('#id').val('');		
+						$('#id').focus();
+
 					}
 				},
 			
@@ -211,14 +215,20 @@
 		  if(p1<=8 || !pattern1.test($('[name=pass]').val()) || !pattern2.test($('[name=pass]').val()) 
 		    || !pattern3.test($('[name=pass]').val())){
 		    // $('#pwd_chk1').html('영문자, 숫자, 특수문자 3가지 조합과8자이상');
+		      $("#text3").text('');
 			  $("#text2").css("color","red");
-			  $("#text2").text("사용불가: 영문자, 숫자, 특수문자 3가지 조합과 8자이상으로 설정하세요");
+			  $("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
+			  $("#member_pass").focus();
+
 				 }
  			else{
 		    // $('#pwd_chk1').html('');
+		   		$("#text3").text('');
 		    	$("#text2").css("color","blue");
-		    	$("#text2").text("사용 가능한 비밀번호 입니다.");
+		    	$("#text2").text(' 사용 가능한 비밀번호 입니다.');
 		    	document.getElementById('isPassOk').value = "yes";
+				$("#pass2").focus();
+
 		    }
 		   });
 		});
@@ -226,15 +236,23 @@
 	$(document).ready(function(){
 		   $('[name=pass2]').keyup(function(){
 			  
-			   if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
-				   $("#text3").css("color","red");
-				   $("#text3").text("(비밀번호가 일치하지 않습니다!)");
-				   
-		        }else{
-		        	$("#text3").css("color","blue");
-			    	$("#text3").text("(비밀번호가 일치합니다!)");
-		        	
-		        }
+			   
+			   if(document.getElementById('isPassOk').value=="yes"){				   
+				   if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
+					   $("#text3").css("color","red");
+					   $("#text2").text('');
+					   $("#text3").text('비밀번호가 일치하지 않습니다!');				   
+			        }else{
+						$("#text2").text('');
+			        	$("#text3").css("color","blue");
+				    	$("#text3").text('비밀번호가 일치합니다!');		        	
+			        }
+			   }
+			   else{
+					$("#member_pass").focus();
+					$("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
+			   }
+			   
 		   });
 	   });
 	
@@ -288,8 +306,8 @@
                                 <label for="member_id">아이디</label> 
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
-                                <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'" onblur="this.placeholder = 'id'" required class="single-input" onkeydown="inputIdChk()">
-                            	<h5 id="text"></h5><input type ="hidden" id="isIdOk" value="no"><br>
+                                <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'" onblur="this.placeholder = '아이디'" required class="single-input" onkeydown="inputIdChk()">
+                            	<span id="text"></span><input type ="hidden" id="isIdOk" value="no">
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
                                 <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" class="dup"  name="dup" id="dup">            
@@ -299,17 +317,21 @@
                         
                         
                         <div class="mt-10 row">
+                        
+                        
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
                                 <label for="member_pass">비밀번호</label> 
+                            </div>                            
+                            
+                            <div class="col-lg-10 col-md-12 row">
+                            <div class="col-sm-6 col-12">
+                            <input type="password" id="member_pass" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '아이디를 입력 해 주세요'" onblur="this.placeholder = '비밀번호'" required class="single-input">
                             </div>
-                            <div class="col-lg-5 col-sm-6 col-12">
-                            <input type="password" id="member_pass"name="pass" placeholder="비밀번호" onfocus="this.placeholder = '아이디를 입력 해 주세요'" onblur="this.placeholder = '비밀번호'" required class="single-input">
-                            </div>
-                            <div class="col-lg-5 col-sm-6 col-12 mt-sm-0 mt-10">
+                            <div class="col-sm-6 col-12 mt-sm-0 mt-10">
                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '입력하신 비밀번호를 다시 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
-                            	
                             </div>
-                            	<h5 id="text2"></h5>&nbsp;&nbsp;<h5 id="text3"></h5><input type ="hidden" id="isPassOk" value="no"><br>
+                            <span id="text2" style="padding-left:1em;"></span><span id="text3" style="padding-left:0.5em;"></span><input type ="hidden" id="isPassOk" value="no">
+                            </div>
                            			
                         </div>
                       
@@ -548,7 +570,7 @@
                                        <option value="">직접입력</option>
                                        <option value="naver.com">naver.com</option>
                                        <option value="nate.com">nate.com</option>
-                                       <option value="itwillbs.co.kr">daum.net</option>      
+                                       <option value="itwillbs.co.kr">itwillbs.co.kr</option>      
                                     </select>
                                 </div>
                              </div>

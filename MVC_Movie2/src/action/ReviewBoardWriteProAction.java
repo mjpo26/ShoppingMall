@@ -42,6 +42,7 @@ public class ReviewBoardWriteProAction implements Action {
         boardBean.setReview_file1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
         boardBean.setReview_starPoint(Integer.parseInt(multi.getParameter("review_starPoint")));
         boardBean.setReview_orderNo(Integer.parseInt(multi.getParameter("num")));
+        boardBean.setReview_order_item_code(Integer.parseInt(multi.getParameter("order_item_code")));
         ReviewBoardWriteProService reviewBoardWriteProService = new ReviewBoardWriteProService();       
         boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
         

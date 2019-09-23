@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import svc.MemberInfoService;
+import svc.MemberUpdateProService;
 import svc.OrderInsertService;
 import svc.ProductOrderInfoService;
 import vo.ActionForward;
@@ -25,6 +26,7 @@ public class productOrderProAction implements Action {
 		String sId = (String) session.getAttribute("sId");
 		System.out.println(sId);
 		int itemCode = Integer.parseInt(request.getParameter("itemCode"));
+		int item_point = Integer.parseInt(request.getParameter("item_point"));
 		System.out.println(itemCode);
 		if (sId == null) {
 			response.setContentType("text/html;charset=UTF-8");
@@ -36,6 +38,9 @@ public class productOrderProAction implements Action {
 		} else {
 			MemberInfoService memberInfoService = new MemberInfoService();
 			MemberBean memberBean = memberInfoService.getMemberInfo(sId); // 세션 아이디값을 파라미터로 전달
+			MemberUpdateProService memberUpdateProService = new MemberUpdateProService();
+			memberUpdateProService.insertPoint(sId,item_point);
+			
 			ProductOrderInfoService productOrderInfoService = new ProductOrderInfoService();
 			ItemBean itemBean = productOrderInfoService.getItemInfo(itemCode);
 			if (memberBean != null) {
@@ -45,6 +50,8 @@ public class productOrderProAction implements Action {
 				OrderListBean orderListBean = new OrderListBean();
 				orderListBean.setOrder_item_code(itemBean.getItem_code());
 				orderListBean.setOrder_item_title(itemBean.getItem_title());
+//				orderListBean.setOrder_item_option_color(order_item_option_color);
+//				orderListBean.setOrder_item_option_color(itemBean.getItem);
 				orderListBean.setOrder_member_id(memberBean.getMember_id());
 				orderListBean.setOrder_member_name(memberBean.getMember_name());
 				orderListBean.setOrder_item_point(memberBean.getMember_mypoint());

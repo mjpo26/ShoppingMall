@@ -75,7 +75,7 @@ function pickNullCheck(){
 	<header> 
 	</header>
 	
-	<form action ="./orderList.ol"  name ="fr1" method="post" onsubmit="return pickNullCheck()">
+	<form action ="./orderList.ol"  name ="fr1" method="post" onsubmit="return pickNullCheck()" id="frm">
 	<table border="1">
 		<tr>
 			<th colspan='4'>주문관리전체주문목록</th>
@@ -83,7 +83,7 @@ function pickNullCheck(){
 		<tr>
 			<th>검색어</th>
 			<td colspan='3'><select><option>주문번호</select> <input
-				type="text" size="12" name="ItemCode"></td>
+				type="text" size="12" name="order_idx"></td>
 		</tr>
 
 		<tr>
@@ -197,11 +197,15 @@ function pickNullCheck(){
 		</tr>
 
 		<tr>
-			<th>입금전<br><%=delivery1_Count %> EA
-			<th>배송전<br><%=delivery2_Count %> EA
+			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			입금전</a><br><%=delivery1_Count %> EA
+			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			배송전</a><br><%=delivery2_Count %> EA
 			</th>
-			<th>배송중<br><%=delivery3_Count %> EA
-			<th>배송완료<br><%=delivery4_Count %> EA
+			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			배송중</a><br><%=delivery3_Count %> EA
+			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			배송완료</a><br><%=delivery4_Count %> EA
 			</th>
 
 		</tr>

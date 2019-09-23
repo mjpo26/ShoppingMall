@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class OrderBean {
 	
-   private int order_idx ;
-   private String order_item_code ;
+	
+private String order_item_code ;
    private String order_item_title ;
    private String  order_item_option_color ;
    private String order_item_option_size ;
@@ -22,8 +22,15 @@ public class OrderBean {
    private Date order_date;
    private String order_bank;
    private String order_item_status;
+   private int order_idx;
    
-   public String getOrder_bank() {
+	   public int getOrder_idx() {
+		return order_idx;
+	}
+	public void setOrder_idx(int order_idx) {
+		this.order_idx = order_idx;
+	}
+public String getOrder_bank() {
 	   if(order_bank=="") {
 		   order_bank=null;
 	   }
@@ -43,12 +50,6 @@ public void setOrder_item_status(String order_item_status) {
 	this.order_item_status = order_item_status;
 }
    
-public int getOrder_idx() {
-    return order_idx;
-}
-public void setOrder_idx(int order_idx) {
-    this.order_idx = order_idx;
-}
 public String getOrder_item_code() {
     return order_item_code;
 }
