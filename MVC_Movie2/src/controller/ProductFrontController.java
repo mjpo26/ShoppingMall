@@ -96,6 +96,14 @@ public class ProductFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else if(command.equals("/selectorder.sh")) {
+            action = new productOrderAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else if(command.equals("/orderPro.sh")) {
         	System.out.println("여길들어오고있다고 ??");

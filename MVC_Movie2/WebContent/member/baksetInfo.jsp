@@ -28,16 +28,15 @@
 		</tr>
 			<%for(int i = 0; i < articleList.size(); i++) {%>
 					<tr>
-					<td><input type="checkbox"></td>
-					
+					<td><input type="checkbox" name="cb" value="<%=articleList.get(i).getBasket_code()%>"></td>  
 					<td><%=articleList.get(i).getBasket_title() %></td>
 					<td><%=articleList.get(i).getBasket_code_count() %></td>
 					<td><%=articleList.get(i).getBasket_new_price() %></td>
 					<td><%=articleList.get(i).getBasket_sel_price() %></td>
 					<td><%=articleList.get(i).getBasket_new_price()-articleList.get(i).getBasket_sel_price() %> </td>
 					<td><%=articleList.get(i).getBasket_delivery_pee() %>원</td>
-					<td><input type="button" value="주문하기"><br>
-					<input type="button" value="삭제하기"></td>
+					<td><input type="button" value="주문하기" onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'"><br>
+					<input type="button" value="삭제하기" onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'"></td>
 					</tr>
 					
 			<%} %>
