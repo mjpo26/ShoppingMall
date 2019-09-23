@@ -39,6 +39,7 @@
                     <%
                     if (articleList != null & listCount > 0) {              
                         for (int i = 0; i < articleList.size(); i++) {
+                        	
                     %>                  
                          <div class="col-lg-3 col-md-4 col-sm-6 float-left review_list">
                              <figure class="figure">
