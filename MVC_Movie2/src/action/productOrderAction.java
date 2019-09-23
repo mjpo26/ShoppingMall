@@ -29,15 +29,18 @@ public class productOrderAction implements Action {
 		MemberBean memberBean = memberInfoService.getMemberInfo(sId);
 		ItemBean itemBean = productDetailService.getArticle(itemCode);
 		String item_code_count =request.getParameter("Item_code_count");
-		
+		String item_color=(String)request.getAttribute("item_color");
 		request.setAttribute("memberBean", memberBean);
 		request.setAttribute("page", page);
 		request.setAttribute("itemBean", itemBean);
+		request.setAttribute("item_color", item_color);
+		System.out.println("아아아아ㅏ아아"+item_color);
 		if (memberBean != null) {
 			// 조회된 회원정보(MemberBean)를 request 객체에 저장
 			request.setAttribute("memberBean", memberBean);
 			request.setAttribute("itemBean", itemBean);
 			request.setAttribute("item_code_count", item_code_count);
+			request.setAttribute("item_color", item_color);
 			request.setAttribute("page", page);
 			forward = new ActionForward();
 			forward.setPath("/Product/productPay.jsp");

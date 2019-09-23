@@ -83,7 +83,7 @@ function pickNullCheck(){
 		<tr>
 			<th>검색어</th>
 			<td colspan='3'><select><option>주문번호</select> <input
-				type="text" size="12" name="ItemCode"></td>
+				type="text" size="12" name="order_idx"></td>
 		</tr>
 
 		<tr>

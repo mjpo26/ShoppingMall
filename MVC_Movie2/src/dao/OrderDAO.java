@@ -446,14 +446,12 @@ public class OrderDAO {
 			System.out.println("출력:::::"+orderBean.getOrder_idx());
 			
 			
-			
-			
 			pstmt.setString(1, orderBean.getOrder_pay_status());
 			pstmt.setString(2, orderBean.getOrder_delivery_status());
 			pstmt.setString(3, orderBean.getOrder_item_status());
 			pstmt.setString(4, orderBean.getOrder_bank());
 			pstmt.setString(5, orderBean.getOrder_payment());
-			pstmt.setInt(6, orderBean.getOrder_idx());
+			pstmt.setString(6, orderBean.getOrder_idx());
 			
 				updateCount = pstmt.executeUpdate();
 			
@@ -461,13 +459,10 @@ public class OrderDAO {
 				System.out.println("updateOrder() 에러 - " + e.getMessage());
 			} finally {
 				close(pstmt);
-				close(con);
 			}
 
 			return updateCount;
 		}
-    
-    
     
     
 }

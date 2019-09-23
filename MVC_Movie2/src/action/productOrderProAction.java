@@ -45,6 +45,8 @@ public class productOrderProAction implements Action {
 				OrderListBean orderListBean = new OrderListBean();
 				orderListBean.setOrder_item_code(itemBean.getItem_code());
 				orderListBean.setOrder_item_title(itemBean.getItem_title());
+//				orderListBean.setOrder_item_option_color(order_item_option_color);
+//				orderListBean.setOrder_item_option_color(itemBean.getItem);
 				orderListBean.setOrder_member_id(memberBean.getMember_id());
 				orderListBean.setOrder_member_name(memberBean.getMember_name());
 				orderListBean.setOrder_item_point(memberBean.getMember_mypoint());

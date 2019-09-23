@@ -30,8 +30,8 @@ public class OrderListAction implements Action {
 	        }
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
-	        ob.setOrder_item_code(request.getParameter("ItemCode"));
-	  //    ob.setOrder_idx((Integer.parseInt(request.getParameter("order_idx"))));
+	//        ob.setOrder_item_code(request.getParameter("ItemCode"));
+	        ob.setOrder_idx(request.getParameter("order_idx"));
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
 	        ob.setOrder_member_id(request.getParameter("Buyer"));
 	        ob.setOrder_pay_status(request.getParameter("pay")); // 결제상태
@@ -89,7 +89,7 @@ public class OrderListAction implements Action {
 	        
 	        System.out.println("시작"+ob.getPickStart());
 	        System.out.println("끝"+ob.getPickEnd());
-	        System.out.println("ob order_item_code request체크:"+ob.getOrder_item_code());
+	        System.out.println("ob order_idx request체크:"+ob.getOrder_idx());
 	        System.out.println("ob order_item_title request체크:"+ob.getOrder_item_title());
 	        System.out.println("ob order_member_id request체크:"+ob.getOrder_member_id());
 	        System.out.println("ob order_pay_status request체크:"+ob.getOrder_pay_status());

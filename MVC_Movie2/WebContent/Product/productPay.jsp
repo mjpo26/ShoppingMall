@@ -9,6 +9,8 @@
 	String sId = (String)session.getAttribute("sId");
 	String item_code_count = (String)request.getAttribute("item_code_count");
 	int itemCode = itemBean.getItem_code();
+	String item_color=(String)request.getAttribute("item_color");
+// 	itemBean.setItem_color(Item_color);
 %>
 <script src="../js/jquery-3.4.1.js"></script>
 <script type="text/javascript">
@@ -37,6 +39,7 @@ $(document).ready(function(){
 				<th width="100">상품이미지</th>
 				<th width="400">상품명</th>
 				<th width="100">수량</th>
+				<th width="100">색상</th>
 				<th width="100">적립금</th>
 				<th width="100">가격</th>
 			</tr>
@@ -45,6 +48,7 @@ $(document).ready(function(){
 				<td align="center">상품이미지</td>
 				<td align="center"><input type="text" name="item_title" value="<%=itemBean.getItem_title()%>"></td>
 				<td align="center"><%=item_code_count%></td>
+					<td align="center"><%=item_color%></td>
 				<td align="center"><%=itemBean.getItem_point()%></td>
 				<td align="center"><%=itemBean.getItem_sel_price()%></td>
 			</tr>
@@ -117,7 +121,7 @@ $(document).ready(function(){
 			</tr>
 
 			<tr>
-				<td align="center">상품금액 <%=itemBean.getItem_old_price()%> + 할인금액<%=itemBean.getItem_old_price()-itemBean.getItem_sel_price() %> = 총금액  <%=itemBean.getItem_sel_price()%> </td>
+				<td align="center">상품금액 <%=itemBean.getItem_old_price()%> - 할인금액<%=itemBean.getItem_old_price()-itemBean.getItem_sel_price() %> = 총금액  <%=itemBean.getItem_sel_price()%> </td>
 			</tr>
 			<tr>
 				<td align="right" colspan="3"><input type="text" id="usedPoint" name="usedPoint">적립금사용

@@ -16,8 +16,10 @@ import action.OrderInfoAction;
 import action.ProductInsertProAction;
 import action.basketAction;
 import action.productDetailAction;
+import action.productList1Action;
 import action.productOrderAction;
 import action.productOrderProAction;
+import action.productUpdate1ProAction;
 import action.productUpdateAction;
 import action.productUpdateProAction;
 import action.product_listAction;
@@ -117,6 +119,22 @@ public class ProductFrontController extends HttpServlet {
         }else if (command.equals("/orderInfo.sh")) {
 			System.out.println("orderInfo controller 들어옴");
 			action = new OrderInfoAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/productList.sh")) {
+			System.out.println("productList controller 들어옴");
+			action = new productList1Action();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/productUptdate.sh")) {
+			System.out.println("productUpdate controller 들어옴");
+			action = new productUpdate1ProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
