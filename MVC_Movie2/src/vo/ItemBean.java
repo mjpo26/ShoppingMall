@@ -15,6 +15,7 @@ public class ItemBean {
 	private String Item_display;
 	private String Item_sales; 
 	private String Item_option_size;
+	private String Item_color;
 //	private String Item_option_color1;
 //	private String Item_option_color2;
 //	private String Item_option_color3;
@@ -36,6 +37,12 @@ public class ItemBean {
 	private Date Item_Date;
 	
 	
+	public String getItem_color() {
+		return Item_color;
+	}
+	public void setItem_color(String item_color) {
+		Item_color = item_color;
+	}
 	public int getItem_sel_price() {
 		return Item_sel_price;
 	}

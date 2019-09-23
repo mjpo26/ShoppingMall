@@ -87,16 +87,11 @@
 						</div>
 						<div class="card_area d-flex justify-content-between align-items-center">
 							색상 : <div class="product_option">
-								<select name="Item_color">
-									<%-- 	                    <%if (itemBean.getItem_option_color1() != null) {if (itemBean.getItem_option_color1().equals("블랙")) {%> --%>
-									<option value="black">Black</option>
-									<%-- 	                    <%}}if (itemBean.getItem_option_color2() != null) { if (itemBean.getItem_option_color2().equals("화이트")) {%> --%>
-									<option value="white">White</option>
-									<%-- 	                    <%}}if (itemBean.getItem_option_color3() != null) {if (itemBean.getItem_option_color3().equals("레드")) {%> --%>
-									<option value="red">Red</option>
-									<%-- 	                    <%}}if (itemBean.getItem_option_color4() != null) {if (itemBean.getItem_option_color4().equals("옐로우")) {%> --%>
+								<select name="item_color">
+								    <option value="black">Black</option>
+					     			<option value="white">White</option>
+								    <option value="red">Red</option>
 									<option value="yellow">Yellow</option>
-									<%-- 	                    <%}}%> --%>
 								</select>
 							</div>
 							수량 : <div class="product_count">
