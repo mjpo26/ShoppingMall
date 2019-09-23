@@ -279,7 +279,7 @@ function pickNullCheck(){
 						<option <% if(articleList.get(i).getOrder_item_status().equals("교환")){%>selected<%} %>>교환</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("반품")){%>selected<%} %>>반품</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("환불")){%>selected<%} %>>환불</option>
-						<option <% if(articleList.get(i).getOrder_item_status().equals("완료")){%>selected<%} %>>취소</option>
+						<option <% if(articleList.get(i).getOrder_item_status().equals("완료")){%>selected<%} %>>완료</option>
 					</select></td>
 					
 				<td><select name="bank">
