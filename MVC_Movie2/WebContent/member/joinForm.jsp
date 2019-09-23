@@ -44,19 +44,27 @@
 
         if (document.joinForm.id.value == "") {
             alert("아이디를 입력하세요!");
-            document.fr.id.focus();
+            document.joinForm.id.focus();
             return false;
         }
         if (document.joinForm.pass.value == "") {
             alert("비밀번호를 입력하세요");
-            document.fr.id.focus();
+            document.joinForm.id.focus();
             return false;
         }
-        if (document.joinForm.pass.value.length <= 7) {
-            alert("비밀번호가 유효하지 않습니다!")
-            document.fr.pass.focus();
-            return false;
-        }
+        
+        if (document.joinForm.isPassOk.value=="no"||document.joinForm.isIdOk.value=="no") {
+          alert("아이디와 비밀번호를 체크하세요")
+          document.joinForm.id.focus();
+          return false;
+     }
+        
+        
+//         if (document.joinForm.pass.value.length <= 7) {
+//             alert("비밀번호가 유효하지 않습니다!")
+//             document.fr.pass.focus();
+//             return false;
+//         }
 
 //         if (document.joinForm.passChecked.value != "yes") {
 //             var fpass = document.fr.pass.value;
@@ -69,41 +77,41 @@
 //         }
         if (document.joinForm.pass2.value.length == "") {
             alert("비밀번호 확인란을 입력하세요!")
-            document.fr.pass2.focus();
+            document.joinForm.pass2.focus();
             return false;
         }
-        if (document.joinForm.pass.value != document.joinForm.pass2.value) {
-            alert("비밀번호가 일치되지 않습니다.");
-            document.fr.pass2.focus();
-            return false;
-        }
+//         if (document.joinForm.pass.value != document.joinForm.pass2.value) {
+//             alert("비밀번호가 일치되지 않습니다.");
+//             document.joinForm.pass2.focus();
+//             return false;
+//         }
 
-        if (document.joinForm.name.value.length == "") {
+        if (document.joinForm.member_name.value.length == "") {
             alert("이름을 입력하세요!")
-            document.fr.name.focus();
+            document.joinForm.name.focus();
             return false;
         }
 
         if (document.joinForm.detailaddress.value.length == "") {
             alert("상세 주소를 입력하세요!")
-            document.fr.name.focus();
+            document.joinForm.name.focus();
             return false;
         }
 
         if (document.joinForm.email.value.length == "") {
             alert("이메일을 입력하세요!")
-            document.fr.email.focus();
+            document.joinForm.email.focus();
             return false;
         }
         if (document.joinForm.email2.value.length == "") {
             alert("이메일 확인란을 입력하세요!")
-            document.fr.email2.focus();
+            document.joinForm.email2.focus();
             return false;
         }
 
-        if (document.joinForm.email.value != document.fr.email2.value) {
+        if (document.joinForm.email.value != document.joinForm.email2.value) {
             alert("이메일이  일치되지 않습니다.");
-            document.fr.pass2.focus();
+            document.joinForm.pass2.focus();
             return false;
         }
         //   비밀번호유효성체크
@@ -179,6 +187,7 @@
 					} else if (data == '0') {
 						$("#text").css("color","blue");
 						$("#text").text("사용가능한 아이디 입니다.");
+						document.getElementById('isIdOk').value = "yes";
 					} else if (data =="1") {
 						$("#text").css("color","red");
 						$("#text").text("이미 사용중인 아이디 입니다.");
@@ -202,18 +211,32 @@
 		  if(p1<=8 || !pattern1.test($('[name=pass]').val()) || !pattern2.test($('[name=pass]').val()) 
 		    || !pattern3.test($('[name=pass]').val())){
 		    // $('#pwd_chk1').html('영문자, 숫자, 특수문자 3가지 조합과8자이상');
-			  $("#text").css("color","red");
+			  $("#text2").css("color","red");
 			  $("#text2").text("사용불가: 영문자, 숫자, 특수문자 3가지 조합과 8자이상으로 설정하세요");
 				 }
  			else{
 		    // $('#pwd_chk1').html('');
-		    	$("#text").css("color","blue");
+		    	$("#text2").css("color","blue");
 		    	$("#text2").text("사용 가능한 비밀번호 입니다.");
+		    	document.getElementById('isPassOk').value = "yes";
 		    }
 		   });
 		});
 
-	
+	$(document).ready(function(){
+		   $('[name=pass2]').keyup(function(){
+			  
+			   if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
+				   $("#text3").css("color","red");
+				   $("#text3").text("(비밀번호가 일치하지 않습니다!)");
+				   
+		        }else{
+		        	$("#text3").css("color","blue");
+			    	$("#text3").text("(비밀번호가 일치합니다!)");
+		        	
+		        }
+		   });
+	   });
 	
 </script>
 <%
@@ -258,7 +281,7 @@
                         </div>
                     </div>
             
-                    <form action="MemberJoinPro.me" id="join" method="post" name="joinForm"  onsubmit="check()">
+                    <form action="MemberJoinPro.me" id="join" method="post" name="joinForm"  onsubmit="return check()">
 
                         <div class="mt-10 row clearfix">
                             <div class="float-left col-lg-2 d-md-block d-sm-none d-none">
@@ -266,7 +289,7 @@
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
                                 <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'" onblur="this.placeholder = 'id'" required class="single-input" onkeydown="inputIdChk()">
-                            	<h5 id="text"></h5><input type ="hidden" id=isIdCheck value="no"><br>
+                            	<h5 id="text"></h5><input type ="hidden" id="isIdOk" value="no"><br>
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
                                 <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" class="dup"  name="dup" id="dup">            
@@ -285,9 +308,9 @@
                             <div class="col-lg-5 col-sm-6 col-12 mt-sm-0 mt-10">
                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '입력하신 비밀번호를 다시 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">
                             	
-                            	<h5 id="text2"></h5><input type ="hidden" id=isPassCheck value="no"><br>
-                           			
                             </div>
+                            	<h5 id="text2"></h5>&nbsp;&nbsp;<h5 id="text3"></h5><input type ="hidden" id="isPassOk" value="no"><br>
+                           			
                         </div>
                       
                            

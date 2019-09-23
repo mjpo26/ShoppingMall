@@ -430,6 +430,7 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 		System.out.println("idcheckDAO 리턴값 ch 확인"+ch);
 		return ch;
