@@ -16,84 +16,60 @@
     	int endPage = pageInfo.getEndPage();
     	int maxPage = pageInfo.getMaxPage();
     %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MVC 게시판</title>
-<style type="text/css">
-	#registForm {
-		width: 500px;
-		height: 610px;
-		border: 1px solid red;
-		margin: auto;
-	}
-	
-	h2 {
-		text-align: center;
-	}
-	
-	table {
-		margin: auto;
-		width: 800px;
-		border: 1px solid darkgray;
-	}
-	
-	a {
-		text-decoration: none;
-	}
+<jsp:include page="../assets/top.jsp"></jsp:include>
 
-	#tr_top {
-		background: orange;
-		width: 800px; 
-		text-align: center;
-	}
+
+      <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>상품 목록</h2>
+                            <p>
+                               상품 목록 <span>-</span> 상품 모음
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 	
-	#writeButton {
-		margin: auto;
-		width: 800px;
-		text-align: right;
-	}
-	
-	#pageList {
-		margin: auto;
-		width: 800px;
-		text-align: center;
-	}
-	
-	#emptyArea {
-		margin: auto;
-		width: 800px;
-		text-align: center;
-	}
-</style>
-</head>
-<body>
-	<!-- 게시판 리스트 -->
-	<section id="listForm">
-		<h2>글 목록</h2>
-		<table>
-		<%if(articleList != null & listCount > 0) {%>
-				<tr id="tr_top">
-					<td width="100">번호</td>
-					<td width="400">제목</td>
-					<td width="150">작성자</td>
-					<td width="150">날짜</td>
-				</tr>
-			<%for(int i = 0; i < articleList.size(); i++) {%>
-					<tr>
+
+    <section class="review_board_list board_list mt-5">    
+        <div class="container">
+        
+        
+         <div class="row clearfix">
+                    <%                    
+                    if (articleList != null & listCount > 0) {              
+                        for (int i = 0; i < articleList.size(); i++) {
+                    %>                  
+                         <div class="col-lg-3 col-md-4 col-sm-6 float-left review_list">
+                             <figure class="figure">
+                                <div class="review_photo">
+                                    <img src="./upload/review/<%=articleList.get(i).getItem_pic1() %>" class="figure-img"                                 
+                                    onclick="location.href='./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>'">
+                                </div>
+                    
+                                      
+                                <figcaption class="figure-caption position-absolute fixed-top review_title mx-auto"><p><%=articleList.get(i).getItem_title()%></p></figcaption>
+                                <figcaption class="figure-caption position-absolute fixed-bottom review_writer mx-auto"><p><%=articleList.get(i).getItem_title()%></p></figcaption>
+                             </figure>
+                         </div>
+                <%--         <div class="row clearfix"> 
 						<td align="center"><%=articleList.get(i).getItem_code() %></td>
-						<td>
-						<a href="./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>">
-								<%=articleList.get(i).getItem_title() %>
-							</a>
-						</td>
-						<td align="center">관리자</td>
 						<td align="center"><%=articleList.get(i).getItem_Date() %></td>
-					</tr>
-			<%} %>
-		</table>		
-	</section>
+						
+                            <div class="float-right col"><p class="text-right">조회수:<%=articleList.get(i).getReview_readcount()%></p> </div>
+                         </div> --%>
+             
+                    <%
+                        }
+                    %>
+           </div>
+	
 	
 	<section id="writeButton">
 		<a href="BoardWriteForm.bo"><input type="button" value="글쓰기"></a>
@@ -123,9 +99,11 @@
 <%} else {%>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
 <%} %>
-</body>
-</html>
 
+       </div>	<!--container  -->
+   </section>
+<jsp:include page="../assets/foot.jsp"></jsp:include>
+    
 
 
 
