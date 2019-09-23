@@ -206,4 +206,30 @@ public class BasketListDAO {
         
         return articleList;
 	}
+	public int deleteMember(String id) {
+        // id, password 에 해당하는 레코드가 있으면 삭제 (pass따로 받아와서 비번확인구현)
+        System.out.println("딜리트멤버디에이오 왔나 id는 " +id);
+        int deleteCount = 0;
+        
+        PreparedStatement pstmt = null;
+       
+        
+        String sql = "DELETE FROM basket where basket_idx = ?";//나중에 AND로 비번검사
+        
+        try {
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            deleteCount = pstmt.executeUpdate();
+            
+            
+        } catch (SQLException e) {
+            System.out.println("deleteMember 실패! - " + e.getMessage());
+        } finally {
+            
+            close(pstmt);
+        }
+        
+        return deleteCount;
+    }
+
 }

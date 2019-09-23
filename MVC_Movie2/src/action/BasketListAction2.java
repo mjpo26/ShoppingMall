@@ -51,7 +51,7 @@ public class BasketListAction2 implements Action {
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
 	        
-	        forward.setPath("index.jsp");
+	        forward.setPath("./BasketInfo.bl");
 	        
 	        return forward;
 		}
