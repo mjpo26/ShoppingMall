@@ -451,7 +451,7 @@ public class OrderDAO {
 			pstmt.setString(3, orderBean.getOrder_item_status());
 			pstmt.setString(4, orderBean.getOrder_bank());
 			pstmt.setString(5, orderBean.getOrder_payment());
-			pstmt.setString(6, orderBean.getOrder_idx());
+			pstmt.setInt(6, orderBean.getOrder_idx());
 			
 				updateCount = pstmt.executeUpdate();
 			

@@ -91,7 +91,7 @@ public class OrderListDAO {
 			
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
-			pstmt.setString(1, ob.getOrder_idx());
+			pstmt.setInt(1, ob.getOrder_idx());
 			pstmt.setDate(2, ob.getPickStart());
 			pstmt.setDate(3, ob.getPickEnd());
 			pstmt.setString(4, ob.getOrder_item_title());
@@ -111,7 +111,7 @@ public class OrderListDAO {
 			while (rs.next()) {
 				OrderListBean listBean = new OrderListBean();
 				listBean.setOrder_date(rs.getDate("order_date"));
-				listBean.setOrder_idx(rs.getString("order_idx"));
+				listBean.setOrder_idx(rs.getInt("order_idx"));
 				listBean.setOrder_member_id(rs.getString("order_member_id"));
 				listBean.setOrder_item_title(rs.getString("order_item_title"));
 				listBean.setOrder_pay_status(rs.getString("order_pay_status"));
@@ -265,7 +265,7 @@ public class OrderListDAO {
 
 	            while(rs.next()) {
 	            	OrderListBean orderListBean = new OrderListBean();
-	            	orderListBean.setOrder_idx(rs.getString("order_idx"));
+	            	orderListBean.setOrder_idx(rs.getInt("order_idx"));
 	            	orderListBean.setOrder_item_code((rs.getInt("order_item_code")));
 	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
 	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));

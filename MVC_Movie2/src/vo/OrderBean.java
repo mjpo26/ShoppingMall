@@ -22,19 +22,15 @@ private String order_item_code ;
    private Date order_date;
    private String order_bank;
    private String order_item_status;
+   private int order_idx;
    
-   private String order_idx;
-   public String getOrder_idx() {
-	   if(order_idx=="") {
-		   order_idx=null;
-	   }
-	   return order_idx;
-   }
-   public void setOrder_idx(String order_idx) {
-	   this.order_idx = order_idx;
-   }
-   
-   public String getOrder_bank() {
+	   public int getOrder_idx() {
+		return order_idx;
+	}
+	public void setOrder_idx(int order_idx) {
+		this.order_idx = order_idx;
+	}
+public String getOrder_bank() {
 	   if(order_bank=="") {
 		   order_bank=null;
 	   }

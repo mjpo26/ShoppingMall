@@ -6,7 +6,6 @@
 <%
 	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<OrderListBean> articleList = (ArrayList<OrderListBean>) request.getAttribute("articleList");
-	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 %>
 <!DOCTYPE html>
 <html>
@@ -30,7 +29,7 @@
 		</tr>
 		<%
 			for (int i = 0; i < articleList.size(); i++) {
-				int num = Integer.parseInt(articleList.get(i).getOrder_idx());
+				double num = Double.parseDouble(articleList.get(i).getOrder_idx());
 		%>
 		<tr>
 			<td><%=articleList.get(i).getOrder_idx()%></td>
@@ -40,6 +39,7 @@
 			<td><%=articleList.get(i).getOrder_item_title()%></td>
 			<td><%=articleList.get(i).getOrder_item_option_color()%></td>
 			<td><%=articleList.get(i).getOrder_delivery_status()%></td>
+			<td><%=articleList.get(i).getOrder_item_point() %></td>
 			<td><a
 				href="ReviewBoardWriteForm.re?num=<%=num%>&order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
 					<input type="button" value="리뷰달기">
