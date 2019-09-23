@@ -28,6 +28,9 @@ public class OrderSearchBean {
    private String order_item_status;
    
    public String getOrder_item_status() {
+	   if(order_item_status == "") {
+		   order_item_status = null;
+	   }
 	return order_item_status;
 }
 public void setOrder_item_status(String order_item_status) {

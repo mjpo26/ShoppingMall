@@ -76,12 +76,10 @@ function pickNullCheck(){
 	</header>
 	
 	<form action ="./orderList.ol"  name ="fr1" method="post" onsubmit="return pickNullCheck()">
-	
 	<table border="1">
 		<tr>
 			<th colspan='4'>주문관리전체주문목록</th>
 		</tr>
-
 		<tr>
 			<th>검색어</th>
 			<td colspan='3'><select><option>주문번호</select> <input
@@ -90,7 +88,7 @@ function pickNullCheck(){
 
 		<tr>
 			<th>기간검색</th>
-			<td>시작날짜:<input type="text" name="pickStart" id="pickStart">
+			<td>시작날짜:<input type="text" name="pickStart" id="pickStart"><br>
 				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
 		</tr>
 
@@ -105,44 +103,84 @@ function pickNullCheck(){
 
 		<tr>
 			<th>결제상태</th>
-			<td colspan='3'><input type="radio" name="pay" checked="checked" value="">전체 
+			<td colspan='3'>
+			<select name="pay">
+				<option value="" selected>--선택--</option>
+				<option value="입금대기">입금대기</option>
+				<option value="입금완료">입금완료</option>
+				<option value="결제완료">결제완료</option>
+			</select>
+			
+	<!-- 	<input type="radio" name="pay" checked="checked" value="">전체 
 			<input type="radio" name="pay" value="입금대기">입금대기
 			<input type="radio" name="pay" value="입금완료">입금완료 
-			<input type="radio" name="pay" value="주문완료">주문완료
+			<input type="radio" name="pay" value="주문완료">주문완료 -->
+			
 		</tr>
 		<tr>
 		
 		<tr>
 		<th>배송상태</th><td>
-		<input type="radio" name="delivery"  checked="checked" value="">전체
+		<select name="delivery">
+			<option value="" selected>--선택--</option>
+			<option value="입금전">입금전</option>
+			<option value="배송전">배송전</option>
+			<option value="배송중">배송중</option>
+			<option value="배송완료">배송완료</option>
+		</select>
+<!-- 	<input type="radio" name="delivery"  checked="checked" value="">전체
 		<input type="radio" name="delivery" value="입금전">입금전
 		<input type="radio" name="delivery" value="배송전">배송전
 		<input type="radio" name="delivery" value="배송중">배송중
-		<input type="radio" name="delivery" value="배송완료">배송완료</td>
+		<input type="radio" name="delivery" value="배송완료">배송완료</td> -->
 		
 		<tr>
 		<th>주문취소</th><td>
+		<select name="item_status">
+			<option value="" selected>--선택--</option>
+			<option value="취소">취소</option>
+			<option value="교환">교환</option>
+			<option value="반품">반품</option>
+			<option value="환불">환불</option>
+		</select>
+		
+<!-- 	<th>주문취소</th><td>
 		<input type="radio" name="item_status"  checked="checked" value="">전체
 		<input type="radio" name="item_status" value="취소">취소
 		<input type="radio" name="item_status" value="교환">교환
 		<input type="radio" name="item_status" value="반품">반품
-		<input type="radio" name="item_status" value="환불">환불</td>
-		
+		<input type="radio" name="item_status" value="환불">환불</td> -->
 		<tr>
 		<th>결제은행</th><td>
+		<select name="bank">
+			<option value="" selected>--선택--</option>
+			<option value="신한은행">신한은행</option>
+			<option value="국민은행">국민은행</option>
+			<option value="농협은행">농협은행</option>
+		</select>
+		
+		<tr>
+<!-- 		<th>결제은행</th><td>
 		<input type="radio" name="bank"  checked="checked" value="">전체
 		<input type="radio" name="bank" value="신한은행">신한은행
 		<input type="radio" name="bank" value="국민은행">국민은행
-		<input type="radio" name="bank" value="농협은행">농협은행</td>
+		<input type="radio" name="bank" value="농협은행">농협은행</td> -->
 		
 		<tr>
-			<th>결제방법</th>
+		<th>결제방법</th><td>
+		<select name="payment">
+			<option value="" selected>--선택--</option>
+			<option value="현금">현금</option>
+			<option value="포인트">포인트</option>
+			<option value="현금+포인트">현금+포인트</option>
+		</select>
+<!-- 		<th>결제방법</th>
 			<td colspan='3'><input type="radio" name="payment"  checked="checked" value="">전체 
 			<input type="radio" name="payment" value="현금">현금
 			<input type="radio" name="payment" value="포인트">포인트 
 			<input type="radio" name="payment" value="현금+포인트">현금+포인트
 			</td>
-		</tr>
+		</tr> -->
 	</table>
 
 	<input type="submit" value="검색">
@@ -173,6 +211,7 @@ function pickNullCheck(){
 	<p>
 	<div style="height: 200px; width: 900px; float: left;">
 		<br> <br>
+		<form action ="./orderUpdate.ol" method="post">
 		<table border="1">
 
 			<tr>
@@ -208,6 +247,7 @@ function pickNullCheck(){
 				<th>결제은행</th>
 				<th>결제방법</th>
 				<th>메모</th>
+				<th>수정</th>
 			</tr>
 			<%
 				for (int i = 0; i < articleList.size(); i++) {
@@ -219,19 +259,49 @@ function pickNullCheck(){
 				<td><%=articleList.get(i).getOrder_idx()%></td>
 				<td><%=articleList.get(i).getOrder_member_id()%></td>
 				<td><%=articleList.get(i).getOrder_item_title()%></td>
-				<td><%=articleList.get(i).getOrder_pay_status()%></td>
+				
+				<td><select>
+						<option <% if(articleList.get(i).getOrder_pay_status().equals("입금대기")){%>selected<%} %>>입금대기</option>
+						<option <% if(articleList.get(i).getOrder_pay_status().equals("입금완료")){%>selected<%} %>>입금완료</option>
+						<option <% if(articleList.get(i).getOrder_pay_status().equals("결제완료")){%>selected<%} %>>결제완료</option>
+					</select></td>
+				
 				<td><%=articleList.get(i).getOrder_item_sel_price()%></td>
-				<td><%=articleList.get(i).getOrder_delivery_status()%></td>
-				<td><%=articleList.get(i).getOrder_item_status() %>
-		  		<td><%=articleList.get(i).getOrder_bank() %></td> 
-				<td><%=articleList.get(i).getOrder_payment()%></td>
+				<td><select>
+						<option <% if(articleList.get(i).getOrder_delivery_status().equals("입금전")){%>selected<%} %>>입금전</option>
+						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송전")){%>selected<%} %>>배송전</option>
+						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송중")){%>selected<%} %>>배송중</option>
+						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송완료")){%>selected<%} %>>배송완료</option>
+					</select></td>
+					
+				<td><select>
+						<option <% if(articleList.get(i).getOrder_item_status().equals("취소")){%>selected<%} %>>취소</option>
+						<option <% if(articleList.get(i).getOrder_item_status().equals("교환")){%>selected<%} %>>교환</option>
+						<option <% if(articleList.get(i).getOrder_item_status().equals("반품")){%>selected<%} %>>반품</option>
+						<option <% if(articleList.get(i).getOrder_item_status().equals("환불")){%>selected<%} %>>환불</option>
+					</select></td>
+					
+				<td><select>
+						<option <% if(articleList.get(i).getOrder_bank().equals("신한은행")){%>selected<%} %>>신한은행</option>
+						<option <% if(articleList.get(i).getOrder_bank().equals("국민은행")){%>selected<%} %>>국민은행</option>
+						<option <% if(articleList.get(i).getOrder_bank().equals("농협은행")){%>selected<%} %>>농협은행</option>
+					</select></td>
+				
+				<td><select>
+					<option <% if(articleList.get(i).getOrder_payment().equals("현금")){%>selected<%} %>>현금</option>
+					<option <% if(articleList.get(i).getOrder_payment().equals("포인트")){%>selected<%} %>>포인트</option>
+					<option <% if(articleList.get(i).getOrder_payment().equals("현금+포인트")){%>selected<%} %>>현금+포인트</option>
+				</select></td>
+							
 				<td><%=articleList.get(i).getOrder_memo()%></td>
+				<th><input type="submit" value="수정" formaction="./orderUpdate.ol">
+				</th>
 			</tr>
 			<%
 				}
 			%>
 		</table>
-
+		</form>
 
 		<section id="pageList">
 			<%

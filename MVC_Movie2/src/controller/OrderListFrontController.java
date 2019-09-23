@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.OrderListAction;
+import action.OrderUpdateAction;
 import action.ReviewBoardListAction;
 import vo.ActionForward;
 import vo.OrderSearchBean;
@@ -35,7 +36,17 @@ public class OrderListFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} 	else if (command.equals("/orderUpdate.ol")) {
+			System.out.println("update controller 들어옴");
+			
+			action = new OrderUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		if (forward != null) {
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
