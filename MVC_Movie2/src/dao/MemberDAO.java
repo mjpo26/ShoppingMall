@@ -436,13 +436,7 @@ public class MemberDAO {
 		return ch;
 	}
 
-	public MemberBean addPoint(String member_Mypoint) {
-		
-		String sql = "I don't know what do I write here =.="
-				+ "즉시구매 => OrderBean에 있는 ItemPoint를 MemberBean에 있는"
-				+ "MyPoint로 넣어야함니다,,";
-		return null;
-	}
+
 
 	public int updateMember1(String sId, int item_point) {
 		  int updateCount = 0;
