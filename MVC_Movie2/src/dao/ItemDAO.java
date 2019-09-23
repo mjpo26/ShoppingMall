@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vo.ItemBean;
+import vo.OrderListBean;
+import vo.ProductSearchBean;
 
 import static db.JdbcUtil.*;
 
@@ -328,6 +330,101 @@ public class ItemDAO {
 		}
 
 		return itemBean;
+	}
+
+	public ArrayList<ItemBean> selectArticleList(ProductSearchBean pb) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<ItemBean> articleList = new ArrayList<ItemBean>();
+
+
+		try {
+
+			System.out.println("디에오 체크/"+pb.getPickStart() + "/" +pb.getPickEnd());
+//			        + "Item_code like ifnull(?,'%%') "
+			
+			String sql = "SELECT * FROM Item where "
+					+ "Item_title like ifnull(?,'%%') "
+					+ "and Item_date >= ?"
+					+ "and Item_date <= ?"
+			        + "and Item_display like ifnull(?,'%%') "
+			        + "and Item_sales like ifnull(?,'%%')"
+			        + "and Item_category1 like ifnull(?,'%%')";
+			        
+			        
+			
+			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, ob.getOrder_item_option_color());
+//			pstmt.setInt(1,pb.getItem_code());
+			pstmt.setString(1, pb.getItem_title());
+			pstmt.setDate(2, pb.getPickStart());
+			pstmt.setDate(3, pb.getPickEnd());
+			pstmt.setString(4, pb.getItem_display());
+			pstmt.setString(5, pb.getItem_sales());
+			pstmt.setString(6, pb.getItem_category1());
+			rs = pstmt.executeQuery();
+			
+
+			while (rs.next()) {
+				ItemBean itemBean = new ItemBean();
+				itemBean.setItem_code(rs.getInt("Item_code"));
+				itemBean.setItem_title(rs.getString("Item_title"));
+				itemBean.setItem_category1(rs.getString("Item_category1"));
+				itemBean.setItem_content1(rs.getString("Item_content1"));
+				itemBean.setItem_content2(rs.getString("Item_content2"));
+				itemBean.setItem_point(rs.getInt("item_point"));
+//	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+				itemBean.setItem_pic1(rs.getString("Item_pic1"));
+				itemBean.setItem_pic2(rs.getString("Item_pic2"));
+				itemBean.setItem_pic3(rs.getString("Item_pic3"));
+				itemBean.setItem_pic4(rs.getString("Item_pic4"));
+				itemBean.setItem_display(rs.getString("Item_display"));
+				itemBean.setItem_sales(rs.getString("Item_sales"));
+				itemBean.setItem_old_price(rs.getInt("Item_old_price"));
+				itemBean.setItem_sel_price(rs.getInt("Item_sel_price"));
+				itemBean.setItem_stock_price(rs.getInt("Item_stock_price"));
+				itemBean.setItem_weight(rs.getInt("Item_weight"));
+				itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
+				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
+				itemBean.setItem_Date(rs.getDate("Item_Date"));
+				articleList.add(itemBean);
+				
+			}
+			
+			System.out.println("ItemDAO: itemdao 담긴거 확인:" + articleList);
+		} catch (SQLException e) {
+			System.out.println("selectArticleList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+	}
+
+	public int UpdateItem1(ItemBean itemBean) {
+		int updateCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = "UPDATE Item SET Item_display=?,Item_sales=?  where Item_code=?";
+				
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, itemBean.getItem_display());// 진열상태
+			pstmt.setString(2, itemBean.getItem_sales());// 판매상태
+			pstmt.setInt(3, itemBean.getItem_code());
+			updateCount = pstmt.executeUpdate();
+			System.out.println("DB성공");
+		} catch (SQLException e) {
+			System.out.println("updateItem 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return updateCount;
 	}
 
 }

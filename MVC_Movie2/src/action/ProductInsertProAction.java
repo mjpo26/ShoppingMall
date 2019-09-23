@@ -56,7 +56,7 @@ public class ProductInsertProAction implements Action {
 	            out.println("</script>");
 	        } else {
 	            forward = new ActionForward();
-	            forward.setPath("admin/product_main.jsp");
+	            forward.setPath("./admin.ma");
 	            forward.setRedirect(true);
 	        }
 	        
