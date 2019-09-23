@@ -9,9 +9,16 @@ public class Admin_MemberSearchBean {
 	private String member_phone;
     private String member_sms_ok;
 	private String member_email_ok;	
+	private String member_mypoint;
 	private Date pickStart;
 	private Date pickEnd;
 	
+	public String getMember_mypoint() {
+		return member_mypoint;
+	}
+	public void setMember_mypoint(String member_mypoint) {
+		this.member_mypoint = member_mypoint;
+	}
 	public Date getPickStart() {
 		
 		return pickStart;

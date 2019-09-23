@@ -22,7 +22,7 @@
 	String sId = (String) session.getAttribute("sId");
 
 	// 만약, 회원만 게시판 목록 조회가 가능할 경우
-	// 세션 아이디 없으 Main.bo 로 이동
+	// 세션 아이디 없으면 Main.bo 로 이동
 
 %>
 
@@ -179,13 +179,14 @@ function pickNullCheck(){
 
 			<td><input type="checkbox"></td>
 
-			<td>아이디</td>
-			<td>이름</td>
-			<td>주소</td>
-			<td>휴대전화</td>
-			<td>메일수신</td>
-			<td>sns수신</td>
-			<td>메모</td>
+			<th></th>
+			<th>이름</th>
+			<th>주소</th>
+			<th>휴대전화</th>
+			<th>메일수신</th>
+			<th>sns수신</th>
+			<th>메모</th>
+			<th>포인트내역</th>
 		</tr>
 		<tr>
 			<%
@@ -194,14 +195,16 @@ function pickNullCheck(){
 		
 		<tr>
 			<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
-			<th><input type="checkbox"></th>
-			<th><%=memberList.get(i).getMember_id()%></th>
-			<th><%=memberList.get(i).getMember_name()%></th>
-			<th><%=memberList.get(i).getMember_address1()%></th>
-			<th><%=memberList.get(i).getMember_phone()%></th>
-			<th><%=memberList.get(i).getMember_email_ok()%></th>
-			<th><%=memberList.get(i).getMember_sms_ok()%></th>
-			<th><input type="button" value="회원삭제"><input
+			<td><input type="checkbox"></td>
+			<td><%=memberList.get(i).getMember_id()%></td>
+			<td><%=memberList.get(i).getMember_name()%></td>
+			<td><%=memberList.get(i).getMember_address1()%></td>
+			<td><%=memberList.get(i).getMember_phone()%></td>
+			<td><%=memberList.get(i).getMember_email_ok()%></td>
+			<td><%=memberList.get(i).getMember_email_ok()%></td>
+			<td><%=memberList.get(i).getMember_sms_ok()%></td>
+			<td><%=memberList.get(i).getMember_mypoint()%></td>
+			<td><input type="button" value="회원삭제"><input
 				type="button" value="회원수정"><input type="button"
 				value="이메일전송"><input type="button" value="sns전송"></th>
 		</tr>
