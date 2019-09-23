@@ -28,7 +28,6 @@ public class OrderListAction implements Action {
 	        if(request.getParameter("page") != null) {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
-	        
 	        OrderSearchBean ob = new OrderSearchBean();
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
 	//        ob.setOrder_idx(Integer.parseInt(request.getParameter("order_idx")));
