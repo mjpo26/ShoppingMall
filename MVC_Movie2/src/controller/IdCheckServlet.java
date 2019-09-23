@@ -30,6 +30,7 @@ public class IdCheckServlet extends HttpServlet{
         
         System.out.println(mdao.getMemberCount()+"");
         response.getWriter().write(mdao.idcheck(id)+"");
+       
     }
 
 }
