@@ -260,28 +260,29 @@ function pickNullCheck(){
 				<td><%=articleList.get(i).getOrder_member_id()%></td>
 				<td><%=articleList.get(i).getOrder_item_title()%></td>
 				
-				<td><select>
+				<td><select name="order_pay_status">
 						<option <% if(articleList.get(i).getOrder_pay_status().equals("입금대기")){%>selected<%} %>>입금대기</option>
 						<option <% if(articleList.get(i).getOrder_pay_status().equals("입금완료")){%>selected<%} %>>입금완료</option>
 						<option <% if(articleList.get(i).getOrder_pay_status().equals("결제완료")){%>selected<%} %>>결제완료</option>
 					</select></td>
 				
 				<td><%=articleList.get(i).getOrder_item_sel_price()%></td>
-				<td><select>
+				<td><select name="order_delivery_status">
 						<option <% if(articleList.get(i).getOrder_delivery_status().equals("입금전")){%>selected<%} %>>입금전</option>
 						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송전")){%>selected<%} %>>배송전</option>
 						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송중")){%>selected<%} %>>배송중</option>
 						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송완료")){%>selected<%} %>>배송완료</option>
 					</select></td>
 					
-				<td><select>
+				<td><select name="item_status">
 						<option <% if(articleList.get(i).getOrder_item_status().equals("취소")){%>selected<%} %>>취소</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("교환")){%>selected<%} %>>교환</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("반품")){%>selected<%} %>>반품</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("환불")){%>selected<%} %>>환불</option>
+						<option <% if(articleList.get(i).getOrder_item_status().equals("완료")){%>selected<%} %>>취소</option>
 					</select></td>
 					
-				<td><select>
+				<td><select name="bank">
 						<option <% if(articleList.get(i).getOrder_bank().equals("신한은행")){%>selected<%} %>>신한은행</option>
 						<option <% if(articleList.get(i).getOrder_bank().equals("국민은행")){%>selected<%} %>>국민은행</option>
 						<option <% if(articleList.get(i).getOrder_bank().equals("농협은행")){%>selected<%} %>>농협은행</option>
@@ -294,7 +295,9 @@ function pickNullCheck(){
 				</select></td>
 							
 				<td><%=articleList.get(i).getOrder_memo()%></td>
-				<th><input type="submit" value="수정" formaction="./orderUpdate.ol">
+				<th>
+				<input type="hidden" name="order_idx" value="<%=articleList.get(i).getOrder_idx()%>">
+				<input type="submit" value="수정" formaction="./orderUpdate.ol">
 				</th>
 			</tr>
 			<%

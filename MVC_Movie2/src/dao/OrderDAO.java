@@ -434,7 +434,7 @@ public class OrderDAO {
 				+ "order_item_status=?,"
 				+ "order_bank=?,"
 				+ "order_payment=?"
-				+ "where order_item_idx=?";
+				+ "where order_idx=?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
