@@ -32,6 +32,22 @@ public class MemberUpdateProService {
         return isUpdateSuccess;
         
     }
+
+	public void insertPoint(String sId, int item_point) {
+		  Connection con = getConnection();
+	        MemberDAO memberDAO = MemberDAO.getInstance();
+	        memberDAO.setConnection(con);
+	        
+	        int count = memberDAO.updateMember1(sId,item_point);
+	        
+	        if(count > 0) {
+	            commit(con);
+	            
+	        } else {
+	            rollback(con);
+	        }
+		
+	}
     
 }
 

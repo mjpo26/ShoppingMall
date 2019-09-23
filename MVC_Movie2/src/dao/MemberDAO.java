@@ -442,7 +442,31 @@ public class MemberDAO {
 				+ "즉시구매 => OrderBean에 있는 ItemPoint를 MemberBean에 있는"
 				+ "MyPoint로 넣어야함니다,,";
 		return null;
-	} 
+	}
+
+	public int updateMember1(String sId, int item_point) {
+		  int updateCount = 0;
+	        
+	        
+	        PreparedStatement pstmt = null;
+	        
+	        String sql = "UPDATE member SET member_mypoint=? where member_id=?";
+	        
+	        try {
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, item_point);
+	            pstmt.setString(2, sId);
+	            
+	           updateCount = pstmt.executeUpdate();
+	            
+	        } catch (SQLException e) {
+	            System.out.println("updateMember 실패! - " + e.getMessage());
+	        } finally {
+	            close(pstmt);
+	        }
+	        
+	        return updateCount;
+	    }
     
 }
 
