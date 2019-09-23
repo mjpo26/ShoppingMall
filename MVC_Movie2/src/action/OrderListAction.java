@@ -31,7 +31,7 @@ public class OrderListAction implements Action {
 	        
 	        OrderSearchBean ob = new OrderSearchBean();
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
-	  //      ob.setOrder_idx((Integer.parseInt(request.getParameter("order_idx"))));
+	  //    ob.setOrder_idx((Integer.parseInt(request.getParameter("order_idx"))));
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
 	        ob.setOrder_member_id(request.getParameter("Buyer"));
 	        ob.setOrder_pay_status(request.getParameter("pay")); // 결제상태
