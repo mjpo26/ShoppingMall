@@ -26,7 +26,6 @@
 			<td>배송상태</td>
 			<td>나의포인트</td>
 			<td>리뷰작성</td>
-			
 		</tr>
 		<%
 			for (int i = 0; i < articleList.size(); i++) {
