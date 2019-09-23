@@ -30,7 +30,7 @@
 		</tr>
 		<%
 			for (int i = 0; i < articleList.size(); i++) {
-			    int num=Integer.parseInt(articleList.get(i).getOrder_idx());
+			    String num=articleList.get(i).getOrder_idx();
 		%>
 		<tr>
 			<td><%=articleList.get(i).getOrder_idx()%></td>
@@ -38,8 +38,8 @@
 			<td><%=articleList.get(i).getOrder_item_title()%></td>
 			<td><%=articleList.get(i).getOrder_item_option_color()%></td>
 			<td><%=articleList.get(i).getOrder_delivery_status()%></td>
- 			<td><%=memberBean.getMember_mypoint()%></td>
-			<td><a href="ReviewBoardWriteForm.re?num=<%=num%>">
+ 			<td><%=articleList.get(i).getOrder_item_point()%></td>
+ 			<td><a href="ReviewBoardWriteForm.re?num=<%=num%>"> 
 			<input type="button" value="리뷰달기"></a></td>
 		</tr>
 
