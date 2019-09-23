@@ -37,6 +37,7 @@
         <div class="container">
            <div class="row clearfix">
                     <%
+                    
                     if (articleList != null & listCount > 0) {              
                         for (int i = 0; i < articleList.size(); i++) {
                     %>                  
