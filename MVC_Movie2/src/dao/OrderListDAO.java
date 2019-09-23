@@ -266,10 +266,12 @@ public class OrderListDAO {
 	            while(rs.next()) {
 	            	OrderListBean orderListBean = new OrderListBean();
 	            	orderListBean.setOrder_idx(rs.getString("order_idx"));
+	            	orderListBean.setOrder_item_code((rs.getInt("order_item_code")));
 	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
 	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 	            	orderListBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 	                orderListBean.setOrder_date(rs.getDate("order_date"));
+	                orderListBean.setOrder_item_title((rs.getString("order_item_title")));
 	            	articleList.add(orderListBean);
 	            }
 	            
