@@ -36,10 +36,9 @@
     <section class="review_board_list board_list mt-5">    
         <div class="container">
            <div class="row clearfix">
-                    <%
+                    <%                    
                     if (articleList != null & listCount > 0) {              
                         for (int i = 0; i < articleList.size(); i++) {
-                        	
                     %>                  
                          <div class="col-lg-3 col-md-4 col-sm-6 float-left review_list">
                              <figure class="figure">
@@ -66,30 +65,31 @@
                     %>
            </div>
     
-        <section id="writeButton">
+<!--         <section id="writeButton">
             <a href="ReviewBoardWriteForm.re"><input type="button" value="글쓰기"></a>
-        </section>
+        </section> -->
     
-        <section id="pageList">
+        <div id="pageList" class="text-center review_board board_paging">
             <%
             if (nowPage <= 1) {
             %>
-            [이전]&nbsp;
+            <i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
             <%
                 } else {
             %>
-            <a href="ReviewBoardList.re?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+            <a href="ReviewBoardList.re?page=<%=nowPage - 1%>"><i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
             <%
                 }
                  for (int i = startPage; i <= endPage; i++) {
                         if (i == nowPage) {
             %>
-            [<%=i%>]
+            <span class="current"><b><%=i%></b></span>&nbsp;
             <%
                 } else {
             %>
-            <a href="ReviewBoardList.re?page=<%=i%>">[<%=i%>]
-            </a>&nbsp;
+            <a href="ReviewBoardList.re?page=<%=i%>">
+            <%=i%>&nbsp;
+            </a>
             <%
                 }
 
@@ -99,28 +99,29 @@
             <%
             if (nowPage >= maxPage) {
             %>
-            &nbsp;[다음]
+            &nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i> 
+
             <%
                 } else {
             %>
-            <a href="ReviewBoardList.re?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
+            <a href="ReviewBoardList.re?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i> </a>
             <%
                 }
             %>
-        </section>
+        </div>
         <%
             } else {
         %>
         <section id="emptyArea">등록된 글이 없습니다.</section>
-        <section id="writeButton">
+<!--         <section id="writeButton">
             <a href="ReviewBoardWriteForm.re"><input type="button" value="글쓰기"></a>
-        </section>
+        </section> -->
         <%
             }
         %>
       
   
-       </div>
+       </div>	<!--container  -->
    </section>
 <jsp:include page="../assets/foot.jsp"></jsp:include>
     
