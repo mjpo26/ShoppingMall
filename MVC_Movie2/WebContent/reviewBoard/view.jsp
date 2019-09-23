@@ -30,12 +30,17 @@
 <body>
 	<section id="review_board_content board_content">	
 		<div class="container">
-			<div class="review_content">
+			<div class="review_content mt-5">
+				<span class="content_item">아이템 이름을 넣어주세욥</span>
 				<div class="content_title">
-				<%=article.getReview_subject()%>
+				<h3><%=article.getReview_subject()%></h3>
 				</div>
-				<div class="content_score">
-				<%=article.getReview_starPoint()%>
+				<div class="review_score">
+				<%for(int i=0; i<article.getReview_starPoint(); i++ ){
+				%>
+					<a><i class="fa fa-star"></i></a>
+				<%} %>
+				<span class="content_item">작성자 : <%=article.getReview_writer()%></span>			
 				</div>
 				<div class="content_content">
 					<div class="content_img">
@@ -47,13 +52,13 @@
 			
 			
 			
-<%-- 			<div id="commandList">
-	<!--  아랫부분 답변은 admin일때만 나오게 조건주기-->
-			<a href="ReviewBoardReplyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[답변]</a>
-			<a	href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a>
-			<a href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a>
+			<div id="commandList" class="text-center">
+			<!--  아랫부분 답변은 admin일때만 나오게 조건주기-->
+<%-- 			<a href="ReviewBoardReplyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[답변]</a> --%>
+<%-- 			<a	href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a> --%>
+<%-- 			<a href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a> --%>
 			<a href="ReviewBoardList.re?page=<%=nowPage%>">[목록]</a> &nbsp;&nbsp;
-			</div> --%>
+			</div>
 		</div>
 	</section>
 	

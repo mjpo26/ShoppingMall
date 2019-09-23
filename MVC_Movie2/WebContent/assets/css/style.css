@@ -7853,38 +7853,54 @@ h6 {
 /*# sourceMappingURL=style.css.map */
 
 
-.review_board_list .review_title {
-    height:30%;
-    background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
-    width: 90%;
-}
 
-
-
-.review_board_list .review_title p {
+.review_board_list p {
     font-family: Noto Sans KR;
     color:white;
     padding :5px 10px;
 }
 
+
+.review_board_list .review_title  p {
+    font-weight: 500;
+}
+
+
 .review_board_list .review_title {
+	position: absolute;
+	top:0;
     height:30%;
     background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
-    width: 90%;
 }
 
 
 .review_writer {
     height:30%;
-    background: linear-gradient(0deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
-    width: 90%;
+    background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
+    width: 100%;
     display: none;
+    overflow: hidden;
+
+}
+
+.review_writer p{
+    line-height : 1.2em;   
+    font-size: 1em;
+}
+.figure{		
+	position: relative;	
 }
 
 
-.review_photo:hover .review_writer {
+figure:hover .review_writer {
     display: block !important;
+    position: absolute;
+/*     bottom:1em; */
+    line-height : 1px;
+    overflow: hidden;    
 }
+
+
 
 
 .board_paging a{
@@ -7900,4 +7916,18 @@ h6 {
 .board_content .content_title{
 	text-align: center;
 } 
+
+
+.review_score{
+	color : #fbd600;
+}
+
+.board_content .content_title h3{
+	font-weight: 500;
+	font-size : 1.2em;
+}
+
+.board_content .content_item {
+	color:#ddd;
+}
 
