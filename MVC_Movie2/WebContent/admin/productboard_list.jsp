@@ -27,7 +27,7 @@
                         <div class="breadcrumb_iner_item">
                             <h2>상품 목록</h2>
                             <p>
-                               상품 목록 <span>-</span> 상품 모음
+                               상품 목록 <span>-</span> 상품 보기
                             </p>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                          <div class="col-lg-3 col-md-4 col-sm-6 float-left review_list">
                              <figure class="figure">
                                 <div class="review_photo">
-                                    <img src="./upload/review/<%=articleList.get(i).getItem_pic1() %>" class="figure-img"                                 
+                                    <img src="./assets/img/product/single-product/<%=articleList.get(i).getItem_pic1() %>" class="figure-img"                                 
                                     onclick="location.href='./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>'">
                                 </div>
                     
