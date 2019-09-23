@@ -570,7 +570,7 @@
                                        <option value="">직접입력</option>
                                        <option value="naver.com">naver.com</option>
                                        <option value="nate.com">nate.com</option>
-                                       <option value="itwillbs.co.kr">daum.net</option>      
+                                       <option value="itwillbs.co.kr">itwillbs.co.kr</option>      
                                     </select>
                                 </div>
                              </div>
