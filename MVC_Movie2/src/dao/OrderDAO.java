@@ -298,7 +298,7 @@ public class OrderDAO {
         
         try {
             // 현재 게시물에서 가장 큰 번호 조회
-            String sql = "SELECT MAX(free_num) FROM free_board";
+            String sql = "SELECT MAX(free_num) FROM free_board ";
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             

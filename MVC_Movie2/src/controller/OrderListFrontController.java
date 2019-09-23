@@ -18,6 +18,7 @@ import vo.OrderSearchBean;
 
 
 @WebServlet("*.ol")
+
 public class OrderListFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

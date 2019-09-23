@@ -274,7 +274,7 @@ function pickNullCheck(){
 						<option <% if(articleList.get(i).getOrder_delivery_status().equals("배송완료")){%>selected<%} %>>배송완료</option>
 					</select></td>
 					
-				<td><select name="item_status">
+				<td><select name="item_status" >
 						<option <% if(articleList.get(i).getOrder_item_status().equals("취소")){%>selected<%} %>>취소</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("교환")){%>selected<%} %>>교환</option>
 						<option <% if(articleList.get(i).getOrder_item_status().equals("반품")){%>selected<%} %>>반품</option>

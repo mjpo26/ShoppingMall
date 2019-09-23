@@ -16,6 +16,7 @@ public class OrderUpdateAction implements Action{
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.println("여기들어와요요용요ㅛㅇㅇ");
    
+        
         OrderBean orderBean = new OrderBean();
         
         orderBean.setOrder_pay_status(request.getParameter("order_pay_status"));
