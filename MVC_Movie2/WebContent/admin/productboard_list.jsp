@@ -51,8 +51,7 @@
                                 <div class="review_photo">
                                     <img src="./assets/img/product/single-product/<%=articleList.get(i).getItem_pic1() %>" class="figure-img"                                 
                                     onclick="location.href='./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>'">
-                                </div>
-                    
+                                </div>                 
                                       
                                 <figcaption class="figure-caption position-absolute fixed-top review_title mx-auto"><p><%=articleList.get(i).getItem_title()%></p></figcaption>
                                 <figcaption class="figure-caption position-absolute fixed-bottom review_writer mx-auto"><p><%=articleList.get(i).getItem_title()%></p></figcaption>
