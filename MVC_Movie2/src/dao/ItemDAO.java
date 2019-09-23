@@ -329,5 +329,90 @@ public class ItemDAO {
 
 		return itemBean;
 	}
+	
+	// 카테1 등록
+		public int insertCate1(String cate1) {
+			int insertCount = 0;
+
+			PreparedStatement pstmt = null;
+
+			String sql = "INSERT INTO Item(item_category1) VALUES(?)";
+		//	select distinct Item_category1 from Item where item_category1 like '%%';
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, cate1);// 카테고리1
+				insertCount = pstmt.executeUpdate();
+				System.out.println("DB성공");
+			} catch (SQLException e) {
+				System.out.println("insertCate1 실패! - " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+
+			return insertCount;
+		}
+		// 카테1 조회
+				public ArrayList<ItemBean> selectCate1() {
+
+					ArrayList<ItemBean> cateArr = new ArrayList<ItemBean>();
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+
+					
+					String sql = "select distinct Item_category1 from Item where item_category1 like '%%'";
+					try {
+						pstmt = con.prepareStatement(sql);
+						rs = pstmt.executeQuery();
+						System.out.println("카테1조회성공"+rs);
+						while(rs.next()) {
+							ItemBean cate1 = new ItemBean();
+							cate1.setItem_category1(rs.getString("item_category1"));
+						cateArr.add(cate1);
+						}
+						
+						
+						
+						
+					} catch (SQLException e) {
+						System.out.println("selectCate1 실패! - " + e.getMessage());
+					} finally {
+						close(pstmt);
+						close(rs);
+						close(con);
+					}
+
+					return cateArr;
+				}
+		
+		
+		
+		
+		
+		
+		
+		// 카테2 등록
+				public int insertCate2(String cate2) {
+					int insertCount = 0;
+
+					PreparedStatement pstmt = null;
+
+					String sql = "INSERT INTO Item(item_category2) VALUES(?)";
+				//	select distinct Item_category1 from Item where item_category1 like '%%';
+					try {
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, cate2);// 카테고리1
+						insertCount = pstmt.executeUpdate();
+						System.out.println("DB성공");
+					} catch (SQLException e) {
+						System.out.println("insertCate2 실패! - " + e.getMessage());
+					} finally {
+						close(pstmt);
+					}
+
+					return insertCount;
+				}
+	
+	
+	
 
 }
