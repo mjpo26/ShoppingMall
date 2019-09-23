@@ -434,6 +434,14 @@ public class MemberDAO {
 		}
 		System.out.println("idcheckDAO 리턴값 ch 확인"+ch);
 		return ch;
+	}
+
+	public MemberBean addPoint(String member_Mypoint) {
+		
+		String sql = "I don't know what do I write here =.="
+				+ "즉시구매 => OrderBean에 있는 ItemPoint를 MemberBean에 있는"
+				+ "MyPoint로 넣어야함니다,,";
+		return null;
 	} 
     
 }

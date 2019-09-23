@@ -77,7 +77,7 @@ public class OrderListDAO {
 			System.out.println("디에오 체크/"+ob.getPickStart() + "/" +ob.getPickEnd());
 			
 			String sql = "SELECT * FROM item_order where "
-			        + "order_item_code like ifnull(?,'%%') "
+			        + "order_idx like ifnull(?,'%%') "
 					+ "and order_date >= ?"
 					+ "and order_date <= ?"
 			        + "and order_item_title like ifnull(?,'%%') "
@@ -91,7 +91,7 @@ public class OrderListDAO {
 			
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
-			pstmt.setString(1, ob.getOrder_item_code());
+			pstmt.setString(1, ob.getOrder_idx());
 			pstmt.setDate(2, ob.getPickStart());
 			pstmt.setDate(3, ob.getPickEnd());
 			pstmt.setString(4, ob.getOrder_item_title());
@@ -111,7 +111,7 @@ public class OrderListDAO {
 			while (rs.next()) {
 				OrderListBean listBean = new OrderListBean();
 				listBean.setOrder_date(rs.getDate("order_date"));
-				listBean.setOrder_idx(rs.getInt("order_idx"));
+				listBean.setOrder_idx(rs.getString("order_idx"));
 				listBean.setOrder_member_id(rs.getString("order_member_id"));
 				listBean.setOrder_item_title(rs.getString("order_item_title"));
 				listBean.setOrder_pay_status(rs.getString("order_pay_status"));
@@ -265,7 +265,7 @@ public class OrderListDAO {
 
 	            while(rs.next()) {
 	            	OrderListBean orderListBean = new OrderListBean();
-	            	orderListBean.setOrder_idx(rs.getInt("order_idx"));
+	            	orderListBean.setOrder_idx(rs.getString("order_idx"));
 	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
 	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 	            	orderListBean.setOrder_delivery_status(rs.getString("order_delivery_status"));

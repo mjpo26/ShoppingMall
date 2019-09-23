@@ -24,7 +24,7 @@ public class OrderUpdateAction implements Action{
         orderBean.setOrder_item_status(request.getParameter("item_status"));
         orderBean.setOrder_bank(request.getParameter("bank"));
         orderBean.setOrder_payment(request.getParameter("payment"));
-        orderBean.setOrder_idx((Integer.parseInt(request.getParameter("order_idx"))));
+        orderBean.setOrder_idx((request.getParameter("order_idx")));
 //        "주문번호는"+orderBean.getOrder_idx()
         System.out.println("은행으은"+orderBean.getOrder_bank()+"그렇다면 idx는?"+orderBean.getOrder_idx());
         OrderUpdateService orderUpdateService = new OrderUpdateService();

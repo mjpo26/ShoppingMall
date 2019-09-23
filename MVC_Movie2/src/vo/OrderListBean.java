@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class OrderListBean {
 
-	private int order_idx;
+	private String order_idx;
 	private int order_item_code;
 	private String order_item_title;
 	private String order_item_option_color;
@@ -57,11 +57,14 @@ public class OrderListBean {
 		this.order_member_name = order_member_name;
 	}
 
-	public int getOrder_idx() {
-		return order_idx;
-	}
+	   public String getOrder_idx() {
+		   if(order_idx=="") {
+			   order_idx=null;
+		   }
+		   return order_idx;
+	   }
 
-	public void setOrder_idx(int order_idx) {
+	public void setOrder_idx(String order_idx) {
 		this.order_idx = order_idx;
 	}
 

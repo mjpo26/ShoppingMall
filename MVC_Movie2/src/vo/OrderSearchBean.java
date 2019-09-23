@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class OrderSearchBean {
 
-   private int order_idx ;
+   private String order_idx ;
    private String order_item_code ;
    private String order_item_title ;
    private String  order_item_option_color ;
@@ -71,10 +71,14 @@ public void setOrder_member_id(String order_member_id) {
 	this.order_member_id = order_member_id;
 }
 
-public int getOrder_idx() {
-    return order_idx;
+public String getOrder_idx() {
+	   if(order_idx=="") {
+		   order_idx=null;
+	   }
+	   return order_idx;
 }
-public void setOrder_idx(int order_idx) {
+
+public void setOrder_idx(String order_idx) {
     this.order_idx = order_idx;
 }
 public String getOrder_item_code() {
