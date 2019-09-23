@@ -13,7 +13,7 @@ $(function() {
 			alert("cate1 : "+cate1);
 		
 			$.ajax({
-			url : "<%=request.getContextPath()%>/CategoryServlet.ca",
+			url : "<%=request.getContextPath()%>/CategoryListServlet.ca",
 			//url : '/IdcheckServlet.ic',
 	            type: "post", 
 	           data : {
@@ -22,19 +22,20 @@ $(function() {
 
 
 				success : function(data) {
-					alert(data);
-					if(cate1 =="") {
-						alert("cate1 입력 하세요");
-						$("#text").css("color","gray");
-						$("#text").text("아이디를 입력해주세요.");
-					} else if (data == '0') {
-						$("#text").css("color","blue");
-						$("#text").text("사용가능한 아이디 입니다.");
-						document.getElementById('isIdOk').value = "yes";
-					} else if (data =="1") {
-						$("#text").css("color","red");
-						$("#text").text("이미 사용중인 아이디 입니다.");
-					}
+ //					alert(data);
+// 					if(cate1 =="") {
+// 						alert("cate1 입력 하세요");
+// 						$("#text").css("color","gray");
+// 						$("#text").text("아이디를 입력해주세요.");
+// 					} else if (data == '0') {
+// 						$("#text").css("color","blue");
+// 						$("#text").text("사용가능한 아이디 입니다.");
+// 						document.getElementById('isIdOk').value = "yes";
+// 					} else if (data =="1") {
+// 						$("#text").css("color","red");
+// 						$("#text").text("이미 사용중인 아이디 입니다.");
+// 					}
+					$('table').append("<tr><td>"+data+"</td></tr>");
 				},
 			
 				error : function(error) {
@@ -52,6 +53,7 @@ $(function() {
 
 </head>
 <body>
+<table></table>
 	<h1>상품관리_상품분류관리</h1>
 	<div>
 		<b>1차 카테고리</b>
