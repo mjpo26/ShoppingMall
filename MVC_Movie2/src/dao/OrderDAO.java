@@ -422,6 +422,40 @@ public class OrderDAO {
         
         
     }
+
+	public int updateOrder(OrderBean orderBean) {
+		int updateCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE item_order SET "
+				+ "order_pay_status=?,"
+				+ "order_delivery_status=?,"
+				+ "order_item_status=?,"
+				+ "order_bank=?,"
+				+ "order_payment=?"
+				+ "where order_item_idx=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			System.out.println("출력:::::"+orderBean.getOrder_idx());
+			pstmt.setString(1, orderBean.getOrder_pay_status());
+			pstmt.setString(2, orderBean.getOrder_delivery_status());
+			pstmt.setString(3, orderBean.getOrder_item_status());
+			pstmt.setString(4, orderBean.getOrder_bank());
+			pstmt.setString(5, orderBean.getOrder_payment());
+			pstmt.setInt(6, orderBean.getOrder_idx());
+			
+				updateCount = pstmt.executeUpdate();
+			
+			} catch (SQLException e) {
+				System.out.println("updateOrder() 에러 - " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+
+			return updateCount;
+		}
     
     
     

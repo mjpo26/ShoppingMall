@@ -20,9 +20,23 @@ public class OrderBean {
    private String order_payment ;
    private String order_memo;
    private Date order_date;
+   private String order_bank;
    private String order_item_status;
    
+   public String getOrder_bank() {
+	   if(order_bank=="") {
+		   order_bank=null;
+	   }
+	return order_bank;
+}
+public void setOrder_bank(String order_bank) {
+	this.order_bank = order_bank;
+}
+   
    public String getOrder_item_status() {
+	   if(order_item_status=="") {
+		   order_item_status=null;
+	   }
 	return order_item_status;
 }
 public void setOrder_item_status(String order_item_status) {
@@ -96,18 +110,27 @@ public void setOrder_used_point(int order_used_point) {
     this.order_used_point = order_used_point;
 }
 public String getOrder_delivery_status() {
+		if(order_delivery_status=="") {
+			order_delivery_status=null;
+		}
     return order_delivery_status;
 }
 public void setOrder_delivery_status(String order_delivery_status) {
     this.order_delivery_status = order_delivery_status;
 }
 public String getOrder_pay_status() {
+		if(order_pay_status=="") {
+			order_pay_status=null;
+		}
     return order_pay_status;
 }
 public void setOrder_pay_status(String order_pay_status) {
     this.order_pay_status = order_pay_status;
 }
 public String getOrder_payment() {
+	if(order_payment=="") {
+		order_pay_status=null;
+	}
     return order_payment;
 }
 public void setOrder_payment(String order_payment) {
