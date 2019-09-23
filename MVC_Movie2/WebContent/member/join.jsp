@@ -14,26 +14,20 @@
 
 <script type="text/javascript">
 <%
-MemberIdCheckService k= new MemberIdCheckService();
-JSONObject json= k.Member_idcheck("admin");
+//MemberIdCheckService k= new MemberIdCheckService();
+//JSONObject json= k.Member_idcheck("admin");
 
 %>
 
 	$(function() {
-		$("input[name='id']").on("change", function(){
+		$("input[name='id']").on("click", function(){
 			var s_id = $('#id').val();
 			alert("fid : "+s_id);
-			
-			// ajax 호출
+		
 			$.ajax({
-				
-				// 요청 url
-				
-				url : "<%=request.getContextPath()%>/MemberIdCheck.me",
-	            type: "post", //get 방식 , post 방식 구분
-	           // data: "t1=ZZZ&t2=XXX", //data입력 (넘길 데이터)
-				// Default datatype : JSON
-				// 좌항-변수, 우항-입력된 데이터
+			url : "<%=request.getContextPath()%>/IdcheckServlet.ic",
+			//url : '/IdcheckServlet.ic',
+	            type: "post", 
 	           data : {
 					fid : s_id
 				},
@@ -53,18 +47,10 @@ JSONObject json= k.Member_idcheck("admin");
 						$("#text").text("이미 사용중인 아이디 입니다.");
 					}
 				},
-				// 에러 시 실행되는 메소드
-				//ajax값받아오는거 기억안나서 에러시 실행으로 대체 나중에 바꿔야지
+			
 				error : function(error) {
-				//	alert("에러 : " + error );
-					
-				 if(<%=json.get("ch")%> ==1){
-					 $("#text").css("color","red");
-					$("#text").text("이미 사용중인 아이디 입니다.");
-			}else if (<%=json.get("ch")%> =="0") {
-				$("#text").css("color","blue");
-				$("#text").text("사용가능한 아이디 입니다.");
-			}
+					alert("에러 : " + error );
+				
 					
 				}
 			});
@@ -82,15 +68,7 @@ JSONObject json= k.Member_idcheck("admin");
 <body>
 
 <form>
-<%
 
-//out.println("이거 나오나"+json.toJSONString());
-out.println("ch 나오나"+json.get("ch"));
-//out.println(request.getAttribute("json"));
-
-
-
-%>
 		<input type="text" id="id" name="id" style="float: left;">
 		<h3 id="text">[]</h3><br>
 		

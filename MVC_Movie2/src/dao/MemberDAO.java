@@ -414,7 +414,7 @@ public class MemberDAO {
 		
 		try {	
 		    System.out.println("멤버아이디체크-DAO"+id);
-			String sql = "select * from member where member_id=?";
+			String sql = "select member_id  from member where member_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -426,7 +426,7 @@ public class MemberDAO {
 			}
 		} 	
 		catch (SQLException e) {
-			System.out.println("selectListCount() 에러 - " + e.getMessage());
+			System.out.println("아이디중복체크DAO() 에러 - " + e.getMessage());
 		} finally {
 			close(rs);
 			close(pstmt);
