@@ -7912,11 +7912,16 @@ figure:hover .review_writer {
 	font-size:1.2em;
 }
 
+.review_content {
+}
 
 .board_content .content_title{
-	text-align: center;
+	font-size: 1.8em;
 } 
 
+.review_content{
+	border : 1px solid #ddd;
+}
 
 .review_score{
 	color : #fbd600;
@@ -7927,7 +7932,9 @@ figure:hover .review_writer {
 	font-size : 1.2em;
 }
 
-.board_content .content_item {
-	color:#ddd;
+.board_content .content_gray {
+	color:#777;
 }
+
+
 
