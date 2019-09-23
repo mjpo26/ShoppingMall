@@ -438,7 +438,16 @@ public class OrderDAO {
 		
 		try {
 			pstmt = con.prepareStatement(sql);
+			
+			System.out.println("출력:::::"+orderBean.getOrder_delivery_status());
+			System.out.println("출력:::::"+orderBean.getOrder_item_status());
+			System.out.println("출력:::::"+orderBean.getOrder_bank());
+			System.out.println("출력:::::"+orderBean.getOrder_payment());
 			System.out.println("출력:::::"+orderBean.getOrder_idx());
+			
+			
+			
+			
 			pstmt.setString(1, orderBean.getOrder_pay_status());
 			pstmt.setString(2, orderBean.getOrder_delivery_status());
 			pstmt.setString(3, orderBean.getOrder_item_status());
@@ -452,6 +461,7 @@ public class OrderDAO {
 				System.out.println("updateOrder() 에러 - " + e.getMessage());
 			} finally {
 				close(pstmt);
+				close(con);
 			}
 
 			return updateCount;

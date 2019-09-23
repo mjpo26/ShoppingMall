@@ -288,7 +288,7 @@ function pickNullCheck(){
 						<option <% if(articleList.get(i).getOrder_bank().equals("농협은행")){%>selected<%} %>>농협은행</option>
 					</select></td>
 				
-				<td><select>
+				<td><select name="payment">
 					<option <% if(articleList.get(i).getOrder_payment().equals("현금")){%>selected<%} %>>현금</option>
 					<option <% if(articleList.get(i).getOrder_payment().equals("포인트")){%>selected<%} %>>포인트</option>
 					<option <% if(articleList.get(i).getOrder_payment().equals("현금+포인트")){%>selected<%} %>>현금+포인트</option>
