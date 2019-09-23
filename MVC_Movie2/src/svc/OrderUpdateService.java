@@ -5,7 +5,7 @@ import java.sql.Connection;
 import dao.OrderDAO;
 import vo.OrderBean;
 
-public class OrderUpdateService {
+public class OrderUpdateService  {
 
 	public boolean updateOrder(OrderBean orderBean) {
 		

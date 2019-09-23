@@ -14,14 +14,19 @@ public class OrderUpdateAction implements Action{
 	
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("여기들어와요요용요ㅛㅇㅇ");
+   
         
         OrderBean orderBean = new OrderBean();
-        orderBean.setOrder_pay_status(request.getParameter("pay"));
-        orderBean.setOrder_delivery_status(request.getParameter("delivery"));
+        
+        orderBean.setOrder_pay_status(request.getParameter("order_pay_status"));
+        orderBean.setOrder_delivery_status(request.getParameter("order_delivery_status"));
         orderBean.setOrder_item_status(request.getParameter("item_status"));
         orderBean.setOrder_bank(request.getParameter("bank"));
         orderBean.setOrder_payment(request.getParameter("payment"));
-
+        orderBean.setOrder_idx((Integer.parseInt(request.getParameter("order_idx"))));
+//        "주문번호는"+orderBean.getOrder_idx()
+        System.out.println("은행으은"+orderBean.getOrder_bank()+"그렇다면 idx는?"+orderBean.getOrder_idx());
         OrderUpdateService orderUpdateService = new OrderUpdateService();
         boolean isUpdateSuccess = orderUpdateService.updateOrder(orderBean);
         
@@ -36,7 +41,7 @@ public class OrderUpdateAction implements Action{
             out.println("</script>");
         } else {
             forward = new ActionForward();
-            forward.setPath("./orderUpdate.ol");
+            forward.setPath("./orderList.ol");
             forward.setRedirect(true);
         }
         

@@ -256,7 +256,7 @@ public class OrderListDAO {
 
 	         
 	        
-	        try {
+	        try { 
 	            String sql = "SELECT * FROM item_order where order_member_id=?";
 	            pstmt = con.prepareStatement(sql);
 	            pstmt.setString(1, sId);
