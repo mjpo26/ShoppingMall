@@ -36,8 +36,7 @@
     <section class="review_board_list board_list mt-5">    
         <div class="container">
            <div class="row clearfix">
-                    <%
-                    
+                    <%                    
                     if (articleList != null & listCount > 0) {              
                         for (int i = 0; i < articleList.size(); i++) {
                     %>                  
