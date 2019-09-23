@@ -29,7 +29,8 @@ public class productOrderAction implements Action {
 		MemberBean memberBean = memberInfoService.getMemberInfo(sId);
 		ItemBean itemBean = productDetailService.getArticle(itemCode);
 		String item_code_count =request.getParameter("Item_code_count");
-		String item_color=(String)request.getAttribute("item_color");
+		String item_color=(String)request.getParameter("item_color");
+		
 		request.setAttribute("memberBean", memberBean);
 		request.setAttribute("page", page);
 		request.setAttribute("itemBean", itemBean);
