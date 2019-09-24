@@ -71,16 +71,28 @@ public class OrderListDAO {
 		ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
 
 		int startRow = (ob.getPage() - 1) * 10;
-
+		
 		try {
 
 			System.out.println("디에오 체크/"+ob.getPickStart() + "/" +ob.getPickEnd());
 			
+			
+			// admin
+			// admin2
+	
 			String sql = "SELECT * FROM item_order where "
-			        + "order_idx like ifnull(?,'%%') "
+			
+	
+			
+			        
+					
+//				+ "if(order_idx=?<1 ,like '%%',?)"
+				
+		        
+					+ "order_idx like if(?<1,'%%',?)"
+					+ "and order_item_title like ifnull(?,'%%') "
 					+ "and order_date >= ?"
 					+ "and order_date <= ?"
-			        + "and order_item_title like ifnull(?,'%%') "
 			        + "and order_member_id like ifnull(?,'%%') "
 			        + "and order_pay_status like ifnull(?,'%%') "
 			        + "and order_delivery_status like ifnull(?,'%%')"
@@ -92,17 +104,18 @@ public class OrderListDAO {
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
 			pstmt.setInt(1, ob.getOrder_idx());
-			pstmt.setDate(2, ob.getPickStart());
-			pstmt.setDate(3, ob.getPickEnd());
-			pstmt.setString(4, ob.getOrder_item_title());
-			pstmt.setString(5, ob.getOrder_member_id());
-			pstmt.setString(6, ob.getOrder_pay_status());
-			pstmt.setString(7, ob.getOrder_delivery_status());
-			pstmt.setString(8, ob.getOrder_item_status());
-			pstmt.setString(9, ob.getOrder_bank());
-			pstmt.setString(10, ob.getOrder_payment());
-			pstmt.setInt(11, startRow);
-			pstmt.setInt(12, ob.getLimit());
+			pstmt.setInt(2, ob.getOrder_idx());
+			pstmt.setString(3, ob.getOrder_item_title());
+			pstmt.setDate(4, ob.getPickStart());
+			pstmt.setDate(5, ob.getPickEnd());
+			pstmt.setString(6, ob.getOrder_member_id());
+			pstmt.setString(7, ob.getOrder_pay_status());
+			pstmt.setString(8, ob.getOrder_delivery_status());
+			pstmt.setString(9, ob.getOrder_item_status());
+			pstmt.setString(10, ob.getOrder_bank());
+			pstmt.setString(11, ob.getOrder_payment());
+			pstmt.setInt(12, startRow);
+			pstmt.setInt(13, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			

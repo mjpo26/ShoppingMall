@@ -3,7 +3,8 @@ package vo;
 import java.sql.Date;
 
 public class OrderBoardSearchBean {
-	
+   
+	private int order_idx ;
    private String order_item_code ;
    private String order_item_title ;
    private String  order_item_option_color ;
@@ -27,7 +28,6 @@ public class OrderBoardSearchBean {
    public void setOrder_idx(int order_idx) {
 	   this.order_idx = order_idx;
    }
-   private int order_idx ;
    
    public String getOrder_bank() {
 	   return order_bank;

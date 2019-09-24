@@ -28,6 +28,9 @@ public class OrderSearchBean {
    private int order_idx ;
    
    public int getOrder_idx() {
+//	   if(order_idx==0) {
+//		   order_idx = null;
+//	   }
 	   return order_idx;
    }
    public void setOrder_idx(int order_idx) {
