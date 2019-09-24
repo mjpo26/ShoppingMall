@@ -4,14 +4,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
+// 	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
+	BasketListBean basketListBean= (BasketListBean) request.getAttribute("basketListBean");
 	String nowPage = (String) request.getAttribute("page");
 	String sId = (String)session.getAttribute("sId");
-	int item_code_count = Integer.parseInt((String)request.getAttribute("item_code_count"));
-	int itemCode = itemBean.getItem_code();
+// 	int item_code_count = Integer.parseInt((String)request.getAttribute("item_code_count"));
+// 	int itemCode = itemBean.getItem_code();
 	
-	String item_color=(String)request.getAttribute("item_color");
+// 	String item_color=(String)request.getAttribute("item_color");
 // 	itemBean.setItem_color(Item_color);
 %>
 <script src="../js/jquery-3.4.1.js"></script>
@@ -35,7 +36,7 @@ $(document).ready(function(){
 </head>
 <body>
 	<form action="orderPro.sh" method="post" name="orderForm">
-	  <input type="hidden" name="itemCode" value=<%=itemCode%>>
+	  <input type="hidden" name="itemCode" value=<%=basketListBean.getBasket_code()%>>
 		<table border="1">
 			<tr>
 				<th width="100">상품이미지</th>
@@ -48,12 +49,12 @@ $(document).ready(function(){
 
 			<tr>
 				<td align="center">상품이미지</td>
-				<td align="center"><input type="text" name="item_title" value="<%=itemBean.getItem_title()%>"></td>
-				<td align="center"><%=item_code_count%></td>
-					<td align="center"><%=item_color%></td>
-				<td align="center"><%=itemBean.getItem_point()*item_code_count%></td>
-				<td align="center"><%=itemBean.getItem_sel_price()*item_code_count%></td>
-				<input type="hidden" name="item_point" value=<%=itemBean.getItem_point()*item_code_count%>>
+				<td align="center"><input type="text" name="item_title" value="<%=basketListBean.getBasket_title()%>"></td>
+				<td align="center"><%=basketListBean.getBasket_code_count()%></td>
+					<td align="center"><%=basketListBean.getBasket_option_color()%></td>
+				<td align="center"><%=basketListBean.getBasket_point()*basketListBean.getBasket_code_count()%></td>
+				<td align="center"><%=basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%></td>
+				<input type="hidden" name="item_point" value=<%=basketListBean.getBasket_point()*basketListBean.getBasket_code_count()%>>
 			</tr>
 		</table>
 
@@ -124,7 +125,7 @@ $(document).ready(function(){
 			</tr>
 
 			<tr>
-				<td align="center">상품금액 <%=itemBean.getItem_old_price() * item_code_count%> - 할인금액<%=itemBean.getItem_old_price()*item_code_count-itemBean.getItem_sel_price()*item_code_count %> = 총금액  <%=itemBean.getItem_sel_price()*item_code_count%> </td>
+				<td align="center">상품금액 <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%> - 할인금액<%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()-basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count() %> = 총금액  <%=basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> </td>
 			</tr>
 			<tr>
 				<td align="right" colspan="3"><input type="text" id="usedPoint" name="usedPoint">적립금사용
