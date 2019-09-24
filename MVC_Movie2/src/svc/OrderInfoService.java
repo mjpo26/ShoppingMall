@@ -31,4 +31,42 @@ ArrayList<OrderListBean> articleList = null;
         return articleList;
 	}
 
+	public static OrderListBean getOrderInfo1(int order_item_code) {
+		OrderListBean ob=null; 
+		Connection con = getConnection();  
+	        
+	        OrderListDAO orderListDAO =OrderListDAO.getInstance();
+			
+	        orderListDAO.setConnection(con);
+	        
+	        
+	        ob = orderListDAO.selectArticleList(order_item_code);
+	        
+
+	        
+	        close(con);
+	        
+		return ob;
+	}
+
+	public ArrayList<OrderListBean> getOrderInfo2(String bId) {
+		ArrayList<OrderListBean> articleList = null;
+        
+        Connection con = getConnection();  
+        
+        OrderListDAO orderListDAO =OrderListDAO.getInstance();
+		
+        orderListDAO.setConnection(con);
+        
+        
+        articleList = orderListDAO.selectArticleList1(bId);
+        
+
+        
+        close(con);
+        
+        return articleList;
+
+	}
+
 }

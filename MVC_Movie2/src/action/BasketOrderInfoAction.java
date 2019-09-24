@@ -13,7 +13,7 @@ import vo.ActionForward;
 import vo.BasketListBean;
 import vo.OrderListBean;
 
-public class OrderInfoAction implements Action {
+public class BasketOrderInfoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,9 +22,10 @@ public class OrderInfoAction implements Action {
 		ActionForward forward = null;
 
 		HttpSession session = request.getSession(); // 현재 세션 가져오기
-
+		
 		// 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
 		String sId = (String) session.getAttribute("sId");
+		String bId = (String) request.getParameter("bId");
 		if (sId == null) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -33,6 +34,14 @@ public class OrderInfoAction implements Action {
 			out.println("location.href='index.jsp'");
 			out.println("</script>");
 		} else {
+			if (bId == null) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('잘못된 접근입니다!')");
+				out.println("location.href='index.jsp'");
+				out.println("</script>");
+			} 
 			ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
 			
 			int page = 1;
@@ -46,8 +55,8 @@ public class OrderInfoAction implements Action {
 //		        int listCount = productListService.getListCount(); 
 
 //		        articleList = productListService.getArticleList(page, limit);
-			System.out.println(sId);
-			articleList = orderInfoService.getOrderInfo(sId);
+			System.out.println(bId);
+			articleList = orderInfoService.getOrderInfo2(bId);
 
 			request.setAttribute("articleList", articleList);
 
@@ -56,8 +65,9 @@ public class OrderInfoAction implements Action {
 			forward.setPath("/member/orderInfo.jsp");
 			forward.setRedirect(false);
 		}
-
+			
 		return forward;
+		
 
+		}
 	}
-}

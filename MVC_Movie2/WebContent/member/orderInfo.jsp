@@ -29,7 +29,7 @@
 		</tr>
 		<%
 			for (int i = 0; i < articleList.size(); i++) {
-				double num = Double.parseDouble(articleList.get(i).getOrder_idx());
+				int num = articleList.get(i).getOrder_idx();
 		%>
 		<tr>
 			<td><%=articleList.get(i).getOrder_idx()%></td>

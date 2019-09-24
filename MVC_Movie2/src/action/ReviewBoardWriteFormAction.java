@@ -12,7 +12,7 @@ import vo.MemberBean;
 import vo.OrderListBean;
 import vo.ReviewBoardBean;
 
-public class ReviewBoardReplyFormAction implements Action {
+public class ReviewBoardWriteFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,6 +22,7 @@ public class ReviewBoardReplyFormAction implements Action {
 			// 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
 			String sId = (String) session.getAttribute("sId");
 			int order_item_code=Integer.parseInt(request.getParameter("order_item_code"));
+	        
 			System.out.println(sId);
 			System.out.println(order_item_code);
 			OrderListBean orderListBean = OrderInfoService.getOrderInfo1(order_item_code);
@@ -29,18 +30,12 @@ public class ReviewBoardReplyFormAction implements Action {
 	        
 	        
 	        // 게시물 번호(Review_num), 현재 페이지(page) 파라미터 가져오기
-	        int review_num = Integer.parseInt(request.getParameter("review_num"));
-	        String page = request.getParameter("page");
 	        
 	        // BoardDetailService 클래스의 getArticle() 메서드를 호출하여 게시물 정보 가져오기
-	        ReviewBoardDetailService boardDetailService = new ReviewBoardDetailService();
-	        ReviewBoardBean article = boardDetailService.getArticle(review_num);
 	        
 	        // 현재 게시물 정보(article), 현재 페이지(page) request 객체에 저장
 	        request.setAttribute("memberBean", memberBean);
 	        request.setAttribute("orderListBean", orderListBean);
-	        request.setAttribute("article", article);
-	        request.setAttribute("page", page);
 	        
 	        ActionForward forward = new ActionForward();
 	        forward.setPath("/reviewBoard/write.jsp");

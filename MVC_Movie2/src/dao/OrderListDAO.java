@@ -285,5 +285,81 @@ public class OrderListDAO {
 	        
 	        return articleList;
 		}
+
+	public OrderListBean selectArticleList(int order_item_code) {
+		PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        
+        OrderListBean ob = new OrderListBean();
+         
+        
+        try { 
+            String sql = "SELECT * FROM item_order where order_item_code=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, order_item_code);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	
+            	ob.setOrder_item_code((rs.getInt("order_item_code")));
+            	ob.setOrder_item_title(rs.getString("order_item_title"));
+            	ob.setOrder_item_option_color(rs.getString("order_item_option_color"));
+            	ob.setOrder_delivery_status(rs.getString("order_delivery_status"));
+            	ob.setOrder_date(rs.getDate("order_date"));
+            	ob.setOrder_item_title((rs.getString("order_item_title")));
+            	
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return ob;
+
+	}
+
+	public ArrayList<OrderListBean> selectArticleList1(String bId) {
+		PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+
+         
+        
+        try { 
+            String sql = "SELECT * FROM basket where basket_idx=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, bId);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	OrderListBean orderListBean = new OrderListBean();
+            	orderListBean.setOrder_idx(rs.getInt("basket_idx"));
+            	orderListBean.setOrder_item_code((rs.getInt("basket_code")));
+            	orderListBean.setOrder_item_title((rs.getString("basket_title")));
+            	orderListBean.setOrder_item_option_color(rs.getString("basket_option_color"));
+            	orderListBean.setOrder_delivery_status("배송준비");
+                orderListBean.setOrder_date(rs.getDate("basket_date"));
+            	articleList.add(orderListBean);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return articleList;
+
+	}
 	
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.BasketInfoAction;
+import action.BasketOrderInfoAction;
 import action.OrderInfoAction;
 import action.ProductInsertProAction;
 import action.basketAction;
@@ -99,7 +100,7 @@ public class ProductFrontController extends HttpServlet {
                 e.printStackTrace();
             }
         }else if(command.equals("/selectorder.sh")) {
-            action = new productOrderAction();
+            action = new BasketOrderInfoAction();
             
             try {
                 forward = action.execute(request, response);
