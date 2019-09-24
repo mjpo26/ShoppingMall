@@ -1,3 +1,6 @@
+<%@page import="vo.PageInfo"%>
+<%@page import="vo.ReviewBoardBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="vo.ItemBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -5,6 +8,17 @@
 	ItemBean itemBean = (ItemBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
     String sId = (String)session.getAttribute("sId");
+    
+    
+    ArrayList<ReviewBoardBean> articleList = (ArrayList<ReviewBoardBean>) request.getAttribute("review_articleList");
+    PageInfo pageInfo = (PageInfo) request.getAttribute("review_pageInfo");
+
+    int listCount = pageInfo.getListCount();
+    int review_nowPage = pageInfo.getPage();
+    int startPage = pageInfo.getStartPage();
+    int endPage = pageInfo.getEndPage();
+    int maxPage = pageInfo.getMaxPage();
+    
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -221,65 +235,124 @@
           </div>
         </div>
         
+        
+         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+        	$("input[name='dup']").on("click", function(){
+        		//$('.dup').click(function(){
+        			var s_id = $('#id').val();
+        			//alert("fid : "+s_id);
+        		
+        			$.ajax({
+        			url : "<%=request.getContextPath()%>/IdcheckServlet.ic",
+        			//url : '/IdcheckServlet.ic',
+        	            type: "post", 
+        	           data : {
+        					fid : s_id
+        				},
+
+
+        				success : function(data) {
+        				//	alert(data);
+        					if(s_id =="") {
+        						//alert("s_id 아이디 입력 하세요");
+        						$("#text").css("color","red");
+        						$("#text").text(" 아이디를 입력해주세요.");
+        						$('#id').focus();
+        					} else if (data == '0') {
+        						$("#text").css("color","blue");
+        						$("#text").text(" 사용가능한 아이디 입니다.");						
+        						document.getElementById('isIdOk').value = "yes";
+        					} else if (data =="1") {
+        						$("#text").css("color","red");
+        						$("#text").text(" "+ $('#id').val()+ "는 이미 사용중인 아이디 입니다.");
+        						$('#id').val('');		
+        						$('#id').focus();
+
+        					}
+        				},
+        			
+        				error : function(error) {
+        					alert("에러 : " + error );
+        				
+        					
+        				}
+        			});
+        		});
+        	});
+        </script>
+        
+        
+        
         <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="row">
-            <div class="col-lg-6">
-              <div class="row total_rate">
-                <div class="col-6">
-                  <div class="box_total">
-                    <h5>Overall</h5>
-                    <h4>4.0</h4>
-                    <h6>(03 Reviews)</h6>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="rating_list">
-                    <h3>Based on 3 Reviews</h3>
-                    <ul class="list">
-                      <li>
-                        <a href="#">5 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">4 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">3 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">2 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">1 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                 <div class="reivew">
+                 <%                    
+                    if (articleList != null & listCount > 0) {              
+                        for (int i = 0; i < articleList.size(); i++) {
+                    %>                  
+                         <div class="col-12 review_list mb-4">
+                         	<div class="review_title clearfix">
+	                         	<h5 class="float-left">
+	                         		<%=articleList.get(i).getReview_subject()%>
+	                         	</h5>
+	                         	<p class="float-right">
+	                         		   작성자 : <%=articleList.get(i).getReview_writer() %> &nbsp;&nbsp;&nbsp;
+	                         		     별점 : <%for(int j=0; j<articleList.get(i).getReview_starPoint(); j++ ){
+										%> <a><i class="fa fa-star review_score"></i></a>
+										<%} %> 
+								</p>
+                         	</div>
+							<div class="bg-light p-3">
+                         		<div class="review_content clearfix">
+		                           	<% if(articleList.get(i).getReview_file1()!=null){ %>                                	
+                         			<div class="review_image float-left">
+		                               <img src="./upload/review/<%=articleList.get(i).getReview_file1()%>" class="rounded" width="50%" height="50%"                              
+		                               onclick="location.href='ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>'">
+                         			</div><%}%>
+		                         	<div class="review_text float-right">
+		                         		<%=articleList.get(i).getReview_content()%>
+		                         	</div>
+								</div>
+                         	</div>
+                   
+                         </div>    
+             
+                    <%
+                        }
+                    %>
+                    
+                     <div id="pageList" class="text-center review_board board_paging">
+			            <% if (review_nowPage <= 1) {  %>
+			            <i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
+			            <% } else {  %>
+			            <a href="ReviewBoardList.re?page=<%=review_nowPage - 1%>"><i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
+			            <% }
+			            
+			            for (int i = startPage; i <= endPage; i++) {
+			            	 if (i == review_nowPage) { %>
+			            <span class="current"><b><%=i%></b></span>&nbsp;
+			            <% } else {  %>
+			            <a href="ReviewBoardList.re?page=<%=i%>"> <%=i%>&nbsp;  </a>
+			            <% }
+		 				}
+			            
+			            if (review_nowPage >= maxPage) {%>
+			            &nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i>
+			            <% } else { %>
+			            <a href="ReviewBoardList.re?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i> </a>
+			            <% }  %>
+			        </div>
+			        <%  } else { %> <section id="emptyArea">등록된 글이 없습니다.</section><% } %>
+      
+                    
+                    
+                 </div>   
+           </div>
+          
+          
+            <div class="col-lg-12"> 
               <div class="review_list">
                 <div class="review_item">
                   <div class="media">
@@ -302,111 +375,9 @@
                     ullamco laboris nisi ut aliquip ex ea commodo
                   </p>
                 </div>
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="./assets/img/product/single-product/review-2.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="./assets/img/product/single-product/review-3.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-              </div>
+   
             </div>
-            <div class="col-lg-6">
-              <div class="review_box">
-                <h4>Add a Review</h4>
-                <p>Your Rating:</p>
-                <ul class="list">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                </ul>
-                <p>Outstanding</p>
-                <form class="row contact_form" action="contact_process.php" method="post" novalidate="novalidate">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="name" placeholder="Your Full name" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="email" placeholder="Email Address" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="number" placeholder="Phone Number" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <textarea class="form-control" name="message" rows="1" placeholder="Review"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-12 text-right">
-                    <button type="submit" value="submit" class="btn_3">
-                      Submit Now
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@
 				%>
 					<a><i class="fa fa-star"></i></a>
 				<%} %>
-				<span class="content_gray">작성자 : <%=article.getReview_writer()%></span>			
+				<span class="content_gray"> &nbsp;&nbsp;  | &nbsp;&nbsp;작성자 : <%=article.getReview_writer()%></span>			
 				</div>
 				<hr>
 				<div class="content_content">

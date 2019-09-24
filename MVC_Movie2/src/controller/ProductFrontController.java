@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import action.Action;
 import action.BasketInfoAction;
 import action.BasketOrderInfoAction;
+import action.MemberIdCheckAction;
 import action.OrderInfoAction;
 import action.ProductInsertProAction;
 import action.basketAction;
@@ -20,6 +23,7 @@ import action.productDetailAction;
 import action.productList1Action;
 import action.productOrderAction;
 import action.productOrderProAction;
+import action.productReviewAction;
 import action.productUpdate1ProAction;
 import action.productUpdateAction;
 import action.productUpdateProAction;
@@ -141,7 +145,17 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}else if(command.equals("/productReview.sh")) {
+            action = new productReviewAction();
+            JSONObject json =(JSONObject)request.getAttribute("json");
+            request.setAttribute("json", json);
+            try {
+                forward = action.execute(request, response);
+              
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         
         
         
@@ -161,6 +175,7 @@ public class ProductFrontController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
         doProcess(request, response);
     }
 
