@@ -7938,3 +7938,29 @@ figure:hover .review_writer {
 
 
 
+
+/* 제품 상세페이지 리뷰 보기   */
+
+.product_reivew .review_title h5{
+	font-weight:600;
+}
+
+.product_reivew .review_title p{
+	font-size:0.9em;
+}
+.product_reivew .review_summary{
+	display: inline-block; 
+	width: 95%; 
+	overflow: hidden; 
+}
+
+.product_reivew .review_content{
+	border:none;
+}
+
+
+
+.review_bg{
+	border-radius: 1em;
+}
+

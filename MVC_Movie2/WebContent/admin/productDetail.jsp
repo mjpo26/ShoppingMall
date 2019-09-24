@@ -237,62 +237,18 @@
         
         
          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript">
-        $(function() {
-        	$("input[name='dup']").on("click", function(){
-        		//$('.dup').click(function(){
-        			var s_id = $('#id').val();
-        			//alert("fid : "+s_id);
-        		
-        			$.ajax({
-        			url : "<%=request.getContextPath()%>/IdcheckServlet.ic",
-        			//url : '/IdcheckServlet.ic',
-        	            type: "post", 
-        	           data : {
-        					fid : s_id
-        				},
 
-
-        				success : function(data) {
-        				//	alert(data);
-        					if(s_id =="") {
-        						//alert("s_id 아이디 입력 하세요");
-        						$("#text").css("color","red");
-        						$("#text").text(" 아이디를 입력해주세요.");
-        						$('#id').focus();
-        					} else if (data == '0') {
-        						$("#text").css("color","blue");
-        						$("#text").text(" 사용가능한 아이디 입니다.");						
-        						document.getElementById('isIdOk').value = "yes";
-        					} else if (data =="1") {
-        						$("#text").css("color","red");
-        						$("#text").text(" "+ $('#id').val()+ "는 이미 사용중인 아이디 입니다.");
-        						$('#id').val('');		
-        						$('#id').focus();
-
-        					}
-        				},
-        			
-        				error : function(error) {
-        					alert("에러 : " + error );
-        				
-        					
-        				}
-        			});
-        		});
-        	});
-        </script>
         
         
         
         <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="row">
-                 <div class="reivew">
+                 <div class="product_reivew clearfix">
                  <%                    
                     if (articleList != null & listCount > 0) {              
                         for (int i = 0; i < articleList.size(); i++) {
                     %>                  
-                         <div class="col-12 review_list mb-4">
+                         <div class="col-12 review_list mb-4 float-left">
                          	<div class="review_title clearfix">
 	                         	<h5 class="float-left">
 	                         		<%=articleList.get(i).getReview_subject()%>
@@ -300,23 +256,49 @@
 	                         	<p class="float-right">
 	                         		   작성자 : <%=articleList.get(i).getReview_writer() %> &nbsp;&nbsp;&nbsp;
 	                         		     별점 : <%for(int j=0; j<articleList.get(i).getReview_starPoint(); j++ ){
-										%> <a><i class="fa fa-star review_score"></i></a>
+										%> <i class="fa fa-star review_score"></i>
 										<%} %> 
 								</p>
-                         	</div>
-							<div class="bg-light p-3">
-                         		<div class="review_content clearfix">
+                         	</div>       	
+        
+                         	
+                         	
+                           <script type="text/javascript">
+			            	function doDisplay(i){
+			            	    var detail = document.getElementById("review_detail"+i)
+			            	    var summary = document.getElementById("review_summary"+i)
+			            	    if(detail.style.display =='none'){
+			            	    	detail.style.display ='block';
+			            	    	summary.style.display ='none';
+			            	    }else{
+			            	    	summary.style.display ='block';
+			            	    	detail.style.display ='none';
+			            	    }
+			            	}
+		            	  </script>
+		            	  
+							<div class="bg-light p-3 review_bg" id="review_summary<%=i%>" onclick="doDisplay(<%=i%>);">
+								<div class="review_summary">
+								 <p class="float-left d-inline-block"><%=articleList.get(i).getReview_content()%></p>
+								</div>
+								 <i class="ti-angle-down float-right d-inline-block review_more" onclick="doDisplay(<%=i%>);"></i>
+							</div>
+							<div class="bg-light p-3 review_detail review_bg" id="review_detail<%=i%>" style="display:none;" onclick="doDisplay(<%=i%>);">
+								<div class="review_content clearfix row">
+								
 		                           	<% if(articleList.get(i).getReview_file1()!=null){ %>                                	
-                         			<div class="review_image float-left">
-		                               <img src="./upload/review/<%=articleList.get(i).getReview_file1()%>" class="rounded" width="50%" height="50%"                              
+                         			<div class="review_image float-left d-inline-block col-3">
+		                               <img src="./upload/review/<%=articleList.get(i).getReview_file1()%>" class="rounded"                            
 		                               onclick="location.href='ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>'">
                          			</div><%}%>
-		                         	<div class="review_text float-right">
-		                         		<%=articleList.get(i).getReview_content()%>
+		                         	<div class="review_text float-right d-inline-block col-9">
+		                         	<i class="ti-angle-up float-right d-inline-block review_more" onClick="doDisplay(<%=i%>);"></i>		                         	
+		                         	<p class="p-3">
+		                         	<%=articleList.get(i).getReview_content()%>
+		                         	</p>
 		                         	</div>
 								</div>
-                         	</div>
-                   
+                         	</div>                   
                          </div>    
              
                     <%
@@ -351,34 +333,7 @@
                  </div>   
            </div>
           
-          
-            <div class="col-lg-12"> 
-              <div class="review_list">
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="./assets/img/product/single-product/review-1.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-   
-            </div>
-
-          </div>
+    
         </div>
       </div>
     </div>
