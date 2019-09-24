@@ -15,8 +15,7 @@ public class OrderUpdateAction implements Action{
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.println("여기들어와요요용요ㅛㅇㅇ");
-   
-        
+     
         OrderBean orderBean = new OrderBean();
         int order_idx = (Integer.parseInt(request.getParameter("order_idx"))); // 주문 번호
         
