@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_0.xsd ">
+
+ <display-name>shoppingmall</display-name>
+
+<!--   <servlet> -->
+<!--   <servlet-name>IdCheckServlet</servlet-name> -->
+<!--   <servlet-class>controller.IdCheckServlet</servlet-class> -->
+<!--   </servlet> -->
+  
+<!--    <servlet-mapping> -->
+<!--   <servlet-name>IdCheckServlet</servlet-name> -->
+<!--   <url-pattern>/IdCheckServlet</url-pattern> -->
+<!--   </servlet-mapping> -->
+  
+  
+  
+   <servlet>
+  <servlet-name>CategoryListServlet</servlet-name>
+  <servlet-class>controller.CategoryListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>CategoryListServlet</servlet-name>
+  <url-pattern>/CategoryListServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

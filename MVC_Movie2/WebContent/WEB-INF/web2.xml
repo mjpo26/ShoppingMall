@@ -12,4 +12,14 @@
   <url-pattern>controller.IdCheckServlet</url-pattern>
   </servlet-mapping>
   
+  
+  
+   <servlet>
+  <servlet-name>CategoryListServlet</servlet-name>
+  <servlet-class>controller.CategoryListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>CategoryListServlet</servlet-name>
+  <url-pattern>controller.CategoryListServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

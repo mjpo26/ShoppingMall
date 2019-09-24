@@ -13,35 +13,25 @@ $(function() {
 			alert("cate1 : "+cate1);
 		
 			$.ajax({
-			url : "<%=request.getContextPath()%>/CategoryListServlet.ca",
-			//url : '/IdcheckServlet.ic',
-	            type: "post", 
+		url : "<%=request.getContextPath()%>/CategoryListServlet.ca",
+	//		url : 'CategoryListServlet.ca',
+	           type: "post", 
 	           data : {
 	        	   item_category1 : cate1
 				},
 
 
 				success : function(data) {
- //					alert(data);
-// 					if(cate1 =="") {
-// 						alert("cate1 입력 하세요");
-// 						$("#text").css("color","gray");
-// 						$("#text").text("아이디를 입력해주세요.");
-// 					} else if (data == '0') {
-// 						$("#text").css("color","blue");
-// 						$("#text").text("사용가능한 아이디 입니다.");
-// 						document.getElementById('isIdOk').value = "yes";
-// 					} else if (data =="1") {
-// 						$("#text").css("color","red");
-// 						$("#text").text("이미 사용중인 아이디 입니다.");
-// 					}
-					$('table').append("<tr><td>"+data+"</td></tr>");
+					console.log("111111");
+					console.log(data);
+					alert("성공");
+					alert(data);
 				},
-			
-				error : function(error) {
-					alert("에러 : " + error );
 				
-					
+				error : function(error) {
+					console.log("111111");
+					console.log(data);
+					alert("실패");
 				}
 			});
 		});
@@ -60,8 +50,8 @@ $(function() {
 		<form method="post">
 		<input type="text" id="item_category1" name="item_category1" size="12">
 		<input type="button" value="검색">
-		<input type="submit" value="수정" >
-		<input type="submit" id ="insertCategory1" name ="insertCategory1" value="신규등록" ><br><br>
+		<input type="button" value="수정" >
+		<input type="button" id ="insertCategory1" name ="insertCategory1" value="신규등록" ><br><br>
 	<textarea rows="10" cols="50">
 	리스트
 	</textarea>
@@ -74,7 +64,7 @@ $(function() {
 		<input type="text" size="12">
 		<input type="button" value="검색">
 		<input type="button" value="수정">
-		<input type="submit" value="신규등록"><br><br>
+		<input type="button" value="신규등록"><br><br>
 	<textarea rows="10" cols="50">
 	리스트
 	</textarea>

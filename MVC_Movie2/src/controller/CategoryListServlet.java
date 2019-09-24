@@ -30,12 +30,22 @@ public class CategoryListServlet extends HttpServlet{
        
         ArrayList<ItemBean> cateList = new ArrayList<ItemBean>();
         cateList=idao.selectCate1();
+        String aaa="";
         for(int i=0;i<cateList.size();i++) {
-        	response.getWriter().write(cateList.get(i).getItem_category1());
-        System.out.println(cateList.get(i).getItem_category1());
+        	
+        	aaa += cateList.get(i).getItem_category1()+"/";
+        	//response.getWriter().write(cateList.get(i).getItem_category1());
+        //System.out.println(cateList.get(i).getItem_category1());
        
         }
-         }
+        
+        System.out.println(aaa);
+        
+        response.getWriter().write("가나");
+        
+        
+        
+    }
         
         
        

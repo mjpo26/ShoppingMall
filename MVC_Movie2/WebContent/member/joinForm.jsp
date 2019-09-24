@@ -179,7 +179,7 @@
 
 
 				success : function(data) {
-				//	alert(data);
+					alert(data);
 					if(s_id =="") {
 						//alert("s_id 아이디 입력 하세요");
 						$("#text").css("color","red");
