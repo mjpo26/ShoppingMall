@@ -23,6 +23,7 @@ public class OrderListAction implements Action {
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 10; // 한 페이지 당 표시할 게시물 수
+	        int order_idx = (Integer.parseInt(request.getParameter("order_idx"))); // 주문 번호
 	        
 	        // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
 	        if(request.getParameter("page") != null) {
@@ -30,14 +31,19 @@ public class OrderListAction implements Action {
 	        }
 	        OrderSearchBean ob = new OrderSearchBean();
 	        ob.setOrder_item_code(request.getParameter("ItemCode"));
-	//        ob.setOrder_idx(Integer.parseInt(request.getParameter("order_idx")));
+//	        ob.setOrder_idx((Integer)request.getParameter("order_idx"));
+	        try {
+	        	ob.setOrder_idx(order_idx);
+	        } catch (Exception e) {
+	        	
+	        }
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
 	        ob.setOrder_member_id(request.getParameter("Buyer"));
 	        ob.setOrder_pay_status(request.getParameter("pay")); // 결제상태
 	        ob.setOrder_delivery_status(request.getParameter("delivery")); // 배송상태
 	        ob.setOrder_item_status(request.getParameter("item_status")); // 주문취소
 	        ob.setOrder_bank(request.getParameter("bank"));
-	        ob.setOrder_payment(request.getParameter("payment"));//  결제방법
+	        ob.setOrder_payment(request.getParameter("payment"));// 결제방법
 	        
 	        System.out.println("jsp script 로 널값 변환되나 보자  ["+request.getParameter("pickStart")+"]");
 	        
