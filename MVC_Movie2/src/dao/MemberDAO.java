@@ -494,12 +494,40 @@ public class MemberDAO {
         
         return memberBean;
 	}
-    
+
+	public MemberBean findID(String name, String email) {
+		// name, email 에 해당하는 레코드가 있으면 로그인 성공(true 리턴), 아니면 실패(false 리턴)
+        
+        MemberBean memberBean = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+		
+        String sql = "SELECT * FROM member WHERE member_name =? AND member_email =?";
+        
+        try {
+        	
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            
+// 
+            rs = pstmt.executeQuery();
+            
+            if(rs.next()) {
+            	memberBean = new MemberBean();
+            	memberBean.setMember_id(rs.getString("member_id"));
+            }
+        } catch (SQLException e) {
+            System.out.println("selectLoginMember 실패! - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        return memberBean;
+	}
+
 }
-
-
-
-
 
 
 

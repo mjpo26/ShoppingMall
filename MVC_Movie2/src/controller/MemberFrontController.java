@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import action.Action;
 import action.MemberDeleteProAction;
 import action.MemberFwFindAction;
+import action.MemberIDFindAction;
 import action.MemberIdCheckAction;
 import action.MemberInfoAction;
 import action.MemberJoinProAction;
@@ -45,6 +46,9 @@ public class MemberFrontController extends HttpServlet {
         } else if(command.equals("/MemberfindPw.me")) {
             forward = new ActionForward();
             forward.setPath("/member/pw_find.jsp");
+        } else if(command.equals("/MemberIDfind.me")) {
+            forward = new ActionForward();
+            forward.setPath("/member/id_find.jsp");
         } 
         else if(command.equals("/MemberLoginPro.me")) {
             action = new MemberLoginProAction();
@@ -123,6 +127,15 @@ public class MemberFrontController extends HttpServlet {
             }
         }else if(command.equals("/MemberFwfind.me")) {
             action = new MemberFwFindAction();
+                        
+            try {
+                forward = action.execute(request, response);
+              
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberfindID.me")) {
+            action = new MemberIDFindAction();
                         
             try {
                 forward = action.execute(request, response);

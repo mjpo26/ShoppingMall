@@ -27,6 +27,9 @@ public class ReviewBoardBean {
 	public int getReview_order_item_code() {
 		return review_order_item_code;
 	}
+	public void setReview_order_item_code(int review_order_item_code) {
+		this.review_order_item_code = review_order_item_code;
+	}
 	public int getReview_re_ref() {
 		return review_re_ref;
 	}
@@ -140,10 +143,6 @@ public class ReviewBoardBean {
 	}
 	public void setReview_replycount(String review_replycount) {
 		this.review_replycount = review_replycount;
-	}
-	public void setReview_order_item_code(int parseInt) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 
