@@ -461,6 +461,39 @@ public class MemberDAO {
 	        
 	        return updateCount;
 	    }
+
+	public MemberBean findFw(String id, String phone) {
+		 // id, password 에 해당하는 레코드가 있으면 로그인 성공(true 리턴), 아니면 실패(false 리턴)
+        
+        MemberBean memberBean = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        //query= "";
+        String sql = "SELECT * FROM member WHERE member_id =? AND member_phone =?";
+        
+        try {
+        	
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.setString(2, phone);
+            
+// 
+            rs = pstmt.executeQuery();
+            
+            if(rs.next()) {
+            	memberBean = new MemberBean();
+            	memberBean.setMember_id(rs.getString("member_id"));
+            	memberBean.setMember_pass(rs.getString("member_pass"));
+            }
+        } catch (SQLException e) {
+            System.out.println("selectLoginMember 실패! - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        return memberBean;
+	}
     
 }
 

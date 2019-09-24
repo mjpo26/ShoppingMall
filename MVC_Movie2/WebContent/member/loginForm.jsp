@@ -40,8 +40,8 @@
                         <a href="MemberJoinForm.me" class="btn_3">회원가입하기</a><br><br>
                         <h2>아이디/비밀번호를 잃어버리셨나요?</h2>
                         <!-- <p>아이디 찾기</p>-->
-                        <a href="#" class="btn_3">아이디 찾기</a>
-                        <a href="#" class="btn_3">비밀번호 찾기</a>
+                        <a href="./pw_find.jsp" class="btn_3">아이디 찾기</a>
+                        <a href="./MemberfindPw.me" class="btn_3">비밀번호 찾기</a>
                     </div>
 
                 </div>
