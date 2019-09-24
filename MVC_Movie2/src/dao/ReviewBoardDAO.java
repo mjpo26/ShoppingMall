@@ -40,16 +40,41 @@ public class ReviewBoardDAO {
 			String sql = "SELECT MAX(review_num) FROM Review_Board";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-
+			System.out.println(article.getReview_subject());
+			System.out.println(article.getReview_order_item_code());
 			int num = 1;
 
 			if (rs.next()) {
 				num = rs.getInt(1) + 1;
 			}
-			sql = "INSERT INTO Review_Board VALUES (?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			
+			sql = "INSERT INTO Review_Board ("
+			+ "review_num,"
+		    + "review_subject," 
+			+ "review_content,"
+			+ "review_writer," 
+			+ "review_id," 
+			+ "review_pass,"
+			+ "review_readcount," 
+			+ "review_file1,"
+		    + "review_file2,"  //10
+			+ "review_file3,"  
+		    + "review_file4," 
+			+ "review_file5," 
+		    + "review_starPoint,"
+			+ "review_orderNo," 
+		    + "review_re_ref," 
+			+ "review_re_lev," 
+		    + "review_re_seq," 
+			+ "review_replycount," 
+			+ "review_order_item_code, "
+			+ "review_date)"
+			+ "VALUES(?,?,?,?,?,?,"
+			+ "?,?,?,?,?,?,?,"
+			+ "?,?,?,?,?,?,now())";
+			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-
 			pstmt.setString(2, article.getReview_subject());
 			pstmt.setString(3, article.getReview_content());
 			pstmt.setString(4, article.getReview_writer());
@@ -66,7 +91,8 @@ public class ReviewBoardDAO {
 			pstmt.setInt(15, num);
 			pstmt.setInt(16, 0);
 			pstmt.setInt(17, 0);
-			pstmt.setInt(18,article.getReview_order_item_code());
+			pstmt.setString(18, "0");
+			pstmt.setInt(19, article.getReview_order_item_code());
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("insertArticle() 에러 - " + e.getMessage());
@@ -342,10 +368,10 @@ public class ReviewBoardDAO {
 			pstmt.setInt(17, review_re_seq);
 			pstmt.setString(18, review_replycount);
 			insertCount = pstmt.executeUpdate();
-            
+
 			isUpdateReply(article);
 			System.out.println("*글번호: " + review_re_ref + "리플라이카운트: " + review_replycount);
-			
+
 		} catch (SQLException e) {
 
 			System.out.println("insertReplyArticle() 에러 - " + e.getMessage());
@@ -356,7 +382,8 @@ public class ReviewBoardDAO {
 
 		return insertCount;
 	}
-  //답글 달렸는지 여부 1이면 달린거 0이면 안달린거
+
+	// 답글 달렸는지 여부 1이면 달린거 0이면 안달린거
 	public int isUpdateReply(ReviewBoardBean article) {
 		int updateCount = 0;
 		PreparedStatement pstmt = null;

@@ -17,7 +17,7 @@
 	<h1>주문 내역</h1>
 	<table border="1">
 		<tr>
-			<td>주분번호</td>
+			<td>주문번호</td>
 			<td>상품번호</td>
 			<td>상품명</td>
 			<td>주문일자</td>
@@ -29,7 +29,7 @@
 		</tr>
 		<%
 			for (int i = 0; i < articleList.size(); i++) {
-				double num = Double.parseDouble(articleList.get(i).getOrder_idx());
+				int num = articleList.get(i).getOrder_idx();
 		%>
 		<tr>
 			<td><%=articleList.get(i).getOrder_idx()%></td>

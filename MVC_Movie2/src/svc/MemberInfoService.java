@@ -9,7 +9,7 @@ import vo.MemberBean;
 
 public class MemberInfoService {
     
-    public MemberBean getMemberInfo(String member_id) {
+    public static MemberBean getMemberInfo(String member_id) {
         Connection con = getConnection();
         MemberDAO memberDAO = MemberDAO.getInstance();
         memberDAO.setConnection(con);

@@ -28,6 +28,25 @@ public class MemberIdCheckService {
       return json;
       
   }
+    public MemberBean findFw(String id,String phone) {
+    	MemberBean memberBean = new MemberBean();
+    	Connection con = getConnection();
+        MemberDAO memberDAO = MemberDAO.getInstance();
+        memberDAO.setConnection(con);
+
+        memberBean = memberDAO.findFw(id,phone);
+    	return memberBean;
+    }
+    
+    public MemberBean findID(String name, String email) {
+    	MemberBean memberBean = new MemberBean();
+    	Connection con = getConnection();
+        MemberDAO memberDAO = MemberDAO.getInstance();
+        memberDAO.setConnection(con);
+        
+        memberBean = memberDAO.findID(name,email);
+        return memberBean;
+    }
   
 }
 

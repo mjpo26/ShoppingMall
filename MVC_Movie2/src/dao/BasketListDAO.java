@@ -232,4 +232,45 @@ public class BasketListDAO {
         return deleteCount;
     }
 
+	public BasketListBean selectInfo(int bId) {
+		 
+		 BasketListBean basketListBean =null; 
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        
+	        try {
+	            String sql = "SELECT * FROM basket WHERE basket_idx=?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, bId);
+	            rs = pstmt.executeQuery();
+	            
+	            if(rs.next()) {
+	            	   basketListBean = new BasketListBean();
+	            	   basketListBean.setBasket_idx(rs.getInt("basket_idx"));
+	                   basketListBean.setBasket_code(rs.getInt("basket_code"));
+	                   basketListBean.setBasket_title(rs.getString("basket_title"));
+	                   basketListBean.setBasket_sel_price(rs.getInt("basket_sel_price"));
+	                   basketListBean.setBasket_new_price(rs.getInt("basket_new_price"));
+	                   basketListBean.setBasket_point(rs.getInt("basket_point"));
+	                   basketListBean.setBasket_option_color(rs.getString("basket_option_color"));
+	                   basketListBean.setBasket_code_count(rs.getInt("basket_code_count"));
+	                   basketListBean.setBasket_delivery_pee(rs.getInt("basket_delivery_pee"));
+	                   basketListBean.setBasket_date(rs.getDate("basket_date"));
+	            }
+	            
+	        } catch (SQLException e) {
+	        	System.out.println(basketListBean.getBasket_title());
+	        	System.out.println(basketListBean.getBasket_idx());
+	        	System.out.println(basketListBean.getBasket_code());
+	        	System.out.println(basketListBean.getBasket_point());
+	        	
+	            System.out.println("selectMemberInfo 실패! - " + e.getMessage());
+	        } finally {
+	            close(rs);
+	            close(pstmt);
+	        }
+	        
+	        return basketListBean;
+	}
+
 }

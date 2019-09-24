@@ -16,6 +16,8 @@
 	int delivery2_Count = pageInfo.getDelivery2_Count();
 	int delivery3_Count = pageInfo.getDelivery3_Count();
 	int delivery4_Count = pageInfo.getDelivery4_Count();
+
+	String[] delivery = {"입금전","배송전","배송중","배송완료"};
 %>
 <!DOCTYPE html>
 <html>
@@ -197,14 +199,14 @@ function pickNullCheck(){
 		</tr>
 
 		<tr>
-			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			<th><a href="#" onclick="location.href='./orderList.ol?delivery=<%=delivery[0] %>'">
 			입금전</a><br><%=delivery1_Count %> EA
-			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			<th><a href="#" onclick="location.href='./orderList.ol?delivery=<%=delivery[1] %>'">
 			배송전</a><br><%=delivery2_Count %> EA
 			</th>
-			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			<th><a href="#" onclick="location.href='./orderList.ol?delivery=<%=delivery[2] %>'">
 			배송중</a><br><%=delivery3_Count %> EA
-			<th><a href="#" onclick="document.getElementById('frm').submit();">
+			<th><a href="#" onclick="location.href='./orderList.ol?delivery=<%=delivery[3] %>'">
 			배송완료</a><br><%=delivery4_Count %> EA
 			</th>
 

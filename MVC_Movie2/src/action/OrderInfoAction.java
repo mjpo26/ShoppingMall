@@ -34,7 +34,7 @@ public class OrderInfoAction implements Action {
 			out.println("</script>");
 		} else {
 			ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
-
+			
 			int page = 1;
 			int limit = 10;
 
@@ -46,6 +46,7 @@ public class OrderInfoAction implements Action {
 //		        int listCount = productListService.getListCount(); 
 
 //		        articleList = productListService.getArticleList(page, limit);
+			System.out.println(sId);
 			articleList = orderInfoService.getOrderInfo(sId);
 
 			request.setAttribute("articleList", articleList);

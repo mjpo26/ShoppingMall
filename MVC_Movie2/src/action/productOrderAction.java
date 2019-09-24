@@ -23,10 +23,12 @@ public class productOrderAction implements Action {
 		int itemCode = Integer.parseInt(request.getParameter("Item_code"));
 		String page = request.getParameter("page");
 		String sId = (String) session.getAttribute("sId");
+		
 		ProductDetailService productDetailService = new ProductDetailService();
 		MemberInfoService memberInfoService = new MemberInfoService();
 		MemberBean memberBean = memberInfoService.getMemberInfo(sId);
 		ItemBean itemBean = productDetailService.getArticle(itemCode);
+		
 		String item_code_count =request.getParameter("Item_code_count");
 		String item_color=(String)request.getParameter("item_color");
 		

@@ -44,9 +44,7 @@ public class OrderDAO {
         int insertCount = 0; // 게시물 등록 성공 여부를 저장할 변수(성공 = 1, 실패 = 0)
         
         try {
-            
             String sql = "INSERT INTO item_order ("
-                    //   + "order_idx ,"
                        + "order_item_code ,"
                        + "order_item_title ,"
 //                       + "order_item_option_color ,"
@@ -78,6 +76,7 @@ public class OrderDAO {
             pstmt.setString(3, "배송전");
             pstmt.setString(4, orderListBean.getOrder_member_name());
             pstmt.setString(5, orderListBean.getOrder_member_id());
+//            pstmt.setInt(6, orderListBean.getOrder_idx()); 
 //            pstmt.setString(12, orderListBean.getOrder_pay_status());
 //            pstmt.setString(13, orderListBean.getOrder_payment());
 //            pstmt.setString(14, orderListBean.getOrder_memo());

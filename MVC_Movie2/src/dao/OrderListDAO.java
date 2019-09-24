@@ -71,16 +71,28 @@ public class OrderListDAO {
 		ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
 
 		int startRow = (ob.getPage() - 1) * 10;
-
+		
 		try {
 
 			System.out.println("디에오 체크/"+ob.getPickStart() + "/" +ob.getPickEnd());
 			
+			
+			// admin
+			// admin2
+	
 			String sql = "SELECT * FROM item_order where "
-			        + "order_idx like ifnull(?,'%%') "
+			
+	
+			
+			        
+					
+//				+ "if(order_idx=?<1 ,like '%%',?)"
+				
+		        
+					+ "order_idx like if(?<1,'%%',?)"
+					+ "and order_item_title like ifnull(?,'%%') "
 					+ "and order_date >= ?"
 					+ "and order_date <= ?"
-			        + "and order_item_title like ifnull(?,'%%') "
 			        + "and order_member_id like ifnull(?,'%%') "
 			        + "and order_pay_status like ifnull(?,'%%') "
 			        + "and order_delivery_status like ifnull(?,'%%')"
@@ -92,17 +104,18 @@ public class OrderListDAO {
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
 			pstmt.setInt(1, ob.getOrder_idx());
-			pstmt.setDate(2, ob.getPickStart());
-			pstmt.setDate(3, ob.getPickEnd());
-			pstmt.setString(4, ob.getOrder_item_title());
-			pstmt.setString(5, ob.getOrder_member_id());
-			pstmt.setString(6, ob.getOrder_pay_status());
-			pstmt.setString(7, ob.getOrder_delivery_status());
-			pstmt.setString(8, ob.getOrder_item_status());
-			pstmt.setString(9, ob.getOrder_bank());
-			pstmt.setString(10, ob.getOrder_payment());
-			pstmt.setInt(11, startRow);
-			pstmt.setInt(12, ob.getLimit());
+			pstmt.setInt(2, ob.getOrder_idx());
+			pstmt.setString(3, ob.getOrder_item_title());
+			pstmt.setDate(4, ob.getPickStart());
+			pstmt.setDate(5, ob.getPickEnd());
+			pstmt.setString(6, ob.getOrder_member_id());
+			pstmt.setString(7, ob.getOrder_pay_status());
+			pstmt.setString(8, ob.getOrder_delivery_status());
+			pstmt.setString(9, ob.getOrder_item_status());
+			pstmt.setString(10, ob.getOrder_bank());
+			pstmt.setString(11, ob.getOrder_payment());
+			pstmt.setInt(12, startRow);
+			pstmt.setInt(13, ob.getLimit());
 			
 			rs = pstmt.executeQuery();
 			
@@ -261,12 +274,14 @@ public class OrderListDAO {
 	            pstmt = con.prepareStatement(sql);
 	            pstmt.setString(1, sId);
 	            rs = pstmt.executeQuery();
-	            
 
 	            while(rs.next()) {
 	            	OrderListBean orderListBean = new OrderListBean();
+	            	System.out.println("아");
 	            	orderListBean.setOrder_idx(rs.getInt("order_idx"));
+	            	System.out.println("주문번호"+orderListBean.getOrder_idx());
 	            	orderListBean.setOrder_item_code((rs.getInt("order_item_code")));
+	             	System.out.println("아이템코드"+orderListBean.getOrder_idx());
 	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
 	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 	            	orderListBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
@@ -285,5 +300,82 @@ public class OrderListDAO {
 	        
 	        return articleList;
 		}
+
+	public OrderListBean selectArticleList(int order_item_code) {
+		PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        
+        OrderListBean ob = new OrderListBean();
+         
+        
+        try { 
+            String sql = "SELECT * FROM item_order where order_item_code=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, order_item_code);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	
+            	ob.setOrder_item_code((rs.getInt("order_item_code")));
+            	ob.setOrder_idx(rs.getInt("order_idx"));
+            	ob.setOrder_item_title(rs.getString("order_item_title"));
+            	ob.setOrder_item_option_color(rs.getString("order_item_option_color"));
+            	ob.setOrder_delivery_status(rs.getString("order_delivery_status"));
+            	ob.setOrder_date(rs.getDate("order_date"));
+            	ob.setOrder_item_title((rs.getString("order_item_title")));
+            	
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return ob;
+
+	}
+
+	public ArrayList<OrderListBean> selectArticleList1(String bId) {
+		PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+
+         
+        
+        try { 
+            String sql = "SELECT * FROM basket where basket_idx=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, bId);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	OrderListBean orderListBean = new OrderListBean();
+            	orderListBean.setOrder_idx(rs.getInt("basket_idx"));
+            	orderListBean.setOrder_item_code((rs.getInt("basket_code")));
+            	orderListBean.setOrder_item_title((rs.getString("basket_title")));
+            	orderListBean.setOrder_item_option_color(rs.getString("basket_option_color"));
+            	orderListBean.setOrder_delivery_status("배송준비");
+                orderListBean.setOrder_date(rs.getDate("basket_date"));
+            	articleList.add(orderListBean);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return articleList;
+
+	}
 	
 }

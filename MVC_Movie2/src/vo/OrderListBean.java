@@ -5,7 +5,6 @@ import java.sql.Date;
 public class OrderListBean {
 
 	private int order_idx;
-
 	private int order_item_code;
 	private String order_item_title;
 	private String order_item_option_color;

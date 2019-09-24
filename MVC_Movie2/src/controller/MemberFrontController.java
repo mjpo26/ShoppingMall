@@ -13,6 +13,8 @@ import org.json.simple.JSONObject;
 
 import action.Action;
 import action.MemberDeleteProAction;
+import action.MemberFwFindAction;
+import action.MemberIDFindAction;
 import action.MemberIdCheckAction;
 import action.MemberInfoAction;
 import action.MemberJoinProAction;
@@ -41,7 +43,14 @@ public class MemberFrontController extends HttpServlet {
         } else if(command.equals("/MemberJoinForm.me")) {
             forward = new ActionForward();
             forward.setPath("/member/joinForm.jsp");
-        } else if(command.equals("/MemberLoginPro.me")) {
+        } else if(command.equals("/MemberfindPw.me")) {
+            forward = new ActionForward();
+            forward.setPath("/member/pw_find.jsp");
+        } else if(command.equals("/MemberIDfind.me")) {
+            forward = new ActionForward();
+            forward.setPath("/member/id_find.jsp");
+        } 
+        else if(command.equals("/MemberLoginPro.me")) {
             action = new MemberLoginProAction();
             
             try {
@@ -110,6 +119,24 @@ public class MemberFrontController extends HttpServlet {
             action = new MemberIdCheckAction();
             JSONObject json =(JSONObject)request.getAttribute("json");
             request.setAttribute("json", json);
+            try {
+                forward = action.execute(request, response);
+              
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else if(command.equals("/MemberFwfind.me")) {
+            action = new MemberFwFindAction();
+                        
+            try {
+                forward = action.execute(request, response);
+              
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/MemberfindID.me")) {
+            action = new MemberIDFindAction();
+                        
             try {
                 forward = action.execute(request, response);
               

@@ -33,6 +33,24 @@ public class BasketInfoService {
         
         return articleList;
 	}
+
+	public static BasketListBean getBasketInfo1(int bId){
+		BasketListBean bb= null;
+		  Connection con = getConnection();  
+	        
+	        BasketListDAO basketListDAO =BasketListDAO.getInstance();
+			
+	        basketListDAO.setConnection(con);
+	        
+	        
+	       bb = basketListDAO.selectInfo(bId);
+	        
+
+	        
+	        close(con);
+	        
+	        return bb;
+	}
     
 }
 

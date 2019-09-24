@@ -5,35 +5,17 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.ProductDetailService;
 import svc.ReviewBoardListService;
 import vo.ActionForward;
-import vo.ItemBean;
 import vo.PageInfo;
 import vo.ReviewBoardBean;
 
-public class productDetailAction implements Action {
+public class productReviewAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		   System.out.println("ProductDetailAction ");
-	        
-	        // 파라미터로 전달된 board_num, page 데이터 가져오기
-	        int item_code = Integer.parseInt(request.getParameter("Item_code"));
-	        String page = request.getParameter("page"); // 직접 사용할 파라미터가 아니므로 int 형변환 필요없음 
-	        
-	        // BoardDetailService 객체 생성
-	        ProductDetailService productDetailService = new ProductDetailService();
-	        
-	        // BoardDetailService 객체의 getArticle() 메서드를 호출하여 글 상세 내용 BoardBean 타입으로 리턴받음
-	        ItemBean article = productDetailService.getArticle(item_code);
-	        
-	        // page 값 request 객체에 저장
-	        // 글 상세 내용 BoardBean 객체 request 객체에 저장
-	        request.setAttribute("page", page);
-	        request.setAttribute("article", article);
-	        
-	        
+
+		  
 	       // ---------------------- 리뷰 추가
 	        
 	        ArrayList<ReviewBoardBean> articleList = new ArrayList<ReviewBoardBean>();
@@ -70,23 +52,16 @@ public class productDetailAction implements Action {
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("review_pageInfo", pageInfo);
-	        request.setAttribute("review_articleList", articleList);        
+	        request.setAttribute("review_articleList", articleList);    
 	        
+	  
 	        
-	        
-	        // -------------------------------
-	        
-	         
-	        // /board/qna_board_view.jsp 페이지로 포워딩(Dispatcher 방식)
 	        ActionForward forward = new ActionForward();
-	        forward.setPath("/admin/productDetail.jsp"); // 포워딩 주소 지정
-	        forward.setRedirect(false); // 포워딩 방식 지정 => Dispatcher 방식은 false 전달(생략 가능
+	        forward.setPath("/productDetail.sh?Item_code=1&page=1");
+	        forward.setRedirect(true); // 생략 가능	        
+      
 	        
-	        
-	        
-	         
-	        
-	        return forward; // ActionForward 객체 리턴
+	        return forward;
 	}
 
 }

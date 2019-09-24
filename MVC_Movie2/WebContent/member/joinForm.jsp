@@ -306,7 +306,7 @@
                                 <label for="member_id">아이디</label> 
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
-                                <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'" onblur="this.placeholder = '아이디'" required class="single-input" onkeydown="inputIdChk()">
+                                <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '아이디를 입력해 주세요'" onblur="this.placeholder = '아이디'" required class="single-input" onkeydown="inputIdChk()">
                             	<span id="text"></span><input type ="hidden" id="isIdOk" value="no">
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
@@ -325,7 +325,7 @@
                             
                             <div class="col-lg-10 col-md-12 row">
                             <div class="col-sm-6 col-12">
-                            <input type="password" id="member_pass" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '아이디를 입력 해 주세요'" onblur="this.placeholder = '비밀번호'" required class="single-input">
+                            <input type="password" id="member_pass" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '비밀번호를 입력 해 주세요'" onblur="this.placeholder = '비밀번호'" required class="single-input">
                             </div>
                             <div class="col-sm-6 col-12 mt-sm-0 mt-10">
                             <input type="password" name="pass2" placeholder="비밀번호 확인" onfocus="this.placeholder = '입력하신 비밀번호를 다시 입력해주세요'" onblur="this.placeholder = '비밀번호 확인'" required class="single-input">

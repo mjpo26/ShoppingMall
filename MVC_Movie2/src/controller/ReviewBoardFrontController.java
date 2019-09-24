@@ -20,6 +20,7 @@ import action.ReviewBoardModifyFormAction;
 import action.ReviewBoardModifyProAction;
 import action.ReviewBoardReplyFormAction;
 import action.ReviewBoardReplyProAction;
+import action.ReviewBoardWriteFormAction;
 import action.ReviewBoardWriteProAction;
 import vo.ActionForward;
 
@@ -38,10 +39,22 @@ public class ReviewBoardFrontController extends HttpServlet {
 		if (command.equals("/ReviewMain.re")) {
 			// forward = new ActionForward();
 			// forward.setPath("/reviewBoard/list.jsp");
-		} else if (command.equals("/ReviewBoardWriteForm.re")) {
-			forward = new ActionForward();
-			forward.setPath("/reviewBoard/write.jsp");
-		} else if (command.equals("/ReviewBoardWritePro.re")) {
+		} 
+//		else if (command.equals("/ReviewBoardWriteForm.re")) {
+//			forward = new ActionForward();
+//			forward.setPath("/reviewBoard/write.jsp");
+//		}
+		else if (command.equals("/ReviewBoardWriteForm.re")) {
+			System.out.println("writeform");
+			action = new ReviewBoardWriteFormAction();
+			try {
+				forward = action.execute(request, response);
+				// => 포워딩 방식은 Action 클래스 내에서 결정하므로 아직 알 수 없다!
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
+		else if (command.equals("/ReviewBoardWritePro.re")) {
 			System.out.println("writePro");
 			action = new ReviewBoardWriteProAction();
 			try {
