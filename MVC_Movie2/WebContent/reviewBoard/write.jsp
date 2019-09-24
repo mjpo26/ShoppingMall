@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <%
 	int num = Integer.parseInt(request.getParameter("num"));
-	int order_item_code = Integer.parseInt(request.getParameter("order_item_code"));
 	String sId = (String) session.getAttribute("sId");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	OrderListBean orderListBean = (OrderListBean) request.getAttribute("orderListBean");

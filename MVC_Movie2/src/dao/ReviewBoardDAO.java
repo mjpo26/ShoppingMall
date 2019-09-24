@@ -48,17 +48,17 @@ public class ReviewBoardDAO {
 				num = rs.getInt(1) + 1;
 			}
 			
-			sql = "INSERT INTO Review_Board VALUES ("
+			sql = "INSERT INTO Review_Board ("
 			+ "review_num,"
 		    + "review_subject," 
 			+ "review_content,"
 			+ "review_writer," 
 			+ "review_id," 
-			+ "review_pass," 
+			+ "review_pass,"
 			+ "review_readcount," 
 			+ "review_file1,"
-		    + "review_file2," 
-			+ "review_file3,"  //10
+		    + "review_file2,"  //10
+			+ "review_file3,"  
 		    + "review_file4," 
 			+ "review_file5," 
 		    + "review_starPoint,"
@@ -66,9 +66,13 @@ public class ReviewBoardDAO {
 		    + "review_re_ref," 
 			+ "review_re_lev," 
 		    + "review_re_seq," 
-			+ "review_replycount,"
-			+ "review_order_item_code," //19
-			+ "review_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+			+ "review_replycount," 
+			+ "review_order_item_code, "
+			+ "review_date)"
+			+ "VALUES(?,?,?,?,?,?,"
+			+ "?,?,?,?,?,?,?,"
+			+ "?,?,?,?,?,?,now())";
+			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, article.getReview_subject());
@@ -78,10 +82,10 @@ public class ReviewBoardDAO {
 			pstmt.setString(6, article.getReview_pass());
 			pstmt.setInt(7, 0);
 			pstmt.setString(8, article.getReview_file1());
-			pstmt.setString(9, null);
-			pstmt.setString(10, null);
-			pstmt.setString(11, null);
-			pstmt.setString(12, null);
+			pstmt.setString(9, article.getReview_file2());
+			pstmt.setString(10, article.getReview_file3());
+			pstmt.setString(11, article.getReview_file4());
+			pstmt.setString(12, article.getReview_file5());
 			pstmt.setInt(13, article.getReview_starPoint());
 			pstmt.setInt(14, article.getReview_orderNo());
 			pstmt.setInt(15, num);
