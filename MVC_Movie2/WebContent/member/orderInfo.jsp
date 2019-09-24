@@ -17,7 +17,7 @@
 	<h1>주문 내역</h1>
 	<table border="1">
 		<tr>
-			<td>주분번호</td>
+			<td>주문번호</td>
 			<td>상품번호</td>
 			<td>상품명</td>
 			<td>주문일자</td>

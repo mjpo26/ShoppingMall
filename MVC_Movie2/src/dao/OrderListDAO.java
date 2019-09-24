@@ -274,12 +274,14 @@ public class OrderListDAO {
 	            pstmt = con.prepareStatement(sql);
 	            pstmt.setString(1, sId);
 	            rs = pstmt.executeQuery();
-	            
 
 	            while(rs.next()) {
 	            	OrderListBean orderListBean = new OrderListBean();
+	            	System.out.println("아");
 	            	orderListBean.setOrder_idx(rs.getInt("order_idx"));
+	            	System.out.println("주문번호"+orderListBean.getOrder_idx());
 	            	orderListBean.setOrder_item_code((rs.getInt("order_item_code")));
+	             	System.out.println("아이템코드"+orderListBean.getOrder_idx());
 	            	orderListBean.setOrder_item_title(rs.getString("order_item_title"));
 	            	orderListBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
 	            	orderListBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
@@ -317,6 +319,7 @@ public class OrderListDAO {
             while(rs.next()) {
             	
             	ob.setOrder_item_code((rs.getInt("order_item_code")));
+            	ob.setOrder_idx(rs.getInt("order_idx"));
             	ob.setOrder_item_title(rs.getString("order_item_title"));
             	ob.setOrder_item_option_color(rs.getString("order_item_option_color"));
             	ob.setOrder_delivery_status(rs.getString("order_delivery_status"));

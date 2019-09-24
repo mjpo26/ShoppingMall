@@ -41,11 +41,17 @@ public class ReviewBoardWriteProAction implements Action {
         boardBean.setReview_content(multi.getParameter("review_content"));
         boardBean.setReview_file1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
         boardBean.setReview_starPoint(Integer.parseInt(multi.getParameter("review_starPoint")));
-        boardBean.setReview_orderNo(Integer.parseInt(multi.getParameter("num")));
+        boardBean.setReview_orderNo(Integer.parseInt(multi.getParameter("order_idx")));
+        System.out.println("주문번호는!!!!!!"+boardBean.getReview_orderNo());
         boardBean.setReview_order_item_code(Integer.parseInt(multi.getParameter("order_item_code")));
-        ReviewBoardWriteProService reviewBoardWriteProService = new ReviewBoardWriteProService();       
-        boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
+        System.out.println("아이템 코드요@@@@@@@@@@@@ "+boardBean.getReview_order_item_code());
         
+        
+        ReviewBoardWriteProService reviewBoardWriteProService = new ReviewBoardWriteProService(); 
+        System.out.println("네? 코드요? "+boardBean.getReview_order_item_code());
+        System.out.println("주문벙호!!"+boardBean.getReview_orderNo());
+        System.out.println("네? 작성자코드요? "+boardBean.getReview_writer());
+        boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
       
         if(!isWriteSuccess) { 
             response.setContentType("text/html;charset=UTF-8"); 
