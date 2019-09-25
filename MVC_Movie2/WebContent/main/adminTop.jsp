@@ -33,7 +33,7 @@
                             <li><a href="./productList.sh">상품페이지</a></li>
                             <li><a href="./ReviewBoardList.re">리뷰페이지</a></li>
                             <li><a href="./product_list.sh">장바구니</a></li>
-                            <li><a href="./orderPro.sh">결제페이지</a></li>
+                            <li><a href="./productInfo.sh">구매목록</a></li>
                         </ul>
                     </li>
                     <li>상품관리
