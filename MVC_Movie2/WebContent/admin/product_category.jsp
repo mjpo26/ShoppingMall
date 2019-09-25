@@ -22,10 +22,20 @@ $(function() {
 
 
 				success : function(data) {
-					console.log("111111");
-					console.log(data);
-					alert("성공");
-					alert(data);
+// 					console.log("111111");
+// 					console.log(data);
+// 					alert(data);
+					var result1 = data.split("/");
+					for ( var i = 0; i < result1.length-1; i++) {
+					//$("#cate1sel").append('<option value='+i+'>'+result1['+i+'].innerHTML+'</option>');
+					$("#cate1sel").append("<option value='"+result1[i]+"'>"+result1[i]+"</option>");
+
+					}
+					
+					
+					
+					
+					
 				},
 				
 				error : function(error) {
@@ -37,7 +47,16 @@ $(function() {
 		});
 	});
 
+// 	$( document ).ready( function() {
+//         var jb = $( 'li' ).get();
+//         for ( var i = 0; i < jb.length; i++) {
+//           $( 'div' ).append( '<p>' + jb[i].innerHTML + '</p>' );
+//         }
+//       } );
 
+	
+	
+	
 </script>
 <title>Insert title here</title>
 
@@ -52,9 +71,11 @@ $(function() {
 		<input type="button" value="검색">
 		<input type="button" value="수정" >
 		<input type="button" id ="insertCategory1" name ="insertCategory1" value="신규등록" ><br><br>
-	<textarea rows="10" cols="50">
-	리스트
-	</textarea>
+<select id="cate1sel" name = "cate1sel">
+  		<option value ="">1차 카테고리</option>
+
+</select>
+
 	</form>
 	</div>
 	<br><br>
