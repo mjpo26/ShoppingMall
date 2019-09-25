@@ -67,7 +67,7 @@ function pickNullCheck(){
 </head>
 <body>
 	<!-- 폼 선택!!!!!!!!!!!!!!-->
-	<form action="./AdminBoardList.abl" name="fr1" method="post" onsubmit="return pickNullCheck()">
+	<form action="./AdminBoardList.admin" name="fr1" method="post" onsubmit="return pickNullCheck()">
 		<table border="1">
 			<tr>
 				<th colspan='10'>관리자 게시물 관리</th>

@@ -21,10 +21,10 @@ public class ReviewBoardCommentProAction implements Action {
         CommentBean article = new CommentBean();
         System.out.println("댓글액션 연결됨!!!!");
 //        article.setComment_num(Integer.parseInt(request.getParameter("Commentnum")));
-        article.setComment_writer(request.getParameter("name"));
-        article.setComment_pass(request.getParameter("pass"));
-        article.setComment_content(request.getParameter("content"));
-        article.setComment_id(request.getParameter("id"));
+        article.setComment_writer(request.getParameter("comment_name"));
+        article.setComment_pass(request.getParameter("comment_pass"));
+        article.setComment_content(request.getParameter("comment_content"));
+        article.setComment_id(request.getParameter("comment_id"));
         article.setComment_review_num(Integer.parseInt(request.getParameter("comment_review_num")));
        
         // BoardReplyProService 인스턴스 생성

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.CommentBean;
+import vo.MemberBean;
 import vo.ReviewBoardBean;
 
 public class ReviewBoardDAO {
@@ -291,7 +292,7 @@ public class ReviewBoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		System.out.println("dao댓글까지 잘 왔음");
-		int insertCount =0;
+		int insertCount = 0;
 		try {
 			String sql = "select max(comment_num) from Review_comment";
 			pstmt = con.prepareStatement(sql);
@@ -305,13 +306,13 @@ public class ReviewBoardDAO {
 					+ "values(?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2,article.getComment_id());
-			pstmt.setString(3,article.getComment_pass());
-			pstmt.setString(4,article.getComment_content());
-			pstmt.setInt(5,article.getComment_review_num());
-			pstmt.setString(6,article.getComment_writer());
-			
-			  insertCount = pstmt.executeUpdate();
+			pstmt.setString(2, article.getComment_id());
+			pstmt.setString(3, article.getComment_pass());
+			pstmt.setString(4, article.getComment_content());
+			pstmt.setInt(5, article.getComment_review_num());
+			pstmt.setString(6, article.getComment_writer());
+
+			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("insertReplyArticle() 에러 - " + e.getMessage());
 		} finally {
@@ -341,5 +342,40 @@ public class ReviewBoardDAO {
 		}
 
 		return updateCount;
+	}
+
+	public ArrayList<CommentBean> selectCommentList(int num) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<CommentBean> commentList = new ArrayList<CommentBean>();
+
+		try {
+           System.out.println("DAO에서!!!!"+num);
+			String sql = "SELECT * FROM Review_comment where comment_review_num=?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				CommentBean cb2 = new CommentBean();
+				cb2.setComment_content(rs.getString("comment_content"));
+	
+				cb2.setComment_id(rs.getString("comment_id"));
+				cb2.setComment_writer(rs.getString("comment_writer"));
+				cb2.setComment_date(rs.getDate("comment_date"));
+			
+				commentList.add(cb2);
+			}
+			System.out.println("코멘트 담긴거 확인:" + commentList);
+		} catch (SQLException e) {
+			System.out.println("MemberDAO: selectMemberList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return commentList;
 	}
 }

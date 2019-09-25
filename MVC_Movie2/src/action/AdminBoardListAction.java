@@ -15,7 +15,6 @@ import vo.ActionForward;
 import vo.AdminBoardSearchBean;
 import vo.PageInfo;
 import vo.QnA_BoardBean;
-import vo.QnA_PageInfo;
 import vo.ReviewBoardBean;
 
 public class AdminBoardListAction implements Action {

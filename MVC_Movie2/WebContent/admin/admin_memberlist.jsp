@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.MemberBean"%>
-<%@page import="vo.Admin_memberPageInfo"%>
+<%@page import="vo.PageInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -9,7 +9,7 @@
 
 	//Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<MemberBean> memberList = (ArrayList<MemberBean>) request.getAttribute("memberList");
-	Admin_memberPageInfo pageInfo = (Admin_memberPageInfo) request.getAttribute("pageInfo");
+	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 
 	// PageInfo 객체로부터 페이징 정보 가져오기
 	int listCount = pageInfo.getListCount();
@@ -88,7 +88,7 @@ function pickNullCheck(){
 </head>
 <body>
 
-	<form action="./Admin_memberList.am" name="fr1" method="post" onsubmit="return pickNullCheck()">
+	<form action="./Admin_memberList.admin" name="fr1" method="post" onsubmit="return pickNullCheck()">
 
 		<table border="1">
 			<tr>

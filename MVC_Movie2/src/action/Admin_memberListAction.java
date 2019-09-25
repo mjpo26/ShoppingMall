@@ -1,7 +1,6 @@
 package action;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,13 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.Admin_memberListService;
-import svc.OrderListService;
 import vo.ActionForward;
 import vo.Admin_MemberSearchBean;
-import vo.Admin_memberPageInfo;
-import vo.MemberBean;
 import vo.PageInfo;
-import vo.OrderListBean;
+import vo.MemberBean;
 
 public class Admin_memberListAction implements Action {
 
@@ -34,7 +30,9 @@ public class Admin_memberListAction implements Action {
 	        }
 
 	        Admin_MemberSearchBean ams = new Admin_MemberSearchBean();
+	         System.out.println(ams.getMember_id());
             ams.setMember_id(request.getParameter("searchId"));
+            System.out.println("여기값은"+ams.getMember_id());
             ams.setMember_name(request.getParameter("searchName"));
             ams.setMember_phone(request.getParameter("searchPhone"));
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
@@ -130,7 +128,7 @@ public class Admin_memberListAction implements Action {
 	        
 	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-	        Admin_memberPageInfo pageInfo = new Admin_memberPageInfo(page, maxPage, startPage, endPage, listCount);
+	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);

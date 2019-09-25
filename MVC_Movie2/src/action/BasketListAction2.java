@@ -6,12 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import svc.BasketListService;
+
 import svc.BasketListService2;
 import vo.ActionForward;
 import vo.BasketListBean;
-import vo.Basket_PageInfo;
-import vo.ItemBean;
+
 
 public class BasketListAction2 implements Action {
 

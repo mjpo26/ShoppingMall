@@ -336,7 +336,7 @@ public class MemberDAO {
     public ArrayList<MemberBean> selectMemberList(int page, int limit) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
+System.out.println("아아");
 		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
 
 		int startRow = (page - 1) * 10; 
