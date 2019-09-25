@@ -8,10 +8,11 @@
 	ItemBean itemBean = (ItemBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
     String sId = (String)session.getAttribute("sId");
+    PageInfo pageInfo = (PageInfo) request.getAttribute("review_pageInfo");
     
     
     ArrayList<ReviewBoardBean> articleList = (ArrayList<ReviewBoardBean>) request.getAttribute("review_articleList");
-    PageInfo pageInfo = (PageInfo) request.getAttribute("review_pageInfo");
+    
 
     int listCount = pageInfo.getListCount();
     int review_nowPage = pageInfo.getPage();
@@ -19,8 +20,98 @@
     int endPage = pageInfo.getEndPage();
     int maxPage = pageInfo.getMaxPage();
     
+    
+ 
+
+
+    
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<script type="text/javascript">   
+// function update_form(b_no){
+// 	  $.ajax({
+// 	    url: "./productreview.jsp",
+// 	    type: "POST",
+// 	    cache: false,
+// 	    dataType: "json",
+// 	    data: "page=" + page,
+// 	    success: function(data){
+// 	      $('#b_no').val(data.b_no);
+// 	      $('#b_type').val(data.b_type);  
+// 	      $('#b_title').val(data.b_title);          
+// 	      $('#b_content').val(data.b_content);
+// 	      $('#b_file').val(data.b_file);
+// 	      $('#b_user').val(data.b_user);
+	      
+// 	      $('#btn_proc').html('저장'); 
+// 	      $('#btn_proc').off('click'); 
+// 	      $('#btn_proc').on('click', update_proc);      
+// 	    },
+	    
+// 	    error: function (request, status, error){        
+// 	        var msg = "ERROR : " + request.status + "<br>"
+// 	      msg +=  + "내용 : " + request.responseText + "<br>" + error;
+// 	      console.log(msg);              
+// 	    }
+// 	  });
+// 	}
+var board = {};
+var lstCnt = 10;
+board.boardList = {
+        init : function(cmpnNo, lstCnt) {
+            var page = 1;
+            board.boardList.param.page = Number(page);
+            board.boardList.param.cmpnNo = cmpnNo;
+            board.boardList.param.pageSize = lstCnt;
+            board.boardList.data();
+        },
+       data : function() {
+            $.ajax({
+                url : './productReview.sh',
+                data : board.boardList.param,
+                success : function(result) {
+                    var boardList = result.boardList;
+                    if(boardList.length != 0){
+                        board.boardList.totalCount = boardList[0].totalCount; // 총 건수
+                    };
+                    drawPagination(lstCnt);
+                    var markup ="";    // mark 로직 작성
+                    $("#event_div").html(markup);
+                },
+                error : function() {
+                    alert('게시판 조회 중 오류가 발생했습니다.');
+                }
+            });
+        },
+        param : {
+            page : 1,
+            pageSize : lstCnt
+        },
+        totalCount : 0
+    };
+ 
+//페이징을 설정하고 페이징 영역에 화면에 그리는 함수
+function drawPagination(lstCnt){
+    $("#boardPagingDiv").pagination({
+       items: board.boardList.totalCount,
+       currentPage : board.boardList.param.pageNumber,
+       itemsOnPage: lstCnt, // 설정 안할 경우 10
+       displayedPages : lstCnt, // 설정 안할 경우 10
+       selectOnClick : false, // 페이징 버튼을 눌렀을 때 자동으로 페이징을 다시 그릴지 여부 (기본값은 true)
+       onPageClick: function(currentPage){ // 페이징 버튼을 눌렀을 때 이벤트 바인딩
+           searchBoardListPaging(currentPage); // 페이징 버튼을 눌렀을 때 다시 비동기로 데이터를 가져와 화면과 페이징을 그립니다.
+       }
+   });
+}
+ 
+// 페이징 번호 눌렀을때 함수
+function searchBoardListPaging (page) {
+    board.boardList.param.page = Number(page);
+    board.boardList.data();
+    drawPagination(lstCnt);
+}
+
+</script>
+<jsp:include page="../assets/top.jsp"></jsp:include>  <!--스크립트 탑입니다 asdf -->
 
 <!-- breadcrumb start-->
 <section class="breadcrumb breadcrumb_bg">
@@ -47,7 +138,7 @@
 
 
 <div class="product_image_area section_padding">
-	<div class="container">
+	<div class="container"> <!-- 이건 중요함 꼭 넣어야함 페이지에서 중앙 위치page asdf -->
 		<form method="post">
 		    <input type="hidden" name="sId" value=<%=sId%>>
 			<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code()%>> 
@@ -306,26 +397,28 @@
                     %>
 
         
-        <!-- ajax로 구현해야함ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ? action : productReviewAction  -->
+        <!-- ajax로 구현해야함ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ? action : productReviewAction  fdsa-->
                      <div id="pageList" class="text-center review_board board_paging">
 			            <% if (review_nowPage <= 1) {  %>
 			            <i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
 			            <% } else {  %>
-			            <a href="ReviewBoardList.re?page=<%=review_nowPage - 1%>"><i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
+			            <a href="productReview.sh?Item_code=<%=itemBean.getItem_code() %>&page=<%=review_nowPage - 1%>">
+			            <i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
 			            <% }
 			            
 			            for (int i = startPage; i <= endPage; i++) {
 			            	 if (i == review_nowPage) { %>
 			            <span class="current"><b><%=i%></b></span>&nbsp;
 			            <% } else {  %>
-			            <a href="ReviewBoardList.re?page=<%=i%>"> <%=i%>&nbsp;  </a>
+			            <a href="productReview.sh?Item_code=<%=itemBean.getItem_code() %>&page=<%=i%>"> <%=i%>&nbsp;  </a>
 			            <% }
 		 				}
 			            
 			            if (review_nowPage >= maxPage) {%>
 			            &nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i>
 			            <% } else { %>
-			            <a href="ReviewBoardList.re?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i> </a>
+			            <a href="productReview.sh?Item_code=<%=itemBean.getItem_code() %>&page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; 
+			            <i class="ti-angle-right" ></i> </a>
 			            <% }  %>
 			        </div>
 			        <%  } else { %> <section id="emptyArea">등록된 글이 없습니다.</section><% } %>
@@ -411,5 +504,5 @@
 
 <br>
 
-
+<!-- 끝 asdf -->
 <jsp:include page="../assets/foot.jsp"></jsp:include>

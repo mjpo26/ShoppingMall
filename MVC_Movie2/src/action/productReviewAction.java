@@ -22,15 +22,25 @@ public class productReviewAction implements Action {
 	        // 페이징 처리를 위한 변수 선언
 	        int reviewPage = 1; // 현재 페이지
 	        int limit = 5; // 한 페이지 당 표시할 게시물 수
-	        
+	        int Item_code = 1;
+	        int page=1;
 	        // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
 	        if(request.getParameter("page") != null) {
 	        	reviewPage = Integer.parseInt(request.getParameter("page"));
+	           	page = reviewPage;
+//	           	reviewPage = Integer.parseInt(request.getParameter("pageNumber"));
 	        }
 	        
 	        ReviewBoardListService boardListService = new ReviewBoardListService();
+//	        int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
+//	        int listCount = Integer.parseInt(request.getParameter("lstCnt"));
 	        int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
-
+	        
+	        if(request.getParameter("Item_code") != null) {
+	        	Item_code = Integer.parseInt(request.getParameter("Item_code"));
+	        }
+//	        int page= Integer.parseInt(request.getParameter("page"));
+	        
 	        articleList = boardListService.getArticleList(reviewPage, limit); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
@@ -57,7 +67,7 @@ public class productReviewAction implements Action {
 	  
 	        
 	        ActionForward forward = new ActionForward();
-	        forward.setPath("/productDetail.sh?Item_code=1&page=1");
+	        forward.setPath("./productDetail.sh?Item_code="+Item_code+"&page="+page);
 	        forward.setRedirect(true); // 생략 가능	        
       
 	        
