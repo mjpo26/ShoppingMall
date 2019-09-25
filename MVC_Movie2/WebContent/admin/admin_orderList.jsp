@@ -1,10 +1,10 @@
-<%@page import="vo.OrderListBean"%>
+<%@page import="vo.OrderBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.PageInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ArrayList<OrderListBean> articleList = (ArrayList<OrderListBean>) request.getAttribute("articleList");
+	ArrayList<OrderBean> articleList = (ArrayList<OrderBean>) request.getAttribute("articleList");
 	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 
 	int listCount = pageInfo.getListCount();

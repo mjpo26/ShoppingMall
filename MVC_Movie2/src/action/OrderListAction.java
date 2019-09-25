@@ -11,32 +11,32 @@ import javax.servlet.http.HttpServletResponse;
 import svc.OrderListService;
 import vo.ActionForward;
 import vo.PageInfo;
-import vo.OrderListBean;
-import vo.OrderSearchBean;
+import vo.OrderBean;
+import vo.OrderBean;
 
 public class OrderListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		  ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+		  ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
 	        System.out.println("OrderListAction실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
 	        int limit = 50; // 한 페이지 당 표시할 게시물 수
-//	        int order_idx = (Integer.parseInt(request.getParameter("order_idx"))); // 주문 번호
+//	        int item_code = (Integer.parseInt(request.getParameter("ItemCode"))); // 주문 번호
 	        
 	        // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
 	        if(request.getParameter("page") != null) {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
-	        OrderSearchBean ob = new OrderSearchBean();
+	        OrderBean ob = new OrderBean();
 	        try {
 //	        	ob.setOrder_idx(order_idx);
 	        	ob.setOrder_idx(Integer.parseInt(request.getParameter("order_idx")));
 	        } catch (Exception e) {
 	        	
 	        }
-	        ob.setOrder_item_code(request.getParameter("ItemCode"));
+//	        ob.setOrder_item_code(item_code);
 	        ob.setOrder_item_title(request.getParameter("ItemName"));
 	        ob.setOrder_member_id(request.getParameter("Buyer"));
 	        ob.setOrder_pay_status(request.getParameter("pay")); // 결제상태

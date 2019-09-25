@@ -6,11 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import svc.MemberInfoService;
 import svc.OrderInfoService;
-import svc.ReviewBoardDetailService;
 import vo.ActionForward;
 import vo.MemberBean;
-import vo.OrderListBean;
-import vo.ReviewBoardBean;
+import vo.OrderBean;
 
 public class ReviewBoardWriteFormAction implements Action {
 
@@ -24,17 +22,17 @@ public class ReviewBoardWriteFormAction implements Action {
 			int order_item_code=Integer.parseInt(request.getParameter("order_item_code"));
 			System.out.println(sId);
 			System.out.println(order_item_code);
-			OrderListBean orderListBean = OrderInfoService.getOrderInfo1(order_item_code);
+			OrderBean OrderBean = OrderInfoService.getOrderInfo1(order_item_code);
 	        MemberBean memberBean = MemberInfoService.getMemberInfo(sId); // 세션 아이디값을 파라미터로 전달
 	        
 	        
 	        // 게시물 번호(Review_num), 현재 페이지(page) 파라미터 가져오기
 	        
 	        // BoardDetailService 클래스의 getArticle() 메서드를 호출하여 게시물 정보 가져오기
-	        System.out.println("여기는 직히나요 ????????"+orderListBean.getOrder_idx());
+	        System.out.println("여기는 직히나요 ????????"+OrderBean.getOrder_idx());
 	        // 현재 게시물 정보(article), 현재 페이지(page) request 객체에 저장
 	        request.setAttribute("memberBean", memberBean);
-	        request.setAttribute("orderListBean", orderListBean);
+	        request.setAttribute("OrderBean", OrderBean);
 	        
 	        ActionForward forward = new ActionForward();
 	        forward.setPath("/reviewBoard/write.jsp");

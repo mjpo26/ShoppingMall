@@ -15,8 +15,7 @@ import vo.ActionForward;
 import vo.BasketListBean;
 import vo.ItemBean;
 import vo.MemberBean;
-import vo.OrderListBean;
-
+import vo.OrderBean;
 public class BasketOrderInfoAction implements Action {
 
 	@Override
@@ -86,7 +85,7 @@ public class BasketOrderInfoAction implements Action {
 //				out.println("location.href='index.jsp'");
 //				out.println("</script>");
 //			} 
-//			ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+//			ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
 //			
 //			int page = 1;
 //			int limit = 10;
@@ -107,7 +106,6 @@ public class BasketOrderInfoAction implements Action {
 //			forward = new ActionForward();
 //
 //			forward.setPath("/member/orderInfo.jsp");
-//			forward.setRedirect(false);
 //		}
 //			
 //		return forward;

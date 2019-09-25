@@ -7,17 +7,15 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.ItemDAO;
-import dao.OrderListDAO;
+import dao.OrderDAO;
 import vo.ItemBean;
-import vo.OrderListBean;
-import vo.OrderSearchBean;
-import vo.ProductSearchBean;
+import vo.OrderBean;
 
 public class ProductList1Service {
 
 
 
-		public ArrayList<ItemBean> getArticleList(ProductSearchBean pb) throws Exception {
+		public ArrayList<ItemBean> getArticleList(ItemBean pb) throws Exception {
 	        ArrayList<ItemBean> articleList = null;
 	        
 	        Connection con = getConnection();
@@ -28,7 +26,7 @@ public class ProductList1Service {
 	        articleList = itemDAO.selectArticleList(pb);
 	        
 	        close(con);
-	        System.out.println("OrderListService의  ArrayList<OrderListBean> 실행됨");
+	        System.out.println("OrderListService의  ArrayList<OrderBean> 실행됨");
 	        return articleList;
 	    }
 

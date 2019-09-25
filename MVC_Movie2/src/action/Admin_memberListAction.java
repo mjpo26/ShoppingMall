@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import svc.Admin_memberListService;
 import vo.ActionForward;
-import vo.Admin_MemberSearchBean;
-import vo.PageInfo;
 import vo.MemberBean;
+import vo.PageInfo;
 
 public class Admin_memberListAction implements Action {
 
@@ -29,7 +28,7 @@ public class Admin_memberListAction implements Action {
 	            page = Integer.parseInt(request.getParameter("page"));
 	        }
 
-	        Admin_MemberSearchBean ams = new Admin_MemberSearchBean();
+	        MemberBean ams = new MemberBean();
 	         System.out.println(ams.getMember_id());
             ams.setMember_id(request.getParameter("searchId"));
             System.out.println("여기값은"+ams.getMember_id());
@@ -37,7 +36,7 @@ public class Admin_memberListAction implements Action {
             ams.setMember_phone(request.getParameter("searchPhone"));
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
             ams.setMember_email_ok(request.getParameter("emailOk"));
-            ams.setMember_mypoint(request.getParameter("mypoint"));
+//            ams.setMember_mypoint(Integer.parseInt(request.getParameter("mypoint")));
             
             System.out.println("jsp script 로 널값 변환되나 보자  ["+request.getParameter("pickStart")+"]");
            
@@ -103,6 +102,7 @@ public class Admin_memberListAction implements Action {
 	        System.out.println("시작"+ams.getPickStart());
 	        System.out.println("끝"+ams.getPickEnd());
 	        System.out.println("ams id request체크 :"+ams.getMember_id());
+	        System.out.println("ams name request체크 :"+ams.getMember_name());
 	        System.out.println("ams 폰 request체크 :"+ams.getMember_phone());
 	        System.out.println("ams sms request체크 :"+ams.getMember_sms_ok());
 	        System.out.println("ams email request체크 :"+ams.getMember_email_ok());

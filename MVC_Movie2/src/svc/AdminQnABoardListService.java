@@ -6,7 +6,7 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.QnABoardListDAO;
+import dao.QnA_BoardDAO;
 import vo.AdminBoardSearchBean;
 import vo.QnA_BoardBean;
 
@@ -17,7 +17,7 @@ public class AdminQnABoardListService {
 	    System.out.println("getListCount 입력");
         Connection con = getConnection();
         
-        QnABoardListDAO BDAO = QnABoardListDAO.getInstance();
+        QnA_BoardDAO BDAO = QnA_BoardDAO.getInstance();
         BDAO.setConnection(con);
         
         listCount = BDAO.getBoardCount(abb);
@@ -30,7 +30,7 @@ public class AdminQnABoardListService {
 		  ArrayList<QnA_BoardBean> articleList = null;
 	        
 	        Connection con = getConnection();  
-	        QnABoardListDAO BDAO = QnABoardListDAO.getInstance();
+	        QnA_BoardDAO BDAO = QnA_BoardDAO.getInstance();
 	        BDAO.setConnection(con);
 	        
 	        articleList = BDAO.selectBoardList(abb);

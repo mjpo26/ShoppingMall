@@ -6,23 +6,22 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.OrderListDAO;
-import vo.OrderListBean;
-import vo.OrderListBean;
+import dao.OrderDAO;
+import vo.OrderBean;
 
 public class OrderInfoService {
 
-	public ArrayList<OrderListBean> getOrderInfo(String sId) {
-ArrayList<OrderListBean> articleList = null;
+	public ArrayList<OrderBean> getOrderInfo(String sId) {
+ArrayList<OrderBean> articleList = null;
         
         Connection con = getConnection();  
         
-        OrderListDAO orderListDAO =OrderListDAO.getInstance();
+        OrderDAO OrderDao =OrderDAO.getInstance();
 		
-        orderListDAO.setConnection(con);
+        OrderDao.setConnection(con);
         
         
-        articleList = orderListDAO.selectArticleList(sId);
+        articleList = OrderDao.selectArticleList(sId);
         
 
         
@@ -31,16 +30,16 @@ ArrayList<OrderListBean> articleList = null;
         return articleList;
 	}
 
-	public static OrderListBean getOrderInfo1(int order_item_code) {
-		OrderListBean ob=null; 
+	public static OrderBean getOrderInfo1(int order_item_code) {
+		OrderBean ob=null; 
 		Connection con = getConnection();  
 	        
-	        OrderListDAO orderListDAO =OrderListDAO.getInstance();
+	        OrderDAO OrderDao =OrderDAO.getInstance();
 			
-	        orderListDAO.setConnection(con);
+	        OrderDao.setConnection(con);
 	        
 	        
-	        ob = orderListDAO.selectArticleList(order_item_code);
+	        ob = OrderDao.selectArticleList(order_item_code);
 	        
 
 	        
@@ -49,19 +48,18 @@ ArrayList<OrderListBean> articleList = null;
 		return ob;
 	}
 
-	public ArrayList<OrderListBean> getOrderInfo2(String bId) {
-		ArrayList<OrderListBean> articleList = null;
+	public ArrayList<OrderBean> getOrderInfo2(String bId) {
+		ArrayList<OrderBean> articleList = null;
         
         Connection con = getConnection();  
         
-        OrderListDAO orderListDAO =OrderListDAO.getInstance();
+        OrderDAO OrderDao =OrderDAO.getInstance();
 		
-        orderListDAO.setConnection(con);
+        OrderDao.setConnection(con);
         
         
-        articleList = orderListDAO.selectArticleList1(bId);
+        articleList = OrderDao.selectArticleList1(bId);
         
-
         
         close(con);
         

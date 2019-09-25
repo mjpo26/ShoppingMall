@@ -6,8 +6,8 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.ReviewBoardListDAO;
-import dao.MemberListDAO;
+import dao.ReviewBoardDAO;
+
 import vo.AdminBoardSearchBean;
 import vo.MemberBean;
 import vo.ReviewBoardBean;
@@ -19,7 +19,7 @@ public class AdminReviewBoardListService {
 	      
         Connection con = getConnection();
         
-        ReviewBoardListDAO BDAO = ReviewBoardListDAO.getInstance();
+        ReviewBoardDAO BDAO = ReviewBoardDAO.getInstance();
         BDAO.setConnection(con);
         
         listCount = BDAO.getBoardCount(abb);
@@ -32,7 +32,7 @@ public class AdminReviewBoardListService {
         ArrayList<ReviewBoardBean> articleList = null;
         
         Connection con = getConnection();  
-        ReviewBoardListDAO BDAO = ReviewBoardListDAO.getInstance();
+        ReviewBoardDAO BDAO = ReviewBoardDAO.getInstance();
         BDAO.setConnection(con);
         
         articleList = BDAO.selectBoardList(abb);

@@ -13,9 +13,7 @@ import svc.ProductList1Service;
 import vo.ActionForward;
 import vo.ItemBean;
 import vo.PageInfo;
-import vo.ProductSearchBean;
-import vo.OrderListBean;
-import vo.OrderSearchBean;
+import vo.OrderBean;
 
 public class productList1Action implements Action {
 
@@ -25,7 +23,7 @@ public class productList1Action implements Action {
 	        System.out.println("OrderListAction실행됨");
 	        // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
 	        
-	        ProductSearchBean pb = new ProductSearchBean();
+	        ItemBean pb = new ItemBean();
 	        pb.setItem_title(request.getParameter("title"));
 //	        pb.setItem_code(Integer.parseInt(request.getParameter("Item_code")));
 //	        pb.setMember_id(request.getParameter("member_id"));

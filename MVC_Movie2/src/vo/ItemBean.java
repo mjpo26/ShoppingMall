@@ -35,6 +35,8 @@ public class ItemBean {
 	private String Item_icon4;
 	private String Item_icon5;
 	private Date Item_Date;
+	private Date pickStart;
+	private Date pickEnd;
 	
 	
 	public String getItem_color() {
@@ -231,6 +233,18 @@ public class ItemBean {
 	}
 	public void setItem_icon5(String item_icon5) {
 		Item_icon5 = item_icon5;
+	}
+	public Date getPickStart() {
+		return pickStart;
+	}
+	public void setPickStart(Date pickStart) {
+		this.pickStart = pickStart;
+	}
+	public Date getPickEnd() {
+		return pickEnd;
+	}
+	public void setPickEnd(Date pickEnd) {
+		this.pickEnd = pickEnd;
 	}
 
 }

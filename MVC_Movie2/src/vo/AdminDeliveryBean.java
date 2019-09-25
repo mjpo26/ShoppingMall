@@ -2,7 +2,7 @@ package vo;
 
 import java.sql.Date;
 
-public class Admin_DeliverySearchBean {
+public class AdminDeliveryBean {
 	
 	private int delivery_idx;
 	private String delivery_code;

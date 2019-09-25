@@ -7,19 +7,16 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.MemberDAO;
-import dao.MemberListDAO;
-import dao.OrderListDAO;
-import vo.Admin_MemberSearchBean;
 import vo.MemberBean;
-import vo.OrderListBean;
+import vo.OrderBean;
 
 public class Admin_memberListService {
-	  public int getListCount(Admin_MemberSearchBean ams) throws Exception {
+	  public int getListCount(MemberBean ams) throws Exception {
 	        int listCount = 0; 
 	      
 	        Connection con = getConnection();
 	        
-	        MemberListDAO mDAO = MemberListDAO.getInstance();
+	        MemberDAO mDAO = MemberDAO.getInstance();
 	        mDAO.setConnection(con);
 	        
 	        listCount = mDAO.getMemberCount(ams);
@@ -28,11 +25,11 @@ public class Admin_memberListService {
 	        return listCount;
 	    }
 
-	    public ArrayList<MemberBean> getArticleList(Admin_MemberSearchBean ams) throws Exception {
+	    public ArrayList<MemberBean> getArticleList(MemberBean ams) throws Exception {
 	        ArrayList<MemberBean> articleList = null;
 	        
 	        Connection con = getConnection();  
-	        MemberListDAO mDAO = MemberListDAO.getInstance();
+	        MemberDAO mDAO = MemberDAO.getInstance();
 	        mDAO.setConnection(con);
 	        
 	        articleList = mDAO.selectMemberList(ams);

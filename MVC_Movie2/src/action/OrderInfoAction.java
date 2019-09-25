@@ -11,7 +11,7 @@ import svc.BasketInfoService;
 import svc.OrderInfoService;
 import vo.ActionForward;
 import vo.BasketListBean;
-import vo.OrderListBean;
+import vo.OrderBean;
 
 public class OrderInfoAction implements Action {
 
@@ -33,7 +33,7 @@ public class OrderInfoAction implements Action {
 			out.println("location.href='index.jsp'");
 			out.println("</script>");
 		} else {
-			ArrayList<OrderListBean> articleList = new ArrayList<OrderListBean>();
+			ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
 			
 			int page = 1;
 			int limit = 10;

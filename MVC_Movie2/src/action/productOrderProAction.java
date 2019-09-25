@@ -13,7 +13,7 @@ import svc.ProductOrderInfoService;
 import vo.ActionForward;
 import vo.ItemBean;
 import vo.MemberBean;
-import vo.OrderListBean;
+import vo.OrderBean;
 
 public class productOrderProAction implements Action {
 
@@ -47,16 +47,16 @@ public class productOrderProAction implements Action {
 				// 조회된 회원정보(MemberBean)를 request 객체에 저장
 				request.setAttribute("memberBean", memberBean);
 				request.setAttribute("itemBean", itemBean);
-				OrderListBean orderListBean = new OrderListBean();
-				orderListBean.setOrder_item_code(itemBean.getItem_code());
-				orderListBean.setOrder_item_title(itemBean.getItem_title());
-//				orderListBean.setOrder_item_option_color(order_item_option_color);
-//				orderListBean.setOrder_item_option_color(itemBean.getItem);
-				orderListBean.setOrder_member_id(memberBean.getMember_id());
-				orderListBean.setOrder_member_name(memberBean.getMember_name());
-				orderListBean.setOrder_item_point(memberBean.getMember_mypoint());
+				OrderBean OrderBean = new OrderBean();
+				OrderBean.setOrder_item_code(itemBean.getItem_code());
+				OrderBean.setOrder_item_title(itemBean.getItem_title());
+//				OrderBean.setOrder_item_option_color(order_item_option_color);
+//				OrderBean.setOrder_item_option_color(itemBean.getItem);
+				OrderBean.setOrder_member_id(memberBean.getMember_id());
+				OrderBean.setOrder_member_name(memberBean.getMember_name());
+				OrderBean.setOrder_item_point(memberBean.getMember_mypoint());
 				OrderInsertService orderInsertService = new OrderInsertService();
-				boolean isInsertSuccess = orderInsertService.insertOrder(orderListBean);
+				boolean isInsertSuccess = orderInsertService.insertOrder(OrderBean);
 				if (!isInsertSuccess) {
 					response.setContentType("text/html;charset=UTF-8");
 					PrintWriter out = response.getWriter();
