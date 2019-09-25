@@ -16,46 +16,48 @@ import vo.OrderListBean;
 import static db.JdbcUtil.*;
 
 public class MemberListDAO {
-    // -----------------------------------------------------
-    // DAO 인스턴스 생성 관리를 위한 싱글톤 디자인 패턴
-    private static MemberListDAO instance;
-    private MemberListDAO() {}
-    
-    public static MemberListDAO getInstance() {
-        // 기존의 MemberDAO 인스턴스가 없을 경우에만 인스턴스를 새로 생성
-        if(instance == null) {
-            instance = new MemberListDAO();
-        }
-        
-        return instance;
-    }
-    // -----------------------------------------------------
+	// -----------------------------------------------------
+	// DAO 인스턴스 생성 관리를 위한 싱글톤 디자인 패턴
+	private static MemberListDAO instance;
 
-    Connection con;
-    
-    public void setConnection(Connection con) {
-        this.con = con;
-    }
+	private MemberListDAO() {
+	}
 
-    public int getMemberCount(Admin_MemberSearchBean ams) {
-    	int listCount = 0;
-    	
-    	PreparedStatement pstmt = null;
-    	ResultSet rs = null;
-    	
-    	String member_sms_ok = ams.getMember_sms_ok();
-    	  	
-    	String sql = "SELECT COUNT(*) FROM member where member_sms_ok=?";
-    	try {
+	public static MemberListDAO getInstance() {
+		// 기존의 MemberDAO 인스턴스가 없을 경우에만 인스턴스를 새로 생성
+		if (instance == null) {
+			instance = new MemberListDAO();
+		}
+
+		return instance;
+	}
+	// -----------------------------------------------------
+
+	Connection con;
+
+	public void setConnection(Connection con) {
+		this.con = con;
+	}
+
+	public int getMemberCount(Admin_MemberSearchBean ams) {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String member_sms_ok = ams.getMember_sms_ok();
+
+		String sql = "SELECT COUNT(*) FROM member where member_sms_ok=?";
+		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member_sms_ok);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				listCount = rs.getInt(1);
-				System.out.println("sns check 여부 : "+ams.getMember_sms_ok()+"갯수는"+listCount);
+				System.out.println("sns check 여부 : " + ams.getMember_sms_ok() + "갯수는" + listCount);
 			}
-			
+
 		} catch (SQLException e) {
 			System.out.println("selectListCount() 에러 - " + e.getMessage());
 		} finally {
@@ -65,37 +67,24 @@ public class MemberListDAO {
 
 		return listCount;
 	}
-      
-    
-    //어드민 회원리스트 조회
-    public ArrayList<MemberBean> selectMemberList(Admin_MemberSearchBean ams) {
+
+	// 어드민 회원리스트 조회
+	public ArrayList<MemberBean> selectMemberList(Admin_MemberSearchBean ams) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
-		
-		
-		int startRow = (ams.getPage() - 1) * 10; 
-		
-		try {
-			
-			
 
-			
-			
-			System.out.println("디에오 체크/"+ams.getPickStart() + "/" +ams.getPickEnd());
-			
-		    
-			String sql = "SELECT * FROM member where "
-			        + "member_id like ifnull(?,'%%') "
-			        + "and member_name like ifnull(?,'%%') "
-			        + "and member_phone like ifnull(?,'%%') "
-			        + "and member_sms_ok like ifnull(?,'%%') "
-			        + "and  member_email_ok like ifnull(?,'%%')"
-			        + "and joinDate >= ?"
-			    	+ "and joinDate <=?"
-			        + "ORDER BY member_id LIMIT ?,?";
-			
+		int startRow = (ams.getPage() - 1) * 10;
+
+		try {
+
+			System.out.println("디에오 체크/" + ams.getPickStart() + "/" + ams.getPickEnd());
+
+			String sql = "SELECT * FROM member where " + "member_id like ifnull(?,'%%') "
+					+ "and member_name like ifnull(?,'%%') " + "and member_phone like ifnull(?,'%%') "
+					+ "and member_sms_ok like ifnull(?,'%%') " + "and  member_email_ok like ifnull(?,'%%')"
+					+ "and joinDate >= ?" + "and joinDate <=?" + "ORDER BY member_id LIMIT ?,?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ams.getMember_id());
@@ -109,9 +98,9 @@ public class MemberListDAO {
 			pstmt.setInt(9, ams.getLimit());
 
 			rs = pstmt.executeQuery();
-			
-			System.out.println(startRow+"와"+ams.getLimit());
-			
+
+			System.out.println(startRow + "와" + ams.getLimit());
+
 			while (rs.next()) {
 				MemberBean memberBean = new MemberBean();
 				memberBean.setMember_id(rs.getString("member_id"));
@@ -152,10 +141,10 @@ public class MemberListDAO {
 				memberBean.setMember_address_y3(rs.getString("member_address_y3"));
 				memberBean.setMember_address_y4(rs.getString("member_address_y4"));
 				memberBean.setMember_address_y5(rs.getString("member_address_y5"));
-							
+
 				memberList.add(memberBean);
 			}
-			System.out.println("mDAO: 멤버빈 담긴거 확인:" +memberList);
+			System.out.println("mDAO: 멤버빈 담긴거 확인:" + memberList);
 		} catch (SQLException e) {
 			System.out.println("MemberDAO: selectMemberList() 에러 - " + e.getMessage());
 		} finally {
@@ -166,6 +155,4 @@ public class MemberListDAO {
 		return memberList;
 	}
 
-  
-    
 }

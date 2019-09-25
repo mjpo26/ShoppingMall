@@ -10,13 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.Admin_memberListService;
-import svc.OrderListService;
 import vo.ActionForward;
 import vo.Admin_MemberSearchBean;
 import vo.Admin_memberPageInfo;
 import vo.MemberBean;
-import vo.PageInfo;
-import vo.OrderListBean;
 
 public class Admin_memberListAction implements Action {
 
@@ -34,7 +31,9 @@ public class Admin_memberListAction implements Action {
 	        }
 
 	        Admin_MemberSearchBean ams = new Admin_MemberSearchBean();
+	         System.out.println(ams.getMember_id());
             ams.setMember_id(request.getParameter("searchId"));
+            System.out.println("여기값은"+ams.getMember_id());
             ams.setMember_name(request.getParameter("searchName"));
             ams.setMember_phone(request.getParameter("searchPhone"));
 	        ams.setMember_sms_ok(request.getParameter("smsOk"));
