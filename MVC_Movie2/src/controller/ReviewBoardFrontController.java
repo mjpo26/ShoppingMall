@@ -10,16 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.Free_BoardDeleteProAction;
-import action.Free_BoardModifyFormAction;
-import action.Free_BoardReplyFormAction;
+import action.ReviewBoardCommentProAction;
 import action.ReviewBoardDeleteProAction;
 import action.ReviewBoardDetailAction;
 import action.ReviewBoardListAction;
 import action.ReviewBoardModifyFormAction;
 import action.ReviewBoardModifyProAction;
-import action.ReviewBoardReplyFormAction;
-import action.ReviewBoardReplyProAction;
 import action.ReviewBoardWriteFormAction;
 import action.ReviewBoardWriteProAction;
 import vo.ActionForward;
@@ -109,19 +105,9 @@ public class ReviewBoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/ReviewBoardReplyForm.re")) {
-			System.out.println("ReviewBoardReplyForm들어와용");
-			action = new ReviewBoardReplyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		} else if (command.equals("/ReviewBoardReplyPro.re")) {
-			System.out.println("답글 pro");
-			action = new ReviewBoardReplyProAction();
-
+		}  else if (command.equals("/ReviewBoardCommentPro.re")) {
+			System.out.println("댓글 pro");
+			action = new ReviewBoardCommentProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

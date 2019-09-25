@@ -4,7 +4,12 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
+try{
 	int num = Integer.parseInt(request.getParameter("num"));
+}
+catch(Exception e){
+
+}
 	String sId = (String) session.getAttribute("sId");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	OrderListBean orderListBean = (OrderListBean) request.getAttribute("orderListBean");
@@ -69,22 +74,23 @@
 				</tr>
 				<tr>
 					<td>별 점</td>
-					<td>
-					<input type="radio" name="review_starPoint" value="1">1
-					<input type="radio" name="review_starPoint" value="2">2
-					<input type="radio" name="review_starPoint" value="3">3
-					<input type="radio" name="review_starPoint" value="4">4 
-					<input type="radio" name="review_starPoint" value="5">5</td>
+					<td><input type="radio" name="review_starPoint" value="1">1
+						<input type="radio" name="review_starPoint" value="2">2 <input
+						type="radio" name="review_starPoint" value="3">3 <input
+						type="radio" name="review_starPoint" value="4">4 <input
+						type="radio" name="review_starPoint" value="5">5</td>
 				</tr>
 				<tr>
 					<td>글내용</td>
-					<td><textarea name="review_content" rows="10" cols="20"></textarea></td>
+					<td><textarea name="review_content" rows="10" cols="20">
+					</textarea></td>
 				</tr>
 			</table>
 			<div>
 				<input type="submit" value="글쓰기" class="btn">
 			</div>
 		</form>
+
 	</article>
 </body>
 </html>

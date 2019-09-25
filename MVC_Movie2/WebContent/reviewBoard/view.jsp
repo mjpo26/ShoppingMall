@@ -1,9 +1,16 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.CommentBean"%>
+<%@page import="vo.MemberBean"%>
 <%@page import="vo.ReviewBoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	ReviewBoardBean article = (ReviewBoardBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
+	String sId = (String) session.getAttribute("sId");
+	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
+	 ArrayList<CommentBean> cb = (ArrayList<CommentBean>)request.getAttribute("cb");;
+
 %>
 
 <jsp:include page="../assets/top.jsp"></jsp:include>
@@ -56,6 +63,26 @@
 			
 			
 			<div id="commandList" class="text-center">
+				<form action="ReviewBoardCommentPro.re" method="post" name="fr">
+					<input type="hidden" name="id" value="<%=sId%>"> 
+					<input type="text" name="comment_review_num" value="<%=article.getReview_orderNo()%>">
+					<table id="notice table">
+						<tr>
+							<td class="twrite">작성자</td>
+							<td><input type="text" name="name" value="<%=memberBean.getMember_name()%>"></td>
+							<td class="twrite">비밀번호</td>
+							<td><input type="password" name="pass"></td>
+						</tr>
+						<tr>
+							<td class="twrite">내용</td>
+							<td class="ttitle" colspan="3">
+							 <textarea name="content" rows="10" cols="30">
+							 </textarea></td>
+						</tr>
+					</table>
+					<input type="submit" value="댓글달기" class="btn"> 
+					<input type="reset" value="취소" class="btn">
+				</form>
 			<!--  아랫부분 답변은 admin일때만 나오게 조건주기-->
 <%-- 			<a href="ReviewBoardReplyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[답변]</a> --%>
 <%-- 			<a	href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a> --%>
