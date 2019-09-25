@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import vo.Free_BoardBean;
 import vo.OrderBean;
-import vo.OrderListBean;
+import vo.OrderBean;
 
 public class OrderDAO {
     // -----------------------------------------------------
@@ -37,7 +37,7 @@ public class OrderDAO {
     
     
     // 글 등록 요청을 처리하는 insertArticle() 메서드
-    public int insertOrder(OrderListBean orderListBean) throws Exception {
+    public int insertOrder(OrderBean OrderBean) throws Exception {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         
@@ -62,24 +62,24 @@ public class OrderDAO {
                        + "order_date,"+"order_member_name, "+"order_member_id) VALUES (?,?,?,now(),?,?)";
             
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, orderListBean.getOrder_item_code()); 
-            pstmt.setString(2, orderListBean.getOrder_item_title());
-//            pstmt.setString(3, orderListBean.getOrder_item_option_color());
+            pstmt.setInt(1, OrderBean.getOrder_item_code()); 
+            pstmt.setString(2, OrderBean.getOrder_item_title());
+//            pstmt.setString(3, OrderBean.getOrder_item_option_color());
 //            pstmt.setString(4, article.getOrder_item_option_size());
 //            pstmt.setString(4, "M");
-//            pstmt.setInt(5, orderListBean.getOrder_item_sel_price());
-//            pstmt.setInt(6, orderListBean.getOrder_item_point());
-//            pstmt.setInt(7, orderListBean.getOrder_item_code_count()); 
-//            pstmt.setInt(8, orderListBean.getOrder_delivery_pee()); 
-//            pstmt.setInt(9, orderListBean.getOrder_plus_point()); 
-//            pstmt.setInt(10, orderListBean.getOrder_used_point()); 
+//            pstmt.setInt(5, OrderBean.getOrder_item_sel_price());
+//            pstmt.setInt(6, OrderBean.getOrder_item_point());
+//            pstmt.setInt(7, OrderBean.getOrder_item_code_count()); 
+//            pstmt.setInt(8, OrderBean.getOrder_delivery_pee()); 
+//            pstmt.setInt(9, OrderBean.getOrder_plus_point()); 
+//            pstmt.setInt(10, OrderBean.getOrder_used_point()); 
             pstmt.setString(3, "배송전");
-            pstmt.setString(4, orderListBean.getOrder_member_name());
-            pstmt.setString(5, orderListBean.getOrder_member_id());
-//            pstmt.setInt(6, orderListBean.getOrder_idx()); 
-//            pstmt.setString(12, orderListBean.getOrder_pay_status());
-//            pstmt.setString(13, orderListBean.getOrder_payment());
-//            pstmt.setString(14, orderListBean.getOrder_memo());
+            pstmt.setString(4, OrderBean.getOrder_member_name());
+            pstmt.setString(5, OrderBean.getOrder_member_id());
+//            pstmt.setInt(6, OrderBean.getOrder_idx()); 
+//            pstmt.setString(12, OrderBean.getOrder_pay_status());
+//            pstmt.setString(13, OrderBean.getOrder_payment());
+//            pstmt.setString(14, OrderBean.getOrder_memo());
             
             
             insertCount = pstmt.executeUpdate(); // 글 등록 처리 결과를 int 형 값으로 리턴받음
@@ -87,7 +87,7 @@ public class OrderDAO {
         } catch (SQLException e) {
 //            e.printStackTrace();
             System.out.println("오더DAO에서 insertOrder() 에러 - " + e.getMessage());
-          System.out.println("오더DAO,아티클 안에는 값 들어가있나"+orderListBean.getOrder_item_code());
+          System.out.println("오더DAO,아티클 안에는 값 들어가있나"+OrderBean.getOrder_item_code());
             
             // 만약, 외부로 예외를 던질 때 메세지를 직접 지정하고 싶을 경우 throw 키워드 사용하여
             // Exception 객체 생성 시 예외 메세지를 지정하면 된다! => throws 키워드로 예외 던지기 필요!
@@ -462,7 +462,348 @@ public class OrderDAO {
 
 			return updateCount;
 		}
-    
+	public int selectListCount(OrderBean ob) {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String order_member_id=ob.getOrder_member_id();
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_member_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, order_member_id);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				listCount = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_member_id()+"갯수는"+listCount);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return listCount;
+	}
+	
+	// Admin OrderList Select
+	public ArrayList<OrderBean> selectArticleList(OrderBean ob) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
+
+		int startRow = (ob.getPage() - 1) * 10;
+		
+		try {
+
+			System.out.println("디에오 체크/"+ob.getPickStart() + "/" +ob.getPickEnd());
+			
+			
+			// admin
+			// admin2
+	
+			String sql = "SELECT * FROM item_order where "
+			
+	
+			
+			        
+					
+//				+ "if(order_idx=?<1 ,like '%%',?)"
+				
+		        
+					+ "order_idx like if(?<1,'%%',?)"
+					+ "and order_item_title like ifnull(?,'%%') "
+					+ "and order_date >= ?"
+					+ "and order_date <= ?"
+			        + "and order_member_id like ifnull(?,'%%') "
+			        + "and order_pay_status like ifnull(?,'%%') "
+			        + "and order_delivery_status like ifnull(?,'%%')"
+			        + "and order_item_status like ifnull(?,'%%')"
+			        + "and order_bank like ifnull(?,'%%')"
+			        + "and order_payment like ifnull(?,'%%')"
+			        + "ORDER BY order_item_code LIMIT ?,?";
+			
+			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, ob.getOrder_item_option_color());
+			pstmt.setInt(1, ob.getOrder_idx());
+			pstmt.setInt(2, ob.getOrder_idx());
+			pstmt.setString(3, ob.getOrder_item_title());
+			pstmt.setDate(4, ob.getPickStart());
+			pstmt.setDate(5, ob.getPickEnd());
+			pstmt.setString(6, ob.getOrder_member_id());
+			pstmt.setString(7, ob.getOrder_pay_status());
+			pstmt.setString(8, ob.getOrder_delivery_status());
+			pstmt.setString(9, ob.getOrder_item_status());
+			pstmt.setString(10, ob.getOrder_bank());
+			pstmt.setString(11, ob.getOrder_payment());
+			pstmt.setInt(12, startRow);
+			pstmt.setInt(13, ob.getLimit());
+			
+			rs = pstmt.executeQuery();
+			
+			System.out.println(startRow+"와"+ob.getLimit());
+
+			while (rs.next()) {
+				OrderBean listBean = new OrderBean();
+				listBean.setOrder_date(rs.getDate("order_date"));
+				listBean.setOrder_idx(rs.getInt("order_idx"));
+				listBean.setOrder_member_id(rs.getString("order_member_id"));
+				listBean.setOrder_item_title(rs.getString("order_item_title"));
+				listBean.setOrder_pay_status(rs.getString("order_pay_status"));
+				listBean.setOrder_item_sel_price(rs.getInt("order_item_sel_price"));
+				listBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
+				listBean.setOrder_payment(rs.getString("order_payment"));
+				listBean.setOrder_bank(rs.getString("order_bank"));
+				listBean.setOrder_item_status(rs.getString("order_item_status"));
+				listBean.setOrder_memo(rs.getString("order_memo"));
+				articleList.add(listBean);
+			}
+			
+			System.out.println("OrderDAO: orderList 담긴거 확인:" + articleList);
+		} catch (SQLException e) {
+			System.out.println("selectArticleList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+	}
+	
+	public int selectdelivery1_Count(OrderBean ob) {
+		int delivery1_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_start="입금전";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_start);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery1_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery1_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery1_Count;
+	}
+	
+	public int selectdelivery2_Count(OrderBean ob) {
+		int delivery2_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_before="배송전";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_before);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery2_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery2_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery2_Count;
+	}
+	
+	public int selectdelivery3_Count(OrderBean ob) {
+		int delivery3_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_ing="배송중";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_ing);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery3_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery3_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery3_Count;
+	}
+	
+	public int selectdelivery4_Count(OrderBean ob) {
+		int delivery4_Count = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String delivery_end="배송완료";
+		// String before배송= "배송전";
+		try {
+			String sql = "SELECT COUNT(*) FROM item_order where order_delivery_status=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, delivery_end);  //제목  
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				delivery4_Count = rs.getInt(1);
+				System.out.println("작성자는"+ob.getOrder_delivery_status()+"갯수는"+delivery4_Count);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return delivery4_Count;
+	}
+	
+	
+	public ArrayList<OrderBean> selectArticleList(String sId) {		// 회원 정보 => 장바구니에서 주문
+		 PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        
+	        ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
+
+	         
+	        
+	        try { 
+	            String sql = "SELECT * FROM item_order where order_member_id=?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, sId);
+	            rs = pstmt.executeQuery();
+
+	            while(rs.next()) {
+	            	OrderBean OrderBean = new OrderBean();
+	            	System.out.println("아");
+	            	OrderBean.setOrder_idx(rs.getInt("order_idx"));
+	            	System.out.println("주문번호"+OrderBean.getOrder_idx());
+	            	OrderBean.setOrder_item_code((rs.getInt("order_item_code")));
+	             	System.out.println("아이템코드"+OrderBean.getOrder_idx());
+	            	OrderBean.setOrder_item_title(rs.getString("order_item_title"));
+	            	OrderBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
+	            	OrderBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
+	                OrderBean.setOrder_date(rs.getDate("order_date"));
+	                OrderBean.setOrder_item_title((rs.getString("order_item_title")));
+	            	articleList.add(OrderBean);
+	            }
+	            
+	        } catch (SQLException e) {
+	            System.out.println("selectArticleList() - " + e.getMessage());
+	        } finally {
+	            close(rs);
+	            close(pstmt);
+	        }
+	        
+	        
+	        return articleList;
+		}
+
+	public OrderBean selectArticleList(int order_item_code) {
+		PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        
+        OrderBean ob = new OrderBean();
+         
+        
+        try { 
+            String sql = "SELECT * FROM item_order where order_item_code=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, order_item_code);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	
+            	ob.setOrder_item_code((rs.getInt("order_item_code")));
+            	ob.setOrder_idx(rs.getInt("order_idx"));
+            	ob.setOrder_item_title(rs.getString("order_item_title"));
+            	ob.setOrder_item_option_color(rs.getString("order_item_option_color"));
+            	ob.setOrder_delivery_status(rs.getString("order_delivery_status"));
+            	ob.setOrder_date(rs.getDate("order_date"));
+            	ob.setOrder_item_title((rs.getString("order_item_title")));
+            	
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return ob;
+
+	}
+
+	public ArrayList<OrderBean> selectArticleList1(String bId) {
+		PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
+
+         
+        
+        try { 
+            String sql = "SELECT * FROM basket where basket_idx=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, bId);
+            rs = pstmt.executeQuery();
+            
+
+            while(rs.next()) {
+            	OrderBean OrderBean = new OrderBean();
+            	OrderBean.setOrder_idx(rs.getInt("basket_idx"));
+            	OrderBean.setOrder_item_code((rs.getInt("basket_code")));
+            	OrderBean.setOrder_item_title((rs.getString("basket_title")));
+            	OrderBean.setOrder_item_option_color(rs.getString("basket_option_color"));
+            	OrderBean.setOrder_delivery_status("배송준비");
+                OrderBean.setOrder_date(rs.getDate("basket_date"));
+            	articleList.add(OrderBean);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("selectArticleList() - " + e.getMessage());
+        } finally {
+            close(rs);
+            close(pstmt);
+        }
+        
+        
+        return articleList;
+
+	}
     
 }
 

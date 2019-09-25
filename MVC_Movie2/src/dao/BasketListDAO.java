@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import vo.BasketListBean;
 import vo.ItemBean;
 import vo.MemberBean;
-import vo.OrderListBean;
+import vo.OrderBean;
 
 public class BasketListDAO {
 	private static BasketListDAO instance;

@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vo.ItemBean;
-import vo.OrderListBean;
-import vo.ProductSearchBean;
-
+import vo.OrderBean;
 import static db.JdbcUtil.*;
 
 public class ItemDAO {
@@ -448,7 +446,7 @@ public class ItemDAO {
 	
 	
 
-	public ArrayList<ItemBean> selectArticleList(ProductSearchBean pb) {
+	public ArrayList<ItemBean> selectArticleList(ItemBean pb) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -463,7 +461,6 @@ public class ItemDAO {
 			String sql = "SELECT * FROM Item where "
 					+ "Item_title like ifnull(?,'%%') "
 					+ "and Item_date >= ?"
-					+ "and Item_date <= ?"
 			        + "and Item_display like ifnull(?,'%%') "
 			        + "and Item_sales like ifnull(?,'%%')"
 			        + "and Item_category1 like ifnull(?,'%%')";

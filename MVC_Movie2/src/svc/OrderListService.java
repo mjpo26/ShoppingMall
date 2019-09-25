@@ -6,16 +6,16 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.OrderListDAO;
-import vo.OrderListBean;
-import vo.OrderSearchBean;
+import dao.OrderDAO;
+import vo.OrderBean;
+import vo.OrderBean;
 
 public class OrderListService {
-	public int getListCount(OrderSearchBean ob) throws Exception {
+	public int getListCount(OrderBean ob) throws Exception {
 	        int listCount = 0; 
 	      
 	        Connection con = getConnection();	        
-	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        OrderDAO listDAO = OrderDAO.getInstance();
 	        listDAO.setConnection(con);
 	        
 	        listCount = listDAO.selectListCount(ob);
@@ -25,25 +25,24 @@ public class OrderListService {
 	    }
 
 	
-	    public ArrayList<OrderListBean> getArticleList(OrderSearchBean ob) throws Exception {
-	        ArrayList<OrderListBean> articleList = null;
+	    public ArrayList<OrderBean> getArticleList(OrderBean ob) throws Exception {
+	        ArrayList<OrderBean> articleList = null;
 	        
 	        Connection con = getConnection();  
-	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        OrderDAO listDAO = OrderDAO.getInstance();
 	        listDAO.setConnection(con);
 	        
 	        articleList = listDAO.selectArticleList(ob);
 	        
 	        close(con);
-	        System.out.println("OrderListService의  ArrayList<OrderListBean> 실행됨");
 	        return articleList;
 	    }
 
-		public int getdelivery1_Count(OrderSearchBean ob) {
+		public int getdelivery1_Count(OrderBean ob) {
 	        int delivery1_Count = 0; 
 		      
 	        Connection con = getConnection();	        
-	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        OrderDAO listDAO = OrderDAO.getInstance();
 	        listDAO.setConnection(con);
 	        
 	        delivery1_Count = listDAO.selectdelivery1_Count(ob);
@@ -52,11 +51,11 @@ public class OrderListService {
 	        return delivery1_Count;
 	    }
 
-		public int getdelivery2_Count(OrderSearchBean ob) {
+		public int getdelivery2_Count(OrderBean ob) {
 	        int delivery2_Count = 0; 
 		      
 	        Connection con = getConnection();	        
-	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        OrderDAO listDAO = OrderDAO.getInstance();
 	        listDAO.setConnection(con);
 	        
 	        delivery2_Count = listDAO.selectdelivery2_Count(ob);
@@ -65,11 +64,11 @@ public class OrderListService {
 	        return delivery2_Count;
 	    }
 		
-		public int getdelivery3_Count(OrderSearchBean ob) {
+		public int getdelivery3_Count(OrderBean ob) {
 	        int delivery3_Count = 0; 
 		      
 	        Connection con = getConnection();	        
-	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        OrderDAO listDAO = OrderDAO.getInstance();
 	        listDAO.setConnection(con);
 	        
 	        delivery3_Count = listDAO.selectdelivery3_Count(ob);
@@ -78,11 +77,11 @@ public class OrderListService {
 	        return delivery3_Count;
 	    }
 		
-		public int getdelivery4_Count(OrderSearchBean ob) {
+		public int getdelivery4_Count(OrderBean ob) {
 	        int delivery4_Count = 0; 
 		      
 	        Connection con = getConnection();	        
-	        OrderListDAO listDAO = OrderListDAO.getInstance();
+	        OrderDAO listDAO = OrderDAO.getInstance();
 	        listDAO.setConnection(con);
 	        
 	        delivery4_Count = listDAO.selectdelivery4_Count(ob);

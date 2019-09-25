@@ -1,4 +1,4 @@
-<%@page import="vo.OrderListBean"%>
+<%@page import="vo.OrderBean"%>
 <%@page import="vo.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,7 +12,7 @@ catch(Exception e){
 }
 	String sId = (String) session.getAttribute("sId");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
-	OrderListBean orderListBean = (OrderListBean) request.getAttribute("orderListBean");
+	OrderBean OrderBean = (OrderBean) request.getAttribute("OrderBean");
 	// 세션 아이디 없으면 Main.qa 로 이동
 	if (sId == null) {
 		out.println("<script>");
@@ -52,17 +52,17 @@ catch(Exception e){
 				<tr>
 					<td>주문번호</td>
 					<td><input type="text" name="order_idx"
-						value=<%=orderListBean.getOrder_idx()%>></td>
+						value=<%=OrderBean.getOrder_idx()%>></td>
 				</tr>
 				<tr>
 					<td>상품번호</td>
 					<td><input type="text" name="order_item_code"
-						value=<%=orderListBean.getOrder_item_code()%>></td>
+						value=<%=OrderBean.getOrder_item_code()%>></td>
 				</tr>
 				<tr>
 					<td>상품명</td>
 					<td><input type="text" name="order_item_title"
-						value=<%=orderListBean.getOrder_item_title()%>></td>
+						value=<%=OrderBean.getOrder_item_title()%>></td>
 				</tr>
 				<tr>
 					<td>제목</td>

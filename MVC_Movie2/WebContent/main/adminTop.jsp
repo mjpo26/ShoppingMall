@@ -52,7 +52,7 @@
                     </li>
                     <li>고객관리
                         <ul class="subMenu">
-                            <li><a href="./Admin_memberList.am">관리자 멤버리스트</a></li>
+                            <li><a href="./Admin_memberList.admin">관리자 멤버리스트</a></li>
                         
                         </ul>
                     
