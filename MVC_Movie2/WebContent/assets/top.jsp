@@ -14,10 +14,7 @@
     <title>aranoz</title>
     <link rel="icon" href="./assets/img/favicon.png">
     <!-- Bootstrap CSS -->
- 
-       
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">       
-
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> 
     <!-- animate CSS -->
     <link rel="stylesheet" href="./assets/css/animate.css">
     <!-- owl carousel CSS -->
@@ -61,7 +58,7 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="./main.ma">메인</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
@@ -77,10 +74,15 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        pages
+                                     	회원관리
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_3">
-                                        <a class="dropdown-item" href="login.html"> login</a>
+                                    <%= if(sId==null){ %>
+                                        <a class="dropdown-item" href="./MemberLoginPro.me"> 로그인</a>
+                                    <%}else{ %>
+                                        <a class="dropdown-item" href="./MemberLoginForm.me"> 로그아웃</a>
+                                    
+                                    <%} %>
                                         <a class="dropdown-item" href="tracking.html">tracking</a>
                                         <a class="dropdown-item" href="checkout.html">product checkout</a>
                                         <a class="dropdown-item" href="cart.html">shopping cart</a>
@@ -105,7 +107,7 @@
                                 <%
                                 if(sId!=null && sId.equals("admin")) {%>
                                	   <li class="nav-item">
-                                       <a class="nav-link" href="./admin.map">관리자</a>
+                                       <a class="nav-link" href="./admin.ma">관리자</a>
                                    </li>
 								<%}
                                 %>
