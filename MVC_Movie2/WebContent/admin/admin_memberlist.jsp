@@ -40,18 +40,34 @@ PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 날짜선택임포트 끝 -->
-<!--  게시판 datatables -->
-<!-- <link rel="stylesheet" type="text/css"
-   href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+
+<!-- dataTables 시작-->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <script type="text/javascript"
-   src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-   
-    <script type="text/javascript">
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+	
+    <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        var table = $('#example').DataTable({
+            columnDefs: [{
+                orderable: true
+            
+            }]
+        });
+     
+        $('button').click( function() {
+            var data = table.$('input, select').serialize();
+            alert(
+                "The following data would have been submitted to the server: \n\n"+
+                data.substr( 0, 120 )+'...'
+            );
+            return false;
+        } );
     } );
-    
-   </script> -->
+	</script>
+<!-- dataTables 끝-->	
+	
 <!-- 날짜선택 스크립트 -->
 <script>
    $(function() {
@@ -176,8 +192,6 @@ div.container {
 
          </tr>
 
-
-
       </table>
       <input type="submit" value="검색" >
    </form>
@@ -195,14 +209,13 @@ div.container {
          <th>이름</th>
          <th>주소</th>
          <th>휴대전화</th>
-         <th>메일수신</th>
          <th>sns수신</th>
+         <th>메일수신</th>
          <th>포인트내역</th>
          <th>수정</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
          <%
             for (int i = 0; i < memberList.size(); i++) {
          %>
@@ -214,8 +227,8 @@ div.container {
          <td><%=memberList.get(i).getMember_name()%></td>
          <td><%=memberList.get(i).getMember_address1()%></td>
          <td><%=memberList.get(i).getMember_phone()%></td>
-         <td><%=memberList.get(i).getMember_email_ok()%></td>
          <td><%=memberList.get(i).getMember_sms_ok()%></td>
+         <td><%=memberList.get(i).getMember_email_ok()%></td>
          <td><%=memberList.get(i).getMember_mypoint()%></td>
          <td>
          <input type="button" value="회원삭제">

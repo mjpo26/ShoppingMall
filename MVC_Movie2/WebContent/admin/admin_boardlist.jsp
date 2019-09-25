@@ -21,7 +21,32 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 날짜선택임포트 끝 -->
-
+<!-- dataTables 시작-->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+<script type="text/javascript"
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+	
+    <script>
+    $(document).ready(function() {
+        var table = $('#example').DataTable({
+            columnDefs: [{
+                orderable: true
+            
+            }]
+        });
+     
+        $('button').click( function() {
+            var data = table.$('input, select').serialize();
+            alert(
+                "The following data would have been submitted to the server: \n\n"+
+                data.substr( 0, 120 )+'...'
+            );
+            return false;
+        } );
+    } );
+	</script>
+<!-- dataTables 끝-->
 <!-- 날짜선택 스크립트 -->
 <script>
 	$(function() {
@@ -161,28 +186,12 @@ function pickNullCheck(){
 			int endPage = pageInfo.getEndPage();
 			int maxPage = pageInfo.getMaxPage();
 	%>
-	<br>
-	<table border="1">
-		<tr>
-			<th colspan='12'>리뷰게시판 검색목록</th>
-		</tr>
-		<tr>
-			<td colspan='12'>[검색결과 <%=listCount%>건]
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp; <select>
-					<option>정렬방식</option>
-					<option>오름차순</option>
-					<option>내림차순</option>
-
-			</select><select>
-					<option>10개</option>
-					<option>20개</option>
-					<option>50개</option>
-			</select>
-			</td>
-		</tr>
+	
+	<p>
+	<div style="height: 200px; width: 900px; float: left;">
+	<br><br>
+	<table id="example" class="display compact" border="1">
+		<thead>
 		<tr>
 			<th><input type="checkbox"></th>
 			<th>글번호</th>
@@ -192,6 +201,8 @@ function pickNullCheck(){
 			<th>답변상태</th>
 			<th>게시글보기</th>
 		</tr>
+		</thead>
+		<tbody>
 		<%
 			for (int i = 0; i < boardList.size(); i++) {
 					// 				String[] reviewStatus = new String[100];
@@ -220,7 +231,11 @@ function pickNullCheck(){
 		<%
 			}
 		%>
-	</table>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+			</div>
 	<!-- QnA 게시판!!!!!!!!!!!!!! -->
 
 	<%
@@ -233,28 +248,13 @@ function pickNullCheck(){
 			int endPage = pageInfo.getEndPage();
 			int maxPage = pageInfo.getMaxPage();
 	%>
-	<table border="1">
-
-		<tr>
-			<th colspan='12'>QnA게시판 검색목록</th>
-		</tr>
-		<tr>
-			<td colspan='12'>[검색결과 <%=listCount%>건]
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp; <select>
-					<option>정렬방식</option>
-					<option>오름차순</option>
-					<option>내림차순</option>
-
-			</select><select>
-					<option>10개</option>
-					<option>20개</option>
-					<option>50개</option>
-			</select>
-			</td>
-		</tr>
+	
+	<p>
+	<div style="height: 200px; width: 900px; float: left;">
+	<br>
+	
+	<table id="example" class="display compact" border="1">
+	<thead>
 		<tr>
 			<th><input type="checkbox"></th>
 			<th>글번호</th>
@@ -264,6 +264,8 @@ function pickNullCheck(){
 			<th>답변상태</th>
 			<th>게시글보기</th>
 		</tr>
+		</thead>
+		<tbody>
 		<%
 			for (int i = 0; i < boardList.size(); i++) {
 					// 				String[] reviewStatus = new String[100];
@@ -293,6 +295,10 @@ function pickNullCheck(){
 			}
 		}
 		%>
+		</tbody>
+		<tfoot>
+		</tfoot>
 	</table>
+	</div>
 </body>
 </html>

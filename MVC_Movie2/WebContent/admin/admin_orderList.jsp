@@ -31,6 +31,8 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 날짜선택임포트 끝 -->
+
+<!-- dataTables 시작-->
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <script type="text/javascript"
@@ -55,6 +57,9 @@
         } );
     } );
 	</script>
+	
+<!-- dataTables 끝-->
+
 <!-- 날짜선택 스크립트 -->
 <script>
 	$(function() {
@@ -244,7 +249,6 @@ function pickNullCheck(){
 		<form action ="./orderUpdate.ol" method="post">
 		<table id="example" class="display compact" border="1">
 		<thead>
-
 			<tr>
 				<th><input type="checkbox"></th>
 				<th>주문일</th>
@@ -261,7 +265,6 @@ function pickNullCheck(){
 				<th>수정</th>
 			</tr>
 			</thead>
-			
 			<tbody>
 			<%
 				for (int i = 0; i < articleList.size(); i++) {

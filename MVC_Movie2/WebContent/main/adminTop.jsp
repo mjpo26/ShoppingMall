@@ -61,7 +61,7 @@
 
                     <li>게시판관리
                         <ul class="subMenu">
-                            <li><a href="./AdminBoardList.abl">관리자 게시판리스트</a></li>
+                            <li><a href="./AdminBoardList.admin">관리자 게시판리스트</a></li>
                             <li><a href="./Free_BoardList.bo">Free_board</a></li>
                             <li><a href="./ReviewBoardList.re">Review_board</a></li>
                             <li><a href="./QnA_BoardList.qa">QnA_board</a></li>
