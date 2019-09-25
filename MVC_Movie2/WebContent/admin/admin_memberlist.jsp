@@ -88,7 +88,7 @@ function pickNullCheck(){
 </head>
 <body>
 
-	<form action="./Admin_memberList.am" name="fr1" method="post" onsubmit="return pickNullCheck()">
+	<form action="./Admin_memberList.admin" name="fr1" method="post" onsubmit="return pickNullCheck()">
 
 		<table border="1">
 			<tr>
