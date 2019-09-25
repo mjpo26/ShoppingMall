@@ -71,7 +71,7 @@ public class QnA_BoardDAO {
                     + "QnA_file2,"
                     + "QnA_file3,"
                     + "QnA_file4,"
-                    + "QnA_file5 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?)";
+                    + "QnA_file5) VALUES (?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?)";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, num); // 게시물 번호(새로 계산한 번호 사용)
             // QnA_writer_id, QnA_pass, QnA_subject, QnA_content, QnA_file1 - BoardBean 객체 값 사용
@@ -90,7 +90,6 @@ public class QnA_BoardDAO {
             pstmt.setString(13, article.getQnA_file3());
             pstmt.setString(14, article.getQnA_file4());
             pstmt.setString(15, article.getQnA_file5());
-            
             
             insertCount = pstmt.executeUpdate(); // 글 등록 처리 결과를 int 형 값으로 리턴받음
             

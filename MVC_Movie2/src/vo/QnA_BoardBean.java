@@ -20,8 +20,16 @@ public class QnA_BoardBean {
 	private String QnA_file3;
 	private String QnA_file4;
 	private String QnA_file5;
+	private String QnA_type;
 	
-    public int getQnA_num() {
+	
+    public String getQnA_type() {
+		return QnA_type;
+	}
+	public void setQnA_type(String qnA_type) {
+		QnA_type = qnA_type;
+	}
+	public int getQnA_num() {
 		return QnA_num;
 	}
 	public void setQnA_num(int qnA_num) {

@@ -41,7 +41,7 @@
 			<td><%=articleList.get(i).getOrder_delivery_status()%></td>
 			<td><%=articleList.get(i).getOrder_item_point() %></td>
 			<td><a
-				href="ReviewBoardWriteForm.re?num=<%=num%>&order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
+				href="ReviewBoardWriteForm.re?order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
 					<input type="button" value="리뷰달기">
 			</a></td>
 		</tr>

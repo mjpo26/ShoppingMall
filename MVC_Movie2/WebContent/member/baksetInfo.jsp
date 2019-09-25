@@ -8,42 +8,66 @@
 	
 	
     %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>장바구니</title>
-</head>
-<body>
-	<h1>장바구니</h1>
-	<table border="1">
-		<tr>
-			<th colspan="2">상품명</th>
-			<td>수량</td>
-			<td>상품금액</td>
-			<td>할인금액</td>
-			<td>할인적용금액</td>
-			<td>배송비</td>
-			<td>주문</td>
-		</tr>
-			<%for(int i = 0; i < articleList.size(); i++) {%>
-					<tr>
-					<td><input type="checkbox" name="cb" value="<%=articleList.get(i).getBasket_code()%>"></td>  
-					<td><%=articleList.get(i).getBasket_title() %></td>
-					<td><%=articleList.get(i).getBasket_code_count() %></td>
-					<td><%=articleList.get(i).getBasket_new_price() %></td>
-					<td><%=articleList.get(i).getBasket_sel_price() %></td>
-					<td><%=articleList.get(i).getBasket_new_price()-articleList.get(i).getBasket_sel_price() %> </td>
-					<td><%=articleList.get(i).getBasket_delivery_pee() %>원</td>
-					<td><input type="button" value="주문하기" onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'"><br>
-					<input type="button" value="삭제하기" onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'"></td>
-					</tr>
+<jsp:include page="../assets/top.jsp"></jsp:include>
+
+
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="breadcrumb_iner">
+					<div class="breadcrumb_iner_item">
+						<h2>장바구니</h2>
+						<p>
+							장바구니 <span>-</span>장바구니 현황
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- breadcrumb start-->
+<!--================End Home Banner Area =================-->
+
+    <section class="cart_list shopping_cart mt-5">    
+        <div class="container">
+           <div class="row clearfix">
+           
+           
+			<table class="table">
+				<tr>
+					<th></th>
+					<th>상품명</th>
+					<th>수량</th>
+					<th>상품금액</th>
+					<th>할인금액</th>
+					<th>할인적용금액</th>
+					<th>배송비</th>
+					<th>주문</th>
+				</tr>
+					<%for(int i = 0; i < articleList.size(); i++) {%>
+							<tr>
+							<td><input type="checkbox" name="cb" value="<%=articleList.get(i).getBasket_code()%>"></td>  
+							<td><%=articleList.get(i).getBasket_title() %></td>
+							<td><%=articleList.get(i).getBasket_code_count() %></td>
+							<td><%=articleList.get(i).getBasket_new_price() %></td>
+							<td><%=articleList.get(i).getBasket_sel_price() %></td>
+							<td><%=articleList.get(i).getBasket_new_price()-articleList.get(i).getBasket_sel_price() %> </td>
+							<td><%=articleList.get(i).getBasket_delivery_pee() %>원</td>
+							<td><input type="button" value="주문하기" onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'"><br>
+							<input type="button" value="삭제하기" onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'"></td>
+							</tr>
+							
+					<%} %>					
 					
-			<%} %>
+			</table>
+			</div>
+		</div>
+	</section>
 
 
-			
-			
-	</table>
-</body>
-</html>
+
+<jsp:include page="../assets/foot.jsp"></jsp:include>
+	
