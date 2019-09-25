@@ -356,37 +356,68 @@ public class ItemDAO {
 		// 카테1 조회
 				public ArrayList<ItemBean> selectCate1() {
 
-					ArrayList<ItemBean> cateArr = new ArrayList<ItemBean>();
+					ArrayList<ItemBean> cate1Arr = new ArrayList<ItemBean>();
 					PreparedStatement pstmt = null;
 					ResultSet rs = null;
 
 					
-					String sql = "select distinct Item_category1 from Item where item_category1 like '%%'";
+					String sql = "select distinct Item_category1 from Item where Item_category1 is not null ";
 					try {
 						pstmt = con.prepareStatement(sql);
 						rs = pstmt.executeQuery();
 						System.out.println("카테1조회성공"+rs);
 						while(rs.next()) {
-							ItemBean cate1 = new ItemBean();
-							cate1.setItem_category1(rs.getString("item_category1"));
-						cateArr.add(cate1);
+							ItemBean cate = new ItemBean();
+							cate.setItem_category1(rs.getString("item_category1"));
+						cate1Arr.add(cate);
 						}
 						
 						
 						
 						
 					} catch (SQLException e) {
-						System.out.println("selectCate1 실패! - " + e.getMessage());
+						System.out.println("selectCate 실패! - " + e.getMessage());
 					} finally {
 						close(pstmt);
 						close(rs);
 						close(con);
 					}
 
-					return cateArr;
+					return cate1Arr;
 				}
 		
-		
+				// 카테2 조회
+				public ArrayList<ItemBean> selectCate2() {
+
+					ArrayList<ItemBean> cate2Arr = new ArrayList<ItemBean>();
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+
+					
+					String sql = "select distinct Item_category2 from Item where Item_category2 is not null ";
+					try {
+						pstmt = con.prepareStatement(sql);
+						rs = pstmt.executeQuery();
+						System.out.println("카테2조회성공"+rs);
+						while(rs.next()) {
+							ItemBean cate = new ItemBean();
+							cate.setItem_category2(rs.getString("item_category2"));
+						cate2Arr.add(cate);
+						}
+						
+						
+						
+						
+					} catch (SQLException e) {
+						System.out.println("selectCate2 실패! - " + e.getMessage());
+					} finally {
+						close(pstmt);
+						close(rs);
+						close(con);
+					}
+
+					return cate2Arr;
+				}
 		
 		
 		
