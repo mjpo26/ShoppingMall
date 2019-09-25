@@ -23,7 +23,7 @@
 
         <nav id="sideMenu">
         
-            <nav class="sideMenu">
+            <div class="sideMenu">
             	
                 <ul class="mainMenu">
                 	<li onclick="location.href='./admin.ma'"><i class="ti-home"></i></li>
@@ -77,6 +77,19 @@
                         </ul>
                     </li>
                 </ul>
-            </nav>
+            </div>
         </nav>
 
+     
+     
+        <div id="main">
+            <header id="header">
+                <div class="container">
+                    <div class="header">
+                        <div class="login">
+				        <%if(sId != null) { %>
+                            <a class="member_id" href="./MemberInfo.me"><%=sId %>님</a><a href="./MemberLogoutPro.me">로그아웃</a> 
+                        <%} else { %>   
+                            <a href="./MemberLoginForm.me">로그인</a> 
+                        <%} %>
+                        </div>
