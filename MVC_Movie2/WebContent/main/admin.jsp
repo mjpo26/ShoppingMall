@@ -4,14 +4,11 @@
     // 저장된 세션 아이디 가져오기
     String sId = (String)session.getAttribute("sId");
   %>  
-<jsp:include page="adminTop.jsp"></jsp:include>
-  
+<jsp:include page="adminTop.jsp"></jsp:include>  
 
         <div id="main">
-
             <header id="header">
                 <div class="container">
-
                     <div class="header">
                         <h3>관리자 페이지 메인</h3>
                         <div class="login">
@@ -21,11 +18,9 @@
                             <a href="./MemberLoginForm.me">로그인</a> 
                         <%} %>
                         </div>
-                    </div>
-                    
+                    </div>                    
                 </div>
             </header>
-
             <article id="content">
                 <div class="container mainDiv">
                     <section class="content today_income">
@@ -145,11 +140,8 @@
                             </div>
                         </div>
                     </section>
-
                 </div>
             </article>
-
-
         </div>
         
         

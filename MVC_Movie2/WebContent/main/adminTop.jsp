@@ -10,10 +10,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>관리자페이지</title>
-  <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> 
+<!--   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">  -->
   <link rel="stylesheet" href="./assets/css/themify-icons.css">
   <link rel="stylesheet" href="./main/admin.css">
-  <link rel="stylesheet" href="./assets/css/all.css">
+<!--   <link rel="stylesheet" href="./assets/css/all.css"> -->
   
 
 </head>
