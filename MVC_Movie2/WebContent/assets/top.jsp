@@ -66,7 +66,7 @@
                                         상품
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="./product_list.sh"> 상품 목록</a>
+                                        <a class="dropdown-item" href="./product_list.sh">상품 목록</a>
                                         <a class="dropdown-item" href="./productDetail.sh?Item_code=1&page=1">상세페이지</a>
                                         
                                     </div>
@@ -77,33 +77,31 @@
                                      	회원관리
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_3">
-                                    <%= if(sId==null){ %>
-                                        <a class="dropdown-item" href="./MemberLoginPro.me"> 로그인</a>
+                                    <% if(sId==null){ %>
+                                        <a class="dropdown-item" href="/MemberJoinForm.me">회원가입</a>
+                                        <a class="dropdown-item" href="./MemberLoginForm.me"> 로그인</a>
                                     <%}else{ %>
-                                        <a class="dropdown-item" href="./MemberLoginForm.me"> 로그아웃</a>
+                                        <a class="dropdown-item" href="./MemberInfo.me">회원정보</a>
+                                        <a class="dropdown-item" href="./MemberLogoutPro.me"> 로그아웃</a>
                                     
                                     <%} %>
-                                        <a class="dropdown-item" href="tracking.html">tracking</a>
-                                        <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                        <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                        <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                        <a class="dropdown-item" href="elements.html">elements</a>
+                                        <a class="dropdown-item" href="./BasketInfo.bl">장바구니</a>
+                                        <a class="dropdown-item" href="./productInfo.sh">주문 목록</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        blog
+                                        게시판
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="blog.html"> blog</a>
-                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                        <a class="dropdown-item" href="./Free_BoardList.bo">공지사항</a>
+                                        <a class="dropdown-item" href="./QnA_BoardList.qa">Q&A게시판</a>
+                                        <a class="dropdown-item" href="./ReviewBoardList.re">이벤트게시판</a>
+                                        <a class="dropdown-item" href="./ReviewBoardList.re">리뷰게시판</a>
                                     </div>
                                 </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
+                     
                                 <%
                                 if(sId!=null && sId.equals("admin")) {%>
                                	   <li class="nav-item">
