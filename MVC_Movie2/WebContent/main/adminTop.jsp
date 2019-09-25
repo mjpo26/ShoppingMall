@@ -12,6 +12,7 @@
 <title>관리자페이지</title>
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="./assets/css/themify-icons.css">
+  <link rel="stylesheet" href="./dist/summernote-lite.css">  
   <link rel="stylesheet" href="./main/admin.css">
 <!--   <link rel="stylesheet" href="./assets/css/all.css"> -->
   
@@ -52,7 +53,7 @@
                     </li>
                     <li>고객관리
                         <ul class="subMenu">
-                            <li><a href="./Admin_memberList.am">관리자 멤버리스트</a></li>
+                            <li><a href="./Admin_memberList.admin">관리자 멤버리스트</a></li>
                         
                         </ul>
                     
