@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<!DOCTYPE html>
-<html>
-<head>
-	
+<jsp:include page="../main/adminTop.jsp"></jsp:include>  
+
+                        <h3>상품 등록</h3>
+                    </div>                    
+                </div>
+            </header>
+            
 	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
     <script src="./js/jquery-3.4.1.js"></script>
-    <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
     <script src="./dist/summernote-lite.js"></script>
-    <script src="./dist/lang/summernote-ko-KR.js"></script>
-    
-	<script type="text/javascript">    
-	
+    <script src="./dist/lang/summernote-ko-KR.js"></script>    
+	<script type="text/javascript">
         /* summernote에서 이미지 업로드시 실행할 함수 */
         function sendFile(file, editor) {
 	            // 파일 전송을 위한 폼생성
@@ -34,7 +34,8 @@
 		 	        }
 		 	    });
 		 	}
-        <!-- 섬머노트 이미지 업로드시 아작스를 이용하여 업로드폴더에 저장후 summernote editor에 화면 출력됩니다. -->
+//         섬머노트 이미지 업로드시 아작스를 이용하여 업로드폴더에 저장후 summernote editor에 화면 출력됩니다.
+
             $(document).ready(function() {
                 $('#summernote').summernote({ // summernote를 사용하기 위한 선언
                     height: 400,
@@ -50,119 +51,195 @@
 			});
 		
 	</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+	$("input[name='findCategory1']").on("click", function(){
+		//$('.dup').click(function(){
+			var cate1 = $('#item_category1').val();
+		
+			$.ajax({
+		url : "<%=request.getContextPath()%>/CategoryListServlet.ca",
+	//		url : 'CategoryListServlet.ca',
+	           type: "post", 
+	           data : {
+	        	   item_category1 : cate1
+				},
 
 
+				success : function(data) {
+// 					console.log("111111");
+// 					console.log(data);
+// 					alert(data);
+					var cate1and2 = data.split("and");
+					var result1 = cate1and2[0].split("/");
+					var result2 = cate1and2[1].split("/");
+					for ( var i = 0; i < result1.length-1; i++) {
+					
+					$("#cate1sel").append("<option value='"+result1[i]+"'>"+result1[i]+"</option>");
+					
+					}
+					for ( var i = 0; i < result2.length-1; i++) {
+						$("#cate2sel").append("<option value='"+result2[i]+"'>"+result2[i]+"</option>");
+						}
+				},
+				
+				error : function(error) {
+					console.log("111111");
+					console.log(data);
+					alert("실패");
+				}
+			});
+		});
+	});
 
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-table {
-	border: #000000 solid;
-	border-width: 0px 0px 0px 0px
+function chkCate1Sel(cate1sel) {
+ document.fr.category1_text.value = cate1sel.value;
 }
-
-form {
-	display: inline
+function chkCate2Sel(cate2sel) {
+	 document.fr.category2_text.value = cate2sel.value;
 }
-</style>
-
-
-
-
+	
+	
+</script>
+	
+	  <article id="content">
+      	<div class="container mainDiv">
+			<section class="content product_insert">			
+				<form action="./ItemInsert.sh" method="post" name="fr">
+				   <div class="content_title">				
+						<h1>상품 등록</h1>
+					</div>
+					<table class="table" id="itemtable">
+						<tr>
+							<th>상품명(필수)</th>
+							<td><input type="text" name="title"></td>
+						</tr>
+						<tr>
+							<th >판매가(필수)</th>
+							<td><input type="text" name="old_price"> 할인율 : <input type="text" name="sale_price">%</td>
+							
+						</tr>
+						<tr>
+							<th>상품요약설명</th>
+							<td><textarea rows="5" cols="130" name="content1"></textarea></td>
+						</tr>
+						<tr>
+							<th>상품상세설명</th>					
+						  	<td>	
+						  	<textarea id="summernote" name="content2"></textarea>
+						  	 </td>
+	
+						</tr>
+						<tr>
+							<th>이미지추가</th>
+							<td><input type="file" name="pic1"><br>
+								<input type="file"	name="pic2"><br>
+								<input type="file"	name="pic3"><br>
+								<input type="file"	name="pic4"></td>
+						</tr>
+					
+						<tr>						
+							<th>진열상태</th>
+							<td><input type="radio" name="display" value="yes">진열함 <input type="radio" name="display" value="no">진열안함
+							</td>
+						</tr>
+											
+						<tr>						
+							<th>판매상태</th>
+							<td><input type="radio" name="sales" value="yes">판매함 <input type="radio" name="sales" value="no">판매안함
+							</td>
+						</tr>
+					
+						<tr>						
+							<th>매인진열</th>
+							<td><input type="radio" name="category" value="recommend">추천상품
+								<input type="radio" name="category" value="new"> 신상품 
+								<input type="radio" name="category" value="ca1"> 카테고리1 
+								<input type="radio" name="category" value="ca2"> 카테고리2
+							</td>
+						</tr>	
+						
+						<tr>
+							<th>상품분류<th>
+							
+							<td>
+			
+								1차 카테고리
+								<input type="text" id="category1_text" name="category1_text" size="12">
+								<input type="button" id ="findCategory1" name ="findCategory1" value="검색">
+						
+								<select id="cate1sel" onchange="chkCate1Sel(this)" name = "cate1sel">
+						  		<option value ="">1차 카테고리</option>
+								</select>
+						
+							<br>
+						
+								2차 카테고리
+								<input type="text" id="category2_text" name="category2_text" size="12">
+							<select id="cate2sel" onchange="chkCate2Sel(this)" name = "cate2sel">
+						  		<option value ="">2차 카테고리</option>
+								</select>			
+							</td>
+						
+						
+						
+						</tr>
+						
+						
+										
+					</table>
+					
+					
+					
+					
+					
 
 	
-
-</head>
-<body>
-	<div style="width: 800px">
-		<h1 style="margin-bottom: 0;">관리자 메인 페이지</h1>
-		<div style="height: 500px; width: 120px; float: left;">
-			<nav>
-				<ul>
-					<li><a href="product_main.jsp">상품관리</a></li>
-					<li><a href="#">주문관리</a></li>
-					<li><a href="#">고객관리</a></li>
-					<li><a href="#">게시판관리</a></li>
-					<li><a href="#">통계분석</a></li>
-				</ul>
-			</nav>
+					<div style="display: inline-block">
+						<h3>상품분류</h3>
+						<input type="text"> <input type="button" value="검색">
+						<!-- 위에꺼(상품분류) 이부분은 잠깐보류 -->
+					</div>
+					<h3>판매정보</h3>
+					원가 <input type="text" name="stock_price"> <br>
+					<br> 배송비 입력 <input type="text" name="delivery_pee"
+						value="50000"><br>
+					<br> 상품전체중량 <input type="text" name="weight"> <br>
+					<br> 재고수량 <input type="text" name="stock_count"> <br>
+					<br> <input type="submit" value="등록하기"> <input
+						type="reset" value="취소하기">
+				</form>
+			</section>
 		</div>
-		<form action="./ItemInsert.sh" method="get">
-			<div style="height: 500px; width: 400px; float: left;">
-				<h3>오늘매출현황</h3>
-				<table border="1" id="itemtable">
-					<tr>
-						<th colspan="3">상품명(필수)</th>
-						<td colspan="5"><input type="text" name="title"></td>
-					</tr>
-					<tr>
-						<th colspan="3">판매가(필수)</th>
-						<td colspan="5"><input type="text" name="old_price"> 할인율 : <input type="text" name="sale_price">%</td>
-						
-					</tr>
-					<tr>
-						<th colspan="3">상품요약설명</th>
-						<td colspan="12"><textarea rows="5" cols="130" name="content1"></textarea></td>
-					</tr>
-					<tr>
-						<th colspan="12">상품상세설명</th></tr><tr>
-				
-  	<td colspan="12">	<textarea id="summernote" name="content2"></textarea></td>
+	</article>
 
-					</tr>
-					<tr>
-<!-- 						<th colspan="2">첨부파일</th> -->
-<!-- 						<td colspan="2"><input type="file" name="Item_bgpic"></td> -->
-						<th colspan="2">이미지추가</th>
-						<td colspan="2" ><input type="file"	name="pic1" ></td>
-							<td colspan="2" ><input type="file"	name="pic2" ></td>
-							<td colspan="2" ><input type="file"	name="pic3" ></td>
-							<td colspan="2" ><input type="file"	name="pic4" ></td>
 
-<!-- 						<script src="//code.jquery.com/jquery.min.js"></script> -->
-<!-- 						<script> -->
-<!-- // 							$('.addItemBtn')
-// 									.click(
-// 											function() {
-// 												// 		$('#itemtable > #tbody:last').append('<td><input type="file"> </td>');
-// 												$('#tbody:last')
-// 														.append(
-// 																'<tr><td><input type="file" class="addItemBtn"> </td></tr>');
-// 											});
-						</script> -->
+    </div>
 
-					</tr>
 
-				</table>
+    <!-- jquery plugins here-->
+    
+<!--     <script src="./assets/js/jquery-1.12.1.min.js"></script> -->
+    <!-- popper js -->
+    <script src="./assets/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- easing js -->
 
-				<h3>진열상태</h3>
-				<input type="radio" name="display" value="yes">진열함 <input
-					type="radio" name="display" value="no">진열안함
-				<h3>판매상태</h3>
-				<input type="radio" name="sales" value="yes">판매함 <input
-					type="radio" name="sales" value="no">판매안함
-				<h3>매인진열</h3>
-				<input type="radio" name="category" value="recommend"> 추천상품
-				<input type="radio" name="category" value="new"> 신상품 
-				<input type="radio" name="category" value="ca1">카테고리1 
-				<input type="radio" name="category" value="ca2">카테고리2
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="./assets/js/slick.min.js"></script>
+    
+    <script src="./assets/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>    
+    <!-- custom js -->
+      <script src="./assets/js/theme.js"></script>
+    
+    <script src="./assets/js/custom.js"></script>
 
-				<div style="display: inline-block">
-					<h3>상품분류</h3>
-					<input type="text"> <input type="button" value="검색">
-					<!-- 위에꺼(상품분류) 이부분은 잠깐보류 -->
-				</div>
-				<h3>판매정보</h3>
-				원가 <input type="text" name="stock_price"> <br>
-				<br> 배송비 입력 <input type="text" name="delivery_pee"
-					value="50000"><br>
-				<br> 상품전체중량 <input type="text" name="weight"> <br>
-				<br> 재고수량 <input type="text" name="stock_count"> <br>
-				<br> <input type="submit" value="등록하기"> <input
-					type="reset" value="취소하기">
-			</div>
-		</form>
-	</div>
+
 
 </body>
 </html>
