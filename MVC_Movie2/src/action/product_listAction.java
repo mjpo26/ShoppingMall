@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import svc.ProductListService;
 import vo.ActionForward;
 import vo.ItemBean;
-import vo.TestInfo;
+import vo.PageInfo;
 
 public class product_listAction implements Action {
 
@@ -38,7 +38,7 @@ public class product_listAction implements Action {
 	            endPage = maxPage;
 	        }
 	        
-	        TestInfo pageInfo = new TestInfo(page, maxPage, startPage, endPage, listCount);
+	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
 	        
 	        request.setAttribute("pageInfo", pageInfo);
 	        request.setAttribute("articleList", articleList);

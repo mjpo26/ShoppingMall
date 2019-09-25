@@ -14,7 +14,7 @@ import vo.ActionForward;
 import vo.BasketListBean;
 import vo.ItemBean;
 import vo.MemberBean;
-import vo.TestInfo;
+import vo.PageInfo;
 
 public class BasketInfoAction implements Action {
 

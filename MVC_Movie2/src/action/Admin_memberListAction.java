@@ -1,7 +1,6 @@
 package action;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import svc.Admin_memberListService;
 import vo.ActionForward;
 import vo.Admin_MemberSearchBean;
-import vo.Admin_memberPageInfo;
+import vo.PageInfo;
 import vo.MemberBean;
 
 public class Admin_memberListAction implements Action {
@@ -129,7 +128,7 @@ public class Admin_memberListAction implements Action {
 	        
 	        
 	        // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-	        Admin_memberPageInfo pageInfo = new Admin_memberPageInfo(page, maxPage, startPage, endPage, listCount);
+	        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
 	        
 	        // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 	        request.setAttribute("pageInfo", pageInfo);

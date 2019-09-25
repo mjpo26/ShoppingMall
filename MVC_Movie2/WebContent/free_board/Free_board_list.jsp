@@ -1,4 +1,4 @@
-<%@page import="vo.Free_PageInfo"%>
+<%@page import="vo.PageInfo"%>
 <%@page import="vo.Free_BoardBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,7 +7,7 @@
 <%
 	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<Free_BoardBean> articleList = (ArrayList<Free_BoardBean>) request.getAttribute("articleList");
-	Free_PageInfo pageInfo = (Free_PageInfo) request.getAttribute("pageInfo");
+	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 
 	// PageInfo 객체로부터 페이징 정보 가져오기
 	int listCount = pageInfo.getListCount();

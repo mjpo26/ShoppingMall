@@ -9,7 +9,7 @@ import svc.Free_BoardListService;
 import vo.ActionForward;
 import vo.BoardSearchBean;
 import vo.Free_BoardBean;
-import vo.Free_PageInfo;
+import vo.PageInfo;
 
 // 글 목록 보기 요청을 처리하는 BoardListAction
 public class Free_BoardListAction implements Action {
@@ -77,7 +77,7 @@ public class Free_BoardListAction implements Action {
         }
         
         // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-        Free_PageInfo pageInfo = new Free_PageInfo(page, maxPage, startPage, endPage, listCount);
+        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
         
         // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
         request.setAttribute("pageInfo", pageInfo);

@@ -6,11 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.QnA_BoardListService;
-import svc.QnA_BoardListService;
 import vo.ActionForward;
 import vo.QnA_BoardBean;
-import vo.QnA_PageInfo;
-import vo.QnA_BoardBean;
+import vo.PageInfo;
 
 // 글 목록 보기 요청을 처리하는 BoardListAction
 public class QnA_BoardListAction implements Action {
@@ -51,7 +49,7 @@ public class QnA_BoardListAction implements Action {
         }
         
         // PageInfo 인스턴스 생성 후 페이징 처리 정보 저장
-        QnA_PageInfo pageInfo = new QnA_PageInfo(page, maxPage, startPage, endPage, listCount);
+        PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
         
         // request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
         request.setAttribute("pageInfo", pageInfo);
