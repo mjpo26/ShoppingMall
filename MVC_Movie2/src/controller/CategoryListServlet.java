@@ -34,14 +34,14 @@ public class CategoryListServlet extends HttpServlet{
         for(int i=0;i<cateList.size();i++) {
         	
         	aaa += cateList.get(i).getItem_category1()+"/";
-        	//response.getWriter().write(cateList.get(i).getItem_category1());
+        	response.getWriter().write(cateList.get(i).getItem_category1()+"/");
         //System.out.println(cateList.get(i).getItem_category1());
        
         }
         
         System.out.println(aaa);
         
-        response.getWriter().write("가나");
+        //response.getWriter().write("가나");
         
         
         
