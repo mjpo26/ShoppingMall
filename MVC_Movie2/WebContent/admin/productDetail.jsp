@@ -304,7 +304,9 @@
                     <%
                         }
                     %>
-                    
+
+        
+        <!-- ajax로 구현해야함ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ? action : productReviewAction  -->
                      <div id="pageList" class="text-center review_board board_paging">
 			            <% if (review_nowPage <= 1) {  %>
 			            <i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
