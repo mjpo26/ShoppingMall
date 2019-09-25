@@ -27,8 +27,8 @@
                         <div class="content_title">
                             <h1>이번달 매출 현황</h1>
                         </div>
-                        <div class="content_div">
-                            <div class="con con1  content_today_order">
+                        <div class="content_div row">
+                            <div class="con con1 content_today_order col-sm-3 col-xs-6 ml-3">
                                 <div class="con_title">
                                     <h3>결제</h3>
                                 </div>
@@ -36,7 +36,7 @@
                                     <h5><span>144,555,000</span>원</h5>
                                 </div>
                             </div>
-                            <div class="con con2 today_payed">
+                            <div class="con con2 today_payed col-sm-3 col-xs-6 ml-3">
                                 <div class="con_title">
                                     <h3>주문</h3>
                                 </div>
@@ -44,7 +44,7 @@
                                     <h5><span>544,555,000</span>원</h5>
                                 </div>
                             </div>
-                            <div class="con con3 today_refund">
+                            <div class="con con3 today_refund col-sm-3 col-xs-6 ml-3">
                                 <div class="con_title">
                                     <h3>환불</h3>
                                 </div>
@@ -52,7 +52,7 @@
                                     <h5><span>555,000</span>원</h5>
                                 </div>
                             </div>
-                            <div class="con con4 today_total">
+                            <div class="con con4 today_total col-sm-3 col-xs-6 ml-3">
                                 <div class="con_title">
                                     <h3>총계</h3>
                                 </div>
@@ -66,8 +66,8 @@
                         <div class="content_title">
                             <h1>주문 현황</h1>
                         </div>
-                        <div class="content_div">
-                            <div class="con con1 notPayed_count">
+                        <div class="content_div row ">
+                            <div class="con con1 notPayed_count ">
                                 <div class="con_title">
                                     <h3>입금전</h3>
                                 </div>

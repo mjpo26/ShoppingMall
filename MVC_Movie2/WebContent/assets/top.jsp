@@ -77,7 +77,7 @@
                                      	회원관리
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_3">
-                                    <%= if(sId==null){ %>
+                                    <% if(sId==null){ %>
                                         <a class="dropdown-item" href="./MemberLoginPro.me"> 로그인</a>
                                     <%}else{ %>
                                         <a class="dropdown-item" href="./MemberLoginForm.me"> 로그아웃</a>
