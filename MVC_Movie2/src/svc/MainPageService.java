@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.EventBoardDAO;
 import dao.ItemDAO;
+import vo.EventBean;
 import vo.ItemBean;
 
 
@@ -33,6 +35,19 @@ public class MainPageService {
        // BoardBean 객체 리턴
        return products;
 	}
+
+	public ArrayList<EventBean> getArticleList() throws Exception {
+        ArrayList<EventBean> articleList = null;
+        
+        Connection con = getConnection();  
+        EventBoardDAO DAO = EventBoardDAO.getInstance();
+        DAO.setConnection(con);
+        
+        articleList = DAO.selectEventList();
+        close(con);
+        System.out.println("MainDetailService의  ArrayList<CommentBean> 실행됨");
+        return articleList;
+    }
 
 	
 	

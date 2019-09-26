@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import vo.CommentBean;
 import vo.EventBean;
 
 public class EventBoardDAO {
@@ -71,6 +73,42 @@ public class EventBoardDAO {
 		}
 
 		return insertCount;
+	}
+
+	public ArrayList<EventBean> selectEventList() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<EventBean> eventList = new ArrayList<EventBean>();
+
+		try {
+
+			String sql = "SELECT * FROM event_board";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				EventBean cb = new EventBean();
+				cb.setEvent_content(rs.getString("event_content"));
+				cb.setEvent_date(rs.getDate("event_date"));
+				cb.setEvent_banner(rs.getString("event_banner"));
+				cb.setEvent_banner2(rs.getString("event_banner2"));
+				cb.setEvent_imageBackground(rs.getString("event_imageBackground"));
+				cb.setEvent_imageMain(rs.getString("event_imageMain"));
+				cb.setEvent_status(rs.getString("event_status"));
+				cb.setEvent_subject(rs.getString("event_subject"));
+				cb.setEvent_summary(rs.getString("event_summary"));
+				eventList.add(cb);
+			}
+			System.out.println("코멘트 담긴거 확인:" + eventList);
+		} catch (SQLException e) {
+			System.out.println("EventDAO: selectMemberList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return eventList;
 	}
 
 }
