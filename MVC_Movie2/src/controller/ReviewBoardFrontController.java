@@ -32,15 +32,7 @@ public class ReviewBoardFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 
-		if (command.equals("/ReviewMain.re")) {
-			// forward = new ActionForward();
-			// forward.setPath("/reviewBoard/list.jsp");
-		} 
-//		else if (command.equals("/ReviewBoardWriteForm.re")) {
-//			forward = new ActionForward();
-//			forward.setPath("/reviewBoard/write.jsp");
-//		}
-		else if (command.equals("/ReviewBoardWriteForm.re")) {
+		if (command.equals("/ReviewBoardWriteForm.re")) {
 			System.out.println("writeform");
 			action = new ReviewBoardWriteFormAction();
 			try {

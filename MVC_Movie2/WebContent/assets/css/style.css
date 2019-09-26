@@ -7852,7 +7852,7 @@ h6 {
 
 /*# sourceMappingURL=style.css.map */
 
-
+/* 리뷰 게시판 css  */
 
 .review_board_list p {
     font-family: Noto Sans KR;
@@ -7997,15 +7997,69 @@ textarea:focus{
 	border : 1px solid #ff3368 !important;
 	line-height: 1em !important;
     padding: 1em 2em !important;
-    margin-bottom : 0.8em;
-    margin-right: auto;
-    margin-left:auto;
+/*     margin-bottom : 0.8em; */
+/*     margin-right: auto; */
+/*     margin-left:auto; */
 }
 
 .comment_write input[type="submit"]{
 	color:#fff;
 
 }
+
+
+
+/* 이벤트 게시판 css  */
+.event_photo{
+	    height:200px;
+	
+}
+
+.event_board_list p {
+    font-family: Noto Sans KR;
+    color:white;
+    padding :5px 10px;
+}
+
+
+.event_board_list .event_title  p {
+    font-weight: 500;
+}
+
+
+.event_board_list .event_title {
+	position: absolute;
+	top:0;
+    height:30%;
+    background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
+}
+
+
+.event_writer {
+    height:30%;
+    background: linear-gradient(180deg, rgba(91,91,91,0.65)  0%, rgba(0, 0, 0, 0)100%);
+    width: 100%;
+    display: none;
+    overflow: hidden;
+
+}
+
+.event_writer p{
+    line-height : 1.2em;   
+    font-size: 1em;
+}
+
+
+figure:hover .event_writer {
+    display: block !important;
+    position: absolute;
+/*     bottom:1em; */
+    line-height : 1px;
+    overflow: hidden;    
+}
+
+
+
 
 
 

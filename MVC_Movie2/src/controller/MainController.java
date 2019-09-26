@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.MainPageAction;
+import action.ReviewBoardDetailAction;
 import vo.ActionForward;
 
 @WebServlet("*.ma")
@@ -34,17 +35,16 @@ public class MainController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if(command.equals("/admin.ma")) {           
+        }
+        else if(command.equals("/admin.ma")) {           
         	forward = new ActionForward();
   	        forward.setPath("/main/admin.jsp"); // 포워딩 주소 지정
   	        forward.setRedirect(false); // 포워딩 방식 지정 => Dispatcher 방식은 false 전달(생략 가능)  	        
         } 
         
         
-        
-        
-        
-        
+
+
         
         // 포워딩 처리
         if(forward != null) {

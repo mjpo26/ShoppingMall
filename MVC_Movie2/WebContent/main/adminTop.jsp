@@ -37,7 +37,6 @@
                             <li><a href="./orderInfo.sh">구매목록</a></li>
                         </ul>
                     </li>
-                    
                    <li>상품관리
                         <ul class="subMenu">
                             <li><a href="./Item_insertform.sh">상품등록</a></li>
@@ -62,11 +61,11 @@
 
                     <li>게시판관리
                         <ul class="subMenu">
-                            <li><a href="./AdminBoardList.admin">관리자 게시판리스트</a></li>
+                            <li><a href="./AdminBoardList.me">관리자 게시판리스트</a></li>
                             <li><a href="./Free_BoardList.bo">Free_board</a></li>
                             <li><a href="./ReviewBoardList.re">Review_board</a></li>
                             <li><a href="./QnA_BoardList.qa">QnA_board</a></li>
-                            <li><a href="./EventBoard.me">관리자 이벤트게시판</a></li>
+                            <li><a href="./EventBoardWriteForm.event">관리자 이벤트게시판작성</a></li>
                         </ul>
 
                     </li>
