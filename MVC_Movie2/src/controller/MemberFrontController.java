@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import action.Action;
+import action.AdminBoardListAction;
+import action.Admin_memberListAction;
 import action.MemberDeleteProAction;
 import action.MemberFwFindAction;
 import action.MemberIDFindAction;
@@ -143,7 +145,23 @@ public class MemberFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }		if (command.equals("/Admin_memberList.me")) {
+			System.out.println("Admin_memberList controller 들어옴");
+			action = new Admin_memberListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/AdminBoardList.me")) {
+			System.out.println("adminBoardList controller 들어옴");
+			action = new AdminBoardListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
         
         // 포워딩 처리
         if(forward != null) {

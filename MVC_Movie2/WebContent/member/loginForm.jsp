@@ -38,7 +38,7 @@
                         <h2>아이디가 없으십니까?</h2>
                         <p>간편 1초 회원가입!</p>
                         <a href="MemberJoinForm.me" class="btn_3">회원가입하기</a><br><br>
-                        <h2>아이디/비밀번호를 잃어버리셨나요?</h2>
+                        <h2>아이디/비밀번호를 잊어버리셨나요?</h2>
                         <!-- <p>아이디 찾기</p>-->
                         <a href="./MemberIDfind.me" class="btn_3">아이디 찾기</a>
                         <a href="./MemberfindPw.me" class="btn_3">비밀번호 찾기</a>

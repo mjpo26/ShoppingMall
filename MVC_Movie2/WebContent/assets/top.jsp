@@ -78,7 +78,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_3">
                                     <% if(sId==null){ %>
-                                        <a class="dropdown-item" href="/MemberJoinForm.me">회원가입</a>
+                                        <a class="dropdown-item" href="./MemberJoinForm.me">회원가입</a>
                                         <a class="dropdown-item" href="./MemberLoginForm.me"> 로그인</a>
                                     <%}else{ %>
                                         <a class="dropdown-item" href="./MemberInfo.me">회원정보</a>

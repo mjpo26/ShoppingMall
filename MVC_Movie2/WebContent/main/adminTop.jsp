@@ -53,7 +53,7 @@
                     </li>
                     <li>고객관리
                         <ul class="subMenu">
-                            <li><a href="./Admin_memberList.admin">관리자 멤버리스트</a></li>
+                            <li><a href="./Admin_memberList.me">관리자 멤버리스트</a></li>
                         
                         </ul>
                     
@@ -65,6 +65,7 @@
                             <li><a href="./Free_BoardList.bo">Free_board</a></li>
                             <li><a href="./ReviewBoardList.re">Review_board</a></li>
                             <li><a href="./QnA_BoardList.qa">QnA_board</a></li>
+                            <li><a href="./EventBoard.me">관리자 이벤트게시판</a></li>
                         </ul>
 
                     </li>
