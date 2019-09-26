@@ -19,6 +19,7 @@ import action.MemberIdCheckAction;
 import action.OrderInfoAction;
 import action.ProductInsertProAction;
 import action.basketAction;
+import action.productDeleteAction;
 import action.productDetailAction;
 import action.productList1Action;
 import action.productOrderAction;
@@ -70,7 +71,16 @@ public class ProductFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if(command.equals("/basket.sh")) {
+        }else if(command.equals("/delete.sh")) {
+            action = new productDeleteAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if(command.equals("/basket.sh")) {
             action = new basketAction();
             
             try {

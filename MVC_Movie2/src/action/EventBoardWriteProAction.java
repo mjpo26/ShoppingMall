@@ -56,7 +56,7 @@ public class EventBoardWriteProAction implements Action {
         } else { 
             System.out.println();
             forward = new ActionForward();
-            forward.setPath("main.ma"); 
+            forward.setPath("admin.ma"); 
             forward.setRedirect(true); 
         }
 		return forward;

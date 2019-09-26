@@ -541,4 +541,25 @@ public class ItemDAO {
 		return updateCount;
 	}
 
+	public int Delete(int item_code) {
+		PreparedStatement pstmt = null;
+		int deleteCount = 0;
+
+		try {
+			String sql = "DELETE from Item where Item_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, item_code);
+			deleteCount = pstmt.executeUpdate();
+			System.out.println("DeleteDB성공");
+		} catch (SQLException e) {
+			System.out.println("DELETEItem 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+		return deleteCount;
+		
+
+		
+	}
+
 }
