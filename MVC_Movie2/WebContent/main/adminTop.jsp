@@ -37,7 +37,7 @@
                             <li><a href="./orderInfo.sh">구매목록</a></li>
                         </ul>
                     </li>
-                    <li>상품관리
+                    
                    <li>상품관리
                         <ul class="subMenu">
                             <li><a href="./Item_insertform.sh">상품등록</a></li>

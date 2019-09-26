@@ -15,12 +15,12 @@
 </div>
 </header>
 
-<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
-<script src="./js/jquery-3.4.1.js"></script>
-<link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
-<script src="./dist/summernote-lite.js"></script>
-<script src="./dist/lang/summernote-ko-KR.js"></script>
-<script type="text/javascript">
+	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
+    <script src="./js/jquery-3.4.1.js"></script>
+    <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
+    <script src="./dist/summernote-lite.js"></script>
+    <script src="./dist/lang/summernote-ko-KR.js"></script>    
+	<script type="text/javascript">
         /* summernote에서 이미지 업로드시 실행할 함수 */
         function sendFile(file, editor) {
 	            // 파일 전송을 위한 폼생성
@@ -61,60 +61,53 @@
 	</script>
 <script type="text/javascript">
 	$(function() {
-	$("input[name='findCategory1']").on("click", function(){
+// 	$("input[name='findCategory1']").on("click", function(){
 		//$('.dup').click(function(){
 			var cate1 = $('#item_category1').val();
 		
 			$.ajax({
-		url : "<%=request.getContextPath()%>
-	/CategoryListServlet.ca",
-										//		url : 'CategoryListServlet.ca',
-										type : "post",
-										data : {
-											item_category1 : cate1
-										},
+		url : "<%=request.getContextPath()%>/CategoryListServlet.ca",
+	//		url : 'CategoryListServlet.ca',
+	           type: "post", 
+	           data : {
+	        	   item_category1 : cate1
+				},
 
-										success : function(data) {
-											// 					console.log("111111");
-											// 					console.log(data);
-											// 					alert(data);
-											var cate1and2 = data.split("and");
-											var result1 = cate1and2[0]
-													.split("/");
-											var result2 = cate1and2[1]
-													.split("/");
-											for (var i = 0; i < result1.length - 1; i++) {
 
-												$("#cate1sel").append(
-														"<option value='"+result1[i]+"'>"
-																+ result1[i]
-																+ "</option>");
-
-											}
-											for (var i = 0; i < result2.length - 1; i++) {
-												$("#cate2sel").append(
-														"<option value='"+result2[i]+"'>"
-																+ result2[i]
-																+ "</option>");
-											}
-										},
-
-										error : function(error) {
-											console.log("111111");
-											console.log(data);
-											alert("실패");
-										}
-									});
-						});
+				success : function(data) {
+// 					console.log("111111");
+// 					console.log(data);
+// 					alert(data);
+					var cate1and2 = data.split("and");
+					var result1 = cate1and2[0].split("/");
+					var result2 = cate1and2[1].split("/");
+					for ( var i = 0; i < result1.length-1; i++) {
+					
+					$("#cate1sel").append("<option value='"+result1[i]+"'>"+result1[i]+"</option>");
+					
+					}
+					for ( var i = 0; i < result2.length-1; i++) {
+						$("#cate2sel").append("<option value='"+result2[i]+"'>"+result2[i]+"</option>");
+						}
+				},
+				
+				error : function(error) {
+					console.log("111111");
+					console.log(data);
+					alert("실패");
+				}
+			});
+// 		});
 	});
 
-	function chkCate1Sel(cate1sel) {
-		document.fr.category1_text.value = cate1sel.value;
-	}
-	function chkCate2Sel(cate2sel) {
-		document.fr.category2_text.value = cate2sel.value;
-	}
-</script>
+function chkCate1Sel(cate1sel) {
+ document.fr.category1_text.value = cate1sel.value;
+}
+function chkCate2Sel(cate2sel) {
+	 document.fr.category2_text.value = cate2sel.value;
+}
+	
+	</script>
 
 <article id="content">
 	<div class="container mainDiv">
@@ -178,7 +171,7 @@
 						<th>매인진열</th>
 						<td><input type="radio" name="category" value="recommend"
 							<%if (article.getItem_category1().equals("recommend")) {%>
-							checked="checked" <%}%>>>추천상품 <input type="radio"
+							checked="checked" <%}%>>추천상품 <input type="radio"
 							name="category" value="new"
 							<%if (article.getItem_category1().equals("new")) {%>
 							checked="checked" <%}%>> 신상품 <input type="radio"
@@ -194,7 +187,6 @@
 						<th>상품분류</th>
 						
 						<td>1차 카테고리 <input type="text" id="category1_text"	name="category1_text" size="12"> 
-<!-- 						<input type="button" id="findCategory1" name="findCategory1" value="검색"> -->
 							<select	id="cate1sel" onchange="chkCate1Sel(this)" name="cate1sel">
 								<option value="">1차 카테고리</option>
 						</select> <br> 2차 카테고리 <input type="text" id="category2_text"
@@ -203,6 +195,7 @@
 								<option value="">2차 카테고리</option>
 						</select>
 						</td>
+
 
 
 
@@ -224,7 +217,7 @@
 					<td><input type="text" name="stock_count"></td>
 					
 					</tr>
-				<tr><td>
+				<tr><th></th><td>
 				<input	type="submit" value="등록하기"> <input type="reset" value="취소하기"></td></tr>
 				</table>
 
