@@ -33,11 +33,12 @@
                             <li><a href="./main.ma">쇼핑몰 메인</a></li>
                             <li><a href="./productList.sh">상품페이지</a></li>
                             <li><a href="./ReviewBoardList.re">리뷰페이지</a></li>
-                            <li><a href="./product_list.sh">장바구니</a></li>
-                            <li><a href="./productInfo.sh">구매목록</a></li>
+                            <li><a href="./BasketInfo.bl">장바구니</a></li>
+                            <li><a href="./orderInfo.sh">구매목록</a></li>
                         </ul>
                     </li>
                     <li>상품관리
+                   <li>상품관리
                         <ul class="subMenu">
                             <li><a href="./Item_insertform.sh">상품등록</a></li>
                             <li><a href="./productList.sh">상품목록</a></li>
@@ -74,7 +75,7 @@
                         <ul class="subMenu">
                             <li><a href="./MemberInfo.me">회원정보수정</a></li>
                             <li><a href="./BasketInfo.bl">장바구니</a></li>
-                            <li><a href="./productInfo.sh">구매목록</a></li>
+                            <li><a href="./orderInfo.sh">구매목록</a></li>
                             <li><a href="./orderPro.sh">결제페이지</a></li>
                         </ul>
                     </li>

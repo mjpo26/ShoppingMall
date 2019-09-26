@@ -156,9 +156,6 @@ public class ProductFrontController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        
-        
-        
         // 포워딩 처리
         if(forward != null) {
             // ActionForward 객체의 isRedirect() 메서드가 true 이면 Redirect 방식으로 포워딩
