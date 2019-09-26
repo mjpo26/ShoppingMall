@@ -3,6 +3,7 @@
 	
 <jsp:include page="../main/adminTop.jsp"></jsp:include>  
 
+
                         <h3>상품 등록</h3>
                     </div>                    
                 </div>
@@ -10,6 +11,7 @@
             
 	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
     <script src="./js/jquery-3.4.1.js"></script>
+    <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
     <script src="./dist/summernote-lite.js"></script>
     <script src="./dist/lang/summernote-ko-KR.js"></script>    
 	<script type="text/javascript">
@@ -51,7 +53,6 @@
 			});
 		
 	</script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 	$("input[name='findCategory1']").on("click", function(){
@@ -155,7 +156,7 @@ function chkCate2Sel(cate2sel) {
 							<th>매인진열</th>
 							<td><input type="radio" name="category" value="recommend">추천상품
 								<input type="radio" name="category" value="new"> 신상품 
-								<input type="radio" name="category" value="ca1"> 카테고리1 
+								<input type="radio" name="category" value="best"> 카테고리1 
 								<input type="radio" name="category" value="ca2"> 카테고리2
 							</td>
 						</tr>	

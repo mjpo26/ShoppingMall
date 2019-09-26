@@ -76,9 +76,15 @@ public class ItemBean {
 		Item_Date = item_Date;
 	}
 	public String getItem_display() {
+		if (Item_display == "") {
+			Item_display = null;
+		}
 		return Item_display;
 	}
 	public String getItem_sales() {
+		if (Item_sales == "") {
+			Item_sales = null;
+		}
 		return Item_sales;
 	}
 	public void setItem_display(String item_display) {
@@ -94,6 +100,9 @@ public class ItemBean {
 		Item_code = item_code;
 	}
 	public String getItem_title() {
+		if (Item_title == "") {
+			Item_title = null;
+		}
 		return Item_title;
 	}
 	public void setItem_title(String item_title) {
@@ -125,10 +134,13 @@ public class ItemBean {
 	}
 
 	public String getItem_category1() {
+		if (Item_category1 == "") {
+			Item_category1 = null;
+		}
 		return Item_category1;
 	}
 	public void setItem_category1(String item_category1) {
-		Item_category1 = item_category1;
+				Item_category1 = item_category1;
 	}
 	public String getItem_category2() {
 		return Item_category2;

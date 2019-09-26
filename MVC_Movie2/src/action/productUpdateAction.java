@@ -12,10 +12,15 @@ public class productUpdateAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		   System.out.println("ProductUpdateAction ");
+		   System.out.println(request.getParameter("Item_code"));
 	        
 	        // 파라미터로 전달된 board_num, page 데이터 가져오기
 	        int item_code = Integer.parseInt(request.getParameter("Item_code"));
-	        String page = request.getParameter("page"); // 직접 사용할 파라미터가 아니므로 int 형변환 필요없음 
+	        String page = request.getParameter("page"); // 직접 사용할 파라미터가 아니므로 int 형변환 필요없음
+	        if(request.getParameter("page")=="") {
+	        	page = request.getParameter("1"); // 직접 사용할 파라미터가 아니므로 int 형변환 필요없음
+	        }
+//	        String page = request.getParameter("page"); // 직접 사용할 파라미터가 아니므로 int 형변환 필요없음 
 	        
 	        // BoardDetailService 객체 생성
 	        ProductDetailService productDetailService = new ProductDetailService();
