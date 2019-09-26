@@ -147,7 +147,7 @@ public class EventBoardDAO {
 
 		try {
 
-			String sql = "SELECT * FROM event_board";
+			String sql = "SELECT * FROM event_board order by event_num desc";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -162,6 +162,7 @@ public class EventBoardDAO {
 				cb.setEvent_status(rs.getString("event_status"));
 				cb.setEvent_subject(rs.getString("event_subject"));
 				cb.setEvent_summary(rs.getString("event_summary"));
+				cb.setEvent_num(rs.getInt("event_num"));
 				articleList.add(cb);
 			}
 
@@ -173,5 +174,58 @@ public class EventBoardDAO {
 		}
 
 		return articleList;
+	}
+
+	public int updateReadCount(int event_num) {
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+
+		try {
+			String sql = "update event_board set event_readcount= event_readcount+1 where  event_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, event_num);
+			updateCount = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("updateReadCount() 에러 - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+		return updateCount;
+	}
+
+	public EventBean selectArticle(int event_num) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		EventBean cb = null;
+
+		try {
+			String sql = "SELECT * FROM event_board WHERE event_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, event_num);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) { // 조회된 게시물이 있을 경우
+				 cb = new EventBean();
+				cb.setEvent_content(rs.getString("event_content"));
+				cb.setEvent_date(rs.getDate("event_date"));
+				cb.setEvent_banner(rs.getString("event_banner"));
+				cb.setEvent_banner2(rs.getString("event_banner2"));
+				cb.setEvent_imageBackground(rs.getString("event_imageBackground"));
+				cb.setEvent_imageMain(rs.getString("event_imageMain"));
+				cb.setEvent_status(rs.getString("event_status"));
+				cb.setEvent_subject(rs.getString("event_subject"));
+				cb.setEvent_summary(rs.getString("event_summary"));
+				cb.setEvent_num(rs.getInt("event_num"));
+	
+			}
+		} catch (SQLException e) {
+			System.out.println("selectArticle() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return cb;
 	}
 }

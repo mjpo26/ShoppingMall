@@ -34,7 +34,7 @@ public class EventBoardFrontController extends HttpServlet {
 		if (command.equals("/EventBoardWriteForm.event")) {
 			System.out.println("이벤트글폼!!!!!!!");
 			forward = new ActionForward();
-			forward.setPath("/admin/admin_event.jsp");
+			forward.setPath("/event/write.jsp");
 		}
 		else if(command.equals("/EventBoardWritePro.event")) {
             action = new EventBoardWriteProAction();

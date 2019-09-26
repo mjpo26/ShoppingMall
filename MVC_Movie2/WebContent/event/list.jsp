@@ -47,7 +47,7 @@
                                  <%if(articleList.get(i).getEvent_imageMain()!= null){ %>
                                 <div class="event_photo">
                                     <img src="./upload/event/<%=articleList.get(i).getEvent_imageMain()%>" class="figure-img"                                 
-                                    onclick="location.href='ReviewBoardDetail.re?Event_num=<%=articleList.get(i).getEvent_num()%>&page=<%=nowPage%>'">
+                                    onclick="location.href='EventBoardDetail.event?event_num=<%=articleList.get(i).getEvent_num()%>&page=<%=nowPage%>'">
                                 </div>
                                 <% }else{%>                                
                                 <%=articleList.get(i).getEvent_content() %>
