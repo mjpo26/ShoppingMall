@@ -107,7 +107,7 @@ function chkCate2Sel(cate2sel) {
 	  <article id="content">
       	<div class="container mainDiv">
 			<section class="content product_insert">			
-				<form action="./ItemInsert.sh" method="post" name="fr">
+				<form action="./ItemInsert.sh" method="post" name="fr" enctype="multipart/form-data">
 				   <div class="content_title">				
 						<h1>상품 등록</h1>
 					</div>
@@ -133,7 +133,10 @@ function chkCate2Sel(cate2sel) {
 					</tr>
 					<tr>
 						<th>이미지추가</th>
-						<td><input type="file" name="pic1"><br> 
+						<td>
+						
+						
+						<input type="file" name="pic1"><br> 
 						<input type="file" name="pic2"><br> 
 						<input type="file" name="pic3"><br> 
 						<input type="file" name="pic4"></td>
