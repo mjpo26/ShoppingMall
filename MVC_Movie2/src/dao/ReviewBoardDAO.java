@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import vo.AdminBoardSearchBean;
 import vo.CommentBean;
-import vo.MemberBean;
 import vo.ReviewBoardBean;
 
 public class ReviewBoardDAO {

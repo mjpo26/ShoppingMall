@@ -22,7 +22,9 @@ String sId = (String)session.getAttribute("sId");
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
+                
                     <div class="banner_slider owl-carousel">
+                    <!-- 여기 -->
                         <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
@@ -39,7 +41,8 @@ String sId = (String)session.getAttribute("sId");
                                     <img src="./assets/img/banner_img.png" alt="">
                                 </div>
                             </div>
-                        </div><div class="single_banner_slider">
+                        </div>
+                        <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
