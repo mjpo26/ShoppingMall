@@ -461,6 +461,7 @@ public class ItemDAO {
 			String sql = "SELECT * FROM Item where "
 					+ "Item_title like ifnull(?,'%%') "
 					+ "and Item_date >= ?"
+					+ "and Item_date <= ?"
 			        + "and Item_display like ifnull(?,'%%') "
 			        + "and Item_sales like ifnull(?,'%%')"
 			        + "and Item_category1 like ifnull(?,'%%')";

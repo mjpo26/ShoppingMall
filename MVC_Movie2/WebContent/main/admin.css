@@ -137,6 +137,7 @@ img {
     background-image: linear-gradient(16deg, #ffba00 0%, #ff5d2d 30%, #ff005a 100%);
     background-color: #E9E9EA;
     width: 15%;
+    height: 100%;
     min-width: 15em;
     float: left;
     padding-top: 5em;
