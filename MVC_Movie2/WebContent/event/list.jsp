@@ -1,11 +1,11 @@
 <%@page import="vo.PageInfo"%>
-<%@page import="vo.ReviewBoardBean"%>
+<%@page import="vo.EventBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
-    ArrayList<ReviewBoardBean> articleList = (ArrayList<ReviewBoardBean>) request.getAttribute("articleList");
+    ArrayList<EventBean> articleList = (ArrayList<EventBean>) request.getAttribute("articleList");
     PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 
     int listCount = pageInfo.getListCount();
@@ -44,25 +44,21 @@
                
                          <div class="event_list">
                              <figure class="figure">
-                                 <%if(articleList.get(i).getReview_file1() != null){ %>
+                                 <%if(articleList.get(i).getEvent_imageMain()!= null){ %>
                                 <div class="event_photo">
-                                    <img src="./upload/review/<%=articleList.get(i).getReview_file1()%>" class="figure-img"                                 
-                                    onclick="location.href='ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>'">
+                                    <img src="./upload/event/<%=articleList.get(i).getEvent_imageMain()%>" class="figure-img"                                 
+                                    onclick="location.href='ReviewBoardDetail.re?Event_num=<%=articleList.get(i).getEvent_num()%>&page=<%=nowPage%>'">
                                 </div>
                                 <% }else{%>                                
-                                <%=articleList.get(i).getReview_content() %>
+                                <%=articleList.get(i).getEvent_content() %>
                                 <% }%>
                                       
                                 <figcaption class="figure-caption position-absolute fixed-top event_title mx-auto">
-                                <p><%=articleList.get(i).getReview_subject()%><br>
-                                <%for(int j=0; j<articleList.get(i).getReview_starPoint(); j++ ){
-								%> <a><i class="fa fa-star review_score"></i></a>
-								<%} %>
+                                <p><%=articleList.get(i).getEvent_subject()%><br>
 								</p>
-								
 								</figcaption>
                                 <figcaption class="figure-caption position-absolute fixed-bottom event_writer mx-auto">
-                                	<p><%=articleList.get(i).getReview_content()%></p>
+                                	<p><%=articleList.get(i).getEvent_content()%></p>
                                	</figcaption>
                              </figure>
                          </div>

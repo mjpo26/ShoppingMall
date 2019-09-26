@@ -97,7 +97,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                         <a class="dropdown-item" href="./Free_BoardList.bo">공지사항</a>
                                         <a class="dropdown-item" href="./QnA_BoardList.qa">Q&A게시판</a>
-                                        <a class="dropdown-item" href="./ReviewBoardList.re">이벤트게시판</a>
+                                        <a class="dropdown-item" href="./EventBoardList.event">이벤트게시판</a>
                                         <a class="dropdown-item" href="./ReviewBoardList.re">리뷰게시판</a>
                                     </div>
                                 </li>

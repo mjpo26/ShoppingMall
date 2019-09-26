@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import vo.CommentBean;
 import vo.EventBean;
+import vo.ReviewBoardBean;
 
 public class EventBoardDAO {
 	private static EventBoardDAO instance;
@@ -111,4 +112,66 @@ public class EventBoardDAO {
 		return eventList;
 	}
 
+	public int selectListCount() {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "SELECT COUNT(*) FROM event_board";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				listCount = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return listCount;
+	}
+
+	public ArrayList<EventBean> selectArticleList(int page, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<EventBean> articleList = new ArrayList<EventBean>();
+
+		int startRow = (page - 1) * 10;
+
+		try {
+
+			String sql = "SELECT * FROM event_board";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				EventBean cb = new EventBean();
+				cb.setEvent_content(rs.getString("event_content"));
+				cb.setEvent_date(rs.getDate("event_date"));
+				cb.setEvent_banner(rs.getString("event_banner"));
+				cb.setEvent_banner2(rs.getString("event_banner2"));
+				cb.setEvent_imageBackground(rs.getString("event_imageBackground"));
+				cb.setEvent_imageMain(rs.getString("event_imageMain"));
+				cb.setEvent_status(rs.getString("event_status"));
+				cb.setEvent_subject(rs.getString("event_subject"));
+				cb.setEvent_summary(rs.getString("event_summary"));
+				articleList.add(cb);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectArticleList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+	}
 }
