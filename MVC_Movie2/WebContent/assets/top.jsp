@@ -86,7 +86,7 @@
                                     
                                     <%} %>
                                         <a class="dropdown-item" href="./BasketInfo.bl">장바구니</a>
-                                        <a class="dropdown-item" href="./productInfo.sh">주문 목록</a>
+                                        <a class="dropdown-item" href="./orderInfo.sh">주문 목록</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
