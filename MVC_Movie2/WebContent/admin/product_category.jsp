@@ -19,6 +19,8 @@ $(function() {
 	        	   item_category1 : cate1
 				},
 
+				
+				
 
 				success : function(data) {
 // 					console.log("111111");
