@@ -7959,8 +7959,53 @@ figure:hover .review_writer {
 }
 
 
-
 .review_bg{
 	border-radius: 1em;
 }
+
+.comment_bg{
+	border-radius: 1em;
+}
+
+.comment_write .comment_form input{
+	border-radius: 0.5em !important;
+	border : 0px solid #ddd !important;
+	background-color : #fff;
+	width:80% !important;
+	padding-left:0.5em;
+	line-height: 2em;
+}
+
+
+.comment_write .comment_form textarea{
+	border-radius: 0.5em !important;
+	border : 0px solid #ddd !important;
+	background-color :  #fff;	
+	width:100% !important;
+	padding: 0.5em;
+}
+
+
+
+textarea:focus{
+	outline:none;
+}
+
+.comment_write input[type="submit"],
+.comment_write input[type="reset"]{
+	color:#ff3368;
+	border : 1px solid #ff3368 !important;
+	line-height: 1em !important;
+    padding: 1em 2em !important;
+    margin-bottom : 0.8em;
+    margin-right: auto;
+    margin-left:auto;
+}
+
+.comment_write input[type="submit"]{
+	color:#fff;
+
+}
+
+
 
