@@ -101,11 +101,11 @@
 						<div class="col-8 comment_form">
 							<textarea name="comment_content" rows="5" placeholder="댓글을 입력해주세요."></textarea>					
 						</div>
-						<div class="col-2">
-							<div class="">
+						<div class="col-2 clearfix">
+							<div class="float-right">
 						 		<input type="submit" value="입력" class="genric-btn primary circle"> 
 							</div>
-							<div class="">
+							<div class="float-right">
 						 		<input type="reset" value="취소" class="genric-btn default circle">
 							</div>
 						</div>

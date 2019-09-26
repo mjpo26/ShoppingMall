@@ -7997,9 +7997,9 @@ textarea:focus{
 	border : 1px solid #ff3368 !important;
 	line-height: 1em !important;
     padding: 1em 2em !important;
-    margin-bottom : 0.8em;
-    margin-right: auto;
-    margin-left:auto;
+/*     margin-bottom : 0.8em; */
+/*     margin-right: auto; */
+/*     margin-left:auto; */
 }
 
 .comment_write input[type="submit"]{
