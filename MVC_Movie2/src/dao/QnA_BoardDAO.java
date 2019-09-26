@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.AdminBoardSearchBean;
+import vo.EventBean;
 import vo.QnA_BoardBean;
 
 public class QnA_BoardDAO {
@@ -509,6 +510,11 @@ public class QnA_BoardDAO {
 		}
 
 		return Qboardlist;
+	}
+
+	public int isUpdateArticle(EventBean article) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
     

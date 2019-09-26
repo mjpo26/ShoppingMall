@@ -1,6 +1,9 @@
 package dao;
 
 import static db.JdbcUtil.close;
+import static db.JdbcUtil.commit;
+import static db.JdbcUtil.getConnection;
+import static db.JdbcUtil.rollback;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -228,4 +231,28 @@ public class EventBoardDAO {
 
 		return cb;
 	}
+
+	public int isUpdateArticle(EventBean article) throws Exception {
+        int updateCount = 0;
+        
+        PreparedStatement pstmt = null;
+        
+        try {
+            // 글 번호에 해당하는 레코드에 대해 제목(subject), 내용(content) 수정 후 결과값 리턴
+           System.out.println("isupdatearticle왔다 수정글 ["+article+"]가져오나");
+            String sql = "UPDATE event_board SET event_subject=?,event_content=? WHERE event_num=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, article.getEvent_subject());
+            pstmt.setString(2, article.getEvent_content());
+            pstmt.setInt(3, article.getEvent_num());
+            updateCount = pstmt.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
+        } finally {
+            close(pstmt);
+        }
+        
+        return updateCount;
+    }
 }

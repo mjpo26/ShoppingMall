@@ -52,7 +52,9 @@
 				<hr>
 				<input type="button" class="btn_3"
 					onclick='location.href="./ReviewBoardList.re?page=<%=nowPage%>"'
-					value="목록">
+					value="목록"> <input type="button" class="btn_3"
+					onclick='location.href="./EventBoardUpdateForm.event?event_num=<%=article.getEvent_num()%>"'
+					value="수정">
 	</section>
 
 

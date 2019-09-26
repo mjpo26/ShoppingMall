@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.EventBoardDetailAction;
 import action.EventBoardListAction;
+import action.EventBoardUpdateFormAction;
+import action.EventBoardUpdateProAction;
 import action.EventBoardWriteProAction;
 import action.ProductInsertProAction;
+import action.QnA_BoardModifyProAction;
 import action.ReviewBoardDetailAction;
 import action.ReviewBoardListAction;
 import action.ReviewBoardWriteFormAction;
@@ -61,6 +64,23 @@ public class EventBoardFrontController extends HttpServlet {
                 e.printStackTrace();
             }
         } 
+		else if(command.equals("/EventBoardUpdateForm.event")) {
+			action = new EventBoardUpdateFormAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } 
+		else if(command.equals("/EventBoardUpdatePro.event")) {
+            action = new EventBoardUpdateProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         if(forward != null) { // 예외 발생 시를 제외한 나머지(ActionForward 객체가 null 이 아닐 때)
             
             // Redirect or Dispatcher 방식 판별
