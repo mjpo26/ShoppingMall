@@ -41,11 +41,10 @@
 					<h3><%=article.getReview_subject()%></h3>
 				</div>
 				<div class="review_score mt-0">
-					<span class="content_gray">평점: </span>
+					<span class="content_gray">평점 : </span>
 					<%
 						for (int i = 0; i < article.getReview_starPoint(); i++) {
-					%>
-					<a><i class="fa fa-star"></i></a>
+					%><i class="fa fa-star"></i>
 					<%
 						}
 					%>
@@ -63,63 +62,65 @@
 				<input type="button" class="btn_3"
 					onclick='location.href="./ReviewBoardList.re?page=<%=nowPage%>"'
 					value="목록">
+					
+					
+				<div class="comment review-comment bg-light comment_bg mt-5 px-3 py-1">
+				<%
+				if (null != commentBean && commentBean.size() > 0) {
+					for (CommentBean cb : commentBean) {
+				%>	
+				<div class="comment_area mt-2 row">
+					<div class="comment_writer col-2">
+						<b><i class="ti-crown"></i> &nbsp; <%=cb.getComment_writer()%></b>			
+											
+					</div>
+					
+					<div class="comment_content col-8">
+						<%=cb.getComment_content()%>					
+					</div>
+					<div class="comment_date col-2 text-right text-secondary">
+						<%=cb.getComment_date()%>
+					</div>
+				</div>
+				<%
+					  }
+					}else{%>
+						<div class="comment_none mt-3">
+							<i class="ti-face-sad"></i> 아직 작성된 댓글이 없습니다.
+						</div>
+					<%}
+					
+					if(sId!=null && sId.equals("admin")){
+					%>	
+					<form action="ReviewBoardCommentPro.re?comment_id=<%=sId%>" method="post" name="fr">
+					<input type="hidden" name="comment_review_num" value="<%=article.getReview_num()%>">					
+					<div class="row mt-2 comment_write">
+						<div class="col-2 comment_form">
+							<b><i class="ti-crown"></i></b> <input type="text" name="comment_name" value="<%=memberBean.getMember_name()%>">
+				 		</div>
+						<div class="col-8 comment_form">
+							<textarea name="comment_content" rows="5" placeholder="댓글을 입력해주세요."></textarea>					
+						</div>
+						<div class="col-2">
+							<div class="">
+						 		<input type="submit" value="입력" class="genric-btn primary circle"> 
+							</div>
+							<div class="">
+						 		<input type="reset" value="취소" class="genric-btn default circle">
+							</div>
+						</div>
+					</div>
+					</form>
+					<%				
+					}
+					%>
+					
+				</div>
 			</div>
 
 
 
-			<div id="commandList" class="text-center">
-				<table>
-					<%
-						if (null != commentBean && commentBean.size() > 0) {
-							for (CommentBean cb : commentBean) {
-					%>
-
-					<tr>
-						<td><%=cb.getComment_writer()%></td>&emsp;&emsp;&emsp;&emsp;
-						<td><%=cb.getComment_date()%></td> &emsp;
-
-						<td><%=cb.getComment_content()%></td>
-					</tr>
-					<%
-						  }
-						} else {
-					%>
-					<tr>
-						<td>댓글 0</td>
-					</tr>
-					<%
-						} //--else
-					%>
-				</table>
-				<form action="ReviewBoardCommentPro.re" method="post" name="fr">
-					<input type="hidden" name="comment_id" value="<%=sId%>"> <input
-						type="text" name="comment_review_num"
-						value="<%=article.getReview_num()%>">
-					<table id="notice table">
-						<tr>
-							<td class="twrite">작성자</td>
-							<td><input type="text" name="comment_name"
-								value="<%=memberBean.getMember_name()%>"></td>
-							<td class="twrite">비밀번호</td>
-							<td><input type="password" name="comment_pass"></td>
-						</tr>
-						<tr>
-							<td class="twrite">내용</td>
-							<td class="ttitle" colspan="3"><textarea
-									name="comment_content" rows="10" cols="30">
-							 </textarea></td>
-						</tr>
-					</table>
-					<input type="submit" value="댓글달기" class="btn"> <input
-						type="reset" value="취소" class="btn">
-				</form>
-
-				<!--  아랫부분 답변은 admin일때만 나오게 조건주기-->
-				<%-- 			<a href="ReviewBoardReplyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[답변]</a> --%>
-				<%-- 			<a	href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[수정]</a> --%>
-				<%-- 			<a href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">[삭제]</a> --%>
-				<%-- 			<a href="ReviewBoardList.re?page=<%=nowPage%>">[목록]</a> &nbsp;&nbsp; --%>
-			</div>
+		
 		</div>
 	</section>
 
