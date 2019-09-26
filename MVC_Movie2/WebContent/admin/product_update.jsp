@@ -131,8 +131,7 @@ function chkCate2Sel(cate2sel) {
 					</tr>
 					<tr>
 						<th>상품요약설명</th>
-						<td><textarea rows="5" cols="130" name="content1"
-								value=<%=article.getItem_content1()%>></textarea></td>
+						<td><textarea rows="5" cols="130" name="content1" value=<%=article.getItem_content1()%>></textarea></td>
 					</tr>
 					<tr>
 						<th>상품상세설명</th>
@@ -202,7 +201,7 @@ function chkCate2Sel(cate2sel) {
 					</tr>
 					<tr>
 						<th>원가</th>
-						<td> <input type="text" name="stock_price"></td>
+						<td> <input type="text" name="stock_price" value=<%=article.getItem_stock_price() %>></td>
 					</tr>
 					<tr>
 					<th> 배송비 입력 </th>
@@ -210,11 +209,11 @@ function chkCate2Sel(cate2sel) {
 					</tr>
 					<tr>
 					<th> 상품전체중량 </th>
-					<td><input type="text"	name="weight"></td>
+					<td><input type="text"	name="weight" value=<%=article.getItem_weight() %>></td>
 					</tr>
 					<tr>
 					<th> 재고수량</th>
-					<td><input type="text" name="stock_count"></td>
+					<td><input type="text" name="stock_count" value=<%=article.getItem_stock_count() %>></td>
 					
 					</tr>
 				<tr><th></th><td>
