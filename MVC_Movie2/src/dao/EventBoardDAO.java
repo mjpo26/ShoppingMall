@@ -196,7 +196,7 @@ public class EventBoardDAO {
 		} catch (SQLException e) {
 			System.out.println("updateReadCount() 에러 - " + e.getMessage());
 		} finally {
-			close(pstmt);
+//			close(pstmt);
 			close(con);
 		}
 		return updateCount;

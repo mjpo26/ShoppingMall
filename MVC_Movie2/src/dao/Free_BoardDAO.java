@@ -405,6 +405,7 @@ public class Free_BoardDAO {
     }
 
     
+    
     // 조회수 증가
     public int updateReadcount(int free_num) {
         int updateCount = 0;
@@ -421,7 +422,7 @@ public class Free_BoardDAO {
         } catch (SQLException e) {
             System.out.println("updateReadcount() 에러 - " + e.getMessage());
         } finally {
-            close(pstmt);
+//            close(pstmt);
             close(con);
         }
         

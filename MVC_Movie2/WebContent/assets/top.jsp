@@ -67,7 +67,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                         <a class="dropdown-item" href="./product_list.sh">상품 목록</a>
-                                        <a class="dropdown-item" href="./productDetail.sh?Item_code=1&page=1">상세페이지</a>
+<!--                                         <a class="dropdown-item" href="./productDetail.sh?Item_code=1&page=1">상세페이지</a> -->
                                         
                                     </div>
                                 </li>

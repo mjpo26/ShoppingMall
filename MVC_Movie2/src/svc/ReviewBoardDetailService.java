@@ -23,7 +23,8 @@ public class ReviewBoardDetailService {
 		}else {
 			rollback(con);
 		}
-	    close(con);
+		close(con);
+	    
 		return article;
 	}
 }

@@ -393,6 +393,7 @@ public class QnA_BoardDAO {
     }
 
     
+    
     // 조회수 증가
     public int updateReadcount(int QnA_num) {
         int updateCount = 0;
