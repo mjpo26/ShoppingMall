@@ -143,7 +143,6 @@ function pickNullCheck(){
 					<thead>
 						<tr>
 							<td><input type="checkbox"></td>
-							<th>No.</th>
 							<th>상품명</th>
 							<th>판매가</th>
 							<th>할인가</th>
