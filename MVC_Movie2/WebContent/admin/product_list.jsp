@@ -73,7 +73,6 @@ function pickNullCheck(){
 }
 </script>
 
-
     <article id="content">
     	<div class="container mainDiv">
 			<form action ="./productList.sh"  name ="fr1" method="get" onsubmit="return pickNullCheck()">
@@ -84,7 +83,7 @@ function pickNullCheck(){
 					<tr>
 						<td>검색분류</td>
 						<td>
-						<select >
+						<select>
 							<option value="상품명">상품명</option>
 							<option value="모델명">모델명</option>
 						</select>
@@ -135,27 +134,27 @@ function pickNullCheck(){
 				</form>
 				
 				
-				<div style="width: 100%; float: left !important;">
+				<div style="width: 100%; float: left;">
 					<div class="content_title">
                   		<h1>상품 목록 조회</h1>
 					</div>
-				<table id="example" class="display compact table">
-					<thead>
-						<tr>
-							<td><input type="checkbox"></td>
-							<th>상품명</th>
-							<th>판매가</th>
-							<th>할인가</th>
-							<th>진열상태</th>
-							<th>판매상태</th>
-							<th>재고량</th>
-							<th>이벤트</th>
-							<th>상품분류</th>
-							<th>등록일</th>
-							<th colspan="2">수정</th>
-						</tr>
-					</thead>
-					<tbody>
+					<table id="example" class="display compact table">
+						<thead>
+							<tr>
+								<th><input type="checkbox"></th>
+								<th>상품명</th>
+								<th>판매가</th>
+								<th>할인가</th>
+								<th>진열상태</th>
+								<th>판매상태</th>
+								<th>재고량</th>
+								<th>이벤트</th>
+								<th>상품분류</th>
+								<th>등록일</th>
+								<th>수정</th>
+							</tr>
+						</thead>
+						<tbody>		
 						<%
 						for (int i = 0; i < articleList.size(); i++) {
 						%>
@@ -165,22 +164,28 @@ function pickNullCheck(){
 						<td><%=articleList.get(i).getItem_title()%></td> <!-- 상품명-->
 						<td><%=articleList.get(i).getItem_old_price()%></td> <!-- 판매가-->
 						<td><%=articleList.get(i).getItem_old_price()-articleList.get(i).getItem_sel_price()%></td><!-- 할인가-->
+						
 						<td><select name="display"><!-- 진열상태 -->
 						<option <%if(articleList.get(i).getItem_display().equals("no")){%>selected<%}%>>no</option>
 						<option <%if(articleList.get(i).getItem_display().equals("yes")){%>selected<%}%>>yes</option>
 						</td>
+						
 						<td><select name="sales"> <!-- 판매상태 -->
 						<option <%if(articleList.get(i).getItem_sales().equals("no")){%>selected<%}%>>no</option>
 						<option <%if(articleList.get(i).getItem_sales().equals("yes")){%>selected<%}%>>yes</option>
 						</td>
+						
 						<td><%=articleList.get(i).getItem_stock_count()%></td><!-- 재고 -->
-						<td><%=articleList.get(i).getItem_icon1()%></td>//이벤트
+						<td><%=articleList.get(i).getItem_icon1()%></td> <!-- 이벤트 -->
 						<td><%=articleList.get(i).getItem_category1()+"/"+articleList.get(i).getItem_category2()%></td><!-- 카테고리 -->
 						<td><%=articleList.get(i).getItem_Date()%></td><!-- 등록날짜 -->
-								<input type="hidden" name="Item_code" value=<%=articleList.get(i).getItem_code()%>>
-						<td><input class="btn btn-default" type="submit" value="수정" formaction="./productUptdate.sh"></td>
-						<td><input class="btn btn-default" type="button" value="상세수정" class="genric-btn primary-border small"
-								onclick="location.href='./update.sh?Item_code=<%=articleList.get(i).getItem_code()%>'"></td>
+						
+						<th>
+						<input type="hidden" name="Item_code" value=<%=articleList.get(i).getItem_code()%>>
+						<input class="btn btn-default" type="submit" value="수정" formaction="./productUptdate.sh">
+						<input class="btn btn-default" type="button" value="상세수정" class="genric-btn primary-border small"
+								onclick="location.href='./update.sh?Item_code=<%=articleList.get(i).getItem_code()%>'">
+						</th>
 					</tr>
 					<%
 						}
@@ -215,3 +220,15 @@ function pickNullCheck(){
 
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -96,7 +96,6 @@ function pickNullCheck(){
 
     <article id="content">
     	<div class="container mainDiv">
-    	
 			<form action ="./orderList.ol"  name ="fr1" method="post" onsubmit="return pickNullCheck()" id="frm">
 				<div class="content_title">
                    <h1>이번달 매출 현황</h1>
@@ -339,3 +338,13 @@ function pickNullCheck(){
 
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
