@@ -6,22 +6,13 @@
 	Free_BoardBean article = (Free_BoardBean)request.getAttribute("article");
 	//page 파라미터 값 가져오기(page 식별자 지정 불가) => page 디렉티브 때문에 JSP의 예약어로 취급됨
 	String nowPage = request.getParameter("page");
-%>
-
-<%
-       
-        	
+	
         	// 세션 아이디 가져오기
         	String sId = (String)session.getAttribute("sId");
         	
-        	
-        	// 세션 아이디 없으면 Main.bo 로 이동
-        	if(sId == null) {
-        	    out.println("<script>");
-        	    out.println("alert('로그인이 필요한 메뉴입니다!')");
-        	    out.println("location.href='Main.bo'");
-        	    out.println("</script>");
-        	}
+        	if (sId == null) {
+        	      sId="비회원";
+        		}
 %>   
     
 <jsp:include page="../main/adminTop.jsp"></jsp:include>
@@ -104,7 +95,6 @@
 			<input type="hidden" name="page" value="<%=nowPage%>" />
 			<table class="table" id="free_modifytable">
 				<tr>
-					<!-- label 태그를 사용하여 해당 레이블 클릭 시 for 속성에 지정된 이름과 같은 id 속성을 갖는 텍스트필드로 커서 요청 -->
 					<td class="td_left"><label for="free_writer_id">ID</label></td>
 					<td class="td_right">
 						<input type="text" name="free_writer_id" id="free_writer_id" value="<%=article.getFree_writer_id() %>"  readonly="readonly" required="required" />
