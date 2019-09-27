@@ -43,56 +43,69 @@
 <body>
 	<section class="review_board_content board_content">
 		<div class="container">
-			<div class="review_content mt-5 p-5">
-				<form action="./ReviewBoardWritePro.re" method="post"
-					enctype="multipart/form-data">
+			<div class="review_content col-lg-8 mx-auto mt-5 p-5">
+				<form action="./ReviewBoardWritePro.re" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="review_writer"
 						value=<%=memberBean.getMember_name()%>> <input
 						type="hidden" name="review_id" value="<%=sId%>"> <input
 						type="hidden" name="order_idx" value=<%=OrderBean.getOrder_idx()%>>
 					<input type="hidden" name="order_item_code"
 						value=<%=OrderBean.getOrder_item_code()%>>
-					<h3 class="mb-30 ">필수 정보</h3>
+					<h3 class="mb-30"><%=OrderBean.getOrder_item_title()%> - 리뷰 작성</h3>
 					<table class="table">
 						<tr>
+							<td>제목</td>
+							<td><input type="text" name="review_subject" class="form-control"></td>
+						</tr>
+						<tr>
 							<td>비밀번호
-								<h6>글을 수정,삭제할때 입력할 비밀번호를 입력하세요</h6>
+						
 							</td>
-							<td><input type="password" name="review_pass"></td>
+							<td>
+							
+							<input type="password" name="review_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
+						
 						</tr>
 						<tr>
 							<td>상품명</td>
-							<td><input type="text" name="order_item_title"
-								value=<%=OrderBean.getOrder_item_title()%>></td>
-						</tr>
-						<tr>
-							<td>제목</td>
-							<td><input type="text" name="review_subject"></td>
+							<td><input type="text" name="order_item_title" class="form-control"
+								value="<%=OrderBean.getOrder_item_title()%>"></td>
 						</tr>
 						<tr>
 							<td>첨부파일</td>
-							<td colspan="3"><input type="file" name="review_file1"></td>
+							<td colspan="3"><input type="file" name="review_file1" class="form-control-file"></td>
 						</tr>
 						<tr>
 							<td>별 점</td>
-							<td><input type="radio" name="review_starPoint" value="1">1
-								<input type="radio" name="review_starPoint" value="2">2
-								<input type="radio" name="review_starPoint" value="3">3
-								<input type="radio" name="review_starPoint" value="4">4
-								<input type="radio" name="review_starPoint" value="5">5</td>
+							<td>
+								<input type="radio" name="review_starPoint" value="1">&nbsp;
+								<span class="review_score"><i class="fa fa-star"></i></span>
+								<input type="radio" name="review_starPoint" value="2"> &nbsp;
+								<span class="review_score"><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+								<input type="radio" name="review_starPoint" value="3">&nbsp;
+								<span class="review_score"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+								<input type="radio" name="review_starPoint" value="4">&nbsp;
+								<span class="review_score"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+								<input type="radio" name="review_starPoint" value="5">&nbsp;
+								<span class="review_score"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+							</td>
 						</tr>
 						<tr>
 							<td>글내용</td>
-							<td><textarea name="review_content" rows="10" cols="20">
+							<td><textarea name="review_content" rows="10" cols="20" class="form-control">
 					</textarea></td>
 						</tr>
+						
+						<tr>
+						<th></th>
+						<td> 
+						<input type="submit" value="글쓰기" class="genric-btn primary radius submit">
+						<input type="reset" value="취소" class="genric-btn default radius" onclick="history.back()">
+						</td>
+						
+						</tr>
 					</table>
-					<div class="row mt-30">
-						<div class="col-xs-12 col-sm-6 mx-auto row">
-								<input type="submit" value="글쓰기"
-									class="genric-btn primary radius col-6 submit">
-							</div>
-						</div>
+				
 				</form>
 			</div>
 		</div>
