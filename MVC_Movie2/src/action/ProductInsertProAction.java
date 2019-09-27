@@ -78,7 +78,7 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_sales(multi.getParameter("sales"));
 		  	itemBean.setItem_point(Item_point);
 		  	itemBean.setItem_category1(multi.getParameter("category1_text"));
-		  	itemBean.setItem_category1(multi.getParameter("category2_text"));
+		  	itemBean.setItem_category2(multi.getParameter("category2_text"));
 		  	itemBean.setItem_stock_price(Integer.parseInt(multi.getParameter("stock_price")));
 		  	itemBean.setItem_delivery_pee(Integer.parseInt(multi.getParameter("delivery_pee")));
 		  	itemBean.setItem_weight(Integer.parseInt(multi.getParameter("weight")));

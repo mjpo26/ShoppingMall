@@ -107,7 +107,6 @@ public class QnA_BoardDAO {
             // static import 문을 사용하여 JdbcUtil 클래스명 지정 필요없음
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return insertCount;
@@ -135,7 +134,6 @@ public class QnA_BoardDAO {
             // static import 문을 사용하여 JdbcUtil 클래스명 지정 필요없음
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return listCount;
@@ -185,7 +183,6 @@ public class QnA_BoardDAO {
         } finally {
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         
@@ -232,7 +229,6 @@ public class QnA_BoardDAO {
             System.out.println("보드DAO 셀렉아티클["+qnA_BoardBean+" ]뽑았다.서비스로 리턴하러간다.");
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return qnA_BoardBean;
@@ -266,7 +262,6 @@ public class QnA_BoardDAO {
         } finally {
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         
@@ -293,7 +288,6 @@ public class QnA_BoardDAO {
             System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return updateCount;
@@ -386,12 +380,12 @@ public class QnA_BoardDAO {
         } finally {
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return insertCount;
     }
 
+    
     
     // 조회수 증가
     public int updateReadcount(int QnA_num) {
@@ -410,7 +404,6 @@ public class QnA_BoardDAO {
             System.out.println("updateReadcount() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return updateCount;
@@ -434,7 +427,6 @@ public class QnA_BoardDAO {
             System.out.println("deleteArticle() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return deleteCount;
@@ -464,7 +456,6 @@ public class QnA_BoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return listCount;
@@ -517,7 +508,6 @@ public class QnA_BoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return Qboardlist;

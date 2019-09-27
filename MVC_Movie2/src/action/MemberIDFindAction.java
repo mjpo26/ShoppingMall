@@ -23,9 +23,10 @@ public class MemberIDFindAction implements Action {
 		   HttpSession session = request.getSession(); // 현재 세션 가져오기
 	        
 		    String name = request.getParameter("member_name");
-		    String email =request.getParameter("member_email");
+		    String email = request.getParameter("email1")+"@"+request.getParameter("domain");
 		    
 		    System.out.println(name);
+		    System.out.println(email);
 	        MemberIdCheckService memberIdcheckService = new MemberIdCheckService();
 		    MemberBean memberBean = memberIdcheckService.findID(name, email);
 		    

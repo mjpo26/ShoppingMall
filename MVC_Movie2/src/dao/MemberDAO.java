@@ -77,7 +77,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return isLoginMember;
@@ -122,7 +121,6 @@ public class MemberDAO {
 			System.out.println("insertMember 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
-			close(con);
 		}
 
 		return insertCount;
@@ -200,7 +198,6 @@ public class MemberDAO {
 			System.out.println("updateMember 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
-			close(con);
 		}
 
 		return updateCount;
@@ -245,7 +242,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return memberBean;
@@ -272,7 +268,6 @@ public class MemberDAO {
 		} finally {
 
 			close(pstmt);
-			close(con);
 		}
 
 		return deleteCount;
@@ -300,7 +295,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return listCount;
@@ -372,7 +366,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return memberList;
@@ -401,7 +394,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 		System.out.println("idcheckDAO 리턴값 ch 확인" + ch);
 		return ch;
@@ -425,7 +417,6 @@ public class MemberDAO {
 			System.out.println("updateMember 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
-			close(con);
 		}
 
 		return updateCount;
@@ -459,7 +450,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return memberBean;
@@ -492,7 +482,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return memberBean;
@@ -522,7 +511,6 @@ public class MemberDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return listCount;
@@ -610,7 +598,6 @@ public class MemberDAO {
 			} finally {
 				close(rs);
 				close(pstmt);
-				close(con);
 			}
 
 			return memberList;

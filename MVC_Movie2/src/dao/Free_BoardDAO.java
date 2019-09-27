@@ -107,7 +107,6 @@ public class Free_BoardDAO {
             // static import 문을 사용하여 JdbcUtil 클래스명 지정 필요없음
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return insertCount;
@@ -197,7 +196,6 @@ public class Free_BoardDAO {
         } finally {
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         
@@ -244,7 +242,6 @@ public class Free_BoardDAO {
             System.out.println("보드DAO 셀렉아티클["+boardBean+" ]뽑았다.서비스로 리턴하러간다.");
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return boardBean;
@@ -278,7 +275,6 @@ public class Free_BoardDAO {
         } finally {
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         
@@ -305,7 +301,6 @@ public class Free_BoardDAO {
             System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return updateCount;
@@ -345,7 +340,6 @@ public class Free_BoardDAO {
             int updateCount = pstmt.executeUpdate();
             
             if(updateCount > 0) {
-                commit(con);
             }
             
             // 새 답글에 대한 순서 번호, 들여쓰기 레벨 1 증가시킴
@@ -398,12 +392,12 @@ public class Free_BoardDAO {
         } finally {
             close(rs);
             close(pstmt);
-            close(con);
         }
         
         return insertCount;
     }
 
+    
     
     // 조회수 증가
     public int updateReadcount(int free_num) {
@@ -422,7 +416,6 @@ public class Free_BoardDAO {
             System.out.println("updateReadcount() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return updateCount;
@@ -446,7 +439,6 @@ public class Free_BoardDAO {
             System.out.println("deleteArticle() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return deleteCount;

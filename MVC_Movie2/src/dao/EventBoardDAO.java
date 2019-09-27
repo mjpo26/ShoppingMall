@@ -74,7 +74,6 @@ public class EventBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return insertCount;
@@ -111,7 +110,6 @@ public class EventBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return eventList;
@@ -137,7 +135,6 @@ public class EventBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return listCount;
@@ -177,7 +174,6 @@ public class EventBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
 		}
 
 		return articleList;
@@ -197,7 +193,6 @@ public class EventBoardDAO {
 			System.out.println("updateReadCount() 에러 - " + e.getMessage());
 		} finally {
 			close(pstmt);
-			close(con);
 		}
 		return updateCount;
 	}
@@ -232,7 +227,7 @@ public class EventBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
+//			close(con);
 		}
 
 		return cb;
@@ -266,7 +261,6 @@ public class EventBoardDAO {
             System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
         } finally {
             close(pstmt);
-            close(con);
         }
         
         return updateCount;

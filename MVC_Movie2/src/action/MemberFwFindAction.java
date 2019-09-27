@@ -23,7 +23,7 @@ public class MemberFwFindAction implements Action {
 		   HttpSession session = request.getSession(); // 현재 세션 가져오기
 	        
 		    String id = request.getParameter("member_id");
-		    String phone =request.getParameter("phon1")+"-"+request.getParameter("phon2")+"-"+request.getParameter("phon3");
+		    String phone =request.getParameter("phone1")+"-"+request.getParameter("phone2")+"-"+request.getParameter("phone3");
 		    
 		    System.out.println(phone);
 	        MemberIdCheckService memberIdcheckService = new MemberIdCheckService();

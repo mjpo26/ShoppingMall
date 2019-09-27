@@ -26,26 +26,33 @@
 // 	String email1 = memberBean.getMember_email().split("@")[0];
 // 	String email2 = memberBean.getMember_email().split("@")[1];
 
-
 //주소 분리
-/* 		String address1 = memberBean.getMember_address1();
+String address1 = memberBean.getMember_address1();
 		
 String[] address = address1.split("/");
 // String detailaddress = memberBean.getMember_address1().split("/")[1];
 // String extraaddress = memberBean.getMember_address1().split("/")[2];
 for(int i=0; i<address.length; i++){
 	System.out.println(address[i]);
-} */
+}
 
-//전화번호 분리
-String phone1 = memberBean.getMember_phone().split("-")[0];
-String phone2 = memberBean.getMember_phone().split("-")[1];
-String phone3 = memberBean.getMember_phone().split("-")[2];
+String phone1 = memberBean.getMember_phone();
 
+String[] phone = phone1.split("-");
+// String detailaddress = memberBean.getMember_address1().split("/")[1];
+// String extraaddress = memberBean.getMember_address1().split("/")[2];
+for(int i=0; i<phone.length; i++){
+	System.out.println(phone[i]);
+}
 
-//이메일 분리
-String email= memberBean.getMember_email().split("@")[0];
-String domain = memberBean.getMember_email().split("@")[1];
+String email1 = memberBean.getMember_email();
+
+String[] email = email1.split("@");
+// String detailaddress = memberBean.getMember_address1().split("/")[1];
+// String extraaddress = memberBean.getMember_address1().split("/")[2];
+for(int i=0; i<email.length; i++){
+	System.out.println(email[i]);
+}
 %>  
 
 <link href="../css/default.css" rel="stylesheet" type="text/css">
@@ -377,21 +384,21 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="address">기본 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="address" name="address" value=<%=memberBean.getMember_address1() %> placeholder="기본 주소" onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
+                            <input type="text" id="address" name="address" value=<%=address[0]%> onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
                             </div>
                         </div>
 
-                     <%--    <div class="mt-10 row">
+                        <div class="mt-10 row">
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
                                 <label for="detailaddress">상세 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="detailaddress" value=<%=addre %> name="address" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
+                            <input type="text" id="detailaddress" value="<%=address[1] %>" name="address" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
                             </div>
 <!--                             <div class="col-lg-2 col-sm-2"> -->
 <!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->
 <!--                             </div> -->
-                        </div> --%>
+                        </div>
 
                              <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
                             <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -530,24 +537,16 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="member_phone">휴대전화</label> 
                             </div>
                         
-                            <div class="input-group-icon col-lg-3 col-4 mt-0">
-                                <div class="icon"><i class="fa fa-mobile" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select">
-                                    <select name="phone1">
-                                        <option value="010">010</option>
-                                        <option value="011">011</option>
-                                        <option value="017">017</option>
-                                        <option value="019">019</option>
-                                    </select>
-                                </div>
+                            <div class="col-lg-3 col-4">
+                                   <input type="text" id="member_phone1" name="phone1" value="<%=phone1 %>" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
                              </div>
                              <div class="d-lg-block d-md-none d-none">_</div>
                             <div class="col-lg-3 col-4">
-                                <input type="number" id="member_phone" name="phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
+                                <input type="text" id="member_phone2" name="phone2" value="<%=phone2 %>" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
                             </div>
                              <div class="d-lg-block d-md-none d-none">_</div>
                             <div class="col-lg-3 col-4">
-                                <input type="number" name="member_phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
+                                <input type="text" id="member_phone3" name="phone3" value="<%=phone3 %>" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
                             </div>
                         </div>
 
@@ -557,11 +556,11 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="member_email">이메일</label> 
                             </div>
                             <div class="col-lg-4 col-sm-6 col-6">
-                                <input type="text" id="member_email"name="email" placeholder="이메일" onfocus="this.placeholder = '이메일'" onblur="this.placeholder = '이메일'" required class="single-input">
+                                <input type="text" id="member_email"name="email" value="<%=email %>" onfocus="this.placeholder = '이메일'" onblur="this.placeholder = '이메일'" required class="single-input">
                             </div>
                             <div class="col-sm-1 col-1">@</div>                            
                             <div class="col-lg-5 col-sm-5 col-5">
-                                <input type="text" name="domain" placeholder="직접입력" onfocus="this.placeholder = '직접입력'" onblur="this.placeholder = '직접입력'" required class="single-input">
+                                <input type="text" id="member_domain" name="domain" value="<%=domain %>" onfocus="this.placeholder = '직접입력'" onblur="this.placeholder = '직접입력'" required class="single-input">
                             </div>                           
                         </div>
           
@@ -570,38 +569,7 @@ String domain = memberBean.getMember_email().split("@")[1];
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
                                 <label for=""></label> 
                             </div>
-
-                            <div class="input-group-icon col-lg-10">
-                                <div class="icon"><i class="fa fa-at" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select2">
-                                    <select onchange="chkEmailDomainSelect(this)">
-                                       <option value="">직접입력</option>
-                                       <option value="naver.com">naver.com</option>
-                                       <option value="nate.com">nate.com</option>
-                                       <option value="itwillbs.co.kr">itwillbs.co.kr</option>      
-                                    </select>
-                                </div>
-                             </div>
-
-
                         </div>
-
-
-
-                        <div class="mt-10 row">
-                            <div class="col-lg-2 d-md-block d-sm-none d-none">
-                                <label for="member_email2">이메일확인</label> 
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-6">
-                                <input type="text" id="member_email2"name="email2" placeholder="이메일 확인" onfocus="this.placeholder = '이메일 확인'" onblur="this.placeholder = '이메일 확인'" required class="single-input">
-                            </div>
-                            <div class="col-sm-1 col-1">@</div>                            
-                            <div class="col-lg-5 col-sm-5 col-5">
-                                <input type="text" name="domain2" placeholder="" onfocus="this.placeholder = ''" onblur="this.placeholder = ''" required class="single-input">
-                            </div>                           
-                        </div>
-          
-
 
                         <div class="row">
                             
@@ -628,7 +596,7 @@ String domain = memberBean.getMember_email().split("@")[1];
 
                        <div class="row mt-30">
                           <div class="col-xs-12 col-sm-6 mx-auto row">
-                           <input type="submit" class="genric-btn primary radius col-6 submit" value="회원가입">
+                           <input type="submit" class="genric-btn primary radius col-6 submit" value="회원수정">
                            <input type="reset" class="genric-btn default radius col-6 cancel" value="초기화">
                           </div>
                            
