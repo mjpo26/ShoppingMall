@@ -136,5 +136,4 @@
             </article>
         </div>	<!-- DIV - ID="MAIN"  -->
         
-        
 <jsp:include page="adminFoot.jsp"></jsp:include>

@@ -9,7 +9,6 @@
 
     </div>
 
-
     <!-- jquery plugins here-->
     
     <script src="./assets/js/jquery-1.12.1.min.js"></script>
