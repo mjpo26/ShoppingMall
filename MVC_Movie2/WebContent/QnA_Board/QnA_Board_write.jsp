@@ -1,3 +1,4 @@
+<%@page import="com.sun.org.apache.xpath.internal.functions.FuncUnparsedEntityURI"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="vo.MemberBean"%>
@@ -16,6 +17,12 @@
 	
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 %>
+<script type="text/javascript">
+$('#QnA_subject').click(function(){
+	
+	
+}
+</script>
 
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -80,6 +87,7 @@
 							<td class="td_left"><label for="QnA_content">내용</label></td>
 							<td class="td_right"><textarea name="QnA_content"
 									id="QnA_content" cols="40" rows="15" required="required">
+							
 주문번호:
 입금은행:
 입금자 성함:

@@ -145,10 +145,10 @@
 							<tr>
 								<th>이미지추가</th>
 								<td>
-									<input type="file" name="pic1"> <img src="./upload/<%=article.getItem_pic1() %>"><br> 
-									<input type="file" name="pic2"> <img src="./upload/<%=article.getItem_pic2() %>"><br> 
-									<input type="file" name="pic3"> <img src="./upload/<%=article.getItem_pic3() %>"><br> 
-									<input type="file" name="pic4"> <img src="./upload/<%=article.getItem_pic4() %>"><br>
+									<input type="file" name="pic1"> 
+									<input type="file" name="pic2"> 
+									<input type="file" name="pic3"> 
+									<input type="file" name="pic4"> 
 								</td>
 							</tr>
 		
