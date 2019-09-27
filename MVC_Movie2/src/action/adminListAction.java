@@ -49,8 +49,8 @@ public class adminListAction implements Action {
 	        	
 	        	
 	        	if(articleList.get(i).getOrder_item_status().equals("환불")) {
-	        		sumrefund += articleList.get(i).getOrder_item_sel_price();
-	        		refund +=1;
+	        		sumrefund += articleList.get(i).getOrder_item_sel_price(); 
+	        		refund +=1;   
 	        	}else if(articleList.get(i).getOrder_item_status().equals("취소")) {
 	        		cancel+=1;
 	        	}else if(articleList.get(i).getOrder_item_status().equals("교환")) {
