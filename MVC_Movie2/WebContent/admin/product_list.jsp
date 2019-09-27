@@ -151,7 +151,7 @@ function pickNullCheck(){
 							<th>재고량</th>
 							<th>상품분류</th>
 							<th>등록일</th>
-							<th>수정</th>
+							<th colspan="2">수정</th>
 						</tr>
 					</thead>
 					<tbody>
