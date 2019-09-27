@@ -61,7 +61,7 @@ function pickNullCheck(){
 
 			<div style="height: 200px; width: 1050px; float: left;">
 	<form action ="./productList.sh"  name ="fr1" method="get" onsubmit="return pickNullCheck()">
-				<h3>상품목록</h3>
+				<h3>상품d목록</h3>
 				<table border="1">
 					<tr>
 						<td>검색분류</td>

@@ -1,4 +1,3 @@
-<%@page import="vo.BasketListBean"%>
 <%@page import="vo.MemberBean"%>
 <%@page import="vo.ItemBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -25,7 +24,6 @@ $(document).ready(function(){
         }
     });
 });
-
 </script>
 <!DOCTYPE html>
 <html>
@@ -36,6 +34,7 @@ $(document).ready(function(){
 <body>
 	<form action="orderPro.sh" method="post" name="orderForm">
 	  <input type="hidden" name="itemCode" value=<%=itemCode%>>
+	  <input type="hidden" name="item_code_count" value=<%=item_code_count %>> 
 		<table border="1">
 			<tr>
 				<th width="100">상품이미지</th>
