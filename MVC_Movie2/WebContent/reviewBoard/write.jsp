@@ -5,12 +5,11 @@
 <!DOCTYPE html>
 
 <%
-try{
-	int num = Integer.parseInt(request.getParameter("num"));
-}
-catch(Exception e){
+	try {
+		int num = Integer.parseInt(request.getParameter("num"));
+	} catch (Exception e) {
 
-}
+	}
 	String sId = (String) session.getAttribute("sId");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	OrderBean OrderBean = (OrderBean) request.getAttribute("OrderBean");
@@ -34,31 +33,16 @@ catch(Exception e){
 		<!-- enctype="multipart/form-data" -->
 		<form action="./ReviewBoardWritePro.re" method="post"
 			enctype="multipart/form-data">
+			<input type="hidden" name="review_writer"value=<%=memberBean.getMember_name()%>> 
+			<input type="hidden" name="review_id" value="<%=sId%>">
+			<input type="hidden" name="order_idx" value=<%=OrderBean.getOrder_idx()%>>
+		    <input type="hidden" name="order_item_code"	value=<%=OrderBean.getOrder_item_code()%>>
 			<table>
 				<tr>
-					<td>글쓴이</td>
-					<td><input type="text" name="review_writer"
-						value=<%=memberBean.getMember_name()%>></td>
-					<!--                회원목록에서 글쓴이 값 불러오는거 .. -->
-				</tr>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="review_id" value="<%=sId%>"
-						readonly></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
+					<td>비밀번호
+						<h6>글을 수정,삭제할때 입력할 비밀번호를 입력하세요</h6>
+					</td>
 					<td><input type="password" name="review_pass"></td>
-				</tr>
-				<tr>
-					<td>주문번호</td>
-					<td><input type="text" name="order_idx"
-						value=<%=OrderBean.getOrder_idx()%>></td>
-				</tr>
-				<tr>
-					<td>상품번호</td>
-					<td><input type="text" name="order_item_code"
-						value=<%=OrderBean.getOrder_item_code()%>></td>
 				</tr>
 				<tr>
 					<td>상품명</td>

@@ -22,191 +22,148 @@
 	// 만약, 회원만 게시판 목록 조회가 가능할 경우
 	// 세션 아이디 없으면 Main.bo 로 이동
 	if (sId == null) {
-		out.println("<script>");
-		out.println("alert('로그인이 필요한 메뉴입니다!')");
-		out.println("location.href='Main.bo'");
-		out.println("</script>");
+      sId="비회원";
 	}
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MVC 게시판</title>
-<style type="text/css">
-#registForm {
-	width: 500px;
-	height: 610px;
-	border: 1px solid red;
-	margin: auto;
-}
+<jsp:include page="../assets/top.jsp"></jsp:include>
 
-h2 {
-	text-align: center;
-}
 
-table {
-	margin: auto;
-	width: 800px;
-	border: 1px solid darkgray;
-}
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="breadcrumb_iner">
+					<div class="breadcrumb_iner_item">
+						<h2>공지사항</h2>
+						<p>
+							공지사항 <span>-</span>안내사항
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- breadcrumb start-->
+<!--================End Home Banner Area =================-->
 
-a {
-	text-decoration: none;
-}
+<section class="cart_list shopping_cart mt-5">
+	<div class="container">
+		<div class="row clearfix">
 
-#tr_top {
-	background: orange;
-	width: 800px;
-	text-align: center;
-}
 
-#writeButton {
-	margin: auto;
-	width: 800px;
-	text-align: right;
-}
-
-#pageList {
-	margin: auto;
-	width: 800px;
-	text-align: center;
-}
-
-#emptyArea {
-	margin: auto;
-	width: 800px;
-	text-align: center;
-}
-</style>
-</head>
-<body>
-	<header>
-		<!-- 세션 아이디가 있을 경우 로그아웃 링크(Logout.me) 표시, 없을 경우 로그인 링크(LoginForm.me) 표시 -->
-		<p align="right">
-			<%
-				if (sId != null) {
-			%>
-			<a href="MemberInfo.me"><%=sId%>님</a> | <a href="MemberLogoutPro.me">로그아웃</a>
-			<%
-				} else {
-			%>
-			<a href="MemberLoginForm.me">로그인</a>
-			<%
-				}
-			%>
-		</p>
-	</header>
-	<!-- 게시판 리스트 -->
-	<section id="listForm">
-		<h2>글 목록</h2>
-		<table>
-			<%
-				if (articleList != null & listCount > 0) {
-			%>
-			<tr id="tr_top">
-				<td width="100">번호</td>
-				<td width="400">제목</td>
-				<td width="150">ID</td>
-				<td width="150">날짜</td>
-				<td width="100">조회수</td>
-			</tr>
-			<%
-				for (int i = 0; i < articleList.size(); i++) {
-			%>
-			<tr>
-				<td align="center"><%=articleList.get(i).getFree_num()%></td>
-				<td>
-					<%
-						if (articleList.get(i).getFree_lev() != 0) {
-					%> <%
+			<table class="table">
+				<%
+					if (articleList != null & listCount > 0) {
+				%>
+				<tr id="tr_top">
+					<td width="100">번호</td>
+					<td width="400">제목</td>
+					<td width="150">ID</td>
+					<td width="150">날짜</td>
+					<td width="100">조회수</td>
+				</tr>
+				<%
+					for (int i = 0; i < articleList.size(); i++) {
+				%>
+				<tr>
+					<td align="center"><%=articleList.get(i).getFree_num()%></td>
+					<td>
+						<%
+							if (articleList.get(i).getFree_lev() != 0) {
+						%> <%
  	for (int j = 0; j <= articleList.get(i).getFree_lev() * 2; j++) {
- %>
-					&nbsp; <%
+ %> &nbsp; <%
  	}
- %>▶ <%
+ %> <%
  	} else {
- %> ▶ <%
+ %> <%
  	}
  %> <a
-					href="Free_BoardDetail.bo?free_num=<%=articleList.get(i).getFree_num()%>&page=<%=nowPage%>">
-						<%=articleList.get(i).getFree_subject()%>
-				</a>
-				</td>
-				<td align="center"><%=articleList.get(i).getFree_writer_id()%></td>
-				<td align="center"><%=articleList.get(i).getFree_date()%></td>
-				<td align="center"><%=articleList.get(i).getFree_readcount()%></td>
-			</tr>
-			<%
-				}
-			%>
-		</table>
-	</section>
+						href="Free_BoardDetail.bo?free_num=<%=articleList.get(i).getFree_num()%>&page=<%=nowPage%>">
+							<%=articleList.get(i).getFree_subject()%>
+					</a>
+					</td>
+					<td align="center"><%=articleList.get(i).getFree_writer_id()%></td>
+					<td align="center"><%=articleList.get(i).getFree_date()%></td>
+					<td align="center"><%=articleList.get(i).getFree_readcount()%></td>
+				</tr>
+				<%
+					}
+				%>
 
-	<section id="writeButton">
-		<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a>
-	</section>
+			</table>
+		</div>
+	</div>
+</section>
 
-	<section id="pageList">
-		<%
-			if (nowPage <= 1) {
-		%>
-		[이전]&nbsp;
-		<%
-			} else {
-		%>
-		<a href="Free_BoardList.bo?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
-		<%
-			}
-		%>
+<!-- <section id="writeButton"> -->
+<!-- 	<a href="Free_BoardWriteForm.bo"><input type="button" value="글쓰기"></a> -->
+<!-- </section> -->
 
-		<%
-			for (int i = startPage; i <= endPage; i++) {
-					if (i == nowPage) {
-		%>
-		[<%=i%>]
-		<%
-			} else {
-		%>
-		<a href="Free_BoardList.bo?page=<%=i%>">[<%=i%>]
-		</a>&nbsp;
-		<%
-			}
-		%>
-		<%
-			}
-		%>
-
-		<%
-			if (nowPage >= maxPage) {
-		%>
-		&nbsp;[다음]
-		<%
-			} else {
-		%>
-		<a href="Free_BoardList.bo?page=<%=nowPage + 1%>">&nbsp;[다음]</a>
-		<%
-			}
-		%>
-	</section>
+<div id="pageList" class="text-center review_board board_paging">
+	<%
+		if (nowPage <= 1) {
+	%>
+	<i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
 	<%
 		} else {
 	%>
-	<section id="emptyArea">등록된 글이 없습니다.</section>
+	<a href="Free_BoardList.bo?page=<%=nowPage - 1%>"><i
+		class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
 	<%
 		}
 	%>
-</body>
-</html>
 
+	<%
+		for (int i = startPage; i <= endPage; i++) {
+				if (i == nowPage) {
+	%>
+	<span class="current"><b><%=i%></b></span>&nbsp;
+	<%
+		} else {
+	%>
+	<a href="Free_BoardList.bo?page=<%=i%>"><%=i%>&nbsp; </a>
+	<%
+		}
+	%>
+	<%
+		}
+	%>
 
+	<%
+		if (nowPage >= maxPage) {
+	%>
+	&nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i>
+	<%
+		} else {
+	%>
+	<a href="Free_BoardList.bo?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp;
+		<i class="ti-angle-right"></i>
+	</a>
+	<%
+		}
+	%>
+	<%
+		if (sId != null && sId.equals("admin")) {
+	%>
+	 <input type="button" class="btn_3"
+		onclick='location.href="./Free_BoardWriteForm.bo"' value="글쓰기">
 
+	<%
+		}
+	%>
+</div>
+<%
+	} else {
+%>
+<section id="emptyArea">등록된 글이 없습니다.</section>
+<%
+	}
+%>
 
-
-
-
-
-
+<jsp:include page="../assets/foot.jsp"></jsp:include>
 
 
 
