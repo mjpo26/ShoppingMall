@@ -141,7 +141,6 @@ function pickNullCheck(){
 							<th>게시판 선택 *필수*</th>
 							<td>
 								<select name="list">
-									<option value="">게시판목록</option>
 									<option value="리뷰게시판">리뷰게시판</option>
 									<option value="QnA게시판">QnA게시판</option>
 								</select>
@@ -172,42 +171,10 @@ function pickNullCheck(){
 				<div class="content_title">
                		<h1>게시판 검색</h1>
 				</div>
-			<%
-				if (abb.getBoard_list() == null) {
-			%>
-				<div style="width: 100%; float: left;">					
-					<table id="example1" class="display compact table">
-						<thead>
-							<tr>
-								<th><input type="checkbox"></th>
-								<th>글번호</th>
-								<th>글제목</th>
-								<th>작성자</th>
-								<th>작성일</th>
-								<th>답변상태</th>
-								<th>게시글보기</th>
-							</tr>
-						</thead>
-						<tbody>
-						
-						<tr>
-							<td><input type="checkbox"></td>
-							<td> </td>
-							<td> </td>
-							<td> </td>
-							<td> </td>
-							<td> </td>
-							<td> </td>
-						</tr>
-						
-						</tbody>
-						<tfoot>
-						</tfoot>
-					</table>
-				</div>				
+
 			<!-- 리뷰게시판 게시판!!!!!!!!!!!!!! -->
 			<%
-				} else if (abb.getBoard_list().equals("리뷰게시판")) {
+				if (abb.getBoard_list().equals("리뷰게시판")||abb.getBoard_list() == null) {
 					ArrayList<ReviewBoardBean> boardList = (ArrayList<ReviewBoardBean>) request.getAttribute("boardList");
 					PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 					int listCount = pageInfo.getListCount();
