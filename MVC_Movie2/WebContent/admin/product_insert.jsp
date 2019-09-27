@@ -55,7 +55,7 @@
 	</script>
 <script type="text/javascript">
 	$(function() {
-		$( document ).ready(function() {
+	$("input[name='findCategory1']").on("click", function(){
 		//$('.dup').click(function(){
 			var cate1 = $('#item_category1').val();
 		
@@ -148,7 +148,16 @@ function chkCate2Sel(cate2sel) {
 						<td><input type="radio" name="display" value="yes">진열함 
 						<input type="radio" name="display" value="no">진열안함</td>
 					</tr>
-
+					<tr>
+					<th>가구색상</th>
+					<td>
+									
+				<input type="checkbox" name="Item_option_color1" value="블랙">블랙
+				<input type="checkbox" name="Item_option_color2" value="화이트">화이트
+				<input type="checkbox" name="Item_option_color3" value="레드">레드
+				<input type="checkbox" name="Item_option_color4" value="옐로우">옐로우
+				</td>
+					</tr>
 					<tr>
 						<th>판매상태</th>
 						<td><input type="radio" name="sales" value="yes">판매함 
@@ -157,10 +166,10 @@ function chkCate2Sel(cate2sel) {
 
 					<tr>
 						<th>매인진열</th>
-						<td><input type="radio" name="category" value="recommend">추천상품 
-						<input type="radio" name="category" value="new"> 신상품 
-						<input type="radio" name="category" value="best"> best 
-						<input type="radio" name="category" value="주방가구"> 주방가구</td>
+						<td>
+						<input type="radio" name="icon1" value="recommend">추천상품 
+						<input type="radio" name="icon1" value="new"> 신상품 
+						<input type="radio" name="icon1" value="best"> best </td>
 					</tr>
 
 					<tr>

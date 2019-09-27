@@ -68,11 +68,17 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_pic3(pic3);
 		  	itemBean.setItem_pic4(pic4);
 //		  	itemBean.setItem_pic4(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		  	itemBean.setItem_option_color1("item_option_color1");
+		  	itemBean.setItem_option_color2("item_option_color2");
+		  	itemBean.setItem_option_color3("item_option_color3");
+		  	itemBean.setItem_option_color4("item_option_color4");
 		  	
+		  	itemBean.setItem_icon1(multi.getParameter("icon1"));
 		  	itemBean.setItem_display(multi.getParameter("display"));
 		  	itemBean.setItem_sales(multi.getParameter("sales"));
 		  	itemBean.setItem_point(Item_point);
-		  	itemBean.setItem_category1(multi.getParameter("category"));
+		  	itemBean.setItem_category1(multi.getParameter("category1_text"));
+		  	itemBean.setItem_category1(multi.getParameter("category2_text"));
 		  	itemBean.setItem_stock_price(Integer.parseInt(multi.getParameter("stock_price")));
 		  	itemBean.setItem_delivery_pee(Integer.parseInt(multi.getParameter("delivery_pee")));
 		  	itemBean.setItem_weight(Integer.parseInt(multi.getParameter("weight")));

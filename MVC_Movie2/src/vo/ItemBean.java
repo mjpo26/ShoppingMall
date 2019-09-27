@@ -16,10 +16,10 @@ public class ItemBean {
 	private String Item_sales; 
 	private String Item_option_size;
 	private String Item_color;
-//	private String Item_option_color1;
-//	private String Item_option_color2;
-//	private String Item_option_color3;
-//	private String Item_option_color4;
+	private String Item_option_color1;
+	private String Item_option_color2;
+	private String Item_option_color3;
+	private String Item_option_color4;
 	private int Item_weight;
 //	private String Item_bgpic;
 	private int Item_stock_count;
@@ -30,15 +30,35 @@ public class ItemBean {
 	private int Item_point;
 	private int Item_delivery_pee;
 	private String Item_icon1;
-	private String Item_icon2;
-	private String Item_icon3;
-	private String Item_icon4;
-	private String Item_icon5;
 	private Date Item_Date;
 	private Date pickStart;
 	private Date pickEnd;
 	
 	
+	public String getItem_option_color1() {
+		return Item_option_color1;
+	}
+	public void setItem_option_color1(String item_option_color1) {
+		Item_option_color1 = item_option_color1;
+	}
+	public String getItem_option_color2() {
+		return Item_option_color2;
+	}
+	public void setItem_option_color2(String item_option_color2) {
+		Item_option_color2 = item_option_color2;
+	}
+	public String getItem_option_color3() {
+		return Item_option_color3;
+	}
+	public void setItem_option_color3(String item_option_color3) {
+		Item_option_color3 = item_option_color3;
+	}
+	public String getItem_option_color4() {
+		return Item_option_color4;
+	}
+	public void setItem_option_color4(String item_option_color4) {
+		Item_option_color4 = item_option_color4;
+	}
 	public String getItem_color() {
 		return Item_color;
 	}
@@ -221,30 +241,6 @@ public class ItemBean {
 	}
 	public void setItem_icon1(String item_icon1) {
 		Item_icon1 = item_icon1;
-	}
-	public String getItem_icon2() {
-		return Item_icon2;
-	}
-	public void setItem_icon2(String item_icon2) {
-		Item_icon2 = item_icon2;
-	}
-	public String getItem_icon3() {
-		return Item_icon3;
-	}
-	public void setItem_icon3(String item_icon3) {
-		Item_icon3 = item_icon3;
-	}
-	public String getItem_icon4() {
-		return Item_icon4;
-	}
-	public void setItem_icon4(String item_icon4) {
-		Item_icon4 = item_icon4;
-	}
-	public String getItem_icon5() {
-		return Item_icon5;
-	}
-	public void setItem_icon5(String item_icon5) {
-		Item_icon5 = item_icon5;
 	}
 	public Date getPickStart() {
 		return pickStart;
