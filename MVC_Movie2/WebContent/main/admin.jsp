@@ -21,18 +21,19 @@
                         <div class="content_div row">
                             <div class="con con1 content_today_order col-xl-3 col-lg-6 col-md-12">
                                 <div class="con_title">
-                                    <h3>결제</h3>
+                                    <h3>주문상태</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span><%=adminListBean.getSumsel() %></span>원</h5>
+                                    <h5><span><%=adminListBean.getSumOrder() %></span>원</h5>
                                 </div>
                             </div>
                             <div class="con con2 today_payed col-xl-3 col-lg-6 col-md-12">
                                 <div class="con_title">
-                                    <h3>주문</h3>
+                                    <h3>결제완료</h3>
                                 </div>
                                 <div class="con_count">
-                                    <h5><span><%=adminListBean.getSumOrder() %></span>건</h5>
+                                    <h5><span><%=adminListBean.getSumsel() %></span>원</h5>
+                                    
                                 </div>
                             </div>
                             <div class="con con3 today_refund col-xl-3 col-lg-6 col-md-12">

@@ -46,8 +46,8 @@ public class adminListAction implements Action {
 //        	OrderBean.setOrder_item_status(rs.getString("order_item_status"));
 //        	OrderBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
 	        for(int i=0; i <articleList.size(); i++) {
-	        	sumOrder+=1;
-	        	sumsel +=articleList.get(i).getOrder_item_sel_price();
+	        	
+	        	
 	        	if(articleList.get(i).getOrder_item_status().equals("환불")) {
 	        		sumrefund += articleList.get(i).getOrder_item_sel_price();
 	        		refund +=1;
@@ -59,15 +59,20 @@ public class adminListAction implements Action {
 	        		retrun +=1;
 	        	}
 	        	if(articleList.get(i).getOrder_delivery_status().equals("입금전")) {
+	        		sumOrder+=articleList.get(i).getOrder_item_sel_price();
 	        		inputOrder+=1;
 	        	}else if(articleList.get(i).getOrder_delivery_status().equals("배송전")) {
+	        		sumsel +=articleList.get(i).getOrder_item_sel_price();
 	        		delivery_be+=1;
 	        	}else if(articleList.get(i).getOrder_delivery_status().equals("배송중")) {
+	        		sumsel +=articleList.get(i).getOrder_item_sel_price();
 	        		delivery_ing+=1;
 	        	}else if(articleList.get(i).getOrder_delivery_status().equals("배송완료")) {
+	        		sumsel +=articleList.get(i).getOrder_item_sel_price();
 	        		delivery_af+=1;
 	        	}
 	        }
+	        sumOrder+=sumsel;
 	        result=sumsel-sumrefund;
 	        System.out.println("-----매출현황----");
 	        System.out.println("주문결제 : "+sumsel);
