@@ -27,7 +27,7 @@
 // 	String email2 = memberBean.getMember_email().split("@")[1];
 
 //주소 분리
-		String address1 = memberBean.getMember_address1();
+String address1 = memberBean.getMember_address1();
 		
 String[] address = address1.split("/");
 // String detailaddress = memberBean.getMember_address1().split("/")[1];
@@ -36,15 +36,23 @@ for(int i=0; i<address.length; i++){
 	System.out.println(address[i]);
 }
 
-//전화번호 분리
-String phone1 = memberBean.getMember_phone().split("-")[0];
-String phone2 = memberBean.getMember_phone().split("-")[1];
-String phone3 = memberBean.getMember_phone().split("-")[2];
+String phone1 = memberBean.getMember_phone();
 
+String[] phone = phone1.split("-");
+// String detailaddress = memberBean.getMember_address1().split("/")[1];
+// String extraaddress = memberBean.getMember_address1().split("/")[2];
+for(int i=0; i<phone.length; i++){
+	System.out.println(phone[i]);
+}
 
-//이메일 분리
-String email= memberBean.getMember_email().split("@")[0];
-String domain = memberBean.getMember_email().split("@")[1];
+String email1 = memberBean.getMember_email();
+
+String[] email = email1.split("@");
+// String detailaddress = memberBean.getMember_address1().split("/")[1];
+// String extraaddress = memberBean.getMember_address1().split("/")[2];
+for(int i=0; i<email.length; i++){
+	System.out.println(email[i]);
+}
 %>  
 
 <link href="../css/default.css" rel="stylesheet" type="text/css">
@@ -376,7 +384,7 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="address">기본 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="address" name="address" value=<%=address[0] %> onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
+                            <input type="text" id="address" name="address" value=<%=address[0]%> onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'" onblur="this.placeholder = '기본 주소'" class="single-input">
                             </div>
                         </div>
 
@@ -385,7 +393,7 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="detailaddress">상세 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="detailaddress" value=<%=address[1] %> name="address" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
+                            <input type="text" id="detailaddress" value="<%=address[1] %>" name="address" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
                             </div>
 <!--                             <div class="col-lg-2 col-sm-2"> -->
 <!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->

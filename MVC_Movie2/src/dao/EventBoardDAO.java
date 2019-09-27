@@ -227,7 +227,7 @@ public class EventBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			close(con);
+//			close(con);
 		}
 
 		return cb;

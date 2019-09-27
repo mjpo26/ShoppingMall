@@ -25,13 +25,10 @@ public class ReviewBoardDetailService {
 		}else {
 			con.rollback();
 		}
-<<<<<<< HEAD
+
 		close(con);
-	    
-=======
-		 JdbcUtil.close(con);
+
 	        
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
 		return article;
 	}
 }
