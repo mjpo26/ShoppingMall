@@ -149,6 +149,7 @@ function pickNullCheck(){
 							<th>진열상태</th>
 							<th>판매상태</th>
 							<th>재고량</th>
+							<th>이벤트</th>
 							<th>상품분류</th>
 							<th>등록일</th>
 							<th colspan="2">수정</th>
@@ -173,7 +174,8 @@ function pickNullCheck(){
 						<option <%if(articleList.get(i).getItem_sales().equals("yes")){%>selected<%}%>>yes</option>
 						</td>
 						<td><%=articleList.get(i).getItem_stock_count()%></td><!-- 재고 -->
-						<td><%=articleList.get(i).getItem_category1()%></td><!-- 카테고리 -->
+						<td><%=articleList.get(i).getItem_icon1()%></td>//이벤트
+						<td><%=articleList.get(i).getItem_category1()+"/"+articleList.get(i).getItem_category2()%></td><!-- 카테고리 -->
 						<td><%=articleList.get(i).getItem_Date()%></td><!-- 등록날짜 -->
 								<input type="hidden" name="Item_code" value=<%=articleList.get(i).getItem_code()%>>
 						<td><input class="btn btn-default" type="submit" value="수정" formaction="./productUptdate.sh"></td>
