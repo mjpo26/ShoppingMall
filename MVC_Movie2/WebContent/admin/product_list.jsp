@@ -14,36 +14,31 @@
 	</header>
 
 <!-- 날짜 선택 -->	
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- dataTables 시작-->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-	
-    <script>
-    $(document).ready(function() {
-        var table = $('#example').DataTable({
-            columnDefs: [{
-                orderable: true
-            
-            }]
-        });
-     
-        $('button').click( function() {
-            var data = table.$('input, select').serialize();
-            alert(
-                "The following data would have been submitted to the server: \n\n"+
-                data.substr( 0, 120 )+'...'
-            );
-            return false;
-        } );
+<script>
+$(document).ready(function() {
+    var table = $('#example').DataTable({
+        columnDefs: [{
+            orderable: true
+        
+        }]
+    });
+ 
+    $('button').click( function() {
+        var data = table.$('input, select').serialize();
+        alert(
+            "The following data would have been submitted to the server: \n\n"+
+            data.substr( 0, 120 )+'...'
+        );
+        return false;
     } );
-	</script>
+} );
+</script>
 <!-- dataTables 끝-->
-
 <script>
 	$(function() {
 
@@ -88,54 +83,59 @@ function pickNullCheck(){
 				<table class="table">
 					<tr>
 						<td>검색분류</td>
-						<td colspan="3">
+						<td>
 						<select >
-								<option value="상품명">상품명
-								<option value="모델명">모델명
-						</select><input type="text" name="title"></td>
+							<option value="상품명">상품명</option>
+							<option value="모델명">모델명</option>
+						</select>
+						<input type="text" name="title">
+						</td>
 					</tr>
 					<tr>
 						<td>상품분류</td>
-						<td colspan="3"><select name="category">
+						<td>
+							<select name="category">
 								<option value="">카테고리</option>
 								<option value="best">best</option>
 								<option value="new">new</option>
 								<option value="recommend">recommend</option>
-						
-						</select></td>
+							</select>
+						</td>
 					</tr>
-							<tr>
-			<td>기간검색</td>
-			<td colspan="4">시작날짜:<input type="text" name="pickStart" id="pickStart">
-				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
-			</tr>
 					<tr>
-						<td>진열상태</td>
-					
-						<td colspan="2">
-						<select name="display">
-						<option value="">전체</option>
-						<option value="yes">진열함</option>
-						<option value="no">진열안함</option>
-						</select></td>
-						
-						<td colspan="1">판매상태</td>
-						<td colspan="2">
-						<select name="sales">
-						<option value="">전체</option>
-						<option value="yes">진열함</option>
-						<option value="no">진열안함</option>
-						</select>
+						<td>기간검색</td>
+						<td>
+							시작날짜:<input type="text" name="pickStart" id="pickStart">
+							끝 날짜:<input type="text" name="pickEnd" id="pickEnd">
+						</td>
+					</tr>
+					<tr>
+						<td>진열상태</td>					
+						<td>
+							<select name="display">
+							<option value="">전체</option>
+							<option value="yes">진열함</option>
+							<option value="no">진열안함</option>
+							</select>
+						</td>
+					</tr>
+					<tr>						
+						<td>판매상태</td>
+						<td>
+							<select name="sales">
+							<option value="">전체</option>
+							<option value="yes">진열함</option>
+							<option value="no">진열안함</option>
+							</select>
 						</td>
 					</tr>
 				</table>
 				<input class="btn btn-primary" type= "submit" value="검색하기"> 
 				<input class="btn btn-secondary" type="reset"  value="초기화">
-				</form><br>
+				</form>
 				
 				
-				<div style="height: 200px; width: 100%; float: left;">
-				<br><br>
+				<div style="width: 100%; float: left;">
 					<div class="content_title">
                   		<h1>상품 목록 조회</h1>
 					</div>
