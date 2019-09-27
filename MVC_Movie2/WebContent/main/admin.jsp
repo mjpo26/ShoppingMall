@@ -3,6 +3,7 @@
   <%
     // 저장된 세션 아이디 가져오기
     String sId = (String)session.getAttribute("sId");
+  
   %>  
 <jsp:include page="adminTop.jsp"></jsp:include>  
 

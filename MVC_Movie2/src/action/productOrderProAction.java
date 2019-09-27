@@ -25,9 +25,26 @@ public class productOrderProAction implements Action {
 		HttpSession session = request.getSession();
 		String sId = (String) session.getAttribute("sId");
 		System.out.println(sId);
+		
 		int itemCode = Integer.parseInt(request.getParameter("itemCode"));
 		int item_point = Integer.parseInt(request.getParameter("item_point"));
+		int order_item_sel_price = Integer.parseInt(request.getParameter("order_item_sel_price"));
+		int item_code_count =Integer.parseInt(request.getParameter("item_code_count"));
+		String order_item_option_color =request.getParameter("item_color");
+		String order_bank = request.getParameter("order_bank");
+		int order_plus_point = Integer.parseInt(request.getParameter("item_point"));
+		String order_memo = request.getParameter("order_memo");
+
+		
+		//		order_item_point
+//		order_plus_point
+//		order_pay_status
+//		order_payment
+//		order_bank
+		
+		System.out.println(item_point);
 		System.out.println(itemCode);
+		System.out.println(item_code_count);
 		if (sId == null) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -50,8 +67,14 @@ public class productOrderProAction implements Action {
 				OrderBean OrderBean = new OrderBean();
 				OrderBean.setOrder_item_code(itemBean.getItem_code());
 				OrderBean.setOrder_item_title(itemBean.getItem_title());
-//				OrderBean.setOrder_item_option_color(order_item_option_color);
+				OrderBean.setOrder_item_code_count(item_code_count);
+				OrderBean.setOrder_item_option_color(order_item_option_color);
 //				OrderBean.setOrder_item_option_color(itemBean.getItem);
+				OrderBean.setOrder_item_sel_price(order_item_sel_price);
+				OrderBean.setOrder_item_point(item_point);
+				OrderBean.setOrder_plus_point(order_plus_point);
+				OrderBean.setOrder_memo(order_memo);
+				OrderBean.setOrder_bank(order_bank);
 				OrderBean.setOrder_member_id(memberBean.getMember_id());
 				OrderBean.setOrder_member_name(memberBean.getMember_name());
 				OrderBean.setOrder_item_point(memberBean.getMember_mypoint());

@@ -90,4 +90,18 @@ public class OrderListService {
 	        return delivery4_Count;
 	    }
 
+
+		public ArrayList<OrderBean> getMainList() {
+			 ArrayList<OrderBean> articleList = null;
+		        
+		        Connection con = getConnection();  
+		        OrderDAO listDAO = OrderDAO.getInstance();
+		        listDAO.setConnection(con);
+		        
+		        articleList = listDAO.MainList();
+		        
+		        close(con);
+		        return articleList;
+		}
+
 }

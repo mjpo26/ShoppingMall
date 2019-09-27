@@ -47,39 +47,39 @@ public class OrderDAO {
             String sql = "INSERT INTO item_order ("
                        + "order_item_code ,"
                        + "order_item_title ,"
-//                       + "order_item_option_color ,"
+                       + "order_item_count ,"
+                       + "order_item_option_color ,"
 //                       + "order_item_option_size ,"
-//                       + "order_item_sel_price ,"
-//                       + "order_item_point ,"
-//                       + "order_item_code_count ,"
-//                       + "order_delivery_pee ,"
-//                       + "order_plus_point ,"
+                       + "order_item_sel_price ,"
+                       + "order_item_point ,"
+                       + "order_plus_point ,"
 //                       + "order_used_point ,"
+					   + "order_bank ,"
                        + "order_delivery_status ,"
-//                       + "order_pay_status ,"
-//                       + "order_payment ,"
-//                       + "order_memo ,"
-                       + "order_date,"+"order_member_name, "+"order_member_id) VALUES (?,?,?,now(),?,?)";
+                       + "order_pay_status ," //입금여부
+                       + "order_payment ," //결제방식
+                       + "order_memo ," //메모
+                       + "order_date,"+"order_member_name, "+"order_member_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?,?)";
             
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, OrderBean.getOrder_item_code()); 
             pstmt.setString(2, OrderBean.getOrder_item_title());
-//            pstmt.setString(3, OrderBean.getOrder_item_option_color());
+            pstmt.setInt(3, OrderBean.getOrder_item_code_count()); 
+            pstmt.setString(4, OrderBean.getOrder_item_option_color());
 //            pstmt.setString(4, article.getOrder_item_option_size());
 //            pstmt.setString(4, "M");
-//            pstmt.setInt(5, OrderBean.getOrder_item_sel_price());
-//            pstmt.setInt(6, OrderBean.getOrder_item_point());
-//            pstmt.setInt(7, OrderBean.getOrder_item_code_count()); 
-//            pstmt.setInt(8, OrderBean.getOrder_delivery_pee()); 
-//            pstmt.setInt(9, OrderBean.getOrder_plus_point()); 
+            pstmt.setInt(5, OrderBean.getOrder_item_sel_price());
+            pstmt.setInt(6, OrderBean.getOrder_item_point());
+            pstmt.setInt(7, OrderBean.getOrder_plus_point());
+            pstmt.setString(8, OrderBean.getOrder_bank());
 //            pstmt.setInt(10, OrderBean.getOrder_used_point()); 
-            pstmt.setString(3, "배송전");
-            pstmt.setString(4, OrderBean.getOrder_member_name());
-            pstmt.setString(5, OrderBean.getOrder_member_id());
+            pstmt.setString(9, "입금대기");
+            pstmt.setString(10, "현금");
+            pstmt.setString(11, OrderBean.getOrder_memo());
+            pstmt.setString(12, "입금전");
+            pstmt.setString(13, OrderBean.getOrder_member_name());
+            pstmt.setString(14, OrderBean.getOrder_member_id());
 //            pstmt.setInt(6, OrderBean.getOrder_idx()); 
-//            pstmt.setString(12, OrderBean.getOrder_pay_status());
-//            pstmt.setString(13, OrderBean.getOrder_payment());
-//            pstmt.setString(14, OrderBean.getOrder_memo());
             
             
             insertCount = pstmt.executeUpdate(); // 글 등록 처리 결과를 int 형 값으로 리턴받음
@@ -803,6 +803,45 @@ public class OrderDAO {
         
         return articleList;
 
+	}
+
+	public ArrayList<OrderBean> MainList() {
+		 PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        
+	        ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
+
+	         
+	        
+	        try { 
+	            String sql = "SELECT * FROM item_order";
+	            pstmt = con.prepareStatement(sql);
+	            rs = pstmt.executeQuery();
+
+	            while(rs.next()) {
+	            	OrderBean OrderBean = new OrderBean();
+	            	System.out.println("아");
+	            	OrderBean.setOrder_idx(rs.getInt("order_idx"));
+	            	System.out.println("주문번호"+OrderBean.getOrder_idx());
+	            	OrderBean.setOrder_item_code((rs.getInt("order_item_code")));
+	             	System.out.println("아이템코드"+OrderBean.getOrder_idx());
+	            	OrderBean.setOrder_item_title(rs.getString("order_item_title"));
+	            	OrderBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
+	            	OrderBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
+	                OrderBean.setOrder_date(rs.getDate("order_date"));
+	                OrderBean.setOrder_item_title((rs.getString("order_item_title")));
+	            	articleList.add(OrderBean);
+	            }
+	            
+	        } catch (SQLException e) {
+	            System.out.println("selectArticleList() - " + e.getMessage());
+	        } finally {
+	            close(rs);
+	            close(pstmt);
+	        }
+	        
+	        
+	        return articleList;
 	}
     
 }

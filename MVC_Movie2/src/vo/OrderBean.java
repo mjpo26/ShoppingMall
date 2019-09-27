@@ -28,6 +28,16 @@ public class OrderBean {
 	private Date pickEnd;
 	private int page;
 	private int limit;
+	private int order_item_count;
+	
+	
+	public int getOrder_item_count() {
+		return order_item_count;
+	}
+
+	public void setOrder_item_count(int order_item_count) {
+		this.order_item_count = order_item_count;
+	}
 
 	public int getOrder_idx() {
 //		   if(order_idx==0) {
