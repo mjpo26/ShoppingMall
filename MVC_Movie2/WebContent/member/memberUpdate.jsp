@@ -50,7 +50,7 @@ String domain = memberBean.getMember_email().split("@")[1];
 
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
   function check() {
 
@@ -347,10 +347,6 @@ String domain = memberBean.getMember_email().split("@")[1];
                            			
                         </div>
                       
-                           
-                                        
-
-
 
                         <div class="mt-10 row">
                             <div class="col-lg-2 d-md-block d-sm-none d-none">

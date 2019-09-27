@@ -213,7 +213,7 @@ function pickNullCheck(){
 			</form><br>
 			
 				<div class="content_title">
-                   <h1>배송관리</h1>
+                   <h1>배송조회</h1>
 				</div>
 			<table class="table text-center">
 				<tr>
@@ -235,7 +235,7 @@ function pickNullCheck(){
 					<br> <br>
 					<form action ="./orderUpdate.ol" method="post">
 						<div class="content_title">
-                  			 <h1>배송관리</h1>
+                  			 <h1>주문 목록 조회</h1>
 						</div>
 						<table id="example" class="display compact table">
 							<thead>
