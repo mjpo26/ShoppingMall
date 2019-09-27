@@ -14,15 +14,10 @@
 	     </div>                    
       </div>
 	</header>
-	
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 날짜선택임포트 끝 -->
 <!-- dataTables 시작-->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
 	
     <script>
@@ -130,207 +125,213 @@ function pickNullCheck(){
     <article id="content">
     	<div class="container mainDiv">
 	<!-- 폼 선택!!!!!!!!!!!!!!-->
+
 				<div class="content_title">
                    <h1>게시판 목록</h1>
 				</div>
-				<div class="">
 				<form action="./AdminBoardList.me" name="fr1" method="post" onsubmit="return pickNullCheck()">
 					<table class="table">
 						<tr>
 							<th>기간검색</th>
 							<td>시작날짜:&nbsp;&nbsp;<input type="text" name="pickStart" id="pickStart">&nbsp;&nbsp;&nbsp;
-								끝 날짜:&nbsp;&nbsp;<input type="text" name="pickEnd" id="pickEnd"></td>
+								끝 날짜:&nbsp;&nbsp;<input type="text" name="pickEnd" id="pickEnd">
+							</td>
 						</tr>
-							<tr>
-								<th>게시판 선택 *필수*</th>
-								<td colspan='12'><select name="list">
-										<option value="">게시판목록</option>
-										<option value="리뷰게시판">리뷰게시판</option>
-										<option value="QnA게시판">QnA게시판</option>
-								</select></td>
-							</tr>
-							<tr>
-								<th>내용 검색</th>
-								<td colspan='12'><label>제 목</label> <input type="text"
-									size="20" name="title"><br> <label>작성자</label> <input
-									type="text" size="20" name="writer">
-							</tr>
-				
-							<tr>
-								<th>답변여부</th>
-								<td colspan='12'><input type="radio" name="replyCheck"
-									value="*">전체 <input type="radio" name="replyCheck"
-									value="0">답변전 <input type="radio" name="replyCheck"
-									value="1">답변완료</td>
-							</tr>
-						</table>
-						<input class="btn btn-primary" type="submit" value="검색">
-						<input class="btn btn-secondary" type="reset" value="초기화">
-					</form>
-				</div>
+						<tr>
+							<th>게시판 선택 *필수*</th>
+							<td>
+								<select name="list">
+									<option value="">게시판목록</option>
+									<option value="리뷰게시판">리뷰게시판</option>
+									<option value="QnA게시판">QnA게시판</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>내용 검색</th>
+							<td> 
+							<input type="text" size="20" name="title" placeholder="제목으로 검색"> <input type="text" size="20" name="writer" placeholder="작성자로 검색">
+							</td>
+						</tr>
+			
+						<tr>
+							<th>답변여부</th>
+							<td>
+								<input type="radio" name="replyCheck" value="*">전체 
+								<input type="radio" name="replyCheck" value="0">답변전 
+								<input type="radio" name="replyCheck" value="1">답변완료
+							</td>
+						</tr>
+					</table>
+					<input class="btn btn-primary" type="submit" value="검색">
+					<input class="btn btn-secondary" type="reset" value="초기화">
+				</form>
+					
+					
 					
 				<div class="content_title">
                		<h1>게시판 검색</h1>
 				</div>
-					<%
-						if (abb.getBoard_list() == null) {
-					%>
-				<div style="height: 200px; width: 100%; float: left;  ">					
-						<table id="example1" class="display compact" style="display:block !important; width:100%;">
-							<thead>
-								<tr>
-									<th><input type="checkbox"></th>
-									<th>글번호</th>
-									<th>글제목</th>
-									<th>작성자</th>
-									<th>작성일</th>
-									<th>답변상태</th>
-									<th>게시글보기</th>
-								</tr>
-							</thead>
-							<tbody>
-							
+			<%
+				if (abb.getBoard_list() == null) {
+			%>
+				<div style="width: 100%; float: left;">					
+					<table id="example1" class="display compact table">
+						<thead>
 							<tr>
-								<td><input type="checkbox"></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<th><input type="checkbox"></th>
+								<th>글번호</th>
+								<th>글제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+								<th>답변상태</th>
+								<th>게시글보기</th>
 							</tr>
-							
-							</tbody>
-							<tfoot>
-							</tfoot>
-						</table>
-				</div>
+						</thead>
+						<tbody>
 						
+						<tr>
+							<td><input type="checkbox"></td>
+							<td> </td>
+							<td> </td>
+							<td> </td>
+							<td> </td>
+							<td> </td>
+							<td> </td>
+						</tr>
 						
-					<!-- 리뷰게시판 게시판!!!!!!!!!!!!!! -->
-					
+						</tbody>
+						<tfoot>
+						</tfoot>
+					</table>
+				</div>				
+			<!-- 리뷰게시판 게시판!!!!!!!!!!!!!! -->
+			<%
+				} else if (abb.getBoard_list().equals("리뷰게시판")) {
+					ArrayList<ReviewBoardBean> boardList = (ArrayList<ReviewBoardBean>) request.getAttribute("boardList");
+					PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+					int listCount = pageInfo.getListCount();
+					int nowPage = pageInfo.getPage();
+					int startPage = pageInfo.getStartPage();
+					int endPage = pageInfo.getEndPage();
+					int maxPage = pageInfo.getMaxPage();
+			%>
+			<div style="width: 100%; float: left;">
+				<table id="example2" class="display compact table">
+					<thead>
+						<tr>
+							<th><input type="checkbox"></th>
+							<th>글번호</th>
+							<th>글제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>답변상태</th>
+							<th>게시글보기</th>
+						</tr>
+					</thead>
+					<tbody>
 					<%
-						} else if (abb.getBoard_list().equals("리뷰게시판")) {
-							ArrayList<ReviewBoardBean> boardList = (ArrayList<ReviewBoardBean>) request.getAttribute("boardList");
-							PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-							int listCount = pageInfo.getListCount();
-							int nowPage = pageInfo.getPage();
-							int startPage = pageInfo.getStartPage();
-							int endPage = pageInfo.getEndPage();
-							int maxPage = pageInfo.getMaxPage();
+						for (int i = 0; i < boardList.size(); i++) {
+								// 				String[] reviewStatus = new String[100];
+								if (boardList.get(i).getReview_re_lev() != 0)
+									continue; //답변은 표시안함
 					%>
-					<div style="height: 200px; width: 100%; float: left;">
-						<table id="example2" class="display compact table">
-							<thead>
-								<tr>
-									<th><input type="checkbox"></th>
-									<th>글번호</th>
-									<th>글제목</th>
-									<th>작성자</th>
-									<th>작성일</th>
-									<th>답변상태</th>
-									<th>게시글보기</th>
-								</tr>
-								</thead>
-								<tbody>
-								<%
-									for (int i = 0; i < boardList.size(); i++) {
-											// 				String[] reviewStatus = new String[100];
-											if (boardList.get(i).getReview_re_lev() != 0)
-												continue; //답변은 표시안함
-								%>
-								<tr>
-									<td><input type="checkbox"></td>
-									<td><%=boardList.get(i).getReview_num()%></td>
-									<td><%=boardList.get(i).getReview_subject()%></td>
-									<td><%=boardList.get(i).getReview_writer()%></td>
-									<td><%=boardList.get(i).getReview_date()%></td>
-									<td>
-									<%
-										if (boardList.get(i).getReview_replycount().equals("1")) {
-									%> 답변완료 <%
-										} else {
-									%> 답변전 <%
-										}
-									%>
-								</td>
-								<td><a
-									href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getReview_num()%>&page=<%=nowPage%>"><input
-										type="button" value="게시글 보기"></a></td>
-								</tr>
-								<%
-									}
-								%>
-								</tbody>
-								<tfoot>
-								</tfoot>
-							 </table>
-					</div>
-							
-					<!-- QnA 게시판!!!!!!!!!!!!!! -->
-				
-					<%
-						} else if (abb.getBoard_list().equals("QnA게시판")) {
-							ArrayList<QnA_BoardBean> boardList = (ArrayList<QnA_BoardBean>) request.getAttribute("boardList");
-							PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-							int listCount = pageInfo.getListCount();
-							int nowPage = pageInfo.getPage();
-							int startPage = pageInfo.getStartPage();
-							int endPage = pageInfo.getEndPage();
-							int maxPage = pageInfo.getMaxPage();
-							%>
-						<div style="height: 200px; width: 100%; float: left;">
-							<table id="example3" class="display compact table">
-							<thead>
-								<tr>
-									<th><input type="checkbox"></th>
-									<th>글번호</th>
-									<th>글제목</th>
-									<th>작성자</th>
-									<th>작성일</th>
-									<th>답변상태</th>
-									<th>게시글보기</th>
-								</tr>
-								</thead>
-								<tbody>
-								<%
-									for (int i = 0; i < boardList.size(); i++) {
-											// 				String[] reviewStatus = new String[100];
-											if (boardList.get(i).getQnA_re_lev() != 0)
-												continue;
-								%>
-								<tr>
-									<td><input type="checkbox"></td>
-									<td><%=boardList.get(i).getQnA_num()%></td>
-									<td><%=boardList.get(i).getQnA_subject()%></td>
-									<td><%=boardList.get(i).getQnA_writer_id()%></td>
-									<td><%=boardList.get(i).getQnA_date()%></td>
-									<td>
-										<%
-											if (boardList.get(i).getQnA_replycount().equals("1")) {
-										%> 답변완료 <%
-											} else {
-										%> 답변전 <%
-											}
-										%> 
-									</td> 
-									<td><a
-										href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>"><input
-											type="button" value="게시글 보기"></a></td>
-								</tr>
-								<%
-									}
+						<tr>
+							<td><input type="checkbox"></td>
+							<td><%=boardList.get(i).getReview_num()%></td>
+							<td><%=boardList.get(i).getReview_subject()%></td>
+							<td><%=boardList.get(i).getReview_writer()%></td>
+							<td><%=boardList.get(i).getReview_date()%></td>
+							<td>
+							<%
+								if (boardList.get(i).getReview_replycount().equals("1")) {
+							%> 답변완료 <%
+								} else {
+							%> 답변전 <%
 								}
-								%>
-								</tbody>
-								<tfoot>
-								</tfoot>
-							</table>
-						</div>
-					</div>
-				</article> 
-	  		 </div> <!-- id=main div  -->
-    	</div> <!--  id wrap div -->
+							%>
+							</td>
+							<td>
+								<a href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getReview_num()%>&page=<%=nowPage%>">
+								<input type="button" value="게시글 보기"></a>
+							</td>
+						</tr>
+						<%
+							}
+						%>
+					</tbody>
+					<tfoot>
+					</tfoot>
+				 </table>
+			</div>
+					
+			<!-- QnA 게시판!!!!!!!!!!!!!! -->
+			<%
+				} else if (abb.getBoard_list().equals("QnA게시판")) {
+					ArrayList<QnA_BoardBean> boardList = (ArrayList<QnA_BoardBean>) request.getAttribute("boardList");
+					PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+					int listCount = pageInfo.getListCount();
+					int nowPage = pageInfo.getPage();
+					int startPage = pageInfo.getStartPage();
+					int endPage = pageInfo.getEndPage();
+					int maxPage = pageInfo.getMaxPage();
+					%>
+				<div style="width: 100%; float: left;">
+					<table id="example3" class="display compact table">
+					<thead>
+						<tr>
+							<th><input type="checkbox"></th>
+							<th>글번호</th>
+							<th>글제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>답변상태</th>
+							<th>게시글보기</th>
+						</tr>
+					</thead>
+					<tbody>
+					<%
+						for (int i = 0; i < boardList.size(); i++) {
+								// 				String[] reviewStatus = new String[100];
+								if (boardList.get(i).getQnA_re_lev() != 0)
+									continue;
+					%>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td><%=boardList.get(i).getQnA_num()%></td>
+							<td><%=boardList.get(i).getQnA_subject()%></td>
+							<td><%=boardList.get(i).getQnA_writer_id()%></td>
+							<td><%=boardList.get(i).getQnA_date()%></td>
+							<td>
+								<%
+									if (boardList.get(i).getQnA_replycount().equals("1")) {
+								%> 답변완료 <%
+									} else {
+								%> 답변전 <%
+									}
+								%> 
+							</td> 
+							<td>
+								<a href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>">
+								<input type="button" value="게시글 보기"></a>
+							</td>
+						</tr>
+						<%
+							}
+						}
+						%>
+						</tbody>
+					<tfoot>
+					</tfoot>
+					</table>
+				</div>
+				
+				
+				
+			</div>
+		</article> 
+	 </div> <!-- id=main div  -->
+</div> <!--  id wrap div -->
 
     <!-- jquery plugins here-->
     
