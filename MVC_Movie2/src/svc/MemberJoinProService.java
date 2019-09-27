@@ -28,7 +28,7 @@ public class MemberJoinProService {
         } else {
             rollback(con);
         }
-        
+        close(con);
         return isInsertSuccess;
         
     }

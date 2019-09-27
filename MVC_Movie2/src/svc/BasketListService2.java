@@ -33,7 +33,7 @@ public class BasketListService2 {
 	        } else {
 	            rollback(con);
 	        }
-	        
+	        close(con);
 	        return isInsertSuccess;
 	        
 		}

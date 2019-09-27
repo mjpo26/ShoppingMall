@@ -35,6 +35,7 @@ public class MemberIdCheckService {
         memberDAO.setConnection(con);
 
         memberBean = memberDAO.findFw(id,phone);
+        close(con);
     	return memberBean;
     }
     
@@ -45,6 +46,7 @@ public class MemberIdCheckService {
         memberDAO.setConnection(con);
         
         memberBean = memberDAO.findID(name,email);
+        close(con);
         return memberBean;
     }
   

@@ -25,7 +25,7 @@ public class OrderUpdateService  {
 	        } else {
 	            rollback(con);
 	        }
-	        
+	        close(con);
 	        return isUpdateSuccess;
 	}
 

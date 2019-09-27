@@ -9,7 +9,26 @@
                 </div>
             </header>
             
-
+    <%
+       
+        	
+        	// 세션 아이디 가져오기
+        	String sId = (String)session.getAttribute("sId");
+        	
+        	
+        	// 세션 아이디 없으면 Main.bo 로 이동
+        	if(sId == null) {
+        	    out.println("<script>");
+        	    out.println("alert('로그인이 필요한 메뉴입니다!')");
+        	    out.println("location.href='Main.bo'");
+        	    out.println("</script>");
+        	}else if(!sId.equals("admin")){
+        		out.println("<script>");
+        	    out.println("alert('관리자가 아닙니다!')");
+        	    out.println("location.href='Main.bo'");
+        	    out.println("</script>");
+        	}
+    %>   
 	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
     <script src="./js/jquery-3.4.1.js"></script>
     <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">

@@ -323,9 +323,9 @@
 							<input type="text" id="id" name="id"
 								onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'"
 								onblur="this.placeholder = '아이디'" required class="single-input"
-								onkeydown="inputIdChk()" value="<%=memberBean.getMember_id()%>" readonly="readonly">
-							<span id="text"></span><input type="hidden" id="isIdOk"
-								value="no">
+								onkeydown="inputIdChk()" value="<%=memberBean.getMember_id()%>"
+								readonly="readonly"> <span id="text"></span><input
+								type="hidden" id="isIdOk" value="no">
 						</div>
 					</div>
 
@@ -408,8 +408,9 @@
 							<label for="detailaddress">상세 주소</label>
 						</div>
 						<div class="col-lg-10 col-sm-12">
-							<input type="text" id="detailaddress" name="detailaddress" value="<%=address[1]%>"
-								name="address" onfocus="this.placeholder = '상세주소를 입력해주세요'"
+							<input type="text" id="detailaddress" name="detailaddress"
+								value="<%=address[1]%>" name="address"
+								onfocus="this.placeholder = '상세주소를 입력해주세요'"
 								onblur="this.placeholder = '상세 주소'" class="single-input">
 						</div>
 						<!--                             <div class="col-lg-2 col-sm-2"> -->
