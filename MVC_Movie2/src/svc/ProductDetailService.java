@@ -52,7 +52,7 @@ public class ProductDetailService {
 
 		// ItemDAO 객체의 selectArticle() 메서드를 호출하여 글 상세 내용(BoardBean 객체) 리턴받기
 		itemDAO.Delete(item_code);
-
+		close(con);
 	}
 
 }

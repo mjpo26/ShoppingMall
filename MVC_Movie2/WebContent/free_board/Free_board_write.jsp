@@ -14,6 +14,11 @@
         	    out.println("alert('로그인이 필요한 메뉴입니다!')");
         	    out.println("location.href='Main.bo'");
         	    out.println("</script>");
+        	}else if(!sId.equals("admin")){
+        		out.println("<script>");
+        	    out.println("alert('관리자가 아닙니다!')");
+        	    out.println("location.href='Main.bo'");
+        	    out.println("</script>");
         	}
     %>   
     

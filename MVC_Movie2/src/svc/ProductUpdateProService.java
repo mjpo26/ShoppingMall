@@ -1,5 +1,6 @@
 package svc;
 
+import static db.JdbcUtil.close;
 import static db.JdbcUtil.commit;
 import static db.JdbcUtil.getConnection;
 import static db.JdbcUtil.rollback;
@@ -29,7 +30,7 @@ public class ProductUpdateProService {
         } else {
             rollback(con);
         }
-        
+        close(con);
         return isUpdateSuccess;
         
 	}
@@ -52,7 +53,7 @@ public class ProductUpdateProService {
         } else {
             rollback(con);
         }
-        
+        close(con);
         return isUpdateSuccess;
         
 	}

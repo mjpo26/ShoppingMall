@@ -28,7 +28,7 @@ public class MemberUpdateProService {
         } else {
             rollback(con);
         }
-        
+        close(con);
         return isUpdateSuccess;
         
     }
@@ -46,7 +46,7 @@ public class MemberUpdateProService {
 	        } else {
 	            rollback(con);
 	        }
-		
+	        close(con);
 	}
     
 }
