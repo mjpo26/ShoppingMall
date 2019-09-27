@@ -56,7 +56,6 @@
 				</div>
 			</div>
 			<section id="commandList">
-
 				<%
 					// 세션값이 존재하면  
 					// 세션값이 "admin" 같으면 
@@ -65,24 +64,27 @@
 				%>
 				<input type="button" class="btn_3"
 					onclick='location.href="QnA_BoardReplyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage%>" '
-					value="답변">
+					value="답변"> <input type="button" class="btn_3"
+					onclick='location.href="QnA_BoardModifyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage%>" '
+					value="수정"> <input type="button" class="btn_3"
+					onclick='location.href="QnA_BoardDeleteForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage%>" '
+					value="삭제">
 				<%
 					}
 						// 세션값이 존재하면  
 						// 세션값이 "admin" 같으면 
 						else if (sId.equals(writer)) {
 				%>
-					<input type="button" class="btn_3"
+				<input type="button" class="btn_3"
 					onclick='location.href="QnA_BoardModifyForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage%>" '
-					value="수정">
-					<input type="button" class="btn_3"
+					value="수정"> <input type="button" class="btn_3"
 					onclick='location.href="QnA_BoardDeleteForm.qa?QnA_num=<%=article.getQnA_num()%>&page=<%=nowPage%>" '
 					value="삭제">
 				<%
 					}
 					}
 				%>
-						<input type="button" class="btn_3"
+				<input type="button" class="btn_3"
 					onclick='location.href="QnA_BoardList.qa?page=<%=nowPage%>" '
 					value="목록">
 			</section>
