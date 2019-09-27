@@ -13,12 +13,12 @@
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="./assets/css/themify-icons.css">
   <link rel="stylesheet" href="./dist/summernote-lite.css">  
-  <link rel="stylesheet" href="./main/admin.css">
   <link rel="stylesheet" href="/code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <!--   <link rel="stylesheet" href="./assets/css/all.css"> -->
   <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./main/admin.css">
   
 
 </head>
