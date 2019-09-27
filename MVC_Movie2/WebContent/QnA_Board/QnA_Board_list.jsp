@@ -142,8 +142,8 @@
 		}
 	%>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-		href="QnA_BoardWriteForm.qa">
-		 <input type="button" class="btn_3" value="글쓰기" ></a>
+		href="QnA_BoardWriteForm.qa"> <input type="button" class="btn_3"
+		value="글쓰기"></a>
 </div>
 <%
 	} else {

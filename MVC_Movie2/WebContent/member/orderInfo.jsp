@@ -53,6 +53,7 @@
 						int num = articleList.get(i).getOrder_idx();
 						String status = articleList.get(i).getOrder_delivery_status();
 				%>
+<%-- 				<a href="productDetail.sh?Item_code=<%=articleList.get(i).getOrder_item_code()%>&page=1"> --%>
 				<tr>
 					<td><%=articleList.get(i).getOrder_idx()%></td>
 					<td><%=articleList.get(i).getOrder_item_code()%></td>
