@@ -70,11 +70,8 @@
 			</section>
 		</div>
 	</section>
-</body>
-</html>
-
-
-
+	
+<jsp:include page="../assets/foot.jsp"></jsp:include>
 
 
 
