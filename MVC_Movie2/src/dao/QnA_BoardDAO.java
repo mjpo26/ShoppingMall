@@ -158,7 +158,6 @@ public class QnA_BoardDAO {
             pstmt.setInt(2, limit);
             rs = pstmt.executeQuery();
             
-            
             // ResultSet 객체 내의 모든 레코드를 각각 레코드별로 BoardBean 에 담아서 ArrayList 객체에 저장
             // => 패스워드 제외
             while(rs.next()) {
