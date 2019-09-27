@@ -85,6 +85,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return insertCount;
@@ -148,6 +149,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return boardBean;
@@ -191,6 +193,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return articleList;
@@ -239,6 +242,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return isArticleWriter;
@@ -263,6 +267,7 @@ public class ReviewBoardDAO {
 			System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return updateCount;
@@ -317,6 +322,7 @@ public class ReviewBoardDAO {
 			System.out.println("insertReplyArticle() 에러 - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return insertCount;
@@ -339,6 +345,7 @@ public class ReviewBoardDAO {
 			System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return updateCount;
@@ -374,6 +381,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return commentList;
@@ -401,6 +409,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return listCount;
@@ -453,6 +462,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return boardlist;
