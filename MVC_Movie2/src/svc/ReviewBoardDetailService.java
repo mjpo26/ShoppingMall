@@ -2,12 +2,14 @@ package svc;
 
 import vo.ReviewBoardBean;
 import dao.ReviewBoardDAO;
+import db.JdbcUtil;
+
 import static db.JdbcUtil.*;
 import java.sql.Connection;
 
 public class ReviewBoardDetailService {
 	public ReviewBoardBean getArticle(int review_num) throws Exception {
-		Connection con = getConnection();
+		Connection con = JdbcUtil.getConnection();
 		// BoardDAO 객체 가져오기
 		ReviewBoardDAO boardDAO = ReviewBoardDAO.getInstance();
 
@@ -19,11 +21,12 @@ public class ReviewBoardDetailService {
 		int updateCount=boardDAO.updateReadCount(review_num);
 		
 		if(updateCount>0) {
-			commit(con);
+			  con.commit();
 		}else {
-			rollback(con);
+			con.rollback();
 		}
-	    close(con);
+		 JdbcUtil.close(con);
+	        
 		return article;
 	}
 }

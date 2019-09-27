@@ -169,28 +169,27 @@ function chkCate2Sel(cate2sel) {
 
 					<tr>
 						<th>매인진열</th>
-						<td><input type="radio" name="category" value="recommend"
-							<%if (article.getItem_category1().equals("recommend")) {%>
+						<td><input type="radio" name="icon1" value="recommend"
+							<%if (article.getItem_icon1().equals("recommend")) {%>
 							checked="checked" <%}%>>추천상품 <input type="radio"
-							name="category" value="new"
-							<%if (article.getItem_category1().equals("new")) {%>
+							name="icon1" value="new"
+							<%if (article.getItem_icon1().equals("new")) {%>
 							checked="checked" <%}%>> 신상품 <input type="radio"
-							name="category" value="best"
-							<%if (article.getItem_category1().equals("best")) {%>
-							checked="checked" <%}%>> best <input type="radio"
-							name="category" value="주방가구"
-							<%if (article.getItem_category1().equals("주방가구")) {%>
-							checked="checked" <%}%>> 주방가구</td>
+							name="icon1" value="best"
+							<%if (article.getItem_icon1().equals("best")) {%>
+							checked="checked" <%}%>> best 
+							</td>
 					</tr>
 
 					<tr>
 						<th>상품분류</th>
 						
-						<td>1차 카테고리 <input type="text" id="category1_text"	name="category1_text" size="12"> 
+						<td>1차 카테고리 <input type="text" id="category1_text"	name="category1_text" size="12" value=<%=article.getItem_category1()%>>
+							
 							<select	id="cate1sel" onchange="chkCate1Sel(this)" name="cate1sel">
 								<option value="">1차 카테고리</option>
 						</select> <br> 2차 카테고리 <input type="text" id="category2_text"
-							name="category2_text" size="12"> <select id="cate2sel"
+							name="category2_text" size="12" value=<%=article.getItem_category2()%>> <select id="cate2sel"
 							onchange="chkCate2Sel(this)" name="cate2sel">
 								<option value="">2차 카테고리</option>
 						</select>
