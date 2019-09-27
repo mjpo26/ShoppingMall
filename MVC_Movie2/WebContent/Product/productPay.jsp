@@ -56,7 +56,12 @@
 				<!-- 			<form action="orderPro.sh" method="post" name="orderForm"> -->
 				<input type="hidden" name="itemCode" value=<%=itemCode%>> <input
 					type="hidden" name="item_code_count" value=<%=item_code_count%>>
-				<input type="hidden" name="item_point"
+				<input type="hidden" name="itemCode" value=<%=itemCode%>> <input
+					type="hidden" name="item_code_count" value=<%=item_code_count%>>
+				<input type="hidden" name="item_color" value=<%=item_color%>>
+				<input type="hidden" name="order_item_sel_price"
+					value=<%=itemBean.getItem_sel_price()%>> <input
+					type="hidden" name="item_point"
 					value=<%=itemBean.getItem_point() * item_code_count%>>
 				<table class="table">
 					<tr>
