@@ -85,7 +85,14 @@ public class MemberDAO {
 	// 회원 추가
 	public int insertMember(MemberBean memberBean) {
 		int insertCount = 0;
-
+		String sms =memberBean.getMember_sms_ok();
+		 String email = memberBean.getMember_email_ok();
+		 if(sms==null) {
+			 sms = "no";
+		 }
+		 if(email==null) {
+			 email = "no";
+		 }
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO member (" + "member_id," + "member_pass," + "member_name," + "member_address1,"
@@ -103,8 +110,8 @@ public class MemberDAO {
 			pstmt.setString(5, memberBean.getMember_address1_nick());
 			pstmt.setString(6, memberBean.getMember_phone());
 			pstmt.setString(7, memberBean.getMember_email());
-			pstmt.setString(8, memberBean.getMember_sms_ok());
-			pstmt.setString(9, memberBean.getMember_email_ok());
+			pstmt.setString(8,sms);
+			pstmt.setString(9, email);
 			pstmt.setInt(10, memberBean.getMember_mypoint());
 			pstmt.setInt(11, memberBean.getMember_yechimoney());
 			pstmt.setString(12, memberBean.getMember_grade());
