@@ -287,6 +287,7 @@ public class ReviewBoardDAO {
 			System.out.println("deleteArticle() 에러 - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return deleteCount;

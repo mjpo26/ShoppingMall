@@ -7,18 +7,43 @@
  	ArrayList<ItemBean> articleList = (ArrayList<ItemBean>) request.getAttribute("articleList");
 
 %>
-<!DOCTYPE html>
-<html>
+<jsp:include page="../main/adminTop.jsp"></jsp:include>  
+	<h3>관리자 상품 리스트</h3>
+	     </div>                    
+      </div>
+	</header>
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 날짜 선택 -->	
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<title>Insert title here</title>
+<!-- dataTables 시작-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+	
+    <script>
+    $(document).ready(function() {
+        var table = $('#example').DataTable({
+            columnDefs: [{
+                orderable: true
+            
+            }]
+        });
+     
+        $('button').click( function() {
+            var data = table.$('input, select').serialize();
+            alert(
+                "The following data would have been submitted to the server: \n\n"+
+                data.substr( 0, 120 )+'...'
+            );
+            return false;
+        } );
+    } );
+	</script>
+<!-- dataTables 끝-->
+
 <script>
 	$(function() {
 
@@ -53,16 +78,14 @@ function pickNullCheck(){
 }
 </script>
 
-</head>
-<body>
-	
-		<div style="width: 520px">
-			<h1 style="margin-bottom: 0;">관리자 메인 페이지</h1>
 
-			<div style="height: 200px; width: 1050px; float: left;">
-	<form action ="./productList.sh"  name ="fr1" method="get" onsubmit="return pickNullCheck()">
-				<h3>상품d목록</h3>
-				<table border="1">
+    <article id="content">
+    	<div class="container mainDiv">
+			<form action ="./productList.sh"  name ="fr1" method="get" onsubmit="return pickNullCheck()">
+				<div class="content_title">
+                   <h1>상품목록</h1>
+				</div>
+				<table class="table">
 					<tr>
 						<td>검색분류</td>
 						<td colspan="3">
@@ -82,7 +105,7 @@ function pickNullCheck(){
 						</select></td>
 					</tr>
 							<tr>
-			<th>기간검색</th>
+			<td>기간검색</td>
 			<td colspan="4">시작날짜:<input type="text" name="pickStart" id="pickStart">
 				끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
 			</tr>
@@ -95,6 +118,7 @@ function pickNullCheck(){
 						<option value="yes">진열함</option>
 						<option value="no">진열안함</option>
 						</select></td>
+						
 						<td colspan="1">판매상태</td>
 						<td colspan="2">
 						<select name="sales">
@@ -105,74 +129,88 @@ function pickNullCheck(){
 						</td>
 					</tr>
 				</table>
-				<input type="submit" value="검색하기"> 
-				<input type="reset"  value="초기화">
-				</form>
-				<br>
-				<%-- 	<%if(checked==true) {%> //검색된조건이 만족하면 표 보여주기--%>
-				<table border="1">
-					<tr>
-						<td colspan='8' align="right"><select><option>등록일
-								<option>오름차순
-								<option>내림차순</select><select>
-								<option>10개
-								<option>20개
-								<option>50개
-						</select>
-					    <input type="button" value="검색">
-						</td>
-					</tr>
-					<tr>
-						<th>No.</th>
-						<th>상품명</th>
-						<th>판매가</th>
-						<th>할인가</th>
-						<th>진열상태</th>
-						<th>판매상태</th>
-						<th>재고량</th>
-						<th>상품분류</th>
-						<th>등록일</th>
-						<th colspan="2">수정</th>
-					</tr>
-				<%
-				for (int i = 0; i < articleList.size(); i++) {
-			%>
-			
+				<input class="btn btn-primary" type= "submit" value="검색하기"> 
+				<input class="btn btn-secondary" type="reset"  value="초기화">
+				</form><br>
 				
-				<form method="get">
-			<tr>
-<%-- 				<input type="hidden" name="Item_code" value=<%=articleList.get(i).getItem_code() %>> --%>
-				<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
-				<th><input type="checkbox" name="cb"></th> <!-- 체크박스 -->
-				<td><%=articleList.get(i).getItem_title()%></td> <!-- 상품명-->
-				<td><%=articleList.get(i).getItem_old_price()%></td> <!-- 판매가-->
-				<td><%=articleList.get(i).getItem_old_price()-articleList.get(i).getItem_sel_price()%></td><!-- 할인가-->
-				<td><select name="display"><!-- 진열상태 -->
-				<option <%if(articleList.get(i).getItem_display().equals("no")){%>selected<%}%>>no</option>
-				<option <%if(articleList.get(i).getItem_display().equals("yes")){%>selected<%}%>>yes</option>
-				</td>
-				<td><select name="sales"> <!-- 판매상태 -->
-				<option <%if(articleList.get(i).getItem_sales().equals("no")){%>selected<%}%>>no</option>
-				<option <%if(articleList.get(i).getItem_sales().equals("yes")){%>selected<%}%>>yes</option>
-				</td>
-				<td><%=articleList.get(i).getItem_stock_count()%></td><!-- 재고 -->
-				<td><%=articleList.get(i).getItem_category1()%></td><!-- 카테고리 -->
-				<td><%=articleList.get(i).getItem_Date()%></td><!-- 등록날짜 -->
-						<input type="hidden" name="Item_code" value=<%=articleList.get(i).getItem_code()%>>
-				<td><input type="submit" value="수정" formaction="./productUptdate.sh"></td>
-				<td><input type="button" value="상세수정" class="genric-btn primary-border small"
-						onclick="location.href='./update.sh?Item_code=<%=articleList.get(i).getItem_code()%>'"></td>
-	</form>
-						
-			</tr>
-			<%
-				}
-			%>
-		</table>
-				선택상품들 <input type="button" value="삭제"> <input type="button" value="수정"> 
-				<%-- 	<%} %> --%>
-			</div>
-		</div>
-</body>
+				
+				<div style="height: 200px; width: 100%; float: left;">
+				<br><br>
+					<div class="content_title">
+                  		<h1>상품 목록 조회</h1>
+					</div>
+				<table id="example" class="display compact table">
+					<thead>
+						<tr>
+							<td><input type="checkbox"></td>
+							<th>No.</th>
+							<th>상품명</th>
+							<th>판매가</th>
+							<th>할인가</th>
+							<th>진열상태</th>
+							<th>판매상태</th>
+							<th>재고량</th>
+							<th>상품분류</th>
+							<th>등록일</th>
+							<th>수정</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+						for (int i = 0; i < articleList.size(); i++) {
+						%>
+					<tr>
+						<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
+						<th><input type="checkbox" name="cb"></th> <!-- 체크박스 -->
+						<td><%=articleList.get(i).getItem_title()%></td> <!-- 상품명-->
+						<td><%=articleList.get(i).getItem_old_price()%></td> <!-- 판매가-->
+						<td><%=articleList.get(i).getItem_old_price()-articleList.get(i).getItem_sel_price()%></td><!-- 할인가-->
+						<td><select name="display"><!-- 진열상태 -->
+						<option <%if(articleList.get(i).getItem_display().equals("no")){%>selected<%}%>>no</option>
+						<option <%if(articleList.get(i).getItem_display().equals("yes")){%>selected<%}%>>yes</option>
+						</td>
+						<td><select name="sales"> <!-- 판매상태 -->
+						<option <%if(articleList.get(i).getItem_sales().equals("no")){%>selected<%}%>>no</option>
+						<option <%if(articleList.get(i).getItem_sales().equals("yes")){%>selected<%}%>>yes</option>
+						</td>
+						<td><%=articleList.get(i).getItem_stock_count()%></td><!-- 재고 -->
+						<td><%=articleList.get(i).getItem_category1()%></td><!-- 카테고리 -->
+						<td><%=articleList.get(i).getItem_Date()%></td><!-- 등록날짜 -->
+								<input type="hidden" name="Item_code" value=<%=articleList.get(i).getItem_code()%>>
+						<td><input class="btn btn-default" type="submit" value="수정" formaction="./productUptdate.sh"></td>
+						<td><input class="btn btn-default" type="button" value="상세수정" class="genric-btn primary-border small"
+								onclick="location.href='./update.sh?Item_code=<%=articleList.get(i).getItem_code()%>'"></td>
+					</tr>
+					<%
+						}
+					%>
+							</tbody>
+							<tfoot>
+							</tfoot>
+						</table>
+					</div>
+				</article> 
+	  		 </div> <!-- id=main div  -->
+    	</div> <!--  id wrap div -->
 
+
+    <!-- jquery plugins here-->
+    
+<!-- <script src="./assets/js/jquery-1.12.1.min.js"></script> -->
+    <!-- popper js -->
+    <script src="./assets/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+	<script src="./assets/js/bootstrap.min.js"></script> 
+    <!-- easing js -->
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="./assets/js/slick.min.js"></script>
+    <script src="./assets/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>    
+    <!-- custom js -->
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/custom.js"></script>
+
+	</body>
 </html>

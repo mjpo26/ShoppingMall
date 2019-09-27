@@ -28,14 +28,14 @@
 
 
 //주소 분리
-		String address1 = memberBean.getMember_address1();
+/* 		String address1 = memberBean.getMember_address1();
 		
 String[] address = address1.split("/");
 // String detailaddress = memberBean.getMember_address1().split("/")[1];
 // String extraaddress = memberBean.getMember_address1().split("/")[2];
 for(int i=0; i<address.length; i++){
 	System.out.println(address[i]);
-}
+} */
 
 //전화번호 분리
 String phone1 = memberBean.getMember_phone().split("-")[0];
@@ -50,7 +50,7 @@ String domain = memberBean.getMember_email().split("@")[1];
 
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
   function check() {
 
@@ -318,7 +318,8 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="member_id">아이디</label> 
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
-                                <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'" onblur="this.placeholder = '아이디'" required class="single-input" onkeydown="inputIdChk()">
+                                <input type="text" id="id" name="id" onfocus="this.placeholder = '4~8자 영소대문자,숫자 조합, 특수문자 사용불가'" 
+                                onblur="this.placeholder = '아이디'" required class="single-input" onkeydown="inputIdChk()" value="<%=memberBean.getMember_id()%>">
                             	<span id="text"></span><input type ="hidden" id="isIdOk" value="no">
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
@@ -334,7 +335,6 @@ String domain = memberBean.getMember_email().split("@")[1];
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
                                 <label for="member_pass">비밀번호</label> 
                             </div>                            
-                            
                             <div class="col-lg-10 col-md-12 row">
                             <div class="col-sm-6 col-12">
                             <input type="password" id="member_pass" name="pass" placeholder="비밀번호" onfocus="this.placeholder = '아이디를 입력 해 주세요'" onblur="this.placeholder = '비밀번호'" required class="single-input">
@@ -346,14 +346,14 @@ String domain = memberBean.getMember_email().split("@")[1];
                             </div>
                            			
                         </div>
-                      
 
                         <div class="mt-10 row">
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
                                 <label for="member_name">이름</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                              <input type="text" id="member_name" name="name" placeholder="이름" onkeyup="passCheck(this.value)" onfocus="this.placeholder = '한글 2~10자'" onblur="this.placeholder = '이름'" required class="single-input">
+                              <input type="text" id="member_name" name="name" onkeyup="passCheck(this.value)" 
+                              onfocus="this.placeholder = '한글 2~10자'" onblur="this.placeholder = '이름'" required class="single-input" value="<%=memberBean.getMember_name()%>">
                             </div>
                         </div>
                         
@@ -365,7 +365,7 @@ String domain = memberBean.getMember_email().split("@")[1];
                                 <label for="postcode">우편번호</label> 
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
-                                <input type="number" id="postcode" name="postcode" placeholder="우편번호" onfocus="this.placeholder = '우편번호 찾기를 통해 입력해주십시오 '" onblur="this.placeholder = '우편번호'" class="single-input">
+                                <input type="number" id="postcode" name="postcode" onfocus="this.placeholder = '우편번호 찾기를 통해 입력해주십시오 '" onblur="this.placeholder = '우편번호'" class="single-input" value="<%=memberBean.getMember_postcode1()%>">
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
                                 <input type="button" class="genric-btn primary radius float-right col-12" value="우편번호 찾기" onclick="sample6_execDaumPostcode()">            
@@ -381,17 +381,17 @@ String domain = memberBean.getMember_email().split("@")[1];
                             </div>
                         </div>
 
-                        <div class="mt-10 row">
+                     <%--    <div class="mt-10 row">
                             <div class="col-lg-2 d-md-block d-sm-none d-none">
                                 <label for="detailaddress">상세 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="detailaddress" value=<%=address[1] %> name="address" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
+                            <input type="text" id="detailaddress" value=<%=addre %> name="address" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
                             </div>
 <!--                             <div class="col-lg-2 col-sm-2"> -->
 <!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->
 <!--                             </div> -->
-                        </div>
+                        </div> --%>
 
                              <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
                             <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
