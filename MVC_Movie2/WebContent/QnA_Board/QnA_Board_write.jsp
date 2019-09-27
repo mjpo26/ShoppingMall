@@ -1,4 +1,3 @@
-<%@page import="com.sun.org.apache.xpath.internal.functions.FuncUnparsedEntityURI"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="vo.MemberBean"%>
@@ -17,12 +16,6 @@
 	
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 %>
-<script type="text/javascript">
-$('#QnA_subject').click(function(){
-	
-	
-}
-</script>
 
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -55,10 +48,6 @@ $('#QnA_subject').click(function(){
 						id="QnA_writer_id" value="<%=sId%>" readonly="readonly"
 						required="required" /></td>
 						<tr>
-							<td>제목</td>
-							<td><input type="text" name="review_subject" class="form-control"></td>
-						</tr>
-						<tr>
 							<td>비밀번호
 						
 							</td>
@@ -87,7 +76,6 @@ $('#QnA_subject').click(function(){
 							<td class="td_left"><label for="QnA_content">내용</label></td>
 							<td class="td_right"><textarea name="QnA_content"
 									id="QnA_content" cols="40" rows="15" required="required">
-							
 주문번호:
 입금은행:
 입금자 성함:

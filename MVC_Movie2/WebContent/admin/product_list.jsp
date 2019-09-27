@@ -131,7 +131,7 @@ function pickNullCheck(){
 				</table>
 				<input class="btn btn-primary" type= "submit" value="검색하기"> 
 				<input class="btn btn-secondary" type="reset"  value="초기화">
-				</form>
+			
 				
 				
 				<div style="width: 100%; float: left;">
@@ -190,10 +190,11 @@ function pickNullCheck(){
 					<%
 						}
 					%>
-							</tbody>
-							<tfoot>
-							</tfoot>
-						</table>
+								</tbody>
+								<tfoot>
+								</tfoot>
+							</table>
+						</form>
 					</div>
 				</article> 
 	  		 </div> <!-- id=main div  -->
