@@ -238,6 +238,7 @@ html, body {
 }
 
 
+
 .container{
     padding-left: 2.5em !important;
     padding-right:2.5em !important;
@@ -250,9 +251,9 @@ html, body {
 
 
 
-@media ( min-width :1200px) {
+@media (min-width :1200px) {
 	.container {
-		max-width: 1680px
+		max-width: 1800px !important;
 	}
 }
 

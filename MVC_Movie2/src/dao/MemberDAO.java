@@ -85,7 +85,14 @@ public class MemberDAO {
 	// 회원 추가
 	public int insertMember(MemberBean memberBean) {
 		int insertCount = 0;
-
+		String sms =memberBean.getMember_sms_ok();
+		 String email = memberBean.getMember_email_ok();
+		 if(sms==null) {
+			 sms = "no";
+		 }
+		 if(email==null) {
+			 email = "no";
+		 }
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO member (" + "member_id," + "member_pass," + "member_name," + "member_address1,"
@@ -103,8 +110,8 @@ public class MemberDAO {
 			pstmt.setString(5, memberBean.getMember_address1_nick());
 			pstmt.setString(6, memberBean.getMember_phone());
 			pstmt.setString(7, memberBean.getMember_email());
-			pstmt.setString(8, memberBean.getMember_sms_ok());
-			pstmt.setString(9, memberBean.getMember_email_ok());
+			pstmt.setString(8,sms);
+			pstmt.setString(9, email);
 			pstmt.setInt(10, memberBean.getMember_mypoint());
 			pstmt.setInt(11, memberBean.getMember_yechimoney());
 			pstmt.setString(12, memberBean.getMember_grade());
@@ -163,7 +170,14 @@ public class MemberDAO {
 	// 회원 추가
 	public int updateMember(MemberBean memberBean) {
 		int updateCount = 0;
-
+		 String sms =memberBean.getMember_sms_ok();
+		 String email = memberBean.getMember_email_ok();
+		 if(sms==null) {
+			 sms = "no";
+		 }
+		 if(email==null) {
+			 email = "no";
+		 }
 		PreparedStatement pstmt = null;
 
 		String sql = "UPDATE member SET " + "member_pass=?," + "member_name=?," + "member_address1=?,"
@@ -181,8 +195,8 @@ public class MemberDAO {
 			pstmt.setString(4, memberBean.getMember_address1_nick());
 			pstmt.setString(5, memberBean.getMember_phone());
 			pstmt.setString(6, memberBean.getMember_email());
-			pstmt.setString(7, memberBean.getMember_sms_ok());
-			pstmt.setString(8, memberBean.getMember_email_ok());
+			pstmt.setString(7,sms);
+			pstmt.setString(8,email);
 			pstmt.setInt(9, memberBean.getMember_mypoint());
 			pstmt.setInt(10, memberBean.getMember_yechimoney());
 			pstmt.setString(11, memberBean.getMember_grade());
@@ -517,90 +531,90 @@ public class MemberDAO {
 	}
 
 	// 어드민 회원리스트 조회
-		public ArrayList<MemberBean> selectMemberList(MemberBean ams) {
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
+	public ArrayList<MemberBean> selectMemberList(MemberBean ams) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-			ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
+		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
 
-			int startRow = (ams.getPage() - 1) * 10;
+		int startRow = (ams.getPage() - 1) * 10;
 
-			try {
+		try {
 
-				System.out.println("디에오 체크/" + ams.getPickStart() + "/" + ams.getPickEnd());
+			System.out.println("디에오 체크/" + ams.getPickStart() + "/" + ams.getPickEnd());
 
-				String sql = "SELECT * FROM member where " + "member_id like ifnull(?,'%%') "
-						+ "and member_name like ifnull(?,'%%') " + "and member_phone like ifnull(?,'%%') "
-						+ "and member_sms_ok like ifnull(?,'%%') " + "and  member_email_ok like ifnull(?,'%%')"
-						+ "and joinDate >= ?" + "and joinDate <=?" + "ORDER BY member_id LIMIT ?,?";
+			String sql = "SELECT * FROM member where " + "member_id like ifnull(?,'%%') "
+					+ "and member_name like ifnull(?,'%%') " + "and member_phone like ifnull(?,'%%') "
+					+ "and member_sms_ok like ifnull(?,'%%') " + "and  member_email_ok like ifnull(?,'%%')"
+					+ "and joinDate >= ?" + "and joinDate <=?" + "ORDER BY member_id LIMIT ?,?";
 
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, ams.getMember_id());
-				pstmt.setString(2, ams.getMember_name());
-				pstmt.setString(3, ams.getMember_phone());
-				pstmt.setString(4, ams.getMember_sms_ok());
-				pstmt.setString(5, ams.getMember_email_ok());
-				pstmt.setDate(6, ams.getPickStart());
-				pstmt.setDate(7, ams.getPickEnd());
-				pstmt.setInt(8, startRow);
-				pstmt.setInt(9, ams.getLimit());
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, ams.getMember_id());
+			pstmt.setString(2, ams.getMember_name());
+			pstmt.setString(3, ams.getMember_phone());
+			pstmt.setString(4, ams.getMember_sms_ok());
+			pstmt.setString(5, ams.getMember_email_ok());
+			pstmt.setDate(6, ams.getPickStart());
+			pstmt.setDate(7, ams.getPickEnd());
+			pstmt.setInt(8, startRow);
+			pstmt.setInt(9, ams.getLimit());
 
-				rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
-				System.out.println(startRow + "와" + ams.getLimit());
+			System.out.println(startRow + "와" + ams.getLimit());
 
-				while (rs.next()) {
-					MemberBean memberBean = new MemberBean();
-					memberBean.setMember_id(rs.getString("member_id"));
-					memberBean.setMember_pass(rs.getString("member_pass"));
-					memberBean.setMember_name(rs.getString("member_name"));
-					memberBean.setMember_address1(rs.getString("member_address1"));
-					memberBean.setMember_address2(rs.getString("member_address2"));
-					memberBean.setMember_address3(rs.getString("member_address3"));
-					memberBean.setMember_address4(rs.getString("member_address4"));
-					memberBean.setMember_address5(rs.getString("member_address5"));
-					memberBean.setMember_address_default(rs.getString("member_address_default"));
-					memberBean.setMember_address1_nick(rs.getString("member_address1_nick"));
-					memberBean.setMember_address2_nick(rs.getString("member_address2_nick"));
-					memberBean.setMember_address3_nick(rs.getString("member_address3_nick"));
-					memberBean.setMember_address4_nick(rs.getString("member_address4_nick"));
-					memberBean.setMember_address5_nick(rs.getString("member_address5_nick"));
-					memberBean.setMember_address_default_nick(rs.getString("member_address_default_nick"));
-					memberBean.setMember_phone(rs.getString("member_phone"));
-					memberBean.setMember_email(rs.getString("member_email"));
-					memberBean.setMember_sms_ok(rs.getString("member_sms_ok"));
-					memberBean.setMember_email_ok(rs.getString("member_email_ok"));
-					memberBean.setMember_mypoint(rs.getInt("member_mypoint"));
-					memberBean.setMember_yechimoney(rs.getInt("member_yechimoney"));
-					memberBean.setMember_grade(rs.getString("member_grade"));
-					memberBean.setMember_used_point(rs.getInt("member_used_point"));
-					memberBean.setMember_postcode1(rs.getString("member_postcode1"));
-					memberBean.setMember_postcode2(rs.getString("member_postcode2"));
-					memberBean.setMember_postcode3(rs.getString("member_postcode3"));
-					memberBean.setMember_postcode4(rs.getString("member_postcode4"));
-					memberBean.setMember_postcode5(rs.getString("member_postcode5"));
-					memberBean.setMember_address_x1(rs.getString("member_address_x1"));
-					memberBean.setMember_address_x2(rs.getString("member_address_x2"));
-					memberBean.setMember_address_x3(rs.getString("member_address_x3"));
-					memberBean.setMember_address_x4(rs.getString("member_address_x4"));
-					memberBean.setMember_address_x5(rs.getString("member_address_x5"));
-					memberBean.setMember_address_y1(rs.getString("member_address_y1"));
-					memberBean.setMember_address_y2(rs.getString("member_address_y2"));
-					memberBean.setMember_address_y3(rs.getString("member_address_y3"));
-					memberBean.setMember_address_y4(rs.getString("member_address_y4"));
-					memberBean.setMember_address_y5(rs.getString("member_address_y5"));
+			while (rs.next()) {
+				MemberBean memberBean = new MemberBean();
+				memberBean.setMember_id(rs.getString("member_id"));
+				memberBean.setMember_pass(rs.getString("member_pass"));
+				memberBean.setMember_name(rs.getString("member_name"));
+				memberBean.setMember_address1(rs.getString("member_address1"));
+				memberBean.setMember_address2(rs.getString("member_address2"));
+				memberBean.setMember_address3(rs.getString("member_address3"));
+				memberBean.setMember_address4(rs.getString("member_address4"));
+				memberBean.setMember_address5(rs.getString("member_address5"));
+				memberBean.setMember_address_default(rs.getString("member_address_default"));
+				memberBean.setMember_address1_nick(rs.getString("member_address1_nick"));
+				memberBean.setMember_address2_nick(rs.getString("member_address2_nick"));
+				memberBean.setMember_address3_nick(rs.getString("member_address3_nick"));
+				memberBean.setMember_address4_nick(rs.getString("member_address4_nick"));
+				memberBean.setMember_address5_nick(rs.getString("member_address5_nick"));
+				memberBean.setMember_address_default_nick(rs.getString("member_address_default_nick"));
+				memberBean.setMember_phone(rs.getString("member_phone"));
+				memberBean.setMember_email(rs.getString("member_email"));
+				memberBean.setMember_sms_ok(rs.getString("member_sms_ok"));
+				memberBean.setMember_email_ok(rs.getString("member_email_ok"));
+				memberBean.setMember_mypoint(rs.getInt("member_mypoint"));
+				memberBean.setMember_yechimoney(rs.getInt("member_yechimoney"));
+				memberBean.setMember_grade(rs.getString("member_grade"));
+				memberBean.setMember_used_point(rs.getInt("member_used_point"));
+				memberBean.setMember_postcode1(rs.getString("member_postcode1"));
+				memberBean.setMember_postcode2(rs.getString("member_postcode2"));
+				memberBean.setMember_postcode3(rs.getString("member_postcode3"));
+				memberBean.setMember_postcode4(rs.getString("member_postcode4"));
+				memberBean.setMember_postcode5(rs.getString("member_postcode5"));
+				memberBean.setMember_address_x1(rs.getString("member_address_x1"));
+				memberBean.setMember_address_x2(rs.getString("member_address_x2"));
+				memberBean.setMember_address_x3(rs.getString("member_address_x3"));
+				memberBean.setMember_address_x4(rs.getString("member_address_x4"));
+				memberBean.setMember_address_x5(rs.getString("member_address_x5"));
+				memberBean.setMember_address_y1(rs.getString("member_address_y1"));
+				memberBean.setMember_address_y2(rs.getString("member_address_y2"));
+				memberBean.setMember_address_y3(rs.getString("member_address_y3"));
+				memberBean.setMember_address_y4(rs.getString("member_address_y4"));
+				memberBean.setMember_address_y5(rs.getString("member_address_y5"));
 
-					memberList.add(memberBean);
-				}
-				System.out.println("mDAO: 멤버빈 담긴거 확인:" + memberList);
-			} catch (SQLException e) {
-				System.out.println("MemberDAO: selectMemberList() 에러 - " + e.getMessage());
-			} finally {
-				close(rs);
-				close(pstmt);
+				memberList.add(memberBean);
 			}
-
-			return memberList;
+			System.out.println("mDAO: 멤버빈 담긴거 확인:" + memberList);
+		} catch (SQLException e) {
+			System.out.println("MemberDAO: selectMemberList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
+
+		return memberList;
+	}
 
 }

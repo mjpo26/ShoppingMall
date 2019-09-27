@@ -14,34 +14,23 @@
    /* EXAMPLE */
    DD_belatedPNG.fix('#wrap');
    DD_belatedPNG.fix('#main_img');   
-
  </script>
  <![endif]-->
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 //     function passCheck(val) {
-
 //         if (val.length < 3) {
-
 //             document.getElementById('result').value = "A-test";
 //             document.getElementById('result').style.color = "red";
-
 //         } else if (val.length < 8) {
-
 //             document.getElementById('result').value = "B-test";
 //             document.getElementById('result').style.color = "orange";
-
 //         } else {
-
 //             document.getElementById('result').value = "C-test";
 //             document.getElementById('result').style.color = "green";
-
 //         }
-
 //     }
-
   function check() {
-
         if (document.joinForm.id.value == "") {
             alert("아이디를 입력하세요!");
             document.joinForm.id.focus();
@@ -65,15 +54,11 @@
 //             document.fr.pass.focus();
 //             return false;
 //         }
-
 //         if (document.joinForm.passChecked.value != "yes") {
 //             var fpass = document.fr.pass.value;
-
 //             window.open("passCheckPro.jsp?fpass=" + fpass, "",
 //                     "width=400,height=200");
-
 //             return false;
-
 //         }
         if (document.joinForm.pass2.value.length == "") {
             alert("비밀번호 확인란을 입력하세요!")
@@ -85,19 +70,16 @@
 //             document.joinForm.pass2.focus();
 //             return false;
 //         }
-
         if (document.joinForm.member_name.value.length == "") {
             alert("이름을 입력하세요!")
             document.joinForm.name.focus();
             return false;
         }
-
         if (document.joinForm.detailaddress.value.length == "") {
             alert("상세 주소를 입력하세요!")
             document.joinForm.name.focus();
             return false;
         }
-
         if (document.joinForm.email.value.length == "") {
             alert("이메일을 입력하세요!")
             document.joinForm.email.focus();
@@ -108,17 +90,14 @@
             document.joinForm.email2.focus();
             return false;
         }
-
         if (document.joinForm.email.value != document.joinForm.email2.value) {
             alert("이메일이  일치되지 않습니다.");
             document.joinForm.pass2.focus();
             return false;
         }
         //   비밀번호유효성체크
-
         //비밀번호 유효성체크 끝
     }
-
     // E-Mail 도메인 선택
     function chkEmailDomainSelect(domain) {
         document.joinForm.domain.value = domain.value;
@@ -146,7 +125,6 @@
 //         //  window.open("파일이름","창이름","옵션");
 //         window.open("./idcheck.jsp?fid=" + fid, "", "width=400,height=200");
 //     }
-
 	// 아이디 중복체크
 // 	$('.dup').click(function() {
 // 		if ($('#id').val() == "") {
@@ -162,7 +140,6 @@
 // 		});
 // 	});
 	
-
 	$(function() {
 	$("input[name='dup']").on("click", function(){
 		//$('.dup').click(function(){
@@ -176,8 +153,6 @@
 	           data : {
 					fid : s_id
 				},
-
-
 				success : function(data) {
 					alert(data);
 					if(s_id =="") {
@@ -194,7 +169,6 @@
 						$("#text").text(" "+ $('#id').val()+ "는 이미 사용중인 아이디 입니다.");
 						$('#id').val('');		
 						$('#id').focus();
-
 					}
 				},
 			
@@ -219,7 +193,6 @@
 			  $("#text2").css("color","red");
 			  $("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
 			  $("#member_pass").focus();
-
 				 }
  			else{
 		    // $('#pwd_chk1').html('');
@@ -228,11 +201,9 @@
 		    	$("#text2").text(' 사용 가능한 비밀번호 입니다.');
 		    	document.getElementById('isPassOk').value = "yes";
 				$("#pass2").focus();
-
 		    }
 		   });
 		});
-
 	$(document).ready(function(){
 		   $('[name=pass2]').keyup(function(){
 			  

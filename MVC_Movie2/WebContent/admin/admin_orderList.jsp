@@ -2,8 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.PageInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-		
+	pageEncoding="UTF-8"%>		
 <%
 	ArrayList<OrderBean> articleList = (ArrayList<OrderBean>) request.getAttribute("articleList");
 	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
@@ -20,6 +19,7 @@
 
 	String[] delivery = {"입금전","배송전","배송중","배송완료"};
 %>
+
 <jsp:include page="../main/adminTop.jsp"></jsp:include>  
 	<h3>관리자 주문 리스트</h3>
 	     </div>                    
@@ -27,15 +27,12 @@
 	</header>
 	
 <!-- 날짜선택임포트 시작 -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 날짜선택임포트 끝 -->
 
 <!-- dataTables 시작-->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
 	
     <script>
@@ -211,7 +208,7 @@ function pickNullCheck(){
 			
 				<input class="btn btn-primary" type="submit" value="검색">
 				<input class="btn btn-secondary" type="reset" value="초기화">
-			</form><br>
+			</form>
 			
 				<div class="content_title">
                    <h1>배송조회</h1>
@@ -232,8 +229,8 @@ function pickNullCheck(){
 				</table>
 
 				
-				<div style="height: 200px; width: 100%; float: left;">
-					<br> <br>
+				<div style="width: 100%; float: left;">
+					
 					<form action ="./orderUpdate.ol" method="post">
 						<div class="content_title">
                   			 <h1>주문 목록 조회</h1>
