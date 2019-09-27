@@ -15,7 +15,7 @@ public class MemberDeleteProAction implements Action {
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         
         
-        HttpSession session =  request.getSession();
+       HttpSession session =  request.getSession();
        String sId= (String)session.getAttribute("sId");
         
        MemberDeleteProService memberDeleteProService = new MemberDeleteProService();
