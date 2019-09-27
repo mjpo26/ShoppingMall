@@ -7,16 +7,37 @@
 	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<OrderBean> articleList = (ArrayList<OrderBean>) request.getAttribute("articleList");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>주문내역</title>
-</head>
-<body>
-	<h1>주문 내역</h1>
-	<table border="1">
-		<tr>
+
+<jsp:include page="../assets/top.jsp"></jsp:include>
+
+
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="breadcrumb_iner">
+					<div class="breadcrumb_iner_item">
+						<h2>주문내역</h2>
+						<p>
+							주문내역 <span>-</span>주문내역 현황
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- breadcrumb start-->
+<!--================End Home Banner Area =================-->
+
+    <section class="cart_list shopping_cart mt-5">    
+        <div class="container">
+           <div class="row clearfix">
+           
+           
+			<table class="table">
+				<tr>
 			<td>주문번호</td>
 			<td>상품번호</td>
 			<td>상품명</td>
@@ -51,8 +72,13 @@
 		%>
 
 
+		
+			</table>
+			</div>
+		</div>
+	</section>
 
 
-	</table>
-</body>
-</html>
+
+<jsp:include page="../assets/foot.jsp"></jsp:include>
+	
