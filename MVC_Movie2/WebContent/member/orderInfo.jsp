@@ -31,54 +31,61 @@
 <!-- breadcrumb start-->
 <!--================End Home Banner Area =================-->
 
-    <section class="cart_list shopping_cart mt-5">    
-        <div class="container">
-           <div class="row clearfix">
-           
-           
+<section class="cart_list shopping_cart mt-5">
+	<div class="container">
+		<div class="row clearfix">
+
+
 			<table class="table">
 				<tr>
-			<td>주문번호</td>
-			<td>상품번호</td>
-			<td>상품명</td>
-			<td>주문일자</td>
-			<td>상품명</td>
-			<td>색상</td>
-			<td>배송상태</td>
-			<td>리뷰작성</td>
+					<td>주문번호</td>
+					<td>상품번호</td>
+					<td>상품명</td>
+					<td>주문일자</td>
+					<td>상품명</td>
+					<td>색상</td>
+					<td>배송상태</td>
+					<td>리뷰작성</td>
 
-		</tr>
-		<%
-			for (int i = 0; i < articleList.size(); i++) {
-				int num = articleList.get(i).getOrder_idx();
-		%>
-		<tr>
-			<td><%=articleList.get(i).getOrder_idx()%></td>
-			<td><%=articleList.get(i).getOrder_item_code()%></td>
-			<td><%=articleList.get(i).getOrder_item_title()%></td>
-			<td><%=articleList.get(i).getOrder_date()%></td>
-			<td><%=articleList.get(i).getOrder_item_title()%></td>
-			<td><%=articleList.get(i).getOrder_item_option_color()%></td>
-			<td><%=articleList.get(i).getOrder_delivery_status()%></td>
-			<td><%=articleList.get(i).getOrder_item_point() %></td>
-			<td><a
-				href="ReviewBoardWriteForm.re?order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
-					<input type="button" value="리뷰달기">
-			</a></td>
-		</tr>
+				</tr>
+				<%
+					for (int i = 0; i < articleList.size(); i++) {
+						int num = articleList.get(i).getOrder_idx();
+						String status = articleList.get(i).getOrder_delivery_status();
+				%>
+				<tr>
+					<td><%=articleList.get(i).getOrder_idx()%></td>
+					<td><%=articleList.get(i).getOrder_item_code()%></td>
+					<td><%=articleList.get(i).getOrder_item_title()%></td>
+					<td><%=articleList.get(i).getOrder_date()%></td>
+					<td><%=articleList.get(i).getOrder_item_title()%></td>
+					<td><%=articleList.get(i).getOrder_item_option_color()%></td>
+					<td><%=articleList.get(i).getOrder_delivery_status()%></td>
+					<%
+						if (status.equals("배송완료")) {
+					%>
+					<td><a
+						href="ReviewBoardWriteForm.re?order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
+							<input type="button" value="리뷰달기">
+					</a></td>
 
-		<%
-			}
-		%>
+					<%
+						} else {
+					%>
+					<td></td>
+					<%
+						}
+					%>
+				</tr>
+				<%
+					}
+				%>
 
-
-		
 			</table>
-			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
 
 
 <jsp:include page="../assets/foot.jsp"></jsp:include>
-	
