@@ -71,6 +71,7 @@ public class ItemDAO {
 			System.out.println("insertItem 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return insertCount;
@@ -96,6 +97,7 @@ public class ItemDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return listCount;
@@ -145,6 +147,7 @@ public class ItemDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return articleList;
@@ -190,6 +193,7 @@ public class ItemDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return itemBean;
@@ -231,6 +235,7 @@ public class ItemDAO {
 			System.out.println("updateItem 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return updateCount;
@@ -278,6 +283,7 @@ public class ItemDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return products;
@@ -325,6 +331,7 @@ public class ItemDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return itemBean;
@@ -347,6 +354,7 @@ public class ItemDAO {
 				System.out.println("insertCate1 실패! - " + e.getMessage());
 			} finally {
 				close(pstmt);
+				close(con);
 			}
 
 			return insertCount;
@@ -438,6 +446,7 @@ public class ItemDAO {
 						System.out.println("insertCate2 실패! - " + e.getMessage());
 					} finally {
 						close(pstmt);
+						close(con);
 					}
 
 					return insertCount;
@@ -512,6 +521,7 @@ public class ItemDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return articleList;
@@ -536,6 +546,7 @@ public class ItemDAO {
 			System.out.println("updateItem 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return updateCount;
@@ -555,6 +566,7 @@ public class ItemDAO {
 			System.out.println("DELETEItem 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 		return deleteCount;
 		

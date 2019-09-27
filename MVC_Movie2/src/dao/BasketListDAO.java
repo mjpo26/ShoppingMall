@@ -52,6 +52,7 @@ public class BasketListDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return listCount;
@@ -92,6 +93,7 @@ public class BasketListDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(con);
 		}
 
 		return articleList;
@@ -122,6 +124,7 @@ public class BasketListDAO {
 			System.out.println("insertItem 실패! - " + e.getMessage());
 		} finally {
 			close(pstmt);
+			close(con);
 		}
 
 		return insertCount;
@@ -159,6 +162,7 @@ public class BasketListDAO {
         } finally {
             close(rs);
             close(pstmt);
+            close(con);
         }
         
         return basketListBean;
@@ -201,6 +205,7 @@ public class BasketListDAO {
         } finally {
             close(rs);
             close(pstmt);
+            close(con);
         }
         
         
@@ -227,6 +232,7 @@ public class BasketListDAO {
         } finally {
             
             close(pstmt);
+            close(con);
         }
         
         return deleteCount;
@@ -268,6 +274,7 @@ public class BasketListDAO {
 	        } finally {
 	            close(rs);
 	            close(pstmt);
+	            close(con);
 	        }
 	        
 	        return basketListBean;
