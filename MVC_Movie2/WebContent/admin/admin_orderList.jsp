@@ -253,6 +253,7 @@ function pickNullCheck(){
 								</tr>
 								</thead>
 								<tbody>
+								
 								<%
 									for (int i = 0; i < articleList.size(); i++) {
 								%>
