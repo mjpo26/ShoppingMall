@@ -33,48 +33,48 @@ public class AdminBoardListAction implements Action {
 		abb.setBoard_title(request.getParameter("title"));
 		abb.setBoard_writer(request.getParameter("writer"));
 		abb.setBoard_replyCheck(request.getParameter("replyCheck"));
-		
+
 		// 날짜 계산 코드
-		 if(request.getParameter("pickStart") !=null) {
-     	      String pickStart = request.getParameter("pickStart");
-               SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
-               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
-               java.util.Date tempDate = null;
-               try {
-                  tempDate = beforeFormat.parse(pickStart);
+		if (request.getParameter("pickStart") != null) {
+			String pickStart = request.getParameter("pickStart");
+			SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+			SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+			java.util.Date tempDate = null;
+			try {
+				tempDate = beforeFormat.parse(pickStart);
 
-               } catch (ParseException e) {
-                   e.printStackTrace();
-               }
-               String transDate = afterFormat.format(tempDate);
-               Date start = Date.valueOf(transDate);
-               
-               abb.setPickStart(start);
-               System.out.println("시작 이다"+ start);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			String transDate = afterFormat.format(tempDate);
+			Date start = Date.valueOf(transDate);
 
-             }else {
-             	abb.setPickStart(Date.valueOf("2010-01-01"));
-             }
-             
-             if(request.getParameter("pickEnd")!=null) {
-     	      String pickEnd = request.getParameter("pickEnd");
-               SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
-               SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
-               java.util.Date tempDate = null;
-               try {
-                  tempDate = beforeFormat.parse(pickEnd);
+			abb.setPickStart(start);
+			System.out.println("시작 이다" + start);
 
-               } catch (ParseException e) {
-                   e.printStackTrace();
-               }
-               String transDate = afterFormat.format(tempDate);
-               Date end = Date.valueOf(transDate);
-               abb.setPickEnd(end);
-               System.out.println("끝 이다"+ end);
-             }else {
-             	abb.setPickEnd(Date.valueOf("2020-01-01"));
-             }
-             
+		} else {
+			abb.setPickStart(Date.valueOf("2010-01-01"));
+		}
+
+		if (request.getParameter("pickEnd") != null) {
+			String pickEnd = request.getParameter("pickEnd");
+			SimpleDateFormat beforeFormat = new SimpleDateFormat("mm/dd/yyyy");
+			SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+			java.util.Date tempDate = null;
+			try {
+				tempDate = beforeFormat.parse(pickEnd);
+
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			String transDate = afterFormat.format(tempDate);
+			Date end = Date.valueOf(transDate);
+			abb.setPickEnd(end);
+			System.out.println("끝 이다" + end);
+		} else {
+			abb.setPickEnd(Date.valueOf("2020-01-01"));
+		}
+
 		abb.setPage(page);
 		abb.setLimit(limit);
 
@@ -86,18 +86,7 @@ public class AdminBoardListAction implements Action {
 
 		System.out.println("이건 나오나" + abb.getBoard_list());
 
-		if (abb.getBoard_list() == null) {
-
-			System.out.println("게시판 미선택 기본");
-			
-			request.setAttribute("abb", abb);
-			ActionForward forward = new ActionForward();
-			forward.setRedirect(false); // 생략 가능
-			forward.setPath("/admin/admin_boardlist.jsp");
-			System.out.println("실행");
-			return forward;
-
-		} else if (abb.getBoard_list().equals("리뷰게시판")) {
+		if (abb.getBoard_list() == null||abb.getBoard_list().equals("리뷰게시판") ) {
 			ArrayList<ReviewBoardBean> boardList = new ArrayList<ReviewBoardBean>();
 			System.out.println("리뷰게시판 adminBoardListAction 실행됨");
 			// 페이징 처리를 위한 변수 선언
@@ -130,7 +119,7 @@ public class AdminBoardListAction implements Action {
 			request.setAttribute("pageInfo", pageInfo);
 			request.setAttribute("boardList", boardList);
 			request.setAttribute("abb", abb);
-			
+
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false); // 생략 가능
 			forward.setPath("/admin/admin_boardlist.jsp");
@@ -167,15 +156,15 @@ public class AdminBoardListAction implements Action {
 			// request 객체에 PageInfo 객체(pageInfo)와 ArrayList 객체(articleList)를 파라미터로 저장
 			request.setAttribute("pageInfo", pageInfo);
 			request.setAttribute("boardList", boardList);
-			
+
 			request.setAttribute("abb", abb);
-			
+
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false); // 생략 가능
 			forward.setPath("/admin/admin_boardlist.jsp");
 			System.out.println("qna실행");
 			return forward;
-			
+
 		}
 	}
 }
