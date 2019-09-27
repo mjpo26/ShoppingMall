@@ -21,7 +21,7 @@ public class Admin_memberListAction implements Action {
 	        System.out.println("Admin_memberListAction 실행됨");
 	        // 페이징 처리를 위한 변수 선언
 	        int page = 1; // 현재 페이지
-	        int limit = 10; // 한 페이지 당 표시할 게시물 수
+	        int limit = 50; // 한 페이지 당 표시할 게시물 수
 	        
 	        // 파라미터로 전달된 page 파라미터가 null 이 아닐 경우 파라미터 값을 page 변수에 저장
 	        if(request.getParameter("page") != null) {
