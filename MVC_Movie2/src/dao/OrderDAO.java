@@ -841,16 +841,11 @@ public class OrderDAO {
 
 	            while(rs.next()) {
 	            	OrderBean OrderBean = new OrderBean();
-	            	System.out.println("아");
 	            	OrderBean.setOrder_idx(rs.getInt("order_idx"));
-	            	System.out.println("주문번호"+OrderBean.getOrder_idx());
-	            	OrderBean.setOrder_item_code((rs.getInt("order_item_code")));
-	             	System.out.println("아이템코드"+OrderBean.getOrder_idx());
-	            	OrderBean.setOrder_item_title(rs.getString("order_item_title"));
-	            	OrderBean.setOrder_item_option_color(rs.getString("order_item_option_color"));
+	            	OrderBean.setOrder_item_sel_price(rs.getInt("order_item_sel_price"));
+	            	OrderBean.setOrder_item_status(rs.getString("order_item_status"));
 	            	OrderBean.setOrder_delivery_status(rs.getString("order_delivery_status"));
-	                OrderBean.setOrder_date(rs.getDate("order_date"));
-	                OrderBean.setOrder_item_title((rs.getString("order_item_title")));
+	            	
 	            	articleList.add(OrderBean);
 	            }
 	            
