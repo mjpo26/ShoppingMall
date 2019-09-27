@@ -9,6 +9,7 @@
 	EventBean article = (EventBean) request.getAttribute("article");
 	String nowPage = (String) request.getAttribute("page");
 	EventBean eventBean = (EventBean) request.getAttribute("EventBean");
+	String sId = (String) session.getAttribute("sId");
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -51,10 +52,18 @@
 				</div>
 				<hr>
 				<input type="button" class="btn_3"
-					onclick='location.href="./ReviewBoardList.re?page=<%=nowPage%>"'
-					value="목록"> <input type="button" class="btn_3"
+					onclick='location.href="./EventBoardList.event?page=<%=nowPage%>"'
+					value="목록">
+				<%
+					if (sId != null && sId.equals("admin")) {
+				%>
+				<input type="button" class="btn_3"
 					onclick='location.href="./EventBoardUpdateForm.event?event_num=<%=article.getEvent_num()%>"'
 					value="수정">
+				<%
+					}
+				%>
+			
 	</section>
 
 

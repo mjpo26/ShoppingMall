@@ -79,7 +79,7 @@
             <%
                 } else {
             %>
-            <a href="ReviewBoardList.re?page=<%=nowPage - 1%>"><i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="EventBoardList.event?page=<%=nowPage - 1%>"><i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
             <%
                 }
                  for (int i = startPage; i <= endPage; i++) {
@@ -89,7 +89,7 @@
             <%
                 } else {
             %>
-            <a href="ReviewBoardList.re?page=<%=i%>">
+            <a href="EventBoardList.event?page=<%=i%>">
             <%=i%>&nbsp;
             </a>
             <%
@@ -106,7 +106,7 @@
             <%
                 } else {
             %>
-            <a href="ReviewBoardList.re?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i> </a>
+            <a href="EventBoardList.event?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i> </a>
             <%
                 }
             %>

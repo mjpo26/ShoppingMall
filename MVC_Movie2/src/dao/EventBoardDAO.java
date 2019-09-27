@@ -232,7 +232,7 @@ public class EventBoardDAO {
 		return cb;
 	}
 
-	public int isUpdateArticle(EventBean article) throws Exception {
+	public int isUpdateArticle(EventBean article){
         int updateCount = 0;
         
         PreparedStatement pstmt = null;
@@ -240,11 +240,20 @@ public class EventBoardDAO {
         try {
             // 글 번호에 해당하는 레코드에 대해 제목(subject), 내용(content) 수정 후 결과값 리턴
            System.out.println("isupdatearticle왔다 수정글 ["+article+"]가져오나");
-            String sql = "UPDATE event_board SET event_subject=?,event_content=? WHERE event_num=?";
+            String sql = "UPDATE event_board SET event_subject=?,event_content=?,event_summary=?,event_status=?,event_imageMain=?,"
+            		+ "event_imageBackground=?, event_banner=?, event_banner2=?  WHERE event_num=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, article.getEvent_subject());
             pstmt.setString(2, article.getEvent_content());
-            pstmt.setInt(3, article.getEvent_num());
+    		pstmt.setString(3, article.getEvent_summary());
+    		pstmt.setString(4, article.getEvent_status());
+        	pstmt.setString(5, article.getEvent_imageMain());
+			pstmt.setString(6, article.getEvent_imageBackground());
+			pstmt.setString(7, article.getEvent_banner());
+			pstmt.setString(8, article.getEvent_banner2());
+			pstmt.setInt(9, article.getEvent_num());
+		
+			
             updateCount = pstmt.executeUpdate();
             
         } catch (SQLException e) {

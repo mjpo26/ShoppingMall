@@ -62,7 +62,7 @@
 	<div class="container mainDiv">
 		<section class="content product_insert">
 <!-- 			enctype="multipart/form-data" -->
-			<form action="./EventBoardUpdatePro.event" method="post" name="fr">
+			<form action="./EventBoardUpdatePro.event" method="post" name="fr" enctype="multipart/form-data">
 		  <input type="hidden" name="event_num" value="<%=article.getEvent_num() %>" />
 			<input type="hidden" name="page" value="<%=nowPage%>" />
 				<div class="content_title">
