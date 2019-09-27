@@ -71,8 +71,6 @@
 						if (sId.equals(writer)) {
 				%>
 				<input type="button" class="btn_3"
-					onclick='location.href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" '
-					value="수정"> <input type="button" class="btn_3"
 					onclick='location.href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" '
 					value="삭제">
 				<%

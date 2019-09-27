@@ -25,6 +25,7 @@ import action.MemberLogoutProAction;
 import action.MemberUpdateAction;
 import action.MemberUpdateProAction;
 import action.MemberUsercheckAction;
+import action.MemberdeleteAction;
 import vo.ActionForward;
 
 @WebServlet("*.me")
@@ -161,8 +162,24 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-        
+		} else if(command.equals("/deleteMember.me")) {
+            action = new MemberdeleteAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } 
+		else if(command.equals("/deletePro.me")) {
+            action = new MemberDeleteProAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } 
         // 포워딩 처리
         if(forward != null) {
             // ActionForward 객체의 isRedirect() 메서드가 true 이면 Redirect 방식으로 포워딩

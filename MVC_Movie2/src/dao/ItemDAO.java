@@ -484,7 +484,9 @@ public class ItemDAO {
 				ItemBean itemBean = new ItemBean();
 				itemBean.setItem_code(rs.getInt("Item_code"));
 				itemBean.setItem_title(rs.getString("Item_title"));
+				itemBean.setItem_icon1(rs.getString("Item_icon1"));
 				itemBean.setItem_category1(rs.getString("Item_category1"));
+				itemBean.setItem_category2(rs.getString("Item_category2"));
 				itemBean.setItem_content1(rs.getString("Item_content1"));
 				itemBean.setItem_content2(rs.getString("Item_content2"));
 				itemBean.setItem_point(rs.getInt("item_point"));
