@@ -27,7 +27,7 @@ public class ProductInsertProService {
         } else {
             rollback(con);
         }
-        
+        close(con);
         return isInsertSuccess;
         
     }

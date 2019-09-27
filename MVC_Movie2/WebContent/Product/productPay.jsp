@@ -53,7 +53,7 @@
 		<div class="container">
 			<div class="row clearfix">
 
-				<!-- 			<form action="orderPro.sh" method="post" name="orderForm"> -->
+				<!-- <form action="orderPro.sh" method="post" name="orderForm"> -->
 				<input type="hidden" name="itemCode" value=<%=itemCode%>> <input
 					type="hidden" name="item_code_count" value=<%=item_code_count%>>
 				<input type="hidden" name="itemCode" value=<%=itemCode%>> <input

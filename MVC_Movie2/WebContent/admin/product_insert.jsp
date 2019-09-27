@@ -9,6 +9,7 @@
                 </div>
             </header>
             
+
 	<!-- 썸머노트 에디트를 이용하기 위한 링크 및 스크립트. -->
     <script src="./js/jquery-3.4.1.js"></script>
     <link href="./dist/summernote-lite.css" rel="stylesheet" type="text/css">
@@ -55,7 +56,7 @@
 	</script>
 <script type="text/javascript">
 	$(function() {
-	$("input[name='findCategory1']").on("click", function(){
+// 	$("input[name='findCategory1']").on("click", function(){
 		//$('.dup').click(function(){
 			var cate1 = $('#item_category1').val();
 		
@@ -91,7 +92,7 @@
 					alert("실패");
 				}
 			});
-		});
+// 		});
 	});
 
 function chkCate1Sel(cate1sel) {
@@ -101,8 +102,7 @@ function chkCate2Sel(cate2sel) {
 	 document.fr.category2_text.value = cate2sel.value;
 }
 	
-	
-</script>
+	</script>
 	
 	  <article id="content">
       	<div class="container mainDiv">

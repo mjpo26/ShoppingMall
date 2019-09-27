@@ -167,6 +167,7 @@ function pickNullCheck(){
 						<option value="교환">교환</option>
 						<option value="반품">반품</option>
 						<option value="환불">환불</option>
+						<option value="완료">완료</option>
 					</select>
 					
 			<!-- 	<th>주문취소</th><td>
