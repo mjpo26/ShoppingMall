@@ -21,61 +21,80 @@
 		out.println("</script>");
 	}
 %>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Inserttitle here</title>
+<jsp:include page="../assets/top.jsp"></jsp:include>
+
+<section class="breadcrumb breadcrumb_bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="breadcrumb_iner">
+					<div class="breadcrumb_iner_item">
+						<h2>리뷰 게시판</h2>
+						<p>
+							리뷰 보기 <span>-</span> 상품 리뷰 보기
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 </head>
 <body>
-	<!-- 게시판 -->
-	<article>
-		<h1>Notice Write</h1>
-		<!-- enctype="multipart/form-data" -->
-		<form action="./ReviewBoardWritePro.re" method="post"
-			enctype="multipart/form-data">
-			<input type="hidden" name="review_writer"value=<%=memberBean.getMember_name()%>> 
-			<input type="hidden" name="review_id" value="<%=sId%>">
-			<input type="hidden" name="order_idx" value=<%=OrderBean.getOrder_idx()%>>
-		    <input type="hidden" name="order_item_code"	value=<%=OrderBean.getOrder_item_code()%>>
-			<table>
-				<tr>
-					<td>비밀번호
-						<h6>글을 수정,삭제할때 입력할 비밀번호를 입력하세요</h6>
-					</td>
-					<td><input type="password" name="review_pass"></td>
-				</tr>
-				<tr>
-					<td>상품명</td>
-					<td><input type="text" name="order_item_title"
-						value=<%=OrderBean.getOrder_item_title()%>></td>
-				</tr>
-				<tr>
-					<td>제목</td>
-					<td><input type="text" name="review_subject"></td>
-				</tr>
-				<tr>
-					<td>첨부파일</td>
-					<td colspan="3"><input type="file" name="review_file1"></td>
-				</tr>
-				<tr>
-					<td>별 점</td>
-					<td><input type="radio" name="review_starPoint" value="1">1
-						<input type="radio" name="review_starPoint" value="2">2 <input
-						type="radio" name="review_starPoint" value="3">3 <input
-						type="radio" name="review_starPoint" value="4">4 <input
-						type="radio" name="review_starPoint" value="5">5</td>
-				</tr>
-				<tr>
-					<td>글내용</td>
-					<td><textarea name="review_content" rows="10" cols="20">
+	<section class="review_board_content board_content">
+		<div class="container">
+			<div class="review_content mt-5 p-5">
+				<form action="./ReviewBoardWritePro.re" method="post"
+					enctype="multipart/form-data">
+					<input type="hidden" name="review_writer"
+						value=<%=memberBean.getMember_name()%>> <input
+						type="hidden" name="review_id" value="<%=sId%>"> <input
+						type="hidden" name="order_idx" value=<%=OrderBean.getOrder_idx()%>>
+					<input type="hidden" name="order_item_code"
+						value=<%=OrderBean.getOrder_item_code()%>>
+					<h3 class="mb-30 ">필수 정보</h3>
+					<table class="table">
+						<tr>
+							<td>비밀번호
+								<h6>글을 수정,삭제할때 입력할 비밀번호를 입력하세요</h6>
+							</td>
+							<td><input type="password" name="review_pass"></td>
+						</tr>
+						<tr>
+							<td>상품명</td>
+							<td><input type="text" name="order_item_title"
+								value=<%=OrderBean.getOrder_item_title()%>></td>
+						</tr>
+						<tr>
+							<td>제목</td>
+							<td><input type="text" name="review_subject"></td>
+						</tr>
+						<tr>
+							<td>첨부파일</td>
+							<td colspan="3"><input type="file" name="review_file1"></td>
+						</tr>
+						<tr>
+							<td>별 점</td>
+							<td><input type="radio" name="review_starPoint" value="1">1
+								<input type="radio" name="review_starPoint" value="2">2
+								<input type="radio" name="review_starPoint" value="3">3
+								<input type="radio" name="review_starPoint" value="4">4
+								<input type="radio" name="review_starPoint" value="5">5</td>
+						</tr>
+						<tr>
+							<td>글내용</td>
+							<td><textarea name="review_content" rows="10" cols="20">
 					</textarea></td>
-				</tr>
-			</table>
-			<div>
-				<input type="submit" value="글쓰기" class="btn">
+						</tr>
+					</table>
+					<div class="row mt-30">
+						<div class="col-xs-12 col-sm-6 mx-auto row">
+								<input type="submit" value="글쓰기"
+									class="genric-btn primary radius col-6 submit">
+							</div>
+						</div>
+				</form>
 			</div>
-		</form>
-
-	</article>
-</body>
-</html>
+		</div>
+	</section>
+	<jsp:include page="../assets/foot.jsp"></jsp:include>
