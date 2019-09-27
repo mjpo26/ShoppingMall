@@ -55,7 +55,7 @@
 	</script>
 <script type="text/javascript">
 	$(function() {
-	$("input[name='findCategory1']").on("click", function(){
+		$( document ).ready(function() {
 		//$('.dup').click(function(){
 			var cate1 = $('#item_category1').val();
 		
