@@ -153,12 +153,14 @@ function pickNullCheck(){
 								<th>등록일</th>
 								<th>수정</th>
 							</tr>
+						</form>
 						</thead>
 						<tbody>		
 						<%
 						for (int i = 0; i < articleList.size(); i++) {
 						%>
 					<tr>
+					<form method="get"> 
 						<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
 						<th><input type="checkbox" name="cb"></th> <!-- 체크박스 -->
 						<td><%=articleList.get(i).getItem_title()%></td> <!-- 상품명-->
@@ -186,6 +188,7 @@ function pickNullCheck(){
 						<input class="btn btn-default" type="button" value="상세수정" class="genric-btn primary-border small"
 								onclick="location.href='./update.sh?Item_code=<%=articleList.get(i).getItem_code()%>'">
 						</th>
+						</form>
 					</tr>
 					<%
 						}
@@ -194,7 +197,7 @@ function pickNullCheck(){
 								<tfoot>
 								</tfoot>
 							</table>
-						</form>
+						
 					</div>
 				</article> 
 	  		 </div> <!-- id=main div  -->
