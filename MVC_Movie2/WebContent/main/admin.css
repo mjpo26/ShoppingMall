@@ -250,9 +250,9 @@ html, body {
 
 
 
-@media ( min-width :1200px) {
+@media (min-width :1200px) {
 	.container {
-		max-width: 1680px
+		max-width: 1800px !important;
 	}
 }
 
