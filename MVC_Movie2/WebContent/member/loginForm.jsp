@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    
 <%
     // 현재 세션에 저장된 id 값이 있을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
     String sId = (String)session.getAttribute("sId");
@@ -85,11 +87,48 @@
             </div>
         </div>
     </div>
+    <div id="naver_id_login"></div>
+<script type="text/javascript"
+      src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+      charset="utf-8"></script>
+
+<script type="text/javascript">
+      var clientId = "t264Qh6r0U2esDUlEFWD";
+      var callbackUrl = "http://localhost:8080/MVC_Movie/index.jsp";
+      var naver_id_login = new naver_id_login(clientId, callbackUrl);
+      var state = naver_id_login.getUniqState();
+      naver_id_login.setButton("white", 3, 40);
+      naver_id_login.setDomain("http://localhost:8080/MVC_Movie/index.jsp");
+      naver_id_login.setState(state);
+      naver_id_login.setPopup();
+      naver_id_login.init_naver_id_login();
+</script>
+ <a id="kakao-login-btn"></a>
+<a href="http://developers.kakao.com/logout"></a>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+        alert(JSON.stringify(authObj));
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+  //]]>
+</script>
+    
+    
+    
+    
 </section>
 <!--================login_part end =================-->
 
 <jsp:include page="../assets/foot.jsp"></jsp:include>
-
 
 
 

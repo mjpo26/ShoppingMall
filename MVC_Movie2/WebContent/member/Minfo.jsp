@@ -81,6 +81,7 @@
 				<input type="button" class="btn btn-secondary" value="회원수정" onclick="location.href='./MemberUpdate.me'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="button" class="btn btn-secondary" value="장바구니 조회" onclick="location.href='./BasketInfo.bl'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="button" class="btn btn-secondary" value="주문정보 조회" onclick="location.href='./orderInfo.sh'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    <input type="button" class="btn btn-secondary" value="회원탈퇴" onclick="location.href='./deleteMember.me'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</div>
 		</div>
 	</section>

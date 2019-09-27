@@ -14,23 +14,34 @@
    /* EXAMPLE */
    DD_belatedPNG.fix('#wrap');
    DD_belatedPNG.fix('#main_img');   
+
  </script>
  <![endif]-->
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 //     function passCheck(val) {
+
 //         if (val.length < 3) {
+
 //             document.getElementById('result').value = "A-test";
 //             document.getElementById('result').style.color = "red";
+
 //         } else if (val.length < 8) {
+
 //             document.getElementById('result').value = "B-test";
 //             document.getElementById('result').style.color = "orange";
+
 //         } else {
+
 //             document.getElementById('result').value = "C-test";
 //             document.getElementById('result').style.color = "green";
+
 //         }
+
 //     }
+
   function check() {
+
         if (document.joinForm.id.value == "") {
             alert("아이디를 입력하세요!");
             document.joinForm.id.focus();
@@ -38,7 +49,7 @@
         }
         if (document.joinForm.pass.value == "") {
             alert("비밀번호를 입력하세요");
-            document.joinForm.id.focus();
+            document.joinForm.pass.focus();
             return false;
         }
         
@@ -54,11 +65,15 @@
 //             document.fr.pass.focus();
 //             return false;
 //         }
+
 //         if (document.joinForm.passChecked.value != "yes") {
 //             var fpass = document.fr.pass.value;
+
 //             window.open("passCheckPro.jsp?fpass=" + fpass, "",
 //                     "width=400,height=200");
+
 //             return false;
+
 //         }
         if (document.joinForm.pass2.value.length == "") {
             alert("비밀번호 확인란을 입력하세요!")
@@ -70,16 +85,19 @@
 //             document.joinForm.pass2.focus();
 //             return false;
 //         }
+
         if (document.joinForm.member_name.value.length == "") {
             alert("이름을 입력하세요!")
-            document.joinForm.name.focus();
+            document.joinForm.member_name.focus();
             return false;
         }
+
         if (document.joinForm.detailaddress.value.length == "") {
             alert("상세 주소를 입력하세요!")
-            document.joinForm.name.focus();
+            document.joinForm.detailaddress.focus();
             return false;
         }
+
         if (document.joinForm.email.value.length == "") {
             alert("이메일을 입력하세요!")
             document.joinForm.email.focus();
@@ -90,14 +108,17 @@
             document.joinForm.email2.focus();
             return false;
         }
+
         if (document.joinForm.email.value != document.joinForm.email2.value) {
             alert("이메일이  일치되지 않습니다.");
-            document.joinForm.pass2.focus();
+            document.joinForm.email2.focus();
             return false;
         }
         //   비밀번호유효성체크
+
         //비밀번호 유효성체크 끝
     }
+
     // E-Mail 도메인 선택
     function chkEmailDomainSelect(domain) {
         document.joinForm.domain.value = domain.value;
@@ -105,8 +126,8 @@
         
     }
 //     function  {
-// 		document.joinForm.idDuplication.value = "idUncheck";
-// 	}
+//       document.joinForm.idDuplication.value = "idUncheck";
+//    }
     
 //     function idcheck() {
 //         // id 텍스트 상자가 비어있으면  "아이디입력" 제어
@@ -125,108 +146,125 @@
 //         //  window.open("파일이름","창이름","옵션");
 //         window.open("./idcheck.jsp?fid=" + fid, "", "width=400,height=200");
 //     }
-	// 아이디 중복체크
-// 	$('.dup').click(function() {
-// 		if ($('#id').val() == "") {
-// 			alert("아이디중복을 확인하세요.");
-// 			$('#id').focus();
-// 			return false;
-// 		}
-// 		$.ajax('idcheck2.jsp',{
-// 			data:{id:$('#id').val()},
-// 			success : function (data) {
-				
-// 			}
-// 		});
-// 	});
-	
-	$(function() {
-	$("input[name='dup']").on("click", function(){
-		//$('.dup').click(function(){
-			var s_id = $('#id').val();
-			//alert("fid : "+s_id);
-		
-			$.ajax({
-			url : "<%=request.getContextPath()%>/IdcheckServlet.ic",
-			//url : '/IdcheckServlet.ic',
-	            type: "post", 
-	           data : {
-					fid : s_id
-				},
-				success : function(data) {
-					alert(data);
-					if(s_id =="") {
-						//alert("s_id 아이디 입력 하세요");
-						$("#text").css("color","red");
-						$("#text").text(" 아이디를 입력해주세요.");
-						$('#id').focus();
-					} else if (data == '0') {
-						$("#text").css("color","blue");
-						$("#text").text(" 사용가능한 아이디 입니다.");						
-						document.getElementById('isIdOk').value = "yes";
-					} else if (data =="1") {
-						$("#text").css("color","red");
-						$("#text").text(" "+ $('#id').val()+ "는 이미 사용중인 아이디 입니다.");
-						$('#id').val('');		
-						$('#id').focus();
-					}
-				},
-			
-				error : function(error) {
-					alert("에러 : " + error );
-				
-					
-				}
-			});
-		});
-	});
-	$(document).ready(function(){
-		   $('[name=pass]').keyup(function(){
-		    var pattern1 = /[0-9]/;   //숫자
-		    var pattern2 = /[a-zA-Z]/; //영문자
-		    var pattern3 = /[~!@#$%^&*()<>\+=-_?]/;  //내가 원하는 특수문자
-		    p1 = $('[name=pass]').val().length; 
-		  if(p1<=8 || !pattern1.test($('[name=pass]').val()) || !pattern2.test($('[name=pass]').val()) 
-		    || !pattern3.test($('[name=pass]').val())){
-		    // $('#pwd_chk1').html('영문자, 숫자, 특수문자 3가지 조합과8자이상');
-		      $("#text3").text('');
-			  $("#text2").css("color","red");
-			  $("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
-			  $("#member_pass").focus();
-				 }
- 			else{
-		    // $('#pwd_chk1').html('');
-		   		$("#text3").text('');
-		    	$("#text2").css("color","blue");
-		    	$("#text2").text(' 사용 가능한 비밀번호 입니다.');
-		    	document.getElementById('isPassOk').value = "yes";
-				$("#pass2").focus();
-		    }
-		   });
-		});
-	$(document).ready(function(){
-		   $('[name=pass2]').keyup(function(){
-			  
-			   
-			   if(document.getElementById('isPassOk').value=="yes"){				   
-				   if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
-					   $("#text3").css("color","red");
-					   $("#text2").text('');
-					   $("#text3").text('비밀번호가 일치하지 않습니다!');				   
-			        }else{
-						$("#text2").text('');
-			        	$("#text3").css("color","blue");
-				    	$("#text3").text('비밀번호가 일치합니다!');		        	
-			        }
-			   }
-			   else{
-					$("#member_pass").focus();
-					$("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
-			   }
-			   
-		   });
-	   });
-	
+
+   // 아이디 중복체크
+//    $('.dup').click(function() {
+//       if ($('#id').val() == "") {
+//          alert("아이디중복을 확인하세요.");
+//          $('#id').focus();
+//          return false;
+//       }
+//       $.ajax('idcheck2.jsp',{
+//          data:{id:$('#id').val()},
+//          success : function (data) {
+            
+//          }
+//       });
+//    });
+   
+
+   $(function() {
+   $("input[name='dup']").on("click", function(){
+      //$('.dup').click(function(){
+         var s_id = $('#id').val();
+         //alert("fid : "+s_id);
+      
+         $.ajax({
+         url : "<%=request.getContextPath()%>/IdcheckServlet.ic",
+         //url : '/IdcheckServlet.ic',
+               type: "post", 
+              data : {
+               fid : s_id
+            },
+
+
+            success : function(data) {
+               alert(data);
+               if(s_id =="") {
+                  //alert("s_id 아이디 입력 하세요");
+                  $("#text").css("color","red");
+                  $("#text").text(" 아이디를 입력해주세요.");
+                  $('#id').focus();
+               } else if (data == '0') {
+                  $("#text").css("color","blue");
+                  $("#text").text(" 사용가능한 아이디 입니다.");                  
+                  document.getElementById('isIdOk').value = "yes";
+               } else if (data =="1") {
+                  $("#text").css("color","red");
+                  $("#text").text(" "+ $('#id').val()+ "는 이미 사용중인 아이디 입니다.");
+                  $('#id').val('');      
+                  $('#id').focus();
+
+               }
+            },
+         
+            error : function(error) {
+               alert("에러 : " + error );
+            
+               
+            }
+         });
+      });
+   });
+   $(document).ready(function(){
+         $('[name=pass]').keyup(function(){
+          var pattern1 = /[0-9]/;   //숫자
+          var pattern2 = /[a-zA-Z]/; //영문자
+          var pattern3 = /[~!@#$%^&*()<>\+=-_?]/;  //내가 원하는 특수문자
+          p1 = $('[name=pass]').val().length; 
+        if(p1<=8 || !pattern1.test($('[name=pass]').val()) || !pattern2.test($('[name=pass]').val()) 
+          || !pattern3.test($('[name=pass]').val())){
+          // $('#pwd_chk1').html('영문자, 숫자, 특수문자 3가지 조합과8자이상');
+            $("#text3").text('');
+           $("#text2").css("color","red");
+           $("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
+           $("#member_pass").focus();
+
+             }
+        else if(p1<=8 && !pattern1.test($('[name=pass]').val()) && !pattern2.test($('[name=pass]').val()) 
+              && !pattern3.test($('[name=pass]').val())){
+          // $('#pwd_chk1').html('');
+               $("#text3").text('');
+             $("#text2").css("color","blue");
+             $("#text2").text(' 사용 가능한 비밀번호 입니다.');
+             document.getElementById('isPassOk').value = "yes";
+            $("#pass2").focus();
+
+          }else{
+             $("#text3").text('');
+             $("#text2").css("color","blue");
+             $("#text2").text(' 사용 가능한 비밀번호 입니다.');
+             document.getElementById('isPassOk').value = "yes";
+            $("#pass2").focus();
+          }
+          }
+         );
+      });
+
+   $(document).ready(function(){
+         $('[name=pass2]').keyup(function(){
+           
+            
+            if(document.getElementById('isPassOk').value=="yes"){               
+               if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
+                  $("#text3").css("color","red");
+                  $("#text2").text('');
+                  $("#text3").text('비밀번호가 일치하지 않습니다!');   
+                  
+                 }else{
+                  $("#text2").text('');
+                    $("#text3").css("color","blue");
+                   $("#text3").text('비밀번호가 일치합니다!');                 
+                 }
+            }
+            else{
+               //$("#member_pass").focus();
+               $("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
+            }
+            
+         });
+      });
+   
 </script>
 <%
     request.setCharacterEncoding("utf-8");
@@ -278,7 +316,7 @@
                             </div>
                             <div class="col-lg-7 col-sm-8 col-8 float-left">
                                 <input type="text" id="id" name="id" placeholder="아이디" onfocus="this.placeholder = '아이디를 입력해 주세요'" onblur="this.placeholder = '아이디'" required class="single-input" onkeydown="inputIdChk()">
-                            	<span id="text"></span><input type ="hidden" id="isIdOk" value="no">
+                               <span id="text"></span><input type ="hidden" id="isIdOk" value="no">
                             </div>
                             <div class="col-lg-3 col-sm-4 col-4 float-right clearfix">
                                 <input type="button" class="genric-btn primary radius float-right col-12" value="중복체크" class="dup"  name="dup" id="dup">            
@@ -303,7 +341,7 @@
                             </div>
                             <span id="text2" style="padding-left:1em;"></span><span id="text3" style="padding-left:0.5em;"></span><input type ="hidden" id="isPassOk" value="no">
                             </div>
-                           			
+                                    
                         </div>
                       
                            
@@ -418,12 +456,12 @@
                                                     // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
                                                     if (data.bname !== ''
                                                             && /[동|로|가]$/g.test(data.bname)) {
-                                                    	extraAddr += data.bname;
+                                                       extraAddr += data.bname;
                                                     }
                                                     // 건물명이 있고, 공동주택일 경우 추가한다.
                                                     if (data.buildingName !== ''
                                                             && data.apartment === 'Y') {
-                                                    	extraAddr += (extraAddr !== '' ? ', '
+                                                       extraAddr += (extraAddr !== '' ? ', '
                                                                 + data.buildingName
                                                                 : data.buildingName);
                                                     }
@@ -593,6 +631,7 @@
                           <div class="col-xs-12 col-sm-6 mx-auto row">
                            <input type="submit" class="genric-btn primary radius col-6 submit" value="회원가입">
                            <input type="reset" class="genric-btn default radius col-6 cancel" value="초기화">
+                           
                           </div>
                            
                            
