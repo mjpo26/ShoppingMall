@@ -164,7 +164,7 @@
 								<th>판매상태</th>
 								<td>
 									<input type="radio" name="sales" value="yes" <%if (article.getItem_sales().equals("yes")) {%> checked="checked" <%}%>>판매함 
-									<input type="radio" name="sales" value="no" <%if (article.getItem_sales().equals("yes")) {%> checked="checked" <%}%>>판매안함
+									<input type="radio" name="sales" value="no" <%if (article.getItem_sales().equals("no")) {%> checked="checked" <%}%>>판매안함
 								</td>
 							</tr>
 		

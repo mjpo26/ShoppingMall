@@ -45,14 +45,14 @@
                         <ul class="subMenu">
                             <li><a href="./Item_insertform.sh">상품등록</a></li>
                             <li><a href="./productList.sh">상품목록</a></li>
-                            <li><a href="./admin/product_category.jsp">상품분류관리</a></li>
+<!--                             <li><a href="./admin/product_category.jsp">상품분류관리</a></li> -->
 <!--                             <li><a href="./product_list.sh">test목록</a></li> -->
                         </ul>
                     </li>
                     <li>주문관리
                         <ul class="subMenu">
                             <li><a href="./orderList.ol">주문관리</a></li>
-                            <li><a>주문상태변경</a></li>
+<!--                             <li><a>주문상태변경</a></li> -->
                         </ul>
                     </li>
                     <li>고객관리
