@@ -22,8 +22,7 @@ public class BasketInfoAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		  System.out.println("BasketInfoAction");
 	        
-	        ActionForward forward = null;
-	        
+	        ActionForward forward = null;	     
 	        HttpSession session = request.getSession(); // 현재 세션 가져오기
 	        
 	        // 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
