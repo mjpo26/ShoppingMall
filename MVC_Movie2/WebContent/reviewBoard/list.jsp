@@ -62,8 +62,12 @@
 					%>
 
 					<figcaption
-						class="figure-caption position-absolute fixed-top review_title mx-auto">
-						<p><%=articleList.get(i).getReview_order_item_name()%> <%=articleList.get(i).getReview_subject()%><br>
+						class="figure-caption position-absolute fixed-top review_title mx-auto">	
+						<p>
+							<%if(articleList.get(i).getReview_order_item_name() !=null) {%> 
+							<span class="review_itme_name"> <%=articleList.get(i).getReview_order_item_name()%> </span><%} 
+							else { %> 존재하지 않는 제품입니다. <%}%> <br>
+							<%=articleList.get(i).getReview_subject()%><br>
 							<%
 								for (int j = 0; j < articleList.get(i).getReview_starPoint(); j++) {
 							%>

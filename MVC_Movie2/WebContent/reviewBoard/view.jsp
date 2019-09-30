@@ -36,8 +36,8 @@
 <body>
 	<section class="review_board_content board_content">
 		<div class="container">
-			<div class="review_content mt-5 p-5">
-				<span class="content_gray content_item"><%=article.getReview_order_item_name()%></span>
+			<div class="review_content mt-5 p-5 col-lg-8">
+				<span class="content_gray content_item">상품명 : <%=article.getReview_order_item_name()%></span>
 				<div class="content_title mt-1">
 					<h3><%=article.getReview_subject()%></h3>
 				</div>
