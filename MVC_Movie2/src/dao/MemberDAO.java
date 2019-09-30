@@ -535,7 +535,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			System.out.println("selectListCount() 에러 - " + e.getMessage());
 		} finally {
-			close(rs);
+			if(rs!=null) close(rs);
 			close(pstmt);
 		}
 
