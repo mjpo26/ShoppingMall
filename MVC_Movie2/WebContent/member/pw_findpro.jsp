@@ -4,7 +4,7 @@
 <%
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	String authNum = (String) request.getAttribute("authNum");
-	String checked = "no";
+// 	String id = memberBean.getMember_id();
 %>
 <script type="text/javascript">
 	function mailCheck() {
@@ -15,7 +15,9 @@
 			alert("인증번호가 일치하지않습니다");
 
 		} else {
+// 			var id = memberBean.getMember_id();
 			alert("인증번호가 일치합니다.");
+// 			window.open("pw_modify.jsp?id="+id);
 		}
 	}
 </script>
@@ -30,9 +32,9 @@
 			<div class="col-lg-8">
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item">
-						<h2>아이디 찾기</h2>
+						<h2>비밀번호 찾기</h2>
 						<p>
-							회원 <span>-</span> ID찾기
+							회원 <span>-</span> 비밀번호 찾기
 						</p>
 					</div>
 				</div>
@@ -52,10 +54,10 @@
 					</div>
 				</div>
 				<form method="post" name="joinForm">
-					<%-- 					<input type="text" id="mailHidden" value="<%=authNum%>"> --%>
-					<input type="text" id="mailCk" name="no"> <input
-						type="button" onclick="mailCheck()"
-						class="genric-btn primary radius col-6 submit" value="확인"><br>
+					<input type="hidden" id="mailHidden" value="<%=authNum%>"> <input
+						type="text" id="mailCk" name="no"> <input type="button"
+						onclick="mailCheck()"
+						class="genric-btn primary radius col-2 submit" value="확인"><br>
 				</form>
 				<div class="row mt-30">
 					<div class="col-xs-12 col-sm-6 mx-auto row">
