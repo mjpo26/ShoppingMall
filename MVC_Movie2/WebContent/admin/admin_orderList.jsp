@@ -91,7 +91,11 @@ function pickNullCheck(){
 	
 }
 
+
+
 </script>
+
+
 <!-- 날짜선택 스크립트 끝 -->
 
     <article id="content">
@@ -255,6 +259,11 @@ function pickNullCheck(){
 					</th>
 				</tr>
 				</table>
+
+
+
+
+
 
 				
 				<div style="width: 100%; float: left;">

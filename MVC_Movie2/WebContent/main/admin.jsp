@@ -6,12 +6,30 @@
     String sId = (String)session.getAttribute("sId");
   AdminListBean adminListBean = (AdminListBean)request.getAttribute("adminListBean");
   %>  
+  
+
 <jsp:include page="adminTop.jsp"></jsp:include>  
 
                         <h3>관리자 페이지 메인</h3>
                     </div>                    
                 </div>
             </header>
+            
+            <script type="text/javascript">
+            	
+            
+				function AddComma(data_value) {
+					return Number(data_value).toLocaleString('en');
+				}
+
+			
+			$(document).ready(function(){
+				for
+			});	
+			</script>
+			
+			
+			
             <article id="content">
                 <div class="container mainDiv">
                     <section class="content today_income">
