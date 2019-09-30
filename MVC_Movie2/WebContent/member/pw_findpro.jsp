@@ -4,7 +4,7 @@
 <%
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	String authNum = (String) request.getAttribute("authNum");
-// 	String id = memberBean.getMember_id();
+	// 	String id = memberBean.getMember_id();
 %>
 <script type="text/javascript">
 	function mailCheck() {
@@ -15,9 +15,15 @@
 			alert("인증번호가 일치하지않습니다");
 
 		} else {
-// 			var id = memberBean.getMember_id();
-			alert("인증번호가 일치합니다.");
-// 			window.open("pw_modify.jsp?id="+id);
+			// 			var id = memberBean.getMember_id();
+			// 			alert("인증번호가 일치합니다.");
+			// 			window.open("pw_modify.jsp?id="+id);
+			document.getElementById('resultEm').value =
+<%=memberBean.getMember_name()%>
+	+ "회원님의 비밀번호는 " +
+<%=memberBean.getMember_pass()%>
+	+ "입니다.";
+			document.getElementById('resultEm').style.color = "orange";
 		}
 	}
 </script>
@@ -54,10 +60,12 @@
 					</div>
 				</div>
 				<form method="post" name="joinForm">
-					<input type="hidden" id="mailHidden" value="<%=authNum%>"> <input
-						type="text" id="mailCk" name="no"> <input type="button"
-						onclick="mailCheck()"
+					<input type="hidden" id="mailHidden" value="<%=authNum%>">
+					<input type="text" id="mailCk" name="no"> <input
+						type="button" onclick="mailCheck()"
 						class="genric-btn primary radius col-2 submit" value="확인"><br>
+					<input type="text" id="resultEm" value="" size="100" readonly
+						style="border: 0">
 				</form>
 				<div class="row mt-30">
 					<div class="col-xs-12 col-sm-6 mx-auto row">
