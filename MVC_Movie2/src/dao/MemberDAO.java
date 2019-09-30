@@ -442,20 +442,20 @@ public class MemberDAO {
 		return updateCount;
 	}
 
-	public MemberBean findFw(String id, String phone) {
+	public MemberBean findFw(String id, String email) {
 		// id, password 에 해당하는 레코드가 있으면 로그인 성공(true 리턴), 아니면 실패(false 리턴)
 
 		MemberBean memberBean = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		// query= "";
-		String sql = "SELECT * FROM member WHERE member_id =? AND member_phone =?";
+		String sql = "SELECT * FROM member WHERE member_id =? AND member_email =?";
 
 		try {
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, phone);
+			pstmt.setString(2, email);
 
 // 
 			rs = pstmt.executeQuery();
@@ -463,6 +463,7 @@ public class MemberDAO {
 			if (rs.next()) {
 				memberBean = new MemberBean();
 				memberBean.setMember_id(rs.getString("member_id"));
+				memberBean.setMember_name(rs.getString("member_name"));
 				memberBean.setMember_pass(rs.getString("member_pass"));
 			}
 		} catch (SQLException e) {
@@ -496,6 +497,7 @@ public class MemberDAO {
 			if (rs.next()) {
 				memberBean = new MemberBean();
 				memberBean.setMember_id(rs.getString("member_id"));
+				memberBean.setMember_name(rs.getString("member_name"));
 			}
 		} catch (SQLException e) {
 			System.out.println("selectLoginMember 실패! - " + e.getMessage());
@@ -637,7 +639,7 @@ public String authNum() {
 	public boolean sendEmail(String email, String authNum) {
 		boolean result = false;
 		String sender = "qhrud961123@gmail.com";
-		String subject = "안녕하세요 아이디찾기 _ 인증번호입니다.";
+		String subject = "안녕하세요. 고객님 __ 아이디/비밀번호 찾기 인증번호입니다.";
 		String content = "안녕하세요 " + email + "님, <br>" + "귀하의 인증번호는    [<b>" + authNum + "</b>]   입니다.";
 
 		try {

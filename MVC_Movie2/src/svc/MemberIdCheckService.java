@@ -27,13 +27,13 @@ public class MemberIdCheckService {
 
 	}
 
-	public MemberBean findFw(String id, String phone) {
+	public MemberBean findFw(String id, String email) {
 		MemberBean memberBean = new MemberBean();
 		Connection con = getConnection();
 		MemberDAO memberDAO = MemberDAO.getInstance();
 		memberDAO.setConnection(con);
 
-		memberBean = memberDAO.findFw(id, phone);
+		memberBean = memberDAO.findFw(id, email);
 		close(con);
 		return memberBean;
 	}
