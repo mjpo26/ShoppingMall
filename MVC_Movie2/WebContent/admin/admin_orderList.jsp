@@ -103,34 +103,61 @@ function pickNullCheck(){
 				<table class="table">
 					<tr>
 						<th>검색어</th>
-						<td colspan='3'><select><option>주문번호</select> <input
-							type="text" size="12" name="order_idx"></td>
+						<td><select><option>주문번호</select> 
+						<input type="text" size="12" name="order_idx"></td>
 					</tr>
 			
 					<tr>
-						<th>기간검색</th>
-						<td>시작날짜:<input type="text" name="pickStart" id="pickStart"><br>
-							끝 날짜:<input type="text" name="pickEnd" id="pickEnd"></td>
+						<th>기간 검색</th>
+						<td>
+						<input type="text" name="pickStart" id="pickStart" placeholder="시작날짜설정"><input type="text" name="pickEnd" id="pickEnd" placeholder="끝날짜설정"> ex) 09(일)/12(월)/2019
+							</td>
 					</tr>
 			
 					<tr>
 						<th>상품 검색</th>
-						<td colspan='3'><label>상품명</label>
-								<input type="text" size="20" name="ItemName"><br>
-						<label>주문자</label>
-								<input type="text" size="20" name="Buyer">
-								
+						<td>
+							<input type="text" size="20" name="ItemName" placeholder="상품명으로 검색"> <input type="text" size="20" name="Buyer" placeholder="주문자명으로 검색">
+						</td>	
 					</tr>
 			
 					<tr>
-						<th>결제상태</th>
-						<td colspan='3'>
+						<th>상태 선택</th>
+						<td>
 						<select name="pay">
-							<option value="" selected>--선택--</option>
+							<option value="" selected>--결제상태--</option>
 							<option value="입금대기">입금대기</option>
 							<option value="입금완료">입금완료</option>
 							<option value="결제완료">결제완료</option>
 						</select>
+						<select name="delivery">
+						<option value="" selected>--배송상태--</option>
+						<option value="입금전">입금전</option>
+						<option value="배송전">배송전</option>
+						<option value="배송중">배송중</option>
+						<option value="배송완료">배송완료</option>
+					</select>
+										<select name="item_status">
+						<option value="" selected>--주문상태--</option>
+						<option value="취소">취소</option>
+						<option value="교환">교환</option>
+						<option value="반품">반품</option>
+						<option value="환불">환불</option>
+						<option value="완료">완료</option>
+					
+					</select>
+					<select name="bank">
+						<option value="" selected>--결제은행--</option>
+						<option value="신한은행">신한은행</option>
+						<option value="국민은행">국민은행</option>
+						<option value="농협은행">농협은행</option>
+					</select>
+					<select name="payment">
+						<option value="" selected>--결제방법--</option>
+						<option value="현금">현금</option>
+						<option value="포인트">포인트</option>
+						<option value="현금+포인트">현금+포인트</option>
+					</select>
 						
 				<!-- 	<input type="radio" name="pay" checked="checked" value="">전체 
 						<input type="radio" name="pay" value="입금대기">입금대기
@@ -138,33 +165,33 @@ function pickNullCheck(){
 						<input type="radio" name="pay" value="주문완료">주문완료 -->
 						
 					</tr>
-					<tr>
+<!-- 					<tr> -->
 					
-					<tr>
-					<th>배송상태</th><td>
-					<select name="delivery">
-						<option value="" selected>--선택--</option>
-						<option value="입금전">입금전</option>
-						<option value="배송전">배송전</option>
-						<option value="배송중">배송중</option>
-						<option value="배송완료">배송완료</option>
-					</select>
+<!-- 					<tr> -->
+<!-- 					<th>배송상태</th><td> -->
+<!-- 					<select name="delivery"> -->
+<!-- 						<option value="" selected>--배송상태--</option> -->
+<!-- 						<option value="입금전">입금전</option> -->
+<!-- 						<option value="배송전">배송전</option> -->
+<!-- 						<option value="배송중">배송중</option> -->
+<!-- 						<option value="배송완료">배송완료</option> -->
+<!-- 					</select> -->
 			<!-- 	<input type="radio" name="delivery"  checked="checked" value="">전체
 					<input type="radio" name="delivery" value="입금전">입금전
 					<input type="radio" name="delivery" value="배송전">배송전
 					<input type="radio" name="delivery" value="배송중">배송중
 					<input type="radio" name="delivery" value="배송완료">배송완료</td> -->
 					
-					<tr>
-					<th>주문취소</th><td>
-					<select name="item_status">
-						<option value="" selected>--선택--</option>
-						<option value="취소">취소</option>
-						<option value="교환">교환</option>
-						<option value="반품">반품</option>
-						<option value="환불">환불</option>
-						<option value="완료">완료</option>
-					</select>
+<!-- 					<tr> -->
+<!-- 					<th>주문상태</th><td> -->
+<!-- 					<select name="item_status"> -->
+<!-- 						<option value="" selected>--주문상태--</option> -->
+<!-- 						<option value="취소">취소</option> -->
+<!-- 						<option value="교환">교환</option> -->
+<!-- 						<option value="반품">반품</option> -->
+<!-- 						<option value="환불">환불</option> -->
+<!-- 						<option value="완료">완료</option> -->
+<!-- 					</select> -->
 					
 			<!-- 	<th>주문취소</th><td>
 					<input type="radio" name="item_status"  checked="checked" value="">전체
@@ -172,30 +199,32 @@ function pickNullCheck(){
 					<input type="radio" name="item_status" value="교환">교환
 					<input type="radio" name="item_status" value="반품">반품
 					<input type="radio" name="item_status" value="환불">환불</td> -->
-					<tr>
-					<th>결제은행</th><td>
-					<select name="bank">
-						<option value="" selected>--선택--</option>
-						<option value="신한은행">신한은행</option>
-						<option value="국민은행">국민은행</option>
-						<option value="농협은행">농협은행</option>
-					</select>
+<!-- 					<tr> -->
+<!-- 					<th>결제은행</th><td> -->
+<!-- 					<select name="bank"> -->
+<!-- 						<option value="" selected>--결제은행--</option> -->
+<!-- 						<option value="신한은행">신한은행</option> -->
+<!-- 						<option value="국민은행">국민은행</option> -->
+<!-- 						<option value="농협은행">농협은행</option> -->
+<!-- 					</select> -->
 					
-					<tr>
+<!-- 					<tr> -->
 			<!-- 		<th>결제은행</th><td>
 					<input type="radio" name="bank"  checked="checked" value="">전체
 					<input type="radio" name="bank" value="신한은행">신한은행
 					<input type="radio" name="bank" value="국민은행">국민은행
 					<input type="radio" name="bank" value="농협은행">농협은행</td> -->
 					
-					<tr>
-					<th>결제방법</th><td>
-					<select name="payment">
-						<option value="" selected>--선택--</option>
-						<option value="현금">현금</option>
-						<option value="포인트">포인트</option>
-						<option value="현금+포인트">현금+포인트</option>
-					</select>
+<!-- 					<tr> -->
+<!-- 					<th>결제방법</th><td> -->
+<!-- 					<select name="payment"> -->
+<!-- 						<option value="" selected>--결제방법--</option> -->
+<!-- 						<option value="현금">현금</option> -->
+<!-- 						<option value="포인트">포인트</option> -->
+<!-- 						<option value="현금+포인트">현금+포인트</option> -->
+<!-- 					</select> -->
+<!-- 					</td> -->
+<!-- 					</tr> -->
 			<!-- 		<th>결제방법</th>
 						<td colspan='3'><input type="radio" name="payment"  checked="checked" value="">전체 
 						<input type="radio" name="payment" value="현금">현금
@@ -209,7 +238,7 @@ function pickNullCheck(){
 				<input class="btn btn-secondary" type="reset" value="초기화">
 			</form>
 			
-				<div class="content_title">
+				<div class="content_title mt-5">
                    <h1>배송조회</h1>
 				</div>
 			<table class="table text-center">
@@ -231,7 +260,7 @@ function pickNullCheck(){
 				<div style="width: 100%; float: left;">
 					
 					<form action ="./orderUpdate.ol" method="post">
-						<div class="content_title">
+						<div class="content_title  mt-5">
                   			 <h1>주문 목록 조회</h1>
 						</div>
 						<table id="example" class="display compact table">
