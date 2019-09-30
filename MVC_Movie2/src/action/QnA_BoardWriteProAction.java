@@ -40,11 +40,14 @@ public class QnA_BoardWriteProAction implements Action {
         QnA_BoardBean.setQnA_pass(multi.getParameter("QnA_pass"));
         QnA_BoardBean.setQnA_subject(multi.getParameter("QnA_subject"));
         QnA_BoardBean.setQnA_content(multi.getParameter("QnA_content"));
+        
         // 업로드 파일명은 별도의 메서드 getOriginalFileName()를 호출하여 가져오기 
         QnA_BoardBean.setQnA_file1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 //        QnA_BoardBean.setQnA_type(multi.getParameter("QnA_type"));
         System.out.println("BoardWriteProAction"+QnA_BoardBean+ "BoardBean을 성공적으로 담았는가"
                 +QnA_BoardBean.getQnA_writer_id());
+        
+        System.out.println("비밀번호"+ QnA_BoardBean.getQnA_pass());
         // 비즈니스 로직을 처리할 Service 클래스 인스턴스 생성
         QnA_BoardWriteProService qnA_BoardWriteProService = new QnA_BoardWriteProService();
         // Service 클래스의 registArticle() 메서드를 호출하여 글쓰기 로직 처리(QnA_BoardBean 객체 전달)

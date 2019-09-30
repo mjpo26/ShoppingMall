@@ -53,7 +53,7 @@
 							</td>
 							<td>
 							
-							<input type="password" name="review_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
+							<input type="password" name="QnA_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
 						
 						</tr>
 						<tr>
