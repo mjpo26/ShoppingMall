@@ -833,7 +833,7 @@ public class OrderDAO {
 	        } catch (SQLException e) {
 	            System.out.println("selectArticleList() - " + e.getMessage());
 	        } finally {
-	            close(rs);
+	        	if(rs!=null) close(rs);
 	            close(pstmt);
 	        }
 	        
