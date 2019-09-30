@@ -174,7 +174,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
 				<div class="section_tittle text-center">
-					<h2>Featured Category</h2>
+					<h2>이번주 신상품 </h2>
 				</div>
 			</div>
 		</div>

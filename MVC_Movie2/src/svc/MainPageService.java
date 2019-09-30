@@ -35,6 +35,9 @@ public class MainPageService {
        // BoardBean 객체 리턴
        return products;
 	}
+	
+
+	
 
 	public ArrayList<EventBean> getArticleList() throws Exception {
         ArrayList<EventBean> articleList = null;
