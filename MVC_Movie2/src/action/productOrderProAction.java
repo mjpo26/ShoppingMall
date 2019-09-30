@@ -34,7 +34,11 @@ public class productOrderProAction implements Action {
 		String order_bank = request.getParameter("order_bank");
 		int order_plus_point = Integer.parseInt(request.getParameter("item_point"));
 		String order_memo = request.getParameter("order_memo");
-
+		int usedPoint = Integer.parseInt(request.getParameter("usedPoint"));
+		if(request.getParameter("usedPoint") ==null) {
+			usedPoint = 0;
+		}
+		
 		
 		//		order_item_point
 //		order_plus_point
@@ -56,11 +60,15 @@ public class productOrderProAction implements Action {
 			MemberInfoService memberInfoService = new MemberInfoService();
 			MemberBean memberBean = memberInfoService.getMemberInfo(sId); // 세션 아이디값을 파라미터로 전달
 			MemberUpdateProService memberUpdateProService = new MemberUpdateProService();
-			memberUpdateProService.insertPoint(sId,item_point);
 			
 			ProductOrderInfoService productOrderInfoService = new ProductOrderInfoService();
 			ItemBean itemBean = productOrderInfoService.getItemInfo(itemCode);
 			if (memberBean != null) {
+				int mypoint = memberBean.getMember_mypoint();
+				
+				mypoint = mypoint -usedPoint+item_point;
+				memberUpdateProService.insertPoint(sId,mypoint);
+				
 				// 조회된 회원정보(MemberBean)를 request 객체에 저장
 				request.setAttribute("memberBean", memberBean);
 				request.setAttribute("itemBean", itemBean);
@@ -73,6 +81,7 @@ public class productOrderProAction implements Action {
 				OrderBean.setOrder_item_sel_price(order_item_sel_price);
 				OrderBean.setOrder_item_point(item_point);
 				OrderBean.setOrder_plus_point(order_plus_point);
+				OrderBean.setOrder_used_point(usedPoint);
 				OrderBean.setOrder_memo(order_memo);
 				OrderBean.setOrder_bank(order_bank);
 				OrderBean.setOrder_member_id(memberBean.getMember_id());

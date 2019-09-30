@@ -26,6 +26,7 @@ public class MemberBean {
 	private int member_yechimoney;
 	private String member_grade;
 	private int member_used_point;
+	private int member_plus_point;
 	private String member_postcode1;
 	private String member_postcode2;
 	private String member_postcode3;
@@ -46,6 +47,14 @@ public class MemberBean {
 	private Date pickEnd;
 	private int page;
 	private int limit;
+
+	public int getMember_plus_point() {
+		return member_plus_point;
+	}
+
+	public void setMember_plus_point(int member_plus_point) {
+		this.member_plus_point = member_plus_point;
+	}
 
 	public int getPage() {
 		return page;

@@ -53,14 +53,14 @@ public class OrderDAO {
                        + "order_item_sel_price ,"
                        + "order_item_point ,"
                        + "order_plus_point ,"
-//                       + "order_used_point ,"
+                       + "order_used_point ,"
 					   + "order_bank ,"
                        + "order_delivery_status ,"
                        + "order_pay_status ," //입금여부
                        + "order_payment ," //결제방식
                        + "order_memo ," //메모
                        + "order_item_status ," //주문현황
-                       + "order_date,"+"order_member_name, "+"order_member_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?,?)";
+                       + "order_date,"+"order_member_name, "+"order_member_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?,?)";
             
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, OrderBean.getOrder_item_code()); 
@@ -72,15 +72,16 @@ public class OrderDAO {
             pstmt.setInt(5, OrderBean.getOrder_item_sel_price());
             pstmt.setInt(6, OrderBean.getOrder_item_point());
             pstmt.setInt(7, OrderBean.getOrder_plus_point());
-            pstmt.setString(8, OrderBean.getOrder_bank());
+            pstmt.setInt(8, OrderBean.getOrder_used_point());
+            pstmt.setString(9, OrderBean.getOrder_bank());
 //            pstmt.setInt(10, OrderBean.getOrder_used_point()); 
-            pstmt.setString(9, "입금전");
-            pstmt.setString(10, "입금대기");
-            pstmt.setString(11, "현금");
-            pstmt.setString(12, OrderBean.getOrder_memo());
-            pstmt.setString(13, "완료");
-            pstmt.setString(14, OrderBean.getOrder_member_name());
-            pstmt.setString(15, OrderBean.getOrder_member_id());
+            pstmt.setString(10, "입금전");
+            pstmt.setString(11, "입금대기");
+            pstmt.setString(12, "현금");
+            pstmt.setString(13, OrderBean.getOrder_memo());
+            pstmt.setString(14, "완료");
+            pstmt.setString(15, OrderBean.getOrder_member_name());
+            pstmt.setString(16, OrderBean.getOrder_member_id());
 //            pstmt.setInt(6, OrderBean.getOrder_idx()); 
             
             
