@@ -23,25 +23,34 @@ public class MemberFwFindAction implements Action {
 		   HttpSession session = request.getSession(); // 현재 세션 가져오기
 	        
 		    String id = request.getParameter("member_id");
-		    String phone =request.getParameter("phone1")+"-"+request.getParameter("phone2")+"-"+request.getParameter("phone3");
+			String email = request.getParameter("email") + "@" + request.getParameter("domain");
 		    
-		    System.out.println(phone);
+		    System.out.println(email);
 	        MemberIdCheckService memberIdcheckService = new MemberIdCheckService();
-		    MemberBean memberBean = memberIdcheckService.findFw(id, phone);
-		    
-	            
-	           
+		    MemberBean memberBean = memberIdcheckService.findFw(id, email);
+			String authNum = memberIdcheckService.authNum();
+			boolean result = memberIdcheckService.checkEmail(email, authNum);    
+			System.out.println(result);
 
-	                // 조회된 회원정보(MemberBean)를 request 객체에 저장
-	                request.setAttribute("memberBean", memberBean);
-	                
-	                forward = new ActionForward();
-	                //    forward.setPath("./idcheck.jsp");
-	                    forward.setPath("./member/pw_findpro.jsp");
-	                    forward.setRedirect(false);
+			if (result == true) {
+				request.setAttribute("memberBean", memberBean);
+				request.setAttribute("authNum", authNum);
+				forward = new ActionForward();
+				// forward.setPath("./idcheck.jsp");
+				forward.setPath("./member/pw_findpro.jsp");
+				forward.setRedirect(false);
 
-	            
-	        return forward;
+				return forward;
+			} else {
+				
+				request.setAttribute("memberBean", memberBean);
+				forward = new ActionForward();
+				// forward.setPath("./idcheck.jsp");
+				forward.setPath("./member/pw_find.jsp");
+				forward.setRedirect(false);
+
+				return forward;
+			}
 	    }
 
 	}

@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../main/top.jsp"></jsp:include>
+<script type="text/javascript">
+	function chkEmailDomainSelect(domain) {
+		document.joinForm.domain.value = domain.value;
+		document.joinForm.domain2.value = domain.value;
 
+	}
+</script>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -30,7 +36,7 @@
 						<h3 class="mb-30 ">회원 정보</h3>
 					</div>
 				</div>
-			<form method="get" action="./MemberFwfind.me">
+			<form method="get" action="./MemberFwfind.me" name="joinForm">
 					<div class="mt-10 row clearfix">
 						<div class="float-left col-lg-2 d-md-block d-sm-none d-none">
 							<label for="member_id">아 이 디</label>
@@ -44,31 +50,45 @@
 								value="no">
 						</div>
 					</div>
-                        <div class="row mt-10">
-                             <div class="col-lg-2 d-md-block d-sm-none d-none">
-                                <label for="member_phone">휴대전화</label> 
-                            </div>
-                        
-                            <div class="input-group-icon col-lg-3 col-4 mt-0">
-                                <div class="icon"><i class="fa fa-mobile" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select">
-                                    <select name="phone1">
-                                        <option value="010">010</option>
-                                        <option value="011">011</option>
-                                        <option value="017">017</option>
-                                        <option value="019">019</option>
-                                    </select>
-                                </div>
-                             </div>
-                             <div class="d-lg-block d-md-none d-none">_</div>
-                            <div class="col-lg-3 col-4">
-                                <input type="number" id="member_phone" name="phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
-                            </div>
-                             <div class="d-lg-block d-md-none d-none">_</div>
-                            <div class="col-lg-3 col-4">
-                                <input type="number" name="phone3" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
-                            </div>
-                        </div>
+                    					<div class="mt-10 row">
+						<div class="col-lg-2 d-md-block d-sm-none d-none">
+							<label for="member_email">이메일</label>
+						</div>
+						<div class="col-lg-4 col-sm-6 col-6">
+							<input type="text" id="member_email" name="email"
+								placeholder="이메일" onfocus="this.placeholder = '이메일'"
+								onblur="this.placeholder = '이메일'" required class="single-input">
+						</div>
+						<div class="col-sm-1 col-1">@</div>
+						<div class="col-lg-5 col-sm-5 col-5">
+							<input type="text" name="domain" placeholder="직접입력"
+								onfocus="this.placeholder = '직접입력'"
+								onblur="this.placeholder = '직접입력'" required class="single-input">
+						</div>
+					</div>
+
+					<div class="mt-10 row">
+						<div class="col-lg-2 d-md-block d-sm-none d-none">
+							<label for=""></label>
+						</div>
+
+						<div class="input-group-icon col-lg-10">
+							<div class="icon">
+								<i class="fa fa-at" aria-hidden="true"></i>
+							</div>
+							<div class="form-select" id="default-select2">
+								<select onchange="chkEmailDomainSelect(this)">
+									<option value="">직접입력</option>
+									<option value="naver.com">naver.com</option>
+									<option value="daum.net">daum.net</option>
+									<option value="nate.com">nate.com</option>
+									<option value="itwillbs.co.kr">itwillbs.co.kr</option>
+								</select>
+							</div>
+						</div>
+
+
+					</div>
 
 
 					<div class="row mt-30">

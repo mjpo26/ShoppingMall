@@ -3,8 +3,25 @@
 	pageEncoding="UTF-8"%>
 <%
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
+	String authNum = (String) request.getAttribute("authNum");
+	String checked = "no";
 %>
-<jsp:include page="../main/top.jsp"></jsp:include>
+<script type="text/javascript">
+	function mailCheck() {
+
+		if (document.getElementById('mailCk').value != document
+				.getElementById('mailHidden').value) {
+
+			alert("인증번호가 일치하지않습니다");
+
+		} else {
+			alert("인증번호가 일치합니다.");
+		}
+	}
+</script>
+
+
+<jsp:include page="../assets/top.jsp"></jsp:include>
 
 
 <section class="breadcrumb breadcrumb_bg">
@@ -31,13 +48,15 @@
 
 				<div class="clearfix overflow-hidden">
 					<div class="float-left">
-						<h3 class="mb-30 ">성공적으로 아이디를 찾았습니다.</h3>
+						<h3 class="mb-30 ">이메일로 발송된 인증번호를 입력하여주세요.</h3>
 					</div>
 				</div>
-				<br> 아이디는
-				<%=memberBean.getMember_id()%>입니다.<br>
-							<br> 비밀번호는
-				<%=memberBean.getMember_pass()%>입니다.<br>
+				<form method="post" name="joinForm">
+					<%-- 					<input type="text" id="mailHidden" value="<%=authNum%>"> --%>
+					<input type="text" id="mailCk" name="no"> <input
+						type="button" onclick="mailCheck()"
+						class="genric-btn primary radius col-6 submit" value="확인"><br>
+				</form>
 				<div class="row mt-30">
 					<div class="col-xs-12 col-sm-6 mx-auto row">
 						<input type="button" value="로그인 이동"
@@ -45,9 +64,6 @@
 							onclick="location.href='./MemberLoginForm.me'">
 					</div>
 				</div>
-
-
-
 			</div>
 		</div>
 	</div>
