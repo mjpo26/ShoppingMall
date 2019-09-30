@@ -238,7 +238,7 @@ function pickNullCheck(){
 				<input class="btn btn-secondary" type="reset" value="초기화">
 			</form>
 			
-				<div class="content_title mt-5">
+				<div class="content_title">
                    <h1>배송조회</h1>
 				</div>
 			<table class="table text-center">
@@ -260,7 +260,7 @@ function pickNullCheck(){
 				<div style="width: 100%; float: left;">
 					
 					<form action ="./orderUpdate.ol" method="post">
-						<div class="content_title  mt-5">
+						<div class="content_title">
                   			 <h1>주문 목록 조회</h1>
 						</div>
 						<table id="example" class="display compact table">
