@@ -669,6 +669,7 @@ public class MemberDAO {
 			System.out.println("Error in SendEmail()");
 			var13.printStackTrace();
 		} finally {
+
 		}
 
 		return result;
