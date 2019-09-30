@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
+	String authNum = (String) request.getAttribute("authNum");
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
 
@@ -31,21 +32,22 @@
 
 				<div class="clearfix overflow-hidden">
 					<div class="float-left">
-						<h3 class="mb-30 ">성공적으로 아이디를 찾았습니다.</h3>
+						<h3 class="mb-30 ">이메일로 발송된 인증번호를 입력하여주세요.</h3>
 					</div>
 				</div>
-				<br> 아이디는
-				<%=memberBean.getMember_id()%>입니다.<br>
-				<div class="row mt-30">
-					<div class="col-xs-12 col-sm-6 mx-auto row">
-						<input type="button" value="로그인 이동"
-							class="genric-btn primary radius col-6 submit"
-							onclick="location.href='./MemberLoginForm.me'">
-					</div>
-				</div>
-
-
-
+				<form method="get" action="./MemberfindID2.me" name="joinForm">
+				   <input type="hidden" value="<%=authNum%>">
+				   <input type="text" name="no">
+				</form>
+				<!-- 				<br> 아이디는 -->
+				<%-- 				<%=memberBean.getMember_id()%>입니다.<br> --%>
+				<!-- 				<div class="row mt-30"> -->
+				<!-- 					<div class="col-xs-12 col-sm-6 mx-auto row"> -->
+				<!-- 						<input type="button" value="로그인 이동" -->
+				<!-- 							class="genric-btn primary radius col-6 submit" -->
+				<!-- 							onclick="location.href='./MemberLoginForm.me'"> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
 			</div>
 		</div>
 	</div>

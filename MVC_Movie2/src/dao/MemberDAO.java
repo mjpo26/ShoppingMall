@@ -5,9 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
+import java.util.Date;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
-
+import javax.mail.Address;
+import javax.mail.Transport;
+import javax.mail.Message.RecipientType;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import vo.MemberBean;
 
 import static db.JdbcUtil.*;
@@ -85,14 +94,14 @@ public class MemberDAO {
 	// 회원 추가
 	public int insertMember(MemberBean memberBean) {
 		int insertCount = 0;
-		String sms =memberBean.getMember_sms_ok();
-		 String email = memberBean.getMember_email_ok();
-		 if(sms==null) {
-			 sms = "no";
-		 }
-		 if(email==null) {
-			 email = "no";
-		 }
+		String sms = memberBean.getMember_sms_ok();
+		String email = memberBean.getMember_email_ok();
+		if (sms == null) {
+			sms = "no";
+		}
+		if (email == null) {
+			email = "no";
+		}
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO member (" + "member_id," + "member_pass," + "member_name," + "member_address1,"
@@ -110,7 +119,7 @@ public class MemberDAO {
 			pstmt.setString(5, memberBean.getMember_address1_nick());
 			pstmt.setString(6, memberBean.getMember_phone());
 			pstmt.setString(7, memberBean.getMember_email());
-			pstmt.setString(8,sms);
+			pstmt.setString(8, sms);
 			pstmt.setString(9, email);
 			pstmt.setInt(10, memberBean.getMember_mypoint());
 			pstmt.setInt(11, memberBean.getMember_yechimoney());
@@ -170,14 +179,14 @@ public class MemberDAO {
 	// 회원 추가
 	public int updateMember(MemberBean memberBean) {
 		int updateCount = 0;
-		 String sms =memberBean.getMember_sms_ok();
-		 String email = memberBean.getMember_email_ok();
-		 if(sms==null) {
-			 sms = "no";
-		 }
-		 if(email==null) {
-			 email = "no";
-		 }
+		String sms = memberBean.getMember_sms_ok();
+		String email = memberBean.getMember_email_ok();
+		if (sms == null) {
+			sms = "no";
+		}
+		if (email == null) {
+			email = "no";
+		}
 		PreparedStatement pstmt = null;
 
 		String sql = "UPDATE member SET " + "member_pass=?," + "member_name=?," + "member_address1=?,"
@@ -195,8 +204,8 @@ public class MemberDAO {
 			pstmt.setString(4, memberBean.getMember_address1_nick());
 			pstmt.setString(5, memberBean.getMember_phone());
 			pstmt.setString(6, memberBean.getMember_email());
-			pstmt.setString(7,sms);
-			pstmt.setString(8,email);
+			pstmt.setString(7, sms);
+			pstmt.setString(8, email);
 			pstmt.setInt(9, memberBean.getMember_mypoint());
 			pstmt.setInt(10, memberBean.getMember_yechimoney());
 			pstmt.setString(11, memberBean.getMember_grade());
@@ -618,5 +627,51 @@ public class MemberDAO {
 		return memberList;
 	}
 
+	public String authNum() {
+		StringBuffer authNum = new StringBuffer();
+
+		for (int i = 0; i < 6; ++i) {
+			int randNum = (int) (Math.random() * 10.0D);
+			authNum.append(randNum);
+		}
+
+		return authNum.toString();
+	}
+
+	/* 인증메일 전송 메서드 */
+	public boolean sendEmail(String email, String authNum) {
+		boolean result = false;
+		String sender = "qhrud961123@gmail.com";
+		String subject = "안녕하세요 아이디찾기 _ 인증번호입니다.";
+		String content = "안녕하세요 " + email + "님, <br>" + "귀하의 인증번호는    [<b>" + authNum + "</b>]   입니다.";
+
+		try {
+			Properties properties = System.getProperties();
+			properties.put("mail.smtp.starttls.enable", "true");
+			properties.put("mail.smtp.host", "smtp.gmail.com");
+			properties.put("mail.smtp.auth", "true");
+			properties.put("mail.smtp.port", "587");
+			Authenticator auth = new GoogleAuthentication();
+			Session session = Session.getDefaultInstance(properties, auth);
+			Message message = new MimeMessage(session);
+			Address senderAd = new InternetAddress(sender);
+			Address receiverAd = new InternetAddress(email);
+			message.setHeader("content-type", "text/html;charset=UTF-8");
+			message.setFrom(senderAd);
+			message.addRecipient(RecipientType.TO, receiverAd);
+			message.setSubject(subject);
+			message.setContent(content, "text/html;charset=UTF-8");
+			message.setSentDate(new Date());
+			Transport.send(message);
+			result = true;
+		} catch (Exception var13) {
+			result = false;
+			System.out.println("Error in SendEmail()");
+			var13.printStackTrace();
+		} finally {
+		}
+
+		return result;
+	}
 
 }
