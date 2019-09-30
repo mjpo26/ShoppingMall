@@ -13,7 +13,7 @@
 	String writer = article.getReview_id();
 	ArrayList<CommentBean> commentBean = (ArrayList<CommentBean>) request.getAttribute("commentBean");
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -36,7 +36,7 @@
 <body>
 	<section class="review_board_content board_content">
 		<div class="container">
-			<div class="review_content mt-5 p-5 col-lg-8">
+			<div class="review_content mt-5 p-5 col-lg-8 mx-auto">
 				<span class="content_gray content_item">상품명 : <%=article.getReview_order_item_name()%></span>
 				<div class="content_title mt-1">
 					<h3><%=article.getReview_subject()%></h3>
@@ -147,4 +147,4 @@
 	</section>
 
 
-	<jsp:include page="../assets/foot.jsp"></jsp:include>
+	<jsp:include page="../main/foot.jsp"></jsp:include>

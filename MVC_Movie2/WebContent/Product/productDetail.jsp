@@ -5,7 +5,7 @@
 	 ItemBean itemBean = (ItemBean)request.getAttribute("article");
 	 String nowPage = (String)request.getAttribute("page");
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
  <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg">
@@ -203,4 +203,4 @@
 	<br>
 	
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>

@@ -111,7 +111,7 @@ function searchBoardListPaging (page) {
 }
 
 </script>
-<jsp:include page="../assets/top.jsp"></jsp:include>  <!--스크립트 탑입니다 asdf -->
+<jsp:include page="../main/top.jsp"></jsp:include>  <!--스크립트 탑입니다 asdf -->
 
 <!-- breadcrumb start-->
 <section class="breadcrumb breadcrumb_bg">
@@ -505,4 +505,4 @@ function searchBoardListPaging (page) {
 <br>
 
 <!-- 끝 asdf -->
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>

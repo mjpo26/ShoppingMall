@@ -8,7 +8,7 @@
 	
 	
     %>    
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 
 <!-- breadcrumb start-->
@@ -69,5 +69,5 @@
 
 
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
 	
