@@ -4,7 +4,7 @@
 	String id = (String) session.getAttribute("sId");
 	//세션값 가져와서 변수에 저장
 %>
-<jsp:include page="../main/top.jsp"></jsp:include>
+<jsp:include page="../assets/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -31,7 +31,7 @@
 					<legend>회원 탈퇴</legend>
 					<label>User ID</label> <input type="text" name="id" value="<%=id%>"
 						readonly><br> <label>Password</label> <input
-						type="password" name="pass"><br>
+						type="password" name="member_pass"><br>
 				</fieldset>
 				<div class="clear"></div>
 				<div id="buttons">
@@ -44,7 +44,7 @@
 	</div>
 </article>
 
-<jsp:include page="../main/foot.jsp"></jsp:include>
+<jsp:include page="../assets/foot.jsp"></jsp:include>
 
 
 

@@ -395,7 +395,7 @@
 						</div>
 						<div class="col-lg-10 col-sm-12">
 							<input type="text" id="address" name="address"
-								value=<%=address[0]%>
+								value="<%=address[0]%>"
 								onfocus="this.placeholder = '우편번호 찾기 시자동으로 입력되는 주소입니다.'"
 								onblur="this.placeholder = '기본 주소'" class="single-input">
 						</div>

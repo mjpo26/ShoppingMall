@@ -179,7 +179,7 @@
 
 
             success : function(data) {
-               alert(data);
+    //           alert(data);
                if(s_id =="") {
                   //alert("s_id 아이디 입력 하세요");
                   $("#text").css("color","red");
@@ -387,7 +387,7 @@
                                 <label for="detailaddress">상세 주소</label> 
                             </div>
                             <div class="col-lg-10 col-sm-12">
-                            <input type="text" id="detailaddress" name="address" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
+                            <input type="text" id="detailaddress" name="detailaddress" placeholder="상세 주소" onfocus="this.placeholder = '상세주소를 입력해주세요'" onblur="this.placeholder = '상세 주소'" class="single-input">
                             </div>
 <!--                             <div class="col-lg-2 col-sm-2"> -->
 <!--                             <input type="text" name="extraaddress" id="extraaddress" placeholder="참고항목"> -->
@@ -548,7 +548,7 @@
                             </div>
                              <div class="d-lg-block d-md-none d-none">_</div>
                             <div class="col-lg-3 col-4">
-                                <input type="number" name="member_phone2" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
+                                <input type="number" name="phone3" placeholder="" onfocus="this.placeholder = ''" maxlength="4" onblur="this.placeholder = ''" class="single-input">
                             </div>
                         </div>
 
