@@ -1,13 +1,16 @@
+
 <%@page import="vo.BasketListBean"%>
 <%@page import="vo.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 // 	basketListBean basketListBean = (basketListBean) request.getAttribute("basketListBean");
+	String bId = (String) request.getParameter("bId"); 
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	BasketListBean basketListBean= (BasketListBean) request.getAttribute("basketListBean");
 	String nowPage = (String) request.getAttribute("page");
 	String sId = (String)session.getAttribute("sId");
+	
 // 	int Basket_code_count = Integer.parseInt((String)request.getAttribute("Basket_code_count"));
 // 	int itemCode = basketListBean.getBasket_code();
 	
@@ -114,6 +117,7 @@ function check() {
 		<div class="container">
 			<div class="row clearfix">
 		<table class="table">
+		<input type="hidden" name="bId" value=<%=bId%>>
 		<input type="hidden" name="itemCode" value=<%=basketListBean.getBasket_code()%>> 
             <input type="hidden" name="item_code_count" value=<%=basketListBean.getBasket_code_count()%>>
             <input type="hidden" name="item_color" value=<%=basketListBean.getBasket_option_color()%>>

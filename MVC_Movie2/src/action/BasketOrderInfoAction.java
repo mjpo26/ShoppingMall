@@ -29,6 +29,7 @@ public class BasketOrderInfoAction implements Action {
 //		int itemCode = Integer.parseInt(request.getParameter("Item_code"));
 		String sId = (String) session.getAttribute("sId");
 		int bId = Integer.parseInt((String) request.getParameter("bId"));
+		
 		System.out.println(bId);
 		ProductDetailService productDetailService = new ProductDetailService();
 		MemberInfoService memberInfoService = new MemberInfoService();
@@ -43,6 +44,7 @@ public class BasketOrderInfoAction implements Action {
 		
 		if (memberBean != null) {
 			// 조회된 회원정보(MemberBean)를 request 객체에 저장
+			request.setAttribute("bId", bId);
 			request.setAttribute("basketListBean", basketListBean);
 			request.setAttribute("memberBean", memberBean);
 //			request.setAttribute("itemBean", itemBean);

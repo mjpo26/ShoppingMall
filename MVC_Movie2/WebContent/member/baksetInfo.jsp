@@ -1,10 +1,13 @@
+<%@page import="vo.ItemBean"%>
 <%@page import="vo.BasketListBean"%>
 <%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%
     	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
     	ArrayList<BasketListBean> articleList = (ArrayList<BasketListBean>)request.getAttribute("articleList");
+	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
 	
 	
     %>    

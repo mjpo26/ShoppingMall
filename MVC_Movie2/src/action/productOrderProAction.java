@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import svc.BasketDeleteProService;
 import svc.MemberInfoService;
 import svc.MemberUpdateProService;
 import svc.OrderInsertService;
@@ -89,6 +90,31 @@ public class productOrderProAction implements Action {
 				OrderBean.setOrder_item_point(memberBean.getMember_mypoint());
 				OrderInsertService orderInsertService = new OrderInsertService();
 				boolean isInsertSuccess = orderInsertService.insertOrder(OrderBean);
+				String bId = (String) request.getParameter("bId");
+				
+				System.out.println("bId값 : "+bId);
+				if(bId==null) {
+					System.out.println("bId값");
+				}else {
+			       BasketDeleteProService basketDeleteProService = new BasketDeleteProService();
+			       boolean isDeleteSuccess = basketDeleteProService.isDeleteMember(bId);
+			       if(!isDeleteSuccess) {
+			           response.setContentType("text/html;charset=UTF-8");
+			           PrintWriter out = response.getWriter();
+			           out.println("<script>");
+			           out.println("alert('장바구니 삭제 실패!')");
+			           out.println("history.back()");
+			           out.println("</script>");
+			       }
+			       else {
+			    	   response.setContentType("text/html;charset=UTF-8");
+			           PrintWriter out = response.getWriter();
+			           out.println("<script>");
+			           out.println("alert('장바구니 삭제 성공!')");
+			           out.println("</script>");
+			    	   
+			       }
+				}
 				if (!isInsertSuccess) {
 					response.setContentType("text/html;charset=UTF-8");
 					PrintWriter out = response.getWriter();

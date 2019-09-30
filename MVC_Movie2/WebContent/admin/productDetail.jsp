@@ -139,7 +139,7 @@ function searchBoardListPaging (page) {
 
 <div class="product_image_area section_padding">
 	<div class="container"> <!-- 이건 중요함 꼭 넣어야함 페이지에서 중앙 위치page asdf -->
-		<form method="post">
+		<form method="get">
 		    <input type="hidden" name="sId" value=<%=sId%>>
 			<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code()%>> 
 			<input type="hidden" name="Item_delivery_pee" value=<%=itemBean.getItem_delivery_pee()%>>

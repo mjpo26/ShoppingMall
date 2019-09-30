@@ -1,9 +1,12 @@
 package action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import svc.BasketDeleteProService;
 import svc.MemberInfoService;
 import svc.ProductDetailService;
 import vo.ActionForward;
@@ -23,10 +26,9 @@ public class productOrderAction implements Action {
 		int itemCode = Integer.parseInt(request.getParameter("Item_code"));
 		String page = request.getParameter("page");
 		String sId = (String) session.getAttribute("sId");
-		
-		ProductDetailService productDetailService = new ProductDetailService();
-		MemberInfoService memberInfoService = new MemberInfoService();
+        MemberInfoService memberInfoService = new MemberInfoService();
 		MemberBean memberBean = memberInfoService.getMemberInfo(sId);
+		ProductDetailService productDetailService = new ProductDetailService();
 		ItemBean itemBean = productDetailService.getArticle(itemCode);
 		
 		String item_code_count =request.getParameter("Item_code_count");
@@ -37,6 +39,9 @@ public class productOrderAction implements Action {
 		request.setAttribute("itemBean", itemBean);
 		request.setAttribute("item_color", item_color);
 		System.out.println("아아아아ㅏ아아"+item_color);
+		
+
+		
 		if (memberBean != null) {
 			// 조회된 회원정보(MemberBean)를 request 객체에 저장
 			request.setAttribute("memberBean", memberBean);

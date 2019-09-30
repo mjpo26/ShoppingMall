@@ -24,7 +24,9 @@ public class BasketInfoAction implements Action {
 	        
 	        ActionForward forward = null;	     
 	        HttpSession session = request.getSession(); // 현재 세션 가져오기
-	        
+			String bId = (String) request.getAttribute("bId");
+			
+			System.out.println("bId값 : "+bId);
 	        // 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
 	        String sId = (String)session.getAttribute("sId");
 	        if(sId == null) {
@@ -51,7 +53,7 @@ public class BasketInfoAction implements Action {
 		        articleList = basketInfoService.getBasketInfo(sId);
 		      
 		        request.setAttribute("articleList", articleList);
-		        
+		        request.setAttribute("bId", bId);
 		        forward = new ActionForward();
 	        
                 forward.setPath("/member/baksetInfo.jsp");		        
