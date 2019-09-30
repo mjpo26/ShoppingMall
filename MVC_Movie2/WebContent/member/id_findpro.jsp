@@ -5,6 +5,7 @@
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
 	String authNum = (String) request.getAttribute("authNum");
 %>
+<<<<<<< HEAD
 
 <script type="text/javascript">
     function mailCheck() {
@@ -26,6 +27,9 @@
 
 
 <jsp:include page="../assets/top.jsp"></jsp:include>
+=======
+<jsp:include page="../main/top.jsp"></jsp:include>
+>>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
 
 
 <section class="breadcrumb breadcrumb_bg">
@@ -75,4 +79,4 @@
 	</div>
 </section>
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>

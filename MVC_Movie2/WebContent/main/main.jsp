@@ -15,7 +15,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 
     
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 
 <!-- banner part start-->
@@ -377,4 +377,4 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 	</div>
 </section>
 <!--::subscribe_area part end::-->
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>

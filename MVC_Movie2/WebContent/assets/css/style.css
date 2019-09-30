@@ -7862,8 +7862,17 @@ h6 {
 
 
 .review_board_list .review_title  p {
-    font-weight: 500;
+    font-weight: 300;
+    line-height: 1.4em;
 }
+
+.review_itme_name{
+	font-weight : 400;
+	line-height: 1em;
+	font-size: 0.8em;
+	color :  rgba(200,200,200,0.8);
+}
+
 
 
 .review_board_list .review_title {

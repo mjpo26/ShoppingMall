@@ -15,7 +15,7 @@
 	int maxPage = pageInfo.getMaxPage();
 %>
 
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -62,8 +62,12 @@
 					%>
 
 					<figcaption
-						class="figure-caption position-absolute fixed-top review_title mx-auto">
-						<p><%=articleList.get(i).getReview_order_item_name()%> <%=articleList.get(i).getReview_subject()%><br>
+						class="figure-caption position-absolute fixed-top review_title mx-auto">	
+						<p>
+							<%if(articleList.get(i).getReview_order_item_name() !=null) {%> 
+							<span class="review_itme_name"> <%=articleList.get(i).getReview_order_item_name()%> </span><%} 
+							else { %> 존재하지 않는 제품입니다. <%}%> <br>
+							<%=articleList.get(i).getReview_subject()%><br>
 							<%
 								for (int j = 0; j < articleList.get(i).getReview_starPoint(); j++) {
 							%>
@@ -149,7 +153,7 @@
 	</div>
 	<!--container  -->
 </section>
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
 
 
 

@@ -4,7 +4,7 @@
 	String id = (String) session.getAttribute("sId");
 	//세션값 가져와서 변수에 저장
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -44,7 +44,7 @@
 	</div>
 </article>
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
 
 
 

@@ -16,7 +16,7 @@
 	int endPage = pageInfo.getEndPage();
 	int maxPage = pageInfo.getMaxPage();
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 
 <section class="breadcrumb breadcrumb_bg">
@@ -135,7 +135,7 @@
 	</div>
 	<!--container  -->
 </section>
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
 
 
 

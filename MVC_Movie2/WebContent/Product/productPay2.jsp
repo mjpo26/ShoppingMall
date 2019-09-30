@@ -27,7 +27,7 @@ $(document).ready(function(){
 });
 
 </script>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 
 <!-- breadcrumb start-->
@@ -137,4 +137,4 @@ $(document).ready(function(){
 
 </form>
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>

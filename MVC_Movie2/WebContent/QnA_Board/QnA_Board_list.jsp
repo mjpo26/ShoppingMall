@@ -28,7 +28,7 @@
 			out.println("</script>");
 		} */
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -153,7 +153,7 @@
 	}
 %>
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
 
 
 

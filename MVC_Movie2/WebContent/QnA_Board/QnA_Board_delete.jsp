@@ -5,7 +5,7 @@
 	int QnA_num = Integer.parseInt(request.getParameter("QnA_num"));
 	String nowPage = request.getParameter("page");
 %>
-<jsp:include page="../assets/top.jsp"></jsp:include>
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -46,4 +46,4 @@
 	</div>
 </article>
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
