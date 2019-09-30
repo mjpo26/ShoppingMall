@@ -35,8 +35,8 @@
 				</fieldset>
 				<div class="clear"></div>
 				<div id="buttons">
-					<input type="submit" value="회원탈퇴" class="submit"> <input
-						type="reset" value="취소" class="cancel">
+					<input type="submit" value="회원탈퇴" class="submit"> 
+					<input type="reset" value="취소" class="cancel">
 
 				</div>
 			</form>
@@ -45,3 +45,11 @@
 </article>
 
 <jsp:include page="../assets/foot.jsp"></jsp:include>
+
+
+
+
+
+
+
+

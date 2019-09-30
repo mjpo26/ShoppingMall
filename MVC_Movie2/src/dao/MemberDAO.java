@@ -263,18 +263,19 @@ public class MemberDAO {
 	}
 
 	// 회원삭제
-	public int deleteMember(String id) {
+	public int deleteMember(String id, String member_pass) {
 		// id, password 에 해당하는 레코드가 있으면 삭제 (pass따로 받아와서 비번확인구현)
-		System.out.println("딜리트멤버디에이오 왔나 id는 " + id);
+		System.out.println("딜리트멤버디에이오 왔나 id는 " + id + "비밀번호는" + member_pass);
 		int deleteCount = 0;
 
 		PreparedStatement pstmt = null;
 
-		String sql = "DELETE FROM member where member_id = ?";// 나중에 AND로 비번검사
+		String sql = "DELETE FROM member where member_id = ? and member_pass=?";// 나중에 AND로 비번검사
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.setString(2, member_pass);
 			deleteCount = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -616,5 +617,6 @@ public class MemberDAO {
 
 		return memberList;
 	}
+
 
 }

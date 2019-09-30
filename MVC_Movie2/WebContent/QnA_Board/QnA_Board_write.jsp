@@ -27,7 +27,7 @@
 					<div class="breadcrumb_iner_item">
 						<h2></h2>
 						<p>
-							리뷰 보기 <span>-</span> 상품 리뷰 보기
+							QnA게시판 <span>-</span> 글쓰기
 						</p>
 					</div>
 				</div>

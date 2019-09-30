@@ -175,7 +175,7 @@ public class QnA_BoardDAO {
                 
                 articleList.add(qnA_BoardBean);
             }
-            System.out.println("보드dao 왔다 셀렉트아티클 해서"+articleList.size()+ "개담았다");
+            System.out.println("보드dao 왔다 셀렉트아1티클 해서"+articleList.size()+ "개담았다");
             
         } catch (SQLException e) {
             System.out.println("selectArticleList() 에러 - " + e.getMessage());

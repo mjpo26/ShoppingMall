@@ -178,10 +178,8 @@
 							var s_id = $('#id').val();
 							//alert("fid : "+s_id);
 
-							$
-									.ajax({
-										url : "
-<%=request.getContextPath()%>/IdcheckServlet.ic",
+							$.ajax({
+							url : "<%=request.getContextPath()%>/IdcheckServlet.ic",
 			//url : '/IdcheckServlet.ic',
 	            type: "post", 
 	           data : {
