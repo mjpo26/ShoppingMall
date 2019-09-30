@@ -20,7 +20,8 @@ public class ReviewBoardListService {
         boardDAO.setConnection(con);
         
         listCount = boardDAO.selectListCount();
-       
+        close(con);
+
         System.out.println("ReviewBoardListService의 getListCount() 실행됨");
         return listCount;
     }
@@ -49,7 +50,8 @@ public class ReviewBoardListService {
         boardDAO.setConnection(con);
         
         listCount = boardDAO.selectListCount(item_code);
-       
+        close(con);
+
         System.out.println("ReviewBoardListService의 getListCount() 실행됨");
         return listCount;
     }
