@@ -21,7 +21,7 @@ import static db.JdbcUtil.*; // db.JdbcUtil 클래스 내의 모든 static 메�
 public class Free_BoardListService {
     
     // 전체 게시물 수를 조회하여 리턴하는 getListCount()
-    public int getListCount(BoardSearchBean bb) throws Exception {
+    public int getListCount() throws Exception {
         int listCount = 0; // 전체 게시물 수 저장하는 변수
         
         // Connection 객체 가져오기
@@ -36,7 +36,7 @@ public class Free_BoardListService {
         boardDAO.setConnection(con);
         
         // selectListCount() 메서드 호출하여 전체 게시물 수 조회하여 listCount 변수에 저장
-        listCount = boardDAO.selectListCount(bb);
+        listCount = boardDAO.selectListCount();
 //        System.out.println(listCount);
         // Connection 객체 반환
         close(con);

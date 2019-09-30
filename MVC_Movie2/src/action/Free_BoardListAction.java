@@ -44,7 +44,7 @@ public class Free_BoardListAction implements Action {
         
         System.out.println("보드리스트 액션 왔다.");
         Free_BoardListService boardListService = new Free_BoardListService();
-        int listCount = boardListService.getListCount(bb); // 전체 게시물 수 가져오기
+        int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
         
         articleList = boardListService.getArticleList(bb); // 전체 게시물 목록 가져오기(10개 한정)
         

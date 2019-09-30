@@ -22,7 +22,7 @@
 	// 만약, 회원만 게시판 목록 조회가 가능할 경우
 	// 세션 아이디 없으면 Main.bo 로 이동
 	if (sId == null) {
-      sId="비회원";
+		sId = "비회원";
 	}
 %>
 <jsp:include page="../assets/top.jsp"></jsp:include>
@@ -124,7 +124,8 @@
 	<%
 		} else {
 	%>
-	<a href="Free_BoardList.bo?page=<%=i%>"><%=i%>&nbsp; </a>
+	<a href="Free_BoardList.bo?page=<%=i%>"> <%=i%>&nbsp;
+	</a>
 	<%
 		}
 	%>
@@ -148,7 +149,7 @@
 	<%
 		if (sId != null && sId.equals("admin")) {
 	%>
-	 <input type="button" class="btn_3"
+	<input type="button" class="btn_3"
 		onclick='location.href="./Free_BoardWriteForm.bo"' value="글쓰기">
 
 	<%

@@ -113,14 +113,12 @@ public class Free_BoardDAO {
     }
 
     // 전체 게시물 갯수를 조회하여 리턴
-    public int selectListCount(BoardSearchBean bb) {
+    public int selectListCount() {
         int listCount = 0; // 게시물 갯수를 저장하는 변수
         
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String s_subject = bb.getSubject();
-       String s_id = bb.getId();
-       int s_num = bb.getNum();
+
         
         try {
            
@@ -129,7 +127,7 @@ public class Free_BoardDAO {
         	
         	
         	
-        	sql ="select * from free_board ";
+        	sql ="select COUNT(*) from free_board ";
         	pstmt=con.prepareStatement(sql);
         	
         	
