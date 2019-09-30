@@ -55,8 +55,8 @@ public class ReviewBoardDAO {
 					+ "review_file2," // 10
 					+ "review_file3," + "review_file4," + "review_file5," + "review_starPoint," + "review_orderNo,"
 					+ "review_re_ref," + "review_re_lev," + "review_re_seq," + "review_replycount,"
-					+ "review_order_item_code, " + "review_date)" + "VALUES(?,?,?,?,?,?," + "?,?,?,?,?,?,?,"
-					+ "?,?,?,?,?,?,now())";
+					+ "review_order_item_code, " + "review_order_item_name, " + "review_date)" + "VALUES(?,?,?,?,?,?," + "?,?,?,?,?,?,?,"
+					+ "?,?,?,?,?,?,?,now())";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -78,6 +78,7 @@ public class ReviewBoardDAO {
 			pstmt.setInt(17, 0);
 			pstmt.setString(18, "0");
 			pstmt.setInt(19, article.getReview_order_item_code());
+			pstmt.setString(20, article.getReview_order_item_name());
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("insertArticle() 에러 - " + e.getMessage());
@@ -171,6 +172,9 @@ public class ReviewBoardDAO {
 				boardBean.setReview_re_ref(rs.getInt("review_re_ref"));
 				boardBean.setReview_re_lev(rs.getInt("review_re_lev"));
 				boardBean.setReview_re_seq(rs.getInt("review_re_seq"));
+				boardBean.setReview_order_item_code(rs.getInt("review_order_item_code"));
+				boardBean.setReview_order_item_name(rs.getString("review_order_item_name"));
+
 			}
 		} catch (SQLException e) {
 			System.out.println("selectArticle() 에러 - " + e.getMessage());
@@ -212,6 +216,10 @@ public class ReviewBoardDAO {
 				boardBean.setReview_re_ref(rs.getInt("review_re_ref"));
 				boardBean.setReview_re_lev(rs.getInt("review_re_lev"));
 				boardBean.setReview_re_seq(rs.getInt("review_re_seq"));
+				boardBean.setReview_order_item_code(rs.getInt("review_order_item_code"));
+				boardBean.setReview_order_item_name(rs.getString("review_order_item_name"));
+
+
 				articleList.add(boardBean);
 			}
 
@@ -256,6 +264,8 @@ public class ReviewBoardDAO {
 				boardBean.setReview_re_ref(rs.getInt("review_re_ref"));
 				boardBean.setReview_re_lev(rs.getInt("review_re_lev"));
 				boardBean.setReview_re_seq(rs.getInt("review_re_seq"));
+				boardBean.setReview_order_item_code(rs.getInt("review_order_item_code"));
+				boardBean.setReview_order_item_name(rs.getString("review_order_item_name"));
 				articleList.add(boardBean);
 			}
 

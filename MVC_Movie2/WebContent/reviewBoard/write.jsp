@@ -46,12 +46,13 @@
 		<div class="container">
 			<div class="review_content col-lg-8 mx-auto mt-5 p-5">
 				<form action="./ReviewBoardWritePro.re" method="post" enctype="multipart/form-data">
-					<input type="hidden" name="review_writer"
-						value=<%=memberBean.getMember_name()%>> <input
-						type="hidden" name="review_id" value="<%=sId%>"> <input
-						type="hidden" name="order_idx" value=<%=OrderBean.getOrder_idx()%>>
-					<input type="hidden" name="order_item_code"
-						value=<%=OrderBean.getOrder_item_code()%>>
+					<input type="hidden" name="review_writer" value=<%=memberBean.getMember_name()%>> 
+					<input type="hidden" name="review_id" value="<%=sId%>"> 
+					<input type="hidden" name="order_idx" value=<%=OrderBean.getOrder_idx()%>>
+					<input type="hidden" name="order_item_code" value=<%=OrderBean.getOrder_item_code()%>>
+					<input type="hidden" name="order_item_name" value=<%=OrderBean.getOrder_item_title()%>>
+						
+						
 					<h3 class="mb-30"><%=OrderBean.getOrder_item_title()%> - 리뷰 작성</h3>
 					<table class="table">
 						<tr>

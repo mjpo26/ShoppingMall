@@ -23,7 +23,8 @@ public class ReviewBoardBean {
 	private int review_re_lev ;
 	private int review_re_seq ;
 	private int review_order_item_code;
-	
+	private String review_order_item_name;
+
 	public int getReview_order_item_code() {
 		return review_order_item_code;
 	}
@@ -143,6 +144,12 @@ public class ReviewBoardBean {
 	}
 	public void setReview_replycount(String review_replycount) {
 		this.review_replycount = review_replycount;
+	}
+	public String getReview_order_item_name() {
+		return review_order_item_name;
+	}
+	public void setReview_order_item_name(String review_order_item_name) {
+		this.review_order_item_name = review_order_item_name;
 	}
 	
 

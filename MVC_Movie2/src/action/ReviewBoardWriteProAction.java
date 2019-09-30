@@ -32,6 +32,8 @@ public class ReviewBoardWriteProAction implements Action {
 
         
         int item_code = Integer.parseInt((multi.getParameter("order_item_code")));
+        String item_name = multi.getParameter("order_item_name");
+
         ReviewBoardBean boardBean = new ReviewBoardBean();
         System.out.println(item_code);
         boardBean.setReview_writer(multi.getParameter("review_writer"));
@@ -43,6 +45,7 @@ public class ReviewBoardWriteProAction implements Action {
         boardBean.setReview_starPoint(Integer.parseInt(multi.getParameter("review_starPoint")));
         boardBean.setReview_orderNo(Integer.parseInt(multi.getParameter("order_idx")));
         boardBean.setReview_order_item_code(item_code);
+        boardBean.setReview_order_item_name(item_name);
         
         System.out.println("주문번호는!!!!!!"+boardBean.getReview_orderNo());
         System.out.println("아이템 코드요@@@@@@@@@@@@ "+Integer.parseInt(multi.getParameter("order_item_code")));

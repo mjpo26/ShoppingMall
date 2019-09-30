@@ -37,12 +37,12 @@
 	<section class="review_board_content board_content">
 		<div class="container">
 			<div class="review_content mt-5 p-5">
-				<span class="content_gray content_item"> 아이템 이름을 넣어주세욥</span>
+				<span class="content_gray content_item"><%=article.getReview_order_item_name()%></span>
 				<div class="content_title mt-1">
 					<h3><%=article.getReview_subject()%></h3>
 				</div>
 				<div class="review_score mt-0">
-					<span class="content_gray">평점 : </span>
+					<span class="content_gray">평점 : </span>	
 					<%
 						for (int i = 0; i < article.getReview_starPoint(); i++) {
 					%><i class="fa fa-star"></i>

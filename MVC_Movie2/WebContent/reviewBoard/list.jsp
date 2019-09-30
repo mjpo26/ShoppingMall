@@ -63,7 +63,7 @@
 
 					<figcaption
 						class="figure-caption position-absolute fixed-top review_title mx-auto">
-						<p><%=articleList.get(i).getReview_subject()%><br>
+						<p><%=articleList.get(i).getReview_order_item_name()%> <%=articleList.get(i).getReview_subject()%><br>
 							<%
 								for (int j = 0; j < articleList.get(i).getReview_starPoint(); j++) {
 							%>
