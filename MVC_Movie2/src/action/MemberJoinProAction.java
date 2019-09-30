@@ -21,7 +21,7 @@ public class MemberJoinProAction implements Action {
         memberBean.setMember_pass(request.getParameter("pass"));
         memberBean.setMember_name(request.getParameter("name"));
         memberBean.setMember_postcode1(request.getParameter("postcode"));
-        memberBean.setMember_address1(request.getParameter("address")+"/"+request.getParameter("detailaddress")+"/"+request.getParameter("extraaddress"));
+        memberBean.setMember_address1(request.getParameter("address")+"/"+request.getParameter("detailaddress"));
         memberBean.setMember_phone(request.getParameter("phone1")+"-"+request.getParameter("phone2")+"-"+request.getParameter("phone3"));
         memberBean.setMember_email(request.getParameter("email") + "@" + request.getParameter("domain"));
         memberBean.setMember_address_x1(request.getParameter("resultx"));

@@ -94,21 +94,21 @@ public class MemberDAO {
 	// 회원 추가
 	public int insertMember(MemberBean memberBean) {
 		int insertCount = 0;
-		String sms = memberBean.getMember_sms_ok();
-		String email = memberBean.getMember_email_ok();
-		if (sms == null) {
-			sms = "no";
-		}
-		if (email == null) {
-			email = "no";
-		}
+		String sms =memberBean.getMember_sms_ok();
+		 String email = memberBean.getMember_email_ok();
+		 if(sms==null) {
+			 sms = "no";
+		 }
+		 if(email==null) {
+			 email = "no";
+		 }
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO member (" + "member_id," + "member_pass," + "member_name," + "member_address1,"
 				+ "member_address1_nick," + "member_phone," + "member_email," + "member_sms_ok," + "member_email_ok,"
-				+ "member_mypoint," + "member_yechimoney," + "member_grade," + "member_used_point,"
+				+ "member_mypoint," + "member_yechimoney," + "member_grade,"
 				+ "member_postcode1," + "member_address_x1," + "member_address_y1," + "pickStart," + "joinDate,"
-				+ "pickEnd ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),?)";
+				+ "pickEnd ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -119,17 +119,16 @@ public class MemberDAO {
 			pstmt.setString(5, memberBean.getMember_address1_nick());
 			pstmt.setString(6, memberBean.getMember_phone());
 			pstmt.setString(7, memberBean.getMember_email());
-			pstmt.setString(8, sms);
+			pstmt.setString(8,sms);
 			pstmt.setString(9, email);
 			pstmt.setInt(10, memberBean.getMember_mypoint());
 			pstmt.setInt(11, memberBean.getMember_yechimoney());
 			pstmt.setString(12, memberBean.getMember_grade());
-			pstmt.setInt(13, memberBean.getMember_used_point());
-			pstmt.setString(14, memberBean.getMember_postcode1());
-			pstmt.setString(15, memberBean.getMember_address_x1());
-			pstmt.setString(16, memberBean.getMember_address_y1());
-			pstmt.setDate(17, memberBean.getPickStart());
-			pstmt.setDate(18, memberBean.getPickEnd());
+			pstmt.setString(13, memberBean.getMember_postcode1());
+			pstmt.setString(14, memberBean.getMember_address_x1());
+			pstmt.setString(15, memberBean.getMember_address_y1());
+			pstmt.setDate(16, memberBean.getPickStart());
+			pstmt.setDate(17, memberBean.getPickEnd());
 
 			insertCount = pstmt.executeUpdate();
 
@@ -179,20 +178,20 @@ public class MemberDAO {
 	// 회원 추가
 	public int updateMember(MemberBean memberBean) {
 		int updateCount = 0;
-		String sms = memberBean.getMember_sms_ok();
-		String email = memberBean.getMember_email_ok();
-		if (sms == null) {
-			sms = "no";
-		}
-		if (email == null) {
-			email = "no";
-		}
+		 String sms =memberBean.getMember_sms_ok();
+		 String email = memberBean.getMember_email_ok();
+		 if(sms==null) {
+			 sms = "no";
+		 }
+		 if(email==null) {
+			 email = "no";
+		 }
 		PreparedStatement pstmt = null;
 
 		String sql = "UPDATE member SET " + "member_pass=?," + "member_name=?," + "member_address1=?,"
 				+ "member_address1_nick=?," + "member_phone=?," + "member_email=?," + "member_sms_ok=?,"
 				+ "member_email_ok=?," + "member_mypoint=?," + "member_yechimoney=?," + "member_grade=?,"
-				+ "member_used_point=?," + "member_postcode1=?," + "member_address_x1=?," + "member_address_y1=?"
+				+ "member_postcode1=?," + "member_address_x1=?," + "member_address_y1=?"
 				+ "WHERE member_id=?";
 
 		try {
@@ -204,16 +203,15 @@ public class MemberDAO {
 			pstmt.setString(4, memberBean.getMember_address1_nick());
 			pstmt.setString(5, memberBean.getMember_phone());
 			pstmt.setString(6, memberBean.getMember_email());
-			pstmt.setString(7, sms);
-			pstmt.setString(8, email);
+			pstmt.setString(7,sms);
+			pstmt.setString(8,email);
 			pstmt.setInt(9, memberBean.getMember_mypoint());
 			pstmt.setInt(10, memberBean.getMember_yechimoney());
 			pstmt.setString(11, memberBean.getMember_grade());
-			pstmt.setInt(12, memberBean.getMember_used_point());
-			pstmt.setString(13, memberBean.getMember_postcode1());
-			pstmt.setString(14, memberBean.getMember_address_x1());
-			pstmt.setString(15, memberBean.getMember_address_y1());
-			pstmt.setString(16, memberBean.getMember_id());
+			pstmt.setString(12, memberBean.getMember_postcode1());
+			pstmt.setString(13, memberBean.getMember_address_x1());
+			pstmt.setString(14, memberBean.getMember_address_y1());
+			pstmt.setString(15, memberBean.getMember_id());
 
 			updateCount = pstmt.executeUpdate();
 
@@ -253,7 +251,6 @@ public class MemberDAO {
 				memberBean.setMember_mypoint(rs.getInt("member_mypoint"));
 				memberBean.setMember_yechimoney(rs.getInt("member_yechimoney"));
 				memberBean.setMember_grade(rs.getString("member_grade"));
-				memberBean.setMember_used_point(rs.getInt("member_used_point"));
 				memberBean.setMember_postcode1(rs.getString("member_postcode1"));
 				memberBean.setMember_address_x1(rs.getString("member_address_x1"));
 				memberBean.setMember_address_y1(rs.getString("member_address_y1"));
@@ -365,7 +362,6 @@ public class MemberDAO {
 				memberBean.setMember_mypoint(rs.getInt("member_mypoint"));
 				memberBean.setMember_yechimoney(rs.getInt("member_yechimoney"));
 				memberBean.setMember_grade(rs.getString("member_grade"));
-				memberBean.setMember_used_point(rs.getInt("member_used_point"));
 				memberBean.setMember_postcode1(rs.getString("member_postcode1"));
 				memberBean.setMember_postcode2(rs.getString("member_postcode2"));
 				memberBean.setMember_postcode3(rs.getString("member_postcode3"));
@@ -535,7 +531,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			System.out.println("selectListCount() 에러 - " + e.getMessage());
 		} finally {
-			if(rs!=null) close(rs);
+			close(rs);
 			close(pstmt);
 		}
 
@@ -599,7 +595,6 @@ public class MemberDAO {
 				memberBean.setMember_mypoint(rs.getInt("member_mypoint"));
 				memberBean.setMember_yechimoney(rs.getInt("member_yechimoney"));
 				memberBean.setMember_grade(rs.getString("member_grade"));
-				memberBean.setMember_used_point(rs.getInt("member_used_point"));
 				memberBean.setMember_postcode1(rs.getString("member_postcode1"));
 				memberBean.setMember_postcode2(rs.getString("member_postcode2"));
 				memberBean.setMember_postcode3(rs.getString("member_postcode3"));
@@ -628,8 +623,8 @@ public class MemberDAO {
 
 		return memberList;
 	}
-
-	public String authNum() {
+	
+public String authNum() {
 		StringBuffer authNum = new StringBuffer();
 
 		for (int i = 0; i < 6; ++i) {

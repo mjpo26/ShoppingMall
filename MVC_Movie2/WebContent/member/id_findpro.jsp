@@ -57,7 +57,7 @@
 				<form method="post" name="joinForm">
 					<input type="hidden" id="mailHidden" value="<%=authNum%>">
 					<input type="text" id="mailCk" name="no"> <input
-						type="button" onclick="mailCheck()" class="genric-btn primary radius col-6 submit"  value="확인"><br> <input
+						type="button" onclick="mailCheck()" class="genric-btn primary radius col-2 submit"  value="확인"><br> <input
 						type="text" id="resultEm" value="" size="100"readonly style="border:0" >
 				</form>
 				<!-- 				<br> 아이디는 -->

@@ -29,7 +29,7 @@ public class BasketListAction2 implements Action {
 	        System.out.println(request.getParameter("Item_delivery_pee"));
 	        System.out.println(request.getParameter("Item_point"));
 	        System.out.println(request.getParameter("Item_code_count"));
-	        System.out.println(request.getParameter("Item_color"));
+	        System.out.println(request.getParameter("item_color"));
 	        
 	        basketListBean.setBasket_member_id(request.getParameter("sId"));
 	        basketListBean.setBasket_code(Integer.parseInt(request.getParameter("Item_code")));
@@ -37,6 +37,7 @@ public class BasketListAction2 implements Action {
 	        basketListBean.setBasket_new_price(Integer.parseInt(request.getParameter("Item_old_price")));
 	        basketListBean.setBasket_sel_price(Integer.parseInt(request.getParameter("Item_sel_price")));
 	        basketListBean.setBasket_delivery_pee(Integer.parseInt(request.getParameter("Item_delivery_pee")));
+	        basketListBean.setBasket_option_color(request.getParameter("item_color"));
 	        basketListBean.setBasket_point(Integer.parseInt(request.getParameter("Item_point")));
 	        basketListBean.setBasket_code_count(Integer.parseInt(request.getParameter("Item_code_count")));
 			
