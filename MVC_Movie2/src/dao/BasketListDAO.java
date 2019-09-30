@@ -103,7 +103,7 @@ public class BasketListDAO {
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO basket(basket_code,basket_member_id,basket_title,basket_sel_price,"
-				+ "basket_new_price,basket_point,basket_code_count,basket_delivery_pee,basket_date) VALUES(?,?,?,?,?,?,?,?,now())";
+				+ "basket_new_price,basket_point,basket_code_count,basket_delivery_pee,basket_option_color,basket_date) VALUES(?,?,?,?,?,?,?,?,?,now())";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -115,6 +115,7 @@ public class BasketListDAO {
 			pstmt.setInt(6, basketListBean.getBasket_point()); // 적립금
 			pstmt.setInt(7, basketListBean.getBasket_code_count()); // 상품선택수량
 			pstmt.setInt(8, basketListBean.getBasket_delivery_pee()); // 배송비
+			pstmt.setString(9, basketListBean.getBasket_option_color()); // 상품명
 			
 			insertCount = pstmt.executeUpdate();
 			System.out.println("DB성공");

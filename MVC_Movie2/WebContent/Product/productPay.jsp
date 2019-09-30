@@ -15,7 +15,6 @@
 	int mypoint1 = memberBean.getMember_mypoint(); 
 %>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="../js/jquery-3.4.1.js"></script> -->
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#checkBoxId").change(function() {
@@ -33,9 +32,9 @@
 	});
 </script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(function() {
     $('[name=usedPoint]').keyup(function(){
-      var usedPoint = $("input[id=usedPoint]").val();
+      var usedPoint = $('input[id=usedPoint]').val();
       usedPoint *=1;
       var mypoint =  <%=mypoint1%>;
       mypoint *=1;
@@ -48,27 +47,27 @@ $(document).ready(function(){
 //       alert(mypoint);
 //       alert(usedPoint+mypoint);
           if(usedPoint<0){
-        	  alert("0원 이상의 금액을 적어주세요. ");
+        	  alert('0원 이상의 금액을 적어주세요.');
         	  document.orderForm.usedPoint.focus();
           }
           else if ( usedPoint > mypoint) {
-             $("#text3").css("color","red");
-             $('span#result').css("color","red");
-             $("#text3").text('사용가능 금액이 초과하였습니다!');
-             document.getElementById('usedOk').value = "no";
+             $('#text3').css('color','red');
+             $('span#result').css('color','red');
+             $('#text3').text('사용가능 금액이 초과하였습니다!');
+             document.getElementById('usedOk').value = 'no';
 <%--              $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count%>); --%>
-			$('span#result').html("상품금액 : "+<%=itemBean.getItem_old_price() * item_code_count%>+"원 - 할인금액 : "+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"원 - 적립금 : " + usedPoint + "원 = 총금액 : "+result+"원");
+			$('span#result').html('상품금액 : '+<%=itemBean.getItem_old_price() * item_code_count%>+'원 - 할인금액 : '+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
             }
           
           else{
-            	$("#text3").css("color","blue");
+            	$('#text3').css('color','blue');
                 
-                $("#text3").text('사용가능 합니다!');   
-                document.getElementById('usedOk').value = "yes";
+                $('#text3').text('사용가능 합니다!');   
+                document.getElementById('usedOk').value = 'yes';
 //                 $('span#Review_subject'+i).append(data[i].review_subject);
 <%--                 $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count %>); --%>
-				$('span#result').css("color","blue");
-				$('span#result').html("상품금액 : "+<%=itemBean.getItem_old_price() * item_code_count%>+"원 - 할인금액 : "+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"원 - 적립금 : " + usedPoint + "원 = 총금액 : "+result+"원");
+				$('span#result').css('color','blue');
+				$('span#result').html('상품금액 : '+<%=itemBean.getItem_old_price() * item_code_count%>+'원 - 할인금액 : '+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
                 
                 
 <%--                 <span style="font-weight: bold;">상품금액</span>: <%=itemBean.getItem_old_price() * item_code_count%> --%>
@@ -81,8 +80,8 @@ $(document).ready(function(){
  });
 function check() {
 
-    if (document.orderForm.usedOk.value == "no") {
-        alert("적립금을 초과하셨습니다.");
+    if (document.orderForm.usedOk.value == 'no') {
+        alert('적립금을 초과하셨습니다.');
         document.orderForm.usedPoint.focus();
         return false;
     }
@@ -111,7 +110,7 @@ function check() {
 </section>
 <!-- breadcrumb start-->
 <!--================End Home Banner Area =================-->
-<form action="orderPro.sh" method="post" name="orderForm" onsubmit="return check()">>
+<form action="orderPro.sh" method="post" name="orderForm" onsubmit="return check()">
    <section class="cart_list shopping_cart mt-5">
       <div class="container">
          <div class="row clearfix">
@@ -197,7 +196,7 @@ function check() {
                </tr>
                <tr>
                   <td align="right" colspan="6"><input type="text"
-                     id="usedPoint" name="usedPoint">적립금사용 <input
+                     id="usedPoint" name="usedPoint" readonly>적립금사용 <input
                      type="checkbox" id="checkBoxId" name="checkBoxId">
            			   사용가능금액(<%=memberBean.getMember_mypoint()%>)
                      
