@@ -114,6 +114,35 @@ public class ReviewBoardDAO {
 
 		return listCount;
 	}
+	
+	public int selectListCount(int item_code) {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "SELECT COUNT(*) FROM Review_Board where review_order_item_code = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, item_code);
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				listCount = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectListCount() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return listCount;
+	}
+	
 
 	public ReviewBoardBean selectArticle(int Review_num) {
 		PreparedStatement pstmt = null;
@@ -168,6 +197,50 @@ public class ReviewBoardDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, limit);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				ReviewBoardBean boardBean = new ReviewBoardBean();
+				boardBean.setReview_num(rs.getInt("review_num"));
+				boardBean.setReview_writer(rs.getString("review_writer"));
+				boardBean.setReview_subject(rs.getString("review_subject"));
+				boardBean.setReview_content(rs.getString("review_content"));
+				boardBean.setReview_file1(rs.getString("review_file1"));
+				boardBean.setReview_readcount(rs.getInt("review_readcount"));
+				boardBean.setReview_date(rs.getDate("review_date"));
+				boardBean.setReview_starPoint(rs.getInt("review_starPoint"));
+				boardBean.setReview_re_ref(rs.getInt("review_re_ref"));
+				boardBean.setReview_re_lev(rs.getInt("review_re_lev"));
+				boardBean.setReview_re_seq(rs.getInt("review_re_seq"));
+				articleList.add(boardBean);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("selectArticleList() 에러 - " + e.getMessage());
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+	}
+
+	
+	public ArrayList<ReviewBoardBean> selectArticleList(int itme_code, int page, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<ReviewBoardBean> articleList = new ArrayList<ReviewBoardBean>();
+
+		int startRow = (page - 1) * 10;
+
+		try {
+
+			String sql = "SELECT * FROM Review_Board WHERE review_order_item_code=? ORDER BY review_re_ref DESC,review_re_seq ASC LIMIT ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, itme_code);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, limit);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

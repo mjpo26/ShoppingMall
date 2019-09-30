@@ -38,6 +38,35 @@ public class ReviewBoardListService {
         System.out.println("ReviewBoardListService의  ArrayList<ReviewBoardBean> 실행됨");
         return articleList;
     }
+
+
+    public int getListCount(int item_code) throws Exception {
+        int listCount = 0; 
+      
+        Connection con = getConnection();
+        
+        ReviewBoardDAO boardDAO = ReviewBoardDAO.getInstance();
+        boardDAO.setConnection(con);
+        
+        listCount = boardDAO.selectListCount(item_code);
+       
+        System.out.println("ReviewBoardListService의 getListCount() 실행됨");
+        return listCount;
+    }
+
+    public ArrayList<ReviewBoardBean> getArticleList(int item_code, int page, int limit) throws Exception {
+        ArrayList<ReviewBoardBean> articleList = null;
+        
+        Connection con = getConnection();  
+        ReviewBoardDAO boardDAO = ReviewBoardDAO.getInstance();
+        boardDAO.setConnection(con);
+        
+        articleList = boardDAO.selectArticleList(item_code, page, limit);
+        
+        close(con);
+        System.out.println("ReviewBoardListService의  ArrayList<ReviewBoardBean> 실행됨");
+        return articleList;
+    }
     
     
     

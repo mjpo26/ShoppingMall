@@ -28,6 +28,8 @@ public class productDetailAction implements Action {
 	        // BoardDetailService 객체의 getArticle() 메서드를 호출하여 글 상세 내용 BoardBean 타입으로 리턴받음
 	        ItemBean article = productDetailService.getArticle(item_code);
 	        
+	        
+	        
 	        // page 값 request 객체에 저장
 	        // 글 상세 내용 BoardBean 객체 request 객체에 저장
 	        request.setAttribute("page", page);
@@ -47,9 +49,10 @@ public class productDetailAction implements Action {
 	        }
 	        
 	        ReviewBoardListService boardListService = new ReviewBoardListService();
-	        int listCount = boardListService.getListCount(); // 전체 게시물 수 가져오기
+	        
+	        int listCount = boardListService.getListCount(item_code); // 전체 게시물 수 가져오기
 
-	        articleList = boardListService.getArticleList(reviewPage, limit); // 전체 게시물 목록 가져오기(10개 한정)
+	        articleList = boardListService.getArticleList(item_code, reviewPage, limit); // 전체 게시물 목록 가져오기(10개 한정)
 	        
 	        // 전체 페이지(마지막 페이지) 수 계산
 	        int maxPage = (int)((double)listCount / limit + 0.95);
