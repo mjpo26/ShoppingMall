@@ -17,7 +17,7 @@ import vo.ItemBean;
 
 public class MainPageService {
 	
-	public ArrayList<ItemBean> getItem(String item_category1) { // item_category1 - new, best, hot, recommend 등 가능
+	public ArrayList<ItemBean> getItem(String Item_icon1) { // item_category1 - new, best, hot, recommend 등 가능
 	     // Connection 객체 가져오기 - getConnection()
        Connection con = getConnection();       
        // ItemDAO 객체 가져오기 - getInstance()
@@ -27,7 +27,7 @@ public class MainPageService {
        
 				
        // ItemDAO 객체의 selectItem() 메서드를 호출하여 Item의 상세 스펙 (ItemBean 객체) 리턴받기
-       ArrayList<ItemBean> products = itemDAO.selectItem(item_category1);
+       ArrayList<ItemBean> products = itemDAO.selectItem(Item_icon1);
 
        // Connection 객체 반환
        close(con);

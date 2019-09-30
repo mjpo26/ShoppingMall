@@ -20,9 +20,7 @@ public class MainPageAction implements Action {
 //	        MainDetailService mainDetailService  = new MainDetailService();
 
 		ArrayList<ItemBean> bestProduct = mainPageService.getItem("best");
-
 		ArrayList<ItemBean> newProduct = mainPageService.getItem("new");
-
 		ArrayList<ItemBean> recommendProduct = mainPageService.getItem("recommend");
 
 		ArrayList<EventBean> EventBean = mainPageService.getArticleList();

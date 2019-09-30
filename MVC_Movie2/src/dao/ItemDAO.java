@@ -240,15 +240,15 @@ public class ItemDAO {
 		return updateCount;
 	}
 
-	public ArrayList<ItemBean> selectItem(String item_category1) {
+	public ArrayList<ItemBean> selectItem(String Item_icon1) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<ItemBean> products = new ArrayList<ItemBean>();
 
 		try {
-			String sql = "SELECT * FROM Item WHERE Item_category1=?";
+			String sql = "SELECT * FROM Item WHERE Item_icon1=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, item_category1);
+			pstmt.setString(1, Item_icon1);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -260,7 +260,6 @@ public class ItemDAO {
 				itemBean.setItem_content1(rs.getString("Item_content1"));
 				itemBean.setItem_content2(rs.getString("Item_content2"));
 				itemBean.setItem_point(rs.getInt("item_point"));
-//	                itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
 				itemBean.setItem_pic1(rs.getString("Item_pic1"));
 				itemBean.setItem_pic2(rs.getString("Item_pic2"));
 				itemBean.setItem_pic3(rs.getString("Item_pic3"));
@@ -274,6 +273,8 @@ public class ItemDAO {
 				itemBean.setItem_delivery_pee(rs.getInt("Item_delivery_pee"));
 				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
 				itemBean.setItem_Date(rs.getDate("Item_Date"));
+				itemBean.setItem_icon1(Item_icon1);
+				
 				products.add(itemBean);
 			}
 
