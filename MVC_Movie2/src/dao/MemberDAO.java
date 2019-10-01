@@ -689,7 +689,7 @@ public String authNum() {
 			System.out.println("updateReadCount() 에러ㅇㅇ - " + e.getMessage());
 		} finally {
 			// close(pstmt);
-			System.out.println("여기서~~! 아이디랑 포인트는!!@"+member_id);
+			System.out.println("여기서~~! 아이디랑 ㅏㅏㅏㅏㅏㅏㅏㅏㅏ포인트는!!@"+member_id);
 			System.out.println();
 
 		}
