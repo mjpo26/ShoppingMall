@@ -40,7 +40,6 @@ public class MemberdeleteAction implements Action {
 	                
 	                forward = new ActionForward();
 	                forward.setPath("/member/delete.jsp");
-//	                forward.setPath("/member/memberInfo.jsp");
 	                forward.setRedirect(false);
 	            }
 	            

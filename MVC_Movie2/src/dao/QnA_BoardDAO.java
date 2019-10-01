@@ -430,8 +430,11 @@ public class QnA_BoardDAO {
         
         return deleteCount;
         
-        
     }
+    
+    // 답글 달렸는지 여부 1이면 달린거 0이면 안달린거
+    public int isUpdate
+    
 	public int getBoardCount(AdminBoardSearchBean abb) {
 		int listCount = 0;
 
