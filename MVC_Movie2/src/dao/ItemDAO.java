@@ -546,4 +546,25 @@ public class ItemDAO {
 
 	}
 
+	public int updateItemInfo(int itemCode, int stock_count) {
+		PreparedStatement pstmt = null;
+		int updateCount = 0;
+
+		String sql = "UPDATE Item SET Item_stock_count=? where Item_code=?";
+				
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, stock_count);// 진열상태
+			pstmt.setInt(2, itemCode);// 판매상태
+			updateCount = pstmt.executeUpdate();
+			System.out.println("재고DB성공");
+		} catch (SQLException e) {
+			System.out.println("updateItem 재고 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+		return updateCount;
+	}
+
 }

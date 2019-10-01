@@ -13,7 +13,7 @@
            alert("인증번호가 일치하지않습니다");
           
         } else{
-        	  document.getElementById('resultEm').value = <%=memberBean.getMember_name()%>+"회원님의 아이디는 "+<%=memberBean.getMember_id()%>+"입니다.";
+        	 document.getElementById('resultEm').value = <%=memberBean.getMember_name()%>+"회원님의 아이디는 "+<%=memberBean.getMember_id()%>+"입니다.";
              document.getElementById('resultEm').style.color = "orange";
         }
 

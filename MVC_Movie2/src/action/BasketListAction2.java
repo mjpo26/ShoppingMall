@@ -25,15 +25,6 @@ public class BasketListAction2 implements Action {
 		  int itemCode = Integer.parseInt(request.getParameter("Item_code"));
 	        String sId = request.getParameter("sId");
 	        
-	        System.out.println(request.getParameter("sId"));
-	        System.out.println(request.getParameter("Item_code"));
-	        System.out.println(request.getParameter("Item_title"));
-	        System.out.println(request.getParameter("Item_old_price"));
-	        System.out.println(request.getParameter("Item_sel_price"));
-	        System.out.println(request.getParameter("Item_delivery_pee"));
-	        System.out.println(request.getParameter("Item_point"));
-	        System.out.println(request.getParameter("Item_code_count"));
-	        System.out.println(request.getParameter("item_color"));
 			ProductDetailService productDetailService = new ProductDetailService();
 			ItemBean itemBean = productDetailService.getArticle(itemCode);
 			
@@ -59,7 +50,7 @@ public class BasketListAction2 implements Action {
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false); // 생략 가능
 	        
-	        forward.setPath("./BasketInfo.bl");
+	        forward.setPath("./BasketInfo.bl?itemCode="+itemCode);
 	        
 	        return forward;
 		}

@@ -26,6 +26,28 @@
 
     
 %>
+<script type="text/javascript">
+function check() {
+	var item_code_count = document.orderForm.Item_code_count.value;
+// 	alert(item_code_count);
+	var stock_count = <%=itemBean.getItem_stock_count()%>;
+    if (stock_count==0) {
+        alert('제품이 품절되었습니다.');
+        history.back();
+        return false;
+    }
+    else {
+    	if(stock_count<item_code_count){
+    		alert('제품이 '+stock_count+'개 남았습니다. 수량을 줄여주세요.');
+    		return false;
+    	}
+    	else{
+    		
+    	return true;
+    	}
+    }
+}
+</script>
 <script type="text/javascript">   
 // function update_form(b_no){
 // 	  $.ajax({
@@ -139,7 +161,7 @@ function searchBoardListPaging (page) {
 
 <div class="product_image_area section_padding">
 	<div class="container"> <!-- 이건 중요함 꼭 넣어야함 페이지에서 중앙 위치page asdf -->
-		<form method="get">
+		<form method="get" name="orderForm" onsubmit="return check()">
 		    <input type="hidden" name="sId" value=<%=sId%>>
 			<input type="hidden" name="Item_code" value=<%=itemBean.getItem_code()%>> 
 			<input type="hidden" name="Item_delivery_pee" value=<%=itemBean.getItem_delivery_pee()%>>
@@ -201,7 +223,7 @@ function searchBoardListPaging (page) {
 							</div>
 							수량 : <div class="product_count">
 								<span class="inumber-decrement"> <i class="ti-minus"></i></span>
-								<input class="input-number" type="text" name="Item_code_count"
+								<input class="input-number" type="text" id="Item_code_count" name="Item_code_count"
 									value="1" min="0" max="10"> <span
 									class="number-increment"> <i class="ti-plus"></i></span>
 							</div>

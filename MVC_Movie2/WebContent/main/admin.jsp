@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
   <%
     // 저장된 세션 아이디 가져오기
-    String sId = (String)session.getAttribute("sId");
+  String sId = (String)session.getAttribute("sId");
   AdminListBean adminListBean = (AdminListBean)request.getAttribute("adminListBean");
   %>  
   
@@ -23,9 +23,9 @@
 				}
 
 			
-			$(document).ready(function(){
-				for
-			});	
+// 			$(document).ready(function(){
+// 				for
+// 			});	
 			</script>
 			
 			
