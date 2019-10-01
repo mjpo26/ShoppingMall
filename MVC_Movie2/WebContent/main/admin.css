@@ -178,7 +178,7 @@ html, body {
 
 #header {
     width: 100%;
-/*     height: 5em; */
+    height: 5em;
     background-color: #ffba00;
 /*    background-color: #BFD0E6;*/
     position: sticky;
@@ -389,3 +389,54 @@ html, body {
 /*     font-size: 1.9em; */
 }
 
+
+
+
+
+
+
+/* datatables 수정 */
+/* 기본 상태 */
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #222;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* 활성 상태 */
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 2;
+    color: #ff005a;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: none;
+        outline: none;
+        font-weight: 700;
+    
+}
+
+/* 오버 상태 */
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    z-index: 3;
+    color: #ff005a;
+    background-color: #eee;
+    border-color: transparent;
+}
+
+
+/* 이전 옆  */
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #AAA;
+    cursor: not-allowed;
+    background-color: transparent;
+    border-color: none;
+    outline: none;
+    
+}

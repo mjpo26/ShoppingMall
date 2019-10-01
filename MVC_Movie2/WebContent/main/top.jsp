@@ -64,11 +64,7 @@
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 상품
                                     </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-<<<<<<< HEAD
                                         <a class="dropdown-item" href="./product_list.sh">전체보기 </a>
-=======
-                                        <a class="dropdown-item" href="./product_list.sh">전체보기 </a>
->>>>>>> branch 'master' of https://github.com/mjpo26/ShoppingMall.git
                                         <a class="dropdown-item" href="./product_list.sh?Item_category1=주방가구">주방가구 </a>
                                         <a class="dropdown-item" href="./product_list.sh?Item_category1=사무가구">사무가구</a>
                                         <a class="dropdown-item" href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
@@ -118,9 +114,9 @@
                         </div>
                         <div class="hearer_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <a href=""><i class="ti-heart"></i></a>
+<!--                             <a href=""><i class="ti-heart"></i></a> -->
                             <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                                <a class="dropdown-toggle" href="./BasketInfo.bl" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-cart-plus"></i>
                                 </a>
