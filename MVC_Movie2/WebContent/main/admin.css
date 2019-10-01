@@ -440,3 +440,11 @@ html, body {
     outline: none;
     
 }
+
+
+/* 테이블 솔트 검색 위치  */
+@media (min-width: 576px)
+.form-inline label {
+    display: inline-block !important;
+
+}

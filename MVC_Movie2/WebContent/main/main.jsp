@@ -30,12 +30,12 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 				%>
 					<div class="single_banner_slider">
 						<div class="row">
-							<div class="col-lg-5 col-md-8">
+							<div class="col-lg-12 col-12 mx-auto">
 								<div class="banner_text">
-									<div class="banner_text_iner">
+									<div class="banner_text_iner text-center">
 										<h1><%=eb.getEvent_subject()%></h1>
 										<p><%=eb.getEvent_summary()%></p>
-										<a href="#" class="btn_2">buy now</a>
+<!-- 										<a href="#" class="btn_2">buy now</a> -->
 									</div>
 								</div>
 							</div>
@@ -47,7 +47,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<%
 					  }
 					}else{%>
-										<div class="single_banner_slider">
+					<div class="single_banner_slider">
 						<div class="row">
 							<div class="col-lg-5 col-md-8">
 								<div class="banner_text">
