@@ -197,12 +197,14 @@ function searchBoardListPaging (page) {
 							<h5>
 								아이콘 <span>|</span> 아이콘
 							</h5>
+							<%if(sId.equals("admin")){ %>
 							<div class="admin_btn">
-								<input type="button" value="수정" class="genric-btn primary-border small"
+							  <input type="button" value="수정" class="genric-btn primary-border small"
 									onclick="location.href='./update.sh?Item_code=<%=itemBean.getItem_code()%>'">
 								<input type="button" value="삭제" class="genric-btn primary-border small"
 									onclick="location.href='./delete.sh?Item_code=<%=itemBean.getItem_code()%>'">
 							</div>
+							<%} %>
 						</div>
 						<div class="item-info">
 							<h3><%=itemBean.getItem_title()%></h3>

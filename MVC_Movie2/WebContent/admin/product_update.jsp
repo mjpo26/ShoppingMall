@@ -3,8 +3,9 @@
    pageEncoding="UTF-8"%>
 <%
    ItemBean article = (ItemBean) request.getAttribute("article");
+
    int sale_price = (article.getItem_old_price() - article.getItem_sel_price())
-         / ((article.getItem_old_price() / 10));
+         / ((article.getItem_old_price() / 100))*100;
 %>
   <%
        

@@ -191,7 +191,7 @@
 						</a>
 						<input class="btn btn-default" type="button" value="회원수정">
 							<input class="btn btn-default" type="button" value="이메일전송">
-							<input class="btn btn-default" type="button" value="sns전송"></td>
+							<input class="btn btn-default" type="button" value="sms전송"></td>
 					</tr>
 					<%
 						}

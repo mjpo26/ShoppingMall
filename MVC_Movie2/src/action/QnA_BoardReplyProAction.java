@@ -33,6 +33,7 @@ public class QnA_BoardReplyProAction implements Action {
         // BoardReplyProService 인스턴스 생성
         QnA_BoardReplyProService boardReplyProService = new QnA_BoardReplyProService();
         boardReplyProService.replyArticle(article);
+        boardReplyProService.replyProArticle(article);
         
         
         // ActionForward 객체를 사용하여 BoardList.bo?page=x 포워딩 => 페이지 번호를 가지고 이동
