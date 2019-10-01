@@ -16,12 +16,14 @@ import action.AdminBoardListAction;
 import action.Admin_memberListAction;
 import action.MemberDeleteProAction;
 import action.MemberFwFindAction;
+import action.MemberFwUpdateAction;
 import action.MemberIDFindAction;
 import action.MemberIdCheckAction;
 import action.MemberInfoAction;
 import action.MemberJoinProAction;
 import action.MemberLoginProAction;
 import action.MemberLogoutProAction;
+import action.MemberPwUpdateProAction;
 import action.MemberUpdateAction;
 import action.MemberUpdateProAction;
 import action.MemberUsercheckAction;
@@ -137,7 +139,28 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/MemberfindID.me")) {
+		} else if (command.equals("/MemberFwUpdate.me")) {
+			System.out.println("여기안오납 ??");
+			action = new MemberFwUpdateAction();
+
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}  else if (command.equals("/MemberPwUpdatePro.me")) {
+			System.out.println("여긴오니? ??");
+			action = new MemberPwUpdateProAction();
+
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if (command.equals("/MemberfindID.me")) {
 			action = new MemberIDFindAction();
 
 			try {
@@ -147,7 +170,7 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		if (command.equals("/Admin_memberList.me")) {
+		else if (command.equals("/Admin_memberList.me")) {
 			System.out.println("Admin_memberList controller 들어옴");
 			action = new Admin_memberListAction();
 			try {

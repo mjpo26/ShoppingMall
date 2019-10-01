@@ -17,8 +17,10 @@
 			<div class="col-lg-8">
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item">
-						<h2>비밀번호 찾기<%=memberBean.getMember_pass()%></h2>
-						<p> 회원 <span>-</span> 비밀번호 찾기<%=authNum %>
+						<h2>
+							비밀번호 찾기<%=memberBean.getMember_pass()%></h2>
+						<p>
+							회원 <span>-</span> 비밀번호 찾기<%=authNum%>
 						</p>
 					</div>
 				</div>
@@ -38,9 +40,11 @@
 				</div>
 				<form method="post" name="joinForm">
 					<input type="hidden" id="mailHidden" value="<%=authNum%>">
-					<input type="text" id="mailCk" name="no"> 
-					<input type="button" onclick="mailCheck()" class="genric-btn primary radius col-2 submit" value="확인"><br>
-					<input type="text" id="resultEm" name="resultEm" value="" size="100" readonly style="border: 0">
+					<input type="text" id="mailCk" name="no"> <input
+						type="button" onclick="mailCheck()"
+						class="genric-btn primary radius col-2 submit" value="확인"><br>
+					<input type="text" id="resultEm" name="resultEm" value=""
+						size="100" readonly style="border: 0">
 				</form>
 				<!-- 				<br> 아이디는 -->
 				<%-- 				<%=memberBean.getMember_id()%>입니다.<br> --%>
@@ -63,8 +67,11 @@
 			alert("인증번호가 일치하지않습니다");
 		} else {
 			alert("인증번호가 일치합니다.");
-			document.getElementById('resultEm').value="회원님의 비밀번호는 "+'<%=memberBean.getMember_pass()%>'+"입니다.";
-			document.getElementById('resultEm').style.color = "orange";
+			var fid = '<%=memberBean.getMember_id()%>';
+			window.name = "비밀번호 변경";
+			 window.location.href="./MemberFwUpdate.me?fid="+ fid;
+<%-- 			document.getElementById('resultEm').value="회원님의 비밀번호는 "+'<%=memberBean.getMember_pass()%>'+"입니다."; --%>
+// 			document.getElementById('resultEm').style.color = "orange";
 		}
 	}
 </script>
