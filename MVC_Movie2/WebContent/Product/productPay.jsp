@@ -54,9 +54,11 @@ $(function() {
              $('#text3').css('color','red');
              $('span#result').css('color','red');
              $('#text3').text('사용가능 금액이 초과하였습니다!');
+             document.getElementById('usedPoint').value = '';
+             usedPoint *=1;
              document.getElementById('usedOk').value = 'no';
 <%--              $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count%>); --%>
-			$('span#result').html('상품금액 : '+<%=itemBean.getItem_old_price() * item_code_count%>+'원 - 할인금액 : '+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
+<%-- 			$('span#result').html('상품금액 : '+<%=itemBean.getItem_old_price() * item_code_count%>+'원 - 할인금액 : '+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원'); --%>
             }
           
           else{
