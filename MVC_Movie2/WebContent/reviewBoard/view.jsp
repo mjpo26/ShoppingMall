@@ -42,7 +42,7 @@
 					<h3><%=article.getReview_subject()%></h3>
 				</div>
 				<div class="review_score mt-0">
-					<span class="content_gray">평점 : </span>	
+					<span class="content_gray">평점 : </span>
 					<%
 						for (int i = 0; i < article.getReview_starPoint(); i++) {
 					%><i class="fa fa-star"></i>
@@ -95,6 +95,13 @@
 						<div class="comment_date col-2 text-right text-secondary">
 							<%=cb.getComment_date()%>
 						</div>
+						<% 	if (sId != null && sId.equals("admin")) { %>
+						<div class="comment_date col-2 text-right text-secondary">
+							<a
+								href="./ReviewBoardCommentDelete.re?num=<%=cb.getComment_num()%>"><input
+								type="button" value="삭제"></a>
+						</div>
+						<%} %>
 					</div>
 					<%
 						}

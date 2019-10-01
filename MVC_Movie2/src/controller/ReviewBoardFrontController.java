@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.ReviewBoardCommentDeleteAction;
 import action.ReviewBoardCommentProAction;
 import action.ReviewBoardDeleteProAction;
 import action.ReviewBoardDetailAction;
@@ -100,6 +101,14 @@ public class ReviewBoardFrontController extends HttpServlet {
 		}  else if (command.equals("/ReviewBoardCommentPro.re")) {
 			System.out.println("댓글 pro");
 			action = new ReviewBoardCommentProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/ReviewBoardCommentDelete.re")) {
+			System.out.println("댓글 삭제!!!");
+			action = new ReviewBoardCommentDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
