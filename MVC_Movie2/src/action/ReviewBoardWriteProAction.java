@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import svc.MemberInfoService;
 import svc.ReviewBoardWriteProService;
 import vo.ActionForward;
+import vo.MemberBean;
 import vo.ReviewBoardBean;
 
 import action.Action;
@@ -54,6 +56,13 @@ public class ReviewBoardWriteProAction implements Action {
         System.out.println("네? 코드요? "+boardBean.getReview_order_item_code());
         System.out.println("주문벙호!!"+boardBean.getReview_orderNo());
         System.out.println("네? 작성자코드요? "+boardBean.getReview_writer());
+        
+        MemberBean mb= new MemberBean();
+        mb.setMember_id(multi.getParameter("review_id"));
+        System.out.println("멤버!!!!아이디!!!!"+mb.getMember_id());
+        MemberInfoService infoService=new MemberInfoService();
+        int isRight = infoService.getPoint(mb.getMember_id());
+        
         boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
       
         if(!isWriteSuccess) { 
@@ -65,6 +74,7 @@ public class ReviewBoardWriteProAction implements Action {
             out.println("</script>");
         } else { 
             System.out.println();
+            System.out.println(isRight);
             forward = new ActionForward();
             forward.setPath("ReviewBoardList.re"); 
             forward.setRedirect(true); 

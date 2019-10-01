@@ -672,4 +672,28 @@ public String authNum() {
 		return result;
 	}
 
+	public int getPoint(String member_id) {
+		int updateCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		try {
+			String sql = "update member set member_mypoint=member_mypoint+500 where member_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member_id);
+			
+			updateCount = pstmt.executeUpdate();
+			System.out.println("들어옴????????");
+
+		} catch (SQLException e) {
+			System.out.println("updateReadCount() 에러ㅇㅇ - " + e.getMessage());
+		} finally {
+			// close(pstmt);
+			System.out.println("여기서~~! 아이디랑 포인트는!!@"+member_id);
+			System.out.println();
+
+		}
+		return updateCount;
+	}
+
 }
