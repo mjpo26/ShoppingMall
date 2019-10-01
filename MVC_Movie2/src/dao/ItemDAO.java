@@ -119,16 +119,20 @@ public class ItemDAO {
 
 		System.out.println("daoㅏ카카테고리 여기서!! 전ㅊ ㅔ??" + category);
 
-		int startRow = (page - 1) * 10;
+		int startRow = (page - 1) * 12;
 
 		try {
 			if (category.equals("전체")) {
-				String sql = "SELECT * FROM Item";
+				String sql = "SELECT * FROM Item LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, limit);
 			} else {
-				String sql = "SELECT * FROM Item where Item_category1=?";
+				String sql = "SELECT * FROM Item where Item_category1=? LIMIT ?,? ";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, category);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, limit);
 			}
 			rs = pstmt.executeQuery();
 			while (rs.next()) {

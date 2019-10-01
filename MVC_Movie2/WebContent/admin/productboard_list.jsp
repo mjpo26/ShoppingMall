@@ -77,53 +77,48 @@
 		</div>
 
 
-<!-- 		<section id="writeButton"> -->
-<!-- 			<a href="BoardWriteForm.bo"><input type="button" value="글쓰기"></a> -->
-<!-- 		</section> -->
+		<!-- 		<section id="writeButton"> -->
+		<!-- 			<a href="BoardWriteForm.bo"><input type="button" value="글쓰기"></a> -->
+		<!-- 		</section> -->
 
-	  <div id="pageList" class="text-center event_board board_paging">
-	
-				<%
-					if (nowPage <= 1) {
-				%>
-				      <i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
-				<%
-					} else {
-				%>
-				<a href="product_list.sh?page=<%=nowPage - 1%>"><i class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
-				<%
-					}
-				%>
+		<div id="pageList" class="text-center event_board board_paging">
 
-				<%
+			<%
+				if (nowPage <= 1) {
+			%>
+			<i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
+			<%
+				} else {
+			%>
+			<a href="product_list.sh?page=<%=nowPage - 1%>"><i
+				class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
+			<%
+				}
 					for (int i = startPage; i <= endPage; i++) {
-							if (i == nowPage) {
-				%>
-			   <span class="current"><b><%=i%></b></span>&nbsp;
-				<%
-					} else {
-				%>
-				<a href="product_list.sh?page=<%=i%>">  <%=i%>
-				</a>&nbsp;
-				<%
+						if (i == nowPage) {
+			%>
+			<span class="current"><b><%=i%></b></span>&nbsp;
+			<%
+				} else {
+			%>
+			<a href="product_list.sh?page=<%=i%>"> <%=i%>
+			</a>&nbsp;
+			<%
+				}
 					}
-				%>
-				<%
-					}
-				%>
-
-				<%
-					if (nowPage >= maxPage) {
-				%>
-			   &nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i> 
-				<%
-					} else {
-				%>
-				<a href="product_list.sh?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i></a>
-				<%
-					}
-				%>
-				 </div>
+				if (nowPage >= maxPage) {
+			%>
+			&nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i>
+			<%
+				} else {
+			%>
+			<a href="product_list.sh?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp;
+				<i class="ti-angle-right"></i>
+			</a>
+			<%
+				}
+			%>
+		</div>
 		<%
 			} else {
 		%>
