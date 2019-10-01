@@ -65,11 +65,10 @@
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         상품
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="./product_list.sh?Item_category1='주방가구'">주방가구 </a>
-                                        <a class="dropdown-item" href="./product_list.sh?Item_category1='사무가구'">사무가구</a>
-                                        <a class="dropdown-item" href="./product_list.sh?Item_category1='인테리어가구'">인테리어가구</a>
-<!--                                         <a class="dropdown-item" href="./productDetail.sh?Item_code=1&page=1">상세페이지</a> -->
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                        <a class="dropdown-item" href="./product_list.sh?Item_category1=주방가구">주방가구 </a>
+                                        <a class="dropdown-item" href="./product_list.sh?Item_category1=사무가구">사무가구</a>
+                                        <a class="dropdown-item" href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
                                         
                                     </div>
                                 </li>

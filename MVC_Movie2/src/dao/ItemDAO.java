@@ -78,19 +78,22 @@ public class ItemDAO {
 		return insertCount;
 	}
 
-	public int selectListCount() {
+	public int selectListCount(String category) {
 		int listCount = 0;
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		System.out.println("daoㅏ카카테고리"+category);
 
 		try {
-			String sql = "SELECT COUNT(*) FROM Item";
+			String sql = "SELECT COUNT(*) FROM Item where Item_category1=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, category);
 			rs = pstmt.executeQuery();
-
+			System.out.println("daoㅏ카카테고리"+category);
 			if (rs.next()) {
 				listCount = rs.getInt(1);
+				System.out.println("daodododoo에서 " + listCount);
 			}
 
 		} catch (SQLException e) {
@@ -103,7 +106,7 @@ public class ItemDAO {
 		return listCount;
 	}
 
-	public ArrayList<ItemBean> selectArticleList(int page, int limit) {
+	public ArrayList<ItemBean> selectArticleList(int page, int limit, String category) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -112,8 +115,9 @@ public class ItemDAO {
 		int startRow = (page - 1) * 10;
 
 		try {
-			String sql = "SELECT * FROM Item";
+			String sql = "SELECT * FROM Item where Item_category1=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, category);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -274,7 +278,7 @@ public class ItemDAO {
 				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
 				itemBean.setItem_Date(rs.getDate("Item_Date"));
 				itemBean.setItem_icon1(Item_icon1);
-				
+
 				products.add(itemBean);
 			}
 
@@ -334,120 +338,106 @@ public class ItemDAO {
 
 		return itemBean;
 	}
-	
+
 	// 카테1 등록
-		public int insertCate1(String cate1) {
-			int insertCount = 0;
+	public int insertCate1(String cate1) {
+		int insertCount = 0;
 
-			PreparedStatement pstmt = null;
+		PreparedStatement pstmt = null;
 
-			String sql = "INSERT INTO Item(item_category1) VALUES(?)";
-		//	select distinct Item_category1 from Item where item_category1 like '%%';
-			try {
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, cate1);// 카테고리1
-				insertCount = pstmt.executeUpdate();
-				System.out.println("DB성공");
-			} catch (SQLException e) {
-				System.out.println("insertCate1 실패! - " + e.getMessage());
-			} finally {
-				close(pstmt);
+		String sql = "INSERT INTO Item(item_category1) VALUES(?)";
+		// select distinct Item_category1 from Item where item_category1 like '%%';
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cate1);// 카테고리1
+			insertCount = pstmt.executeUpdate();
+			System.out.println("DB성공");
+		} catch (SQLException e) {
+			System.out.println("insertCate1 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return insertCount;
+	}
+
+	// 카테1 조회
+	public ArrayList<ItemBean> selectCate1() {
+
+		ArrayList<ItemBean> cate1Arr = new ArrayList<ItemBean>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select distinct Item_category1 from Item where Item_category1 is not null ";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			System.out.println("카테1조회성공" + rs);
+			while (rs.next()) {
+				ItemBean cate = new ItemBean();
+				cate.setItem_category1(rs.getString("item_category1"));
+				cate1Arr.add(cate);
 			}
 
-			return insertCount;
+		} catch (SQLException e) {
+			System.out.println("selectCate 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+			close(rs);
 		}
-		// 카테1 조회
-				public ArrayList<ItemBean> selectCate1() {
 
-					ArrayList<ItemBean> cate1Arr = new ArrayList<ItemBean>();
-					PreparedStatement pstmt = null;
-					ResultSet rs = null;
+		return cate1Arr;
+	}
 
-					
-					String sql = "select distinct Item_category1 from Item where Item_category1 is not null ";
-					try {
-						pstmt = con.prepareStatement(sql);
-						rs = pstmt.executeQuery();
-						System.out.println("카테1조회성공"+rs);
-						while(rs.next()) {
-							ItemBean cate = new ItemBean();
-							cate.setItem_category1(rs.getString("item_category1"));
-						cate1Arr.add(cate);
-						}
-						
-						
-						
-						
-					} catch (SQLException e) {
-						System.out.println("selectCate 실패! - " + e.getMessage());
-					} finally {
-						close(pstmt);
-						close(rs);
-					}
+	// 카테2 조회
+	public ArrayList<ItemBean> selectCate2() {
 
-					return cate1Arr;
-				}
-		
-				// 카테2 조회
-				public ArrayList<ItemBean> selectCate2() {
+		ArrayList<ItemBean> cate2Arr = new ArrayList<ItemBean>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-					ArrayList<ItemBean> cate2Arr = new ArrayList<ItemBean>();
-					PreparedStatement pstmt = null;
-					ResultSet rs = null;
+		String sql = "select distinct Item_category2 from Item where Item_category2 is not null ";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			System.out.println("카테2조회성공" + rs);
+			while (rs.next()) {
+				ItemBean cate = new ItemBean();
+				cate.setItem_category2(rs.getString("item_category2"));
+				cate2Arr.add(cate);
+			}
 
-					
-					String sql = "select distinct Item_category2 from Item where Item_category2 is not null ";
-					try {
-						pstmt = con.prepareStatement(sql);
-						rs = pstmt.executeQuery();
-						System.out.println("카테2조회성공"+rs);
-						while(rs.next()) {
-							ItemBean cate = new ItemBean();
-							cate.setItem_category2(rs.getString("item_category2"));
-						cate2Arr.add(cate);
-						}
-						
-						
-						
-						
-					} catch (SQLException e) {
-						System.out.println("selectCate2 실패! - " + e.getMessage());
-					} finally {
-						close(pstmt);
-						close(rs);
-					}
+		} catch (SQLException e) {
+			System.out.println("selectCate2 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
 
-					return cate2Arr;
-				}
-		
-		
-		
-		
-		
-		// 카테2 등록
-				public int insertCate2(String cate2) {
-					int insertCount = 0;
+		return cate2Arr;
+	}
 
-					PreparedStatement pstmt = null;
+	// 카테2 등록
+	public int insertCate2(String cate2) {
+		int insertCount = 0;
 
-					String sql = "INSERT INTO Item(item_category2) VALUES(?)";
-				//	select distinct Item_category1 from Item where item_category1 like '%%';
-					try {
-						pstmt = con.prepareStatement(sql);
-						pstmt.setString(1, cate2);// 카테고리1
-						insertCount = pstmt.executeUpdate();
-						System.out.println("DB성공");
-					} catch (SQLException e) {
-						System.out.println("insertCate2 실패! - " + e.getMessage());
-					} finally {
-						close(pstmt);
-					}
+		PreparedStatement pstmt = null;
 
-					return insertCount;
-				}
-	
-	
-	
+		String sql = "INSERT INTO Item(item_category2) VALUES(?)";
+		// select distinct Item_category1 from Item where item_category1 like '%%';
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cate2);// 카테고리1
+			insertCount = pstmt.executeUpdate();
+			System.out.println("DB성공");
+		} catch (SQLException e) {
+			System.out.println("insertCate2 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return insertCount;
+	}
 
 	public ArrayList<ItemBean> selectArticleList(ItemBean pb) {
 		PreparedStatement pstmt = null;
@@ -455,22 +445,15 @@ public class ItemDAO {
 
 		ArrayList<ItemBean> articleList = new ArrayList<ItemBean>();
 
-
 		try {
 
-			System.out.println("디에오 체크/"+pb.getPickStart() + "/" +pb.getPickEnd());
+			System.out.println("디에오 체크/" + pb.getPickStart() + "/" + pb.getPickEnd());
 //			        + "Item_code like ifnull(?,'%%') "
-			
-			String sql = "SELECT * FROM Item where "
-					+ "Item_title like ifnull(?,'%%') "
-					+ "and Item_date >= ?"
-					+ "and Item_date <= ?"
-			        + "and Item_display like ifnull(?,'%%') "
-			        + "and Item_sales like ifnull(?,'%%')"
-			        + "and Item_category1 like ifnull(?,'%%')";
-			        
-			        
-			
+
+			String sql = "SELECT * FROM Item where " + "Item_title like ifnull(?,'%%') " + "and Item_date >= ?"
+					+ "and Item_date <= ?" + "and Item_display like ifnull(?,'%%') "
+					+ "and Item_sales like ifnull(?,'%%')" + "and Item_category1 like ifnull(?,'%%')";
+
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, ob.getOrder_item_option_color());
 //			pstmt.setInt(1,pb.getItem_code());
@@ -481,7 +464,6 @@ public class ItemDAO {
 			pstmt.setString(5, pb.getItem_sales());
 			pstmt.setString(6, pb.getItem_category1());
 			rs = pstmt.executeQuery();
-			
 
 			while (rs.next()) {
 				ItemBean itemBean = new ItemBean();
@@ -508,9 +490,9 @@ public class ItemDAO {
 				itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
 				itemBean.setItem_Date(rs.getDate("Item_Date"));
 				articleList.add(itemBean);
-				
+
 			}
-			
+
 			System.out.println("ItemDAO: itemdao 담긴거 확인:" + articleList);
 		} catch (SQLException e) {
 			System.out.println("selectArticleList() 에러 - " + e.getMessage());
@@ -528,7 +510,6 @@ public class ItemDAO {
 		PreparedStatement pstmt = null;
 
 		String sql = "UPDATE Item SET Item_display=?,Item_sales=?  where Item_code=?";
-				
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -562,9 +543,7 @@ public class ItemDAO {
 			close(pstmt);
 		}
 		return deleteCount;
-		
 
-		
 	}
 
 }
