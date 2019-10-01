@@ -23,28 +23,28 @@
 	</div>
 </section>
 
-<article id="content">
+<section class="review_board_content board_content">
 	<div class="container mainDiv">
-		<section class="content product_insert">
+	<div class="review_content col-lg-8 mx-auto mt-5 p-5">
 			<form action="deletePro.me" id="join" method="post">
 				<fieldset>
 					<legend>회원 탈퇴</legend>
-					<label>User ID</label> <input type="text" name="id" value="<%=id%>"
+					<label>User ID</label> <input type="text" class="form-control" name="id" value="<%=id%>"
 						readonly><br> <label>Password</label> <input
-						type="password" name="member_pass"><br>
+						type="password"  class="form-control" name="member_pass"><br>
 				</fieldset>
 				<div class="clear"></div>
 				<div id="buttons">
-					<input type="submit" value="회원탈퇴" class="submit"> 
-					<input type="reset" value="취소" class="cancel">
+					<input type="submit" value="회원탈퇴" class="submit"  class="genric-btn primary radius submit"> 
+					<input type="reset" value="취소" class="cancel" class="genric-btn default radius" onclick="history.back()"  >
 
 				</div>
 			</form>
-		</section>
+		</div>
 	</div>
-</article>
+</section>
 
-<jsp:include page="../assets/foot.jsp"></jsp:include>
+<jsp:include page="../main/foot.jsp"></jsp:include>
 
 
 
