@@ -55,7 +55,7 @@
 							<label for="member_email">이메일</label>
 						</div>
 						<div class="col-lg-4 col-sm-6 col-6">
-							<input type="text" id="member_email" name="email"
+							<input type="text" id="email" name="email"
 								placeholder="이메일" onfocus="this.placeholder = '이메일'"
 								onblur="this.placeholder = '이메일'" required class="single-input">
 						</div>

@@ -59,19 +59,30 @@
 				</tr>
 				<tr>
 					<td class="td_left"><label for="QnA_pass">비밀번호</label></td>
-					<td class="td_right"><input type="password" name="QnA_pass" id="QnA_pass" required="required" /></td>
+					<td><input type="password" name="QnA_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
 				</tr>
-				<tr>
-					<td class="td_left"><label for="QnA_subject">제목</label></td>
-					<td class="td_right"><input type="text" name="QnA_subject" id="QnA_subject" required="required" /></td>
-				</tr>
+						<tr>
+							<td class="td_left"><label for="QnA_subject">문의내용</label></td>
+							<td class="td_right">
+							<select name="QnA_subject">
+							<option value="" selected>--선택--</option>
+							<option value="상품 문의">상품 문의</option>
+							<option value="입금/결제 문의">입금/결제 문의</option>
+							<option value="배송문의">배송문의</option>
+							<option value="배송전 변경/취소문의">배송전 변경/취소문의</option>
+							<option value="배송후 교환/환불문의">배송후 교환/환불문의</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>첨부파일</td>
+							<td colspan="3"><input type="file" name="review_file1" class="form-control-file"></td>
+						</tr>
 				<tr>
 					<td class="td_left"><label for="QnA_content">내용</label></td>
 					<td class="td_right">
 					
 						<textarea name="QnA_content" id="QnA_content" cols="40" rows="15" required="required" >
-						-------------------------------
-						<%=article.getQnA_content() %></textarea>
+<%=article.getQnA_content() %></textarea>
 					</td>
 				</tr>
 				</table>

@@ -29,6 +29,7 @@ public class MemberFwFindAction implements Action {
 	        MemberIdCheckService memberIdcheckService = new MemberIdCheckService();
 		    MemberBean memberBean = memberIdcheckService.findFw(id, email);
 			String authNum = memberIdcheckService.authNum();
+			System.out.println("난수느ㅡ으ㅡ은 발생되엇나역여여거!!!!" + authNum);
 			boolean result = memberIdcheckService.checkEmail(email, authNum);    
 			System.out.println(result);
 
@@ -38,6 +39,7 @@ public class MemberFwFindAction implements Action {
 				forward = new ActionForward();
 				// forward.setPath("./idcheck.jsp");
 				forward.setPath("./member/pw_findpro.jsp");
+				System.out.println(memberBean.getMember_id()+"비번은"+memberBean.getMember_pass());
 				forward.setRedirect(false);
 
 				return forward;

@@ -13,7 +13,8 @@
            alert("인증번호가 일치하지않습니다");
           
         } else{
-        	 document.getElementById('resultEm').value = <%=memberBean.getMember_name()%>+"회원님의 아이디는 "+<%=memberBean.getMember_id()%>+"입니다.";
+//         	alert("인증번호가 일치합니다.");
+        	 document.getElementById('resultEm').value ="회원님의 아이디는 "+<%=memberBean.getMember_id()%>+"입니다.";
              document.getElementById('resultEm').style.color = "orange";
         }
 
@@ -58,7 +59,7 @@
 					<input type="hidden" id="mailHidden" value="<%=authNum%>">
 					<input type="text" id="mailCk" name="no"> <input
 						type="button" onclick="mailCheck()" class="genric-btn primary radius col-2 submit"  value="확인"><br> <input
-						type="text" id="resultEm" value="" size="100"readonly style="border:0" >
+						type="text" id="resultEm" name="resultEm"value="" size="100"readonly style="border: 0">
 				</form>
 				<!-- 				<br> 아이디는 -->
 				<%-- 				<%=memberBean.getMember_id()%>입니다.<br> --%>

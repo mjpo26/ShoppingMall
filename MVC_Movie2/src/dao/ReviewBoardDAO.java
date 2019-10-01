@@ -55,8 +55,8 @@ public class ReviewBoardDAO {
 					+ "review_file2," // 10
 					+ "review_file3," + "review_file4," + "review_file5," + "review_starPoint," + "review_orderNo,"
 					+ "review_re_ref," + "review_re_lev," + "review_re_seq," + "review_replycount,"
-					+ "review_order_item_code, " + "review_order_item_name, " + "review_date)" + "VALUES(?,?,?,?,?,?," + "?,?,?,?,?,?,?,"
-					+ "?,?,?,?,?,?,?,now())";
+					+ "review_order_item_code, " + "review_order_item_name, " + "review_date)" + "VALUES(?,?,?,?,?,?,"
+					+ "?,?,?,?,?,?,?," + "?,?,?,?,?,?,?,now())";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -115,7 +115,7 @@ public class ReviewBoardDAO {
 
 		return listCount;
 	}
-	
+
 	public int selectListCount(int item_code) {
 		int listCount = 0;
 
@@ -124,10 +124,10 @@ public class ReviewBoardDAO {
 
 		try {
 			String sql = "SELECT COUNT(*) FROM Review_Board where review_order_item_code = ?";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, item_code);
-			
+
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -143,7 +143,6 @@ public class ReviewBoardDAO {
 
 		return listCount;
 	}
-	
 
 	public ReviewBoardBean selectArticle(int Review_num) {
 		PreparedStatement pstmt = null;
@@ -219,7 +218,6 @@ public class ReviewBoardDAO {
 				boardBean.setReview_order_item_code(rs.getInt("review_order_item_code"));
 				boardBean.setReview_order_item_name(rs.getString("review_order_item_name"));
 
-
 				articleList.add(boardBean);
 			}
 
@@ -233,7 +231,6 @@ public class ReviewBoardDAO {
 		return articleList;
 	}
 
-	
 	public ArrayList<ReviewBoardBean> selectArticleList(int itme_code, int page, int limit) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -279,11 +276,10 @@ public class ReviewBoardDAO {
 		return articleList;
 	}
 
-	
 	// 조회수
 	public int updateReadCount(int review_num) {
 		int updateCount = 0;
-		
+
 		PreparedStatement pstmt = null;
 
 		try {
@@ -295,8 +291,8 @@ public class ReviewBoardDAO {
 		} catch (SQLException e) {
 			System.out.println("updateReadCount() 에러ㅇㅇ - " + e.getMessage());
 		} finally {
-		//	close(pstmt);
-	
+			// close(pstmt);
+
 		}
 		return updateCount;
 	}
@@ -325,7 +321,7 @@ public class ReviewBoardDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
-			
+
 		}
 
 		return isArticleWriter;
@@ -438,7 +434,7 @@ public class ReviewBoardDAO {
 		ArrayList<CommentBean> commentList = new ArrayList<CommentBean>();
 
 		try {
-           System.out.println("DAO에서!!!!"+num);
+			System.out.println("DAO에서!!!!" + num);
 			String sql = "SELECT * FROM Review_comment where comment_review_num=?";
 
 			pstmt = con.prepareStatement(sql);
@@ -448,11 +444,11 @@ public class ReviewBoardDAO {
 			while (rs.next()) {
 				CommentBean cb2 = new CommentBean();
 				cb2.setComment_content(rs.getString("comment_content"));
-	
+				cb2.setComment_num(rs.getInt("comment_num"));
 				cb2.setComment_id(rs.getString("comment_id"));
 				cb2.setComment_writer(rs.getString("comment_writer"));
 				cb2.setComment_date(rs.getDate("comment_date"));
-			
+
 				commentList.add(cb2);
 			}
 			System.out.println("코멘트 담긴거 확인:" + commentList);
@@ -465,6 +461,7 @@ public class ReviewBoardDAO {
 
 		return commentList;
 	}
+
 	public int getBoardCount(AdminBoardSearchBean abs) {
 		int listCount = 0;
 
@@ -480,13 +477,14 @@ public class ReviewBoardDAO {
 
 			if (rs.next()) {
 				listCount = rs.getInt(1);
-				System.out.println("게시판 글 갯수는"+listCount);
+				System.out.println("게시판 글 갯수는" + listCount);
 			}
 
 		} catch (SQLException e) {
 			System.out.println("selectListCount() 에러 - " + e.getMessage());
 		} finally {
-			if(rs!=null) close(rs);
+			if (rs != null)
+				close(rs);
 			close(pstmt);
 		}
 
@@ -498,20 +496,17 @@ public class ReviewBoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<ReviewBoardBean> boardlist = new ArrayList<ReviewBoardBean>();
-		
+
 		int startRow = (abs.getPage() - 1) * 10;
 
 		try {
 
-			String sql = "SELECT * FROM Review_Board where "
-			        + "review_subject like ifnull(?,'%%') "
-					+ "and review_date >= ?"
-			        + "and review_date <= ?"
-			        + "and review_writer like ifnull(?,'%%') "
-			        + "and review_replycount like ifnull(?,'%%')";
+			String sql = "SELECT * FROM Review_Board where " + "review_subject like ifnull(?,'%%') "
+					+ "and review_date >= ?" + "and review_date <= ?" + "and review_writer like ifnull(?,'%%') "
+					+ "and review_replycount like ifnull(?,'%%')";
 //			        + "and review_file1 like ifnull(?,'%%') ";
 //			        + "ORDER BY order_item_code LIMIT ?,?"; 답글달렸는지여부 아직체크 안함, 이미지여부도..
-			
+
 			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, abs.getOrder_item_option_color());
 			System.out.println(abs.getBoard_title());
@@ -521,18 +516,18 @@ public class ReviewBoardDAO {
 			pstmt.setString(4, abs.getBoard_writer());
 			pstmt.setString(5, abs.getBoard_replyCheck());
 			rs = pstmt.executeQuery();
-			
-			System.out.println(startRow+"와"+abs.getLimit());
+
+			System.out.println(startRow + "와" + abs.getLimit());
 
 			while (rs.next()) {
 				ReviewBoardBean listBean = new ReviewBoardBean();
-		        listBean.setReview_subject(rs.getString("review_subject"));
-		        listBean.setReview_writer(rs.getString("review_writer"));
-		        listBean.setReview_date(rs.getDate("review_date"));
-		        listBean.setReview_num(rs.getInt("review_num"));
-		        listBean.setReview_re_lev(rs.getInt("review_re_lev"));
-		        listBean.setReview_replycount(rs.getString("review_replycount"));
-		        boardlist.add(listBean);
+				listBean.setReview_subject(rs.getString("review_subject"));
+				listBean.setReview_writer(rs.getString("review_writer"));
+				listBean.setReview_date(rs.getDate("review_date"));
+				listBean.setReview_num(rs.getInt("review_num"));
+				listBean.setReview_re_lev(rs.getInt("review_re_lev"));
+				listBean.setReview_replycount(rs.getString("review_replycount"));
+				boardlist.add(listBean);
 			}
 			System.out.println("OrderDAO: orderList 담긴거 확인:" + boardlist);
 		} catch (SQLException e) {
@@ -543,5 +538,25 @@ public class ReviewBoardDAO {
 		}
 
 		return boardlist;
+	}
+
+	public int deleteComment(int num) {
+		PreparedStatement pstmt = null;
+
+		int deleteCount = 0;
+
+		try {
+			String sql = "DELETE FROM Review_comment WHERE comment_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			deleteCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("deleteArticle() 에러 - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return deleteCount;
+
 	}
 }

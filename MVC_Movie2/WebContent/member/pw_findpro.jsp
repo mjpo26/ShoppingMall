@@ -9,20 +9,12 @@
 <script type="text/javascript">
 	function mailCheck() {
 
-		if (document.getElementById('mailCk').value != document
-				.getElementById('mailHidden').value) {
+		if (document.getElementById('mailCk').value != document.getElementById('mailHidden').value) {
 
 			alert("인증번호가 일치하지않습니다");
 
 		} else {
-			// 			var id = memberBean.getMember_id();
-			// 			alert("인증번호가 일치합니다.");
-			// 			window.open("pw_modify.jsp?id="+id);
-			document.getElementById('resultEm').value =
-<%=memberBean.getMember_name()%>
-	+ "회원님의 비밀번호는 " +
-<%=memberBean.getMember_pass()%>
-	+ "입니다.";
+			document.getElementById('resultEm').value = "회원님의 비밀번호는 " +<%=memberBean.getMember_pass()%>+ "입니다.";
 			document.getElementById('resultEm').style.color = "orange";
 		}
 	}

@@ -110,10 +110,7 @@
 		class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
 	<%
 		}
-	%>
-
-	<%
-		for (int i = startPage; i <= endPage; i++) {
+			for (int i = startPage; i <= endPage; i++) {
 				if (i == nowPage) {
 	%>
 	<span class="current"><b><%=i%></b></span>&nbsp;
@@ -123,12 +120,7 @@
 	<a href="QnA_BoardList.qa?page=<%=i%>"><%=i%>&nbsp; </a>
 	<%
 		}
-	%>
-	<%
-		}
-	%>
-
-	<%
+			}
 		if (nowPage >= maxPage) {
 	%>
 	&nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i>

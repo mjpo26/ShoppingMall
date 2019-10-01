@@ -83,14 +83,19 @@ public class ItemDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		System.out.println("daoㅏ카카테고리"+category);
+		System.out.println("daoㅏ카카테고리" + category);
 
 		try {
-			String sql = "SELECT COUNT(*) FROM Item where Item_category1=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, category);
+			if (category.equals("전체")) {
+				String sql = "SELECT COUNT(*) FROM Item";
+				pstmt = con.prepareStatement(sql);
+			} else {
+				String sql = "SELECT COUNT(*) FROM Item where Item_category1=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, category);
+			}
 			rs = pstmt.executeQuery();
-			System.out.println("daoㅏ카카테고리"+category);
+			System.out.println("daoㅏ카카테고리" + category);
 			if (rs.next()) {
 				listCount = rs.getInt(1);
 				System.out.println("daodododoo에서 " + listCount);
@@ -112,14 +117,24 @@ public class ItemDAO {
 
 		ArrayList<ItemBean> articleList = new ArrayList<ItemBean>();
 
-		int startRow = (page - 1) * 10;
+		System.out.println("daoㅏ카카테고리 여기서!! 전ㅊ ㅔ??" + category);
+
+		int startRow = (page - 1) * 12;
 
 		try {
-			String sql = "SELECT * FROM Item where Item_category1=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, category);
+			if (category.equals("전체")) {
+				String sql = "SELECT * FROM Item LIMIT ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, limit);
+			} else {
+				String sql = "SELECT * FROM Item where Item_category1=? LIMIT ?,? ";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, category);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, limit);
+			}
 			rs = pstmt.executeQuery();
-
 			while (rs.next()) {
 				ItemBean itemBean = new ItemBean();
 				itemBean.setItem_code(rs.getInt("Item_code"));
@@ -145,9 +160,8 @@ public class ItemDAO {
 
 				articleList.add(itemBean);
 			}
-
 		} catch (SQLException e) {
-			System.out.println("selectArticleList() - " + e.getMessage());
+			System.out.println("여기 오류 selectArticleList() - " + e.getMessage());
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -551,7 +565,6 @@ public class ItemDAO {
 		int updateCount = 0;
 
 		String sql = "UPDATE Item SET Item_stock_count=? where Item_code=?";
-				
 
 		try {
 			pstmt = con.prepareStatement(sql);
