@@ -42,4 +42,30 @@ public class QnA_BoardReplyProService {
         
         
     }
+
+	public void replyProArticle(QnA_BoardBean article) throws Exception {
+        boolean isReplySuccess = false;
+        
+        // 객체 가져오기
+        Connection con = getConnection();
+        QnA_BoardDAO dao = QnA_BoardDAO.getInstance();
+        dao.setConnection(con); // DAO 객체에 Connection 객체 전달
+        
+        System.out.println("BoardReply번호 참조"+article.getQnA_re_ref());
+        // BoardDAO 객체의 insertReplyArticle() 메서드를 호출하여 답글 등록 => 정수형 결과 insertCount 리턴받음
+        int updateCount = dao.isUpdateReply(article);
+        
+        // insertCount 가 0보다 크면 commit(), replySuccess 변수를 true 로 지정
+        // 아니면 rollback() 수행
+        if(updateCount > 0) {
+            commit(con);
+            isReplySuccess = true;
+        } else {
+            rollback(con);
+        }
+        
+        // Connection 자원 반환
+        close(con);
+        
+    }
 }

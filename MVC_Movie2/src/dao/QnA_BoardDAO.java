@@ -363,7 +363,7 @@ public class QnA_BoardDAO {
             pstmt.setInt(8, QnA_re_lev);
             pstmt.setInt(9, QnA_re_seq);
             pstmt.setInt(10, 0); // 조회수 = 새 글이므로 0
-            pstmt.setInt(11, 0); // 리플카운트
+            pstmt.setString(11, article.getQnA_replycount()); // 리플카운트
             //date
             pstmt.setString(12, "");
             pstmt.setString(13, "");
@@ -433,7 +433,31 @@ public class QnA_BoardDAO {
     }
     
     // 답글 달렸는지 여부 1이면 달린거 0이면 안달린거
-    public int isUpdate
+    public int isUpdateReply(QnA_BoardBean article) {
+    	int updateCount = 0;
+    	PreparedStatement pstmt = null;
+    	int QnA_re_ref = article.getQnA_re_ref();
+    	System.out.println("이 ref"+QnA_re_ref);
+    	System.out.println("is업리플 왔나?");
+    	
+    	try {
+			// 글 번호에 해당하는 레코드에 대해 제목(subject), 내용(content) 수정 후 결과값 리턴
+			String sql = "UPDATE QnA_Board SET QnA_replycount=? WHERE QnA_re_ref=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "1");
+			pstmt.setInt(2, QnA_re_ref);
+			updateCount = pstmt.executeUpdate();
+			
+			System.out.println(pstmt);
+
+		} catch (SQLException e) {
+			System.out.println("isUpdateArticle() 에러 - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return updateCount;
+	}
     
 	public int getBoardCount(AdminBoardSearchBean abb) {
 		int listCount = 0;
