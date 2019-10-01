@@ -307,13 +307,19 @@ function searchAddress(){
 
     <!--================login_part Area =================-->
     <section class="join_part padding_top">
+  <div id="kakaoLo">  
     <a id="kakao-login-btn"></a>
-<a href="http://localhost:8080/MVC_Movie/MemberLogoutPro.me">로그아웃</a>
+<a href="./index.jsp">로그아웃</a>
+  </div>
     <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
     // 카카오 로그인 버튼을 생성합니다.
+    
+  
+    
+    
     Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
       success: function(authObj) {
@@ -338,12 +344,11 @@ function searchAddress(){
            
            
             
-            alert("id받은값:"+id);
-             alert("name받은값:"+name);
-             alert("image받은값:"+image);
-             alert("email받은값:"+email);
-             alert("access_tocken 받은 값:"+access_tocken);
-             alert("emailSplit[0]: "+domain);
+            alert("[id받은값]:                          "+id);
+             alert("[name받은값]:                    "+name);
+             alert("[image받은값]:                    "+image);
+             alert("[email받은값]:                    "+email);
+             alert("[도메인]:                          "+domain);
              $('[name=id]').val(id);
              $('[name=name]').val(name);
              $('[name=id]').val(id);
@@ -351,14 +356,14 @@ function searchAddress(){
              $('[name=email2]').val(email1);
              $('[name=domain]').val(domain);
              $('[name=domain2]').val(domain);
-//              var html = '<h1>' + name + '</h1>';
-//              html += '<img src="' + image + '">';
-//              $('body').append(html);
+              var html = '<h1>' + name + '</h1>';
+              html += '<img src="' + image + '" width="200px" height="200px">';
+              $('div#kakaoLo').append(html);
           }
        })
          console.log(authObj);
         var token = authObj.access_token;
-//         alert(token);
+        alert("[액세스토큰 받은 값] :                    " +token);
 //         sessionStorage.setItem("token",token);
 //         location='http://localhost:8080/MVC/ListController'
         

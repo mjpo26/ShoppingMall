@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+   
     
 <%
     // 현재 세션에 저장된 id 값이 있을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
@@ -87,33 +87,93 @@
             </div>
         </div>
     </div>
-    <div id="naver_id_login"></div>
-<script type="text/javascript"
-      src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-      charset="utf-8"></script>
+<!--     <div id="naver_id_login"></div> -->
+<!-- <script type="text/javascript" -->
+<!--       src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" -->
+<!--       charset="utf-8"></script> -->
 
-<script type="text/javascript">
-      var clientId = "t264Qh6r0U2esDUlEFWD";
-      var callbackUrl = "http://localhost:8080/MVC_Movie/index.jsp";
-      var naver_id_login = new naver_id_login(clientId, callbackUrl);
-      var state = naver_id_login.getUniqState();
-      naver_id_login.setButton("white", 3, 40);
-      naver_id_login.setDomain("http://localhost:8080/MVC_Movie/index.jsp");
-      naver_id_login.setState(state);
-      naver_id_login.setPopup();
-      naver_id_login.init_naver_id_login();
-</script>
- <a id="kakao-login-btn"></a>
-<a href="http://developers.kakao.com/logout"></a>
-<script type='text/javascript'>
-  //<![CDATA[
-    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
-    // 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-      container: '#kakao-login-btn',
-      success: function(authObj) {
-        alert(JSON.stringify(authObj));
+<!-- <script type="text/javascript"> -->
+//       var clientId = "t264Qh6r0U2esDUlEFWD";
+//       var callbackUrl = "http://localhost:8080/MVC_Movie/index.jsp";
+//       var naver_id_login = new naver_id_login(clientId, callbackUrl);
+//       var state = naver_id_login.getUniqState();
+//       naver_id_login.setButton("white", 3, 40);
+//       naver_id_login.setDomain("http://localhost:8080/MVC_Movie/index.jsp");
+//       naver_id_login.setState(state);
+//       naver_id_login.setPopup();
+//       naver_id_login.init_naver_id_login();
+      
+  
+      
+      
+      
+      
+<!-- </script> -->
+<!--  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
+ 
+
+
+
+ 
+ 
+ 
+ 
+<!--  <a id="kakao-login-btn"></a> -->
+<!-- <a href="http://localhost:8080/MVC_Movie/MemberLogoutPro.me"></a> -->
+<!-- <script type='text/javascript'> -->
+//   //<![CDATA[
+//     // 사용할 앱의 JavaScript 키를 설정해 주세요.
+//     Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
+//     // 카카오 로그인 버튼을 생성합니다.
+//     Kakao.Auth.createLoginButton({
+//       container: '#kakao-login-btn',
+//       success: function(authObj) {
+//         alert(JSON.stringify(authObj));
+        
+//         var access_tocken =authObj.access_tocken;
+  	  
+  	  
+//   	  Kakao.API.request({
+// 			url:'/v2/user/me',
+//         success: function(res){
+//            console.log(res);
+//            var id = res.id;
+//            var access_tocken =res.access_tocken;
+//            var name = res.properties.nickname;
+//            var image = res.properties.profile_image;
+//            var email = res.kakao_account.email;
+//            var emailSplit = email.split("@");
+//            var email1 = emailSplit[0];
+//   	  	var domain = emailSplit[1];
+  	  
+         
+//            var html = '<h1>' + name + '</h1>';
+//            html += '<img src="' + image + '">';
+//            $('body').append(html);
+//         }
+//      })
+//        console.log(authObj);
+//       var token = authObj.access_token;
+//        alert("토큰발급 :" +token);
+//       sessionStorage.setItem("token",token);
+//       location='http://localhost:8080/MVC/ListController'
+//      sessionStorage.setItem("token",token);
+//      location='http://localhost:8080/MVC/MemberLoginProAction.me'
+     /*  $.ajax({
+         url:'login',
+         data:{'token':token},
+         success: function(res){
+            location='http://localhost:8080/MVC/ListController'
+         }
+         
+      }) */
+        
+        
+        
+        
+        
+        
+        
       },
       fail: function(err) {
          alert(JSON.stringify(err));
