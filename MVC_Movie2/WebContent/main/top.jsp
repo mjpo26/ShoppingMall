@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     <%
     String sId = (String)session.getAttribute("sId");
-
     %>
 <!doctype html>
 <html lang="ko">
@@ -11,7 +10,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>aranoz</title>
+    <title>MO:V 편안한 가구 쇼핑몰</title>
     <link rel="icon" href="./assets/img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> 
@@ -62,14 +61,12 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="./product_list.sh?" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        상품
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 상품
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="./product_list.sh?Item_category1='주방가구'">주방가구 </a>
-                                        <a class="dropdown-item" href="./product_list.sh?Item_category1='사무가구'">사무가구</a>
-                                        <a class="dropdown-item" href="./product_list.sh?Item_category1='인테리어가구'">인테리어가구</a>
-<!--                                         <a class="dropdown-item" href="./productDetail.sh?Item_code=1&page=1">상세페이지</a> -->
+                                        <a class="dropdown-item" href="./product_list.sh?Item_category1=주방가구">주방가구 </a>
+                                        <a class="dropdown-item" href="./product_list.sh?Item_category1=사무가구">사무가구</a>
+                                        <a class="dropdown-item" href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
                                         
                                     </div>
                                 </li>

@@ -6,8 +6,6 @@
 	pageEncoding="UTF-8"%>
 <%
 ArrayList<ItemBean> bestProduct = bestProduct = (ArrayList<ItemBean>) request.getAttribute("bestProduct");
-// out.println(bestProduct);
-// out.println(bestProduct.size());
 ArrayList<ItemBean> newProduct = (ArrayList<ItemBean>) request.getAttribute("newProduct");
 ArrayList<ItemBean> recommendProduct = (ArrayList<ItemBean>) request.getAttribute("recommendProduct");
 String sId = (String)session.getAttribute("sId");
