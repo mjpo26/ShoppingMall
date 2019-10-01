@@ -6,22 +6,23 @@
 	String authNum = (String) request.getAttribute("authNum");
 %>
 <script type="text/javascript">
-    function mailCheck() {
+	function mailCheck() {
 
-        if ( document.getElementById('mailCk').value !=document.getElementById('mailHidden').value) {
+		if (document.getElementById('mailCk').value != document
+				.getElementById('mailHidden').value) {
 
-           alert("인증번호가 일치하지않습니다");
-          
-        } else{
-//         	alert("인증번호가 일치합니다.");
-        	 document.getElementById('resultEm').value ="회원님의 아이디는 "+<%=memberBean.getMember_id()%>+"입니다.";
-             document.getElementById('resultEm').style.color = "orange";
-        }
+			alert("인증번호가 일치하지않습니다");
 
-    }
-    
-    
+		} else {
+			//         	alert("인증번호가 일치합니다.");
+			document.getElementById('resultEm').value = "회원님의 아이디는 "
+					+
+<%=memberBean.getMember_id()%>
+	+ "입니다.";
+			document.getElementById('resultEm').style.color = "orange";
+		}
 
+	}
 </script>
 
 
@@ -58,8 +59,10 @@
 				<form method="post" name="joinForm">
 					<input type="hidden" id="mailHidden" value="<%=authNum%>">
 					<input type="text" id="mailCk" name="no"> <input
-						type="button" onclick="mailCheck()" class="genric-btn primary radius col-2 submit"  value="확인"><br> <input
-						type="text" id="resultEm" name="resultEm"value="" size="100"readonly style="border: 0">
+						type="button" onclick="mailCheck()"
+						class="genric-btn primary radius col-2 submit" value="확인"><br>
+					<input type="text" id="resultEm" name="resultEm" value=""
+						size="100" readonly style="border: 0">
 				</form>
 				<!-- 				<br> 아이디는 -->
 				<%-- 				<%=memberBean.getMember_id()%>입니다.<br> --%>
