@@ -24,17 +24,17 @@
 	</div>
 </section>
 
-<article id="content">
-	<div class="container mainDiv">
-		<section class="content product_insert">
+<section class="review_board_content board_content">
+	<div class="container">
+	<div class="review_content col-lg-8 mx-auto mt-5 p-5">
 			<form name="deleteForm"
 				action="QnA_BoardDeletePro.qa?QnA_num=<%=QnA_num%>" method="post">
 				<input type="hidden" name="page" value="<%=nowPage%>" />
 
-				<table>
+			<table class="table">
 					<tr>
-						<td><label>글 비밀번호 : </label></td>
-						<td><input type="password" name="QnA_pass"></td>
+						<td><label>글 비밀번호 </label></td>
+						<td><input type="password" class="form-control" name="QnA_pass"></td>
 					</tr>
 					<tr>
 						<td><input type="submit" value="삭제" /></td>
@@ -42,8 +42,8 @@
 					</tr>
 				</table>
 			</form>
-	</section>
 	</div>
-</article>
+	</div>
+</section>
 
 <jsp:include page="../main/foot.jsp"></jsp:include>

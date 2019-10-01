@@ -70,7 +70,11 @@
 						// 세션값이 "admin" 같으면 
 						if (sId.equals(writer)) {
 				%>
-				<input type="button" class="btn_3"
+<!-- 				<input type="button" class="btn_3" -->
+<%-- 					onclick='location.href="ReviewBoardModifyForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" ' --%>
+<!-- 					value="수정"> -->
+					
+					 <input type="button" class="btn_3"
 					onclick='location.href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" '
 					value="삭제">
 				<%
@@ -93,17 +97,18 @@
 							<%=cb.getComment_content()%>
 						</div>
 						<div class="comment_date col-2 text-right text-secondary">
-							<%=cb.getComment_date()%> 	
-						<%
-							if (sId != null && sId.equals("admin")) {
-						%>
-							<a href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">
+							<%=cb.getComment_date()%>
+							<%
+								if (sId != null && sId.equals("admin")) {
+							%>
+							<a
+								href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">
 								<img src="./assets/img/board/xicon.png" alt="xicon">
 							</a>
-						
-						<%
-							}
-						%>
+
+							<%
+								}
+							%>
 						</div>
 					</div>
 					<%
