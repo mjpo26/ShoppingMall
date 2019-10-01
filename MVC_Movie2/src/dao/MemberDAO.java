@@ -639,7 +639,7 @@ public String authNum() {
 	public boolean sendEmail(String email, String authNum) {
 		boolean result = false;
 		String sender = "qhrud961123@gmail.com";
-		String subject = "안녕하세요. 고객님 __ 아이디/비밀번호 찾기 인증번호입니다.";
+		String subject = "<MO:V> 고객님 __ 아이디/비밀번호 찾기 인증번호입니다.";
 		String content = "안녕하세요 " + email + "님, <br>" + "귀하의 인증번호는    [<b>" + authNum + "</b>]   입니다.";
 
 		try {

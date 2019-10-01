@@ -11,28 +11,28 @@ import vo.ItemBean;
 
 public class ProductListService {
 
-	public int getListCount() {
-	     int listCount = 0; // �쟾泥� 寃뚯떆臾� �닔 ���옣�븯�뒗 蹂��닔
+	public int getListCount(String category) {
+	     int listCount = 0;
 	        Connection con = getConnection();  
 	        
 	        ItemDAO itemDAO = ItemDAO.getInstance();
 	        
 	        itemDAO.setConnection(con);
 	        
-	        listCount = itemDAO.selectListCount();
+	        listCount = itemDAO.selectListCount(category);
 	        close(con);
 	        
 	        return listCount;
 	    }
 
-	    public ArrayList<ItemBean> getArticleList(int page, int limit) throws Exception {
+	    public ArrayList<ItemBean> getArticleList(int page, int limit, String category) throws Exception {
 	        ArrayList<ItemBean> articleList = null;
 	        
 	        Connection con = getConnection();  
 	        ItemDAO itemDAO = ItemDAO.getInstance();
 	        itemDAO.setConnection(con);
 	        
-	        articleList = itemDAO.selectArticleList(page, limit);
+	        articleList = itemDAO.selectArticleList(page, limit,category);
 	        
 
 	        
