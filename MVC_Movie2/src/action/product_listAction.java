@@ -20,7 +20,11 @@ public class product_listAction implements Action {
 	        int limit = 10;
 	        String category=(String)request.getParameter("Item_category1");
 //	        System.out.println("카테고리ㅣㅣㅣㅣ 번호 "+num);
-	        System.out.println("카테고고고이리리"+category);
+	        System.out.println("카테고고고이리리 : "+category);
+	        if(category==null) {
+	        	category="전체";
+	        }
+	        System.out.println("카테고고고이리리 : "+category);
 	        	
 	        if(request.getParameter("page") != null) {
 	            page = Integer.parseInt(request.getParameter("page"));

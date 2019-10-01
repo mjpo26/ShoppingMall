@@ -19,7 +19,6 @@
 <jsp:include page="../main/top.jsp"></jsp:include>
 
 
-<section class="breadcrumb breadcrumb_bg">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
