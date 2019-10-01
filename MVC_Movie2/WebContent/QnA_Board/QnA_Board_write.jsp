@@ -43,18 +43,15 @@
 			<div class="review_content col-lg-8 mx-auto mt-5 p-5">
 				<form action="./QnA_BoardWritePro.qa" method="post" enctype="multipart/form-data" name="boardform">
 					<table class="table">
+					<tr>
 					<td class="td_left"><label for="QnA_writer_id">ID</label></td>
 					<td class="td_right"><input type="text" name="QnA_writer_id"
 						id="QnA_writer_id" value="<%=sId%>" readonly="readonly"
 						required="required" /></td>
+						</tr>
 						<tr>
-							<td>비밀번호
-						
-							</td>
-							<td>
-							
-							<input type="password" name="QnA_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
-						
+							<td>비밀번호</td>
+							<td><input type="password" name="QnA_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
 						</tr>
 						<tr>
 							<td class="td_left"><label for="QnA_subject">문의내용</label></td>

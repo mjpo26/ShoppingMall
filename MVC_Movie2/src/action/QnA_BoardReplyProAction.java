@@ -26,6 +26,7 @@ public class QnA_BoardReplyProAction implements Action {
         article.setQnA_re_ref(Integer.parseInt(request.getParameter("QnA_re_ref")));
         article.setQnA_re_lev(Integer.parseInt(request.getParameter("QnA_re_lev")));
         article.setQnA_re_seq(Integer.parseInt(request.getParameter("QnA_re_seq")));
+        article.setQnA_replycount("1");
         
         System.out.println("ReplyProAction 클래스 : " + Integer.parseInt(request.getParameter("QnA_re_ref")) + ", " + Integer.parseInt(request.getParameter("QnA_re_lev")));
         

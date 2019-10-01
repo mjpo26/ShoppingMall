@@ -30,7 +30,7 @@
 					<div class="breadcrumb_iner_item">
 						<h2></h2>
 						<p>
-							리뷰 보기 <span>-</span> 상품 리뷰 보기
+							QnA게시판 <span>-</span> 글수정
 						</p>
 					</div>
 				</div>
@@ -44,12 +44,11 @@
 	<section class="review_board_content board_content">
 		<div class="container">
 			<div class="review_content col-lg-8 mx-auto mt-5 p-5">
-				<form action="QnA_BoardModifyPro.qa" method="post" name="boardForm"
+				<form action="QnA_BoardModifyPro.qa" enctype="multipart/form-data" method="post" name="boardForm"
 					onsubmit="return modifyBoard(<%=article.getQnA_pass()%>)">
-					<input type="hidden" name="QnA_num"
-						value="<%=article.getQnA_num()%>" /> <input type="hidden"
-						name="page" value="<%=nowPage%>" />
-					<table>
+					<input type="hidden" name="QnA_num" value="<%=article.getQnA_num()%>" /> 
+					<input type="hidden" name="page" value="<%=nowPage%>" />
+					<table class="table">
 						<tr>
 							<!-- label 태그를 사용하여 해당 레이블 클릭 시 for 속성에 지정된 이름과 같은 id 속성을 갖는 텍스트필드로 커서 요청 -->
 							<td class="td_left"><label for="QnA_writer_id">ID</label></td>
@@ -58,16 +57,26 @@
 								readonly="readonly" required="required" /></td>
 						</tr>
 						<tr>
-							<td class="td_left"><label for="QnA_pass">비밀번호</label></td>
-							<td class="td_right"><input type="password" name="QnA_pass"
-								id="QnA_pass" required="required" /></td>
+							<td>비밀번호</td>
+						<td><input type="password" name="QnA_pass" class="form-control" placeholder="글을 수정,삭제할때 입력할 비밀번호를 입력하세요"></td>
 						</tr>
 						<tr>
-							<td class="td_left"><label for="QnA_subject">제목</label></td>
-							<td class="td_right"><input type="text" name="QnA_subject"
-								id="QnA_subject" value="<%=article.getQnA_subject()%>"
-								required="required" /></td>
+							<td class="td_left"><label for="QnA_subject">문의내용</label></td>
+							<td class="td_right">
+							<select name="QnA_subject">
+							<option value="" selected>--선택--</option>
+							<option value="상품 문의">상품 문의</option>
+							<option value="입금/결제 문의">입금/결제 문의</option>
+							<option value="배송문의">배송문의</option>
+							<option value="배송전 변경/취소문의">배송전 변경/취소문의</option>
+							<option value="배송후 교환/환불문의">배송후 교환/환불문의</option>
+							</select></td>
 						</tr>
+						<tr>
+							<td>첨부파일</td>
+							<td colspan="3"><input type="file" name="review_file1" class="form-control-file"></td>
+						</tr>
+						
 						<tr>
 							<td class="td_left"><label for="QnA_content">내용</label></td>
 							<td class="td_right"><textarea name="QnA_content"
@@ -88,3 +97,16 @@
 		</div>
 	</section>
 	<jsp:include page="../main/foot.jsp"></jsp:include>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

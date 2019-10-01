@@ -292,7 +292,7 @@
 							%>
 						</td>
 						<td><a
-							href="ReviewBoardDetail.re?review_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>">
+							href="QnA_BoardDetail.qa?QnA_num=<%=boardList.get(i).getQnA_num()%>&page=<%=nowPage%>">
 								<input type="button" value="게시글 보기">
 						</a></td>
 					</tr>
