@@ -678,7 +678,8 @@ public int getPoint(String member_id) {
 		PreparedStatement pstmt = null;
 
 		try {
-			String sql = "update member set member_mypoint=member_mypoint+500 where member_id=?";
+			
+			String sql = "update member set member_mypoint = member_mypoint+500 where member_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member_id);
 			
@@ -688,9 +689,11 @@ public int getPoint(String member_id) {
 		} catch (SQLException e) {
 			System.out.println("updateReadCount() 에러ㅇㅇ - " + e.getMessage());
 		} finally {
-			// close(pstmt);
+			System.out.println("실행되 구문" + pstmt);
+			System.out.println("getPoint DAO 성공여부 : " + updateCount);
 			System.out.println("여기서~~! 아이디랑 ㅏㅏㅏㅏㅏㅏㅏㅏㅏ포인트는!!@"+member_id);
 			System.out.println();
+			close(pstmt);
 
 		}
 		return updateCount;
