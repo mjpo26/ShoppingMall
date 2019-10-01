@@ -14,7 +14,7 @@ public class MemberLogoutProAction implements Action {
         // 저장된 세션 객체 초기화(세션 비우기)
         HttpSession session = request.getSession();
         session.invalidate();
-        
+               
         ActionForward forward = new ActionForward();
         forward.setPath("index.jsp");
         forward.setRedirect(true);

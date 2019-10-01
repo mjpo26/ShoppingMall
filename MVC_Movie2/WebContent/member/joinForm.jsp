@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../main/top.jsp"></jsp:include>
+<a href="http://developers.kakao.com/logout">로그아웃</a>
+
+<script src='http://code.jquery.com/jquery-3.1.1.min.js'></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+function searchAddress(){
+    new daum.Postcode({
+        oncomplete: function(data) {
+           console.log(data);
+           $('[name=address]').val(data.addressEnglish);
+          
+        }
+    }).open();
+}
+
+
+
 
 <!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 <!--[if lt IE 9]>
@@ -288,6 +307,79 @@
 
     <!--================login_part Area =================-->
     <section class="join_part padding_top">
+    <a id="kakao-login-btn"></a>
+<a href="http://localhost:8080/MVC_Movie/MemberLogoutPro.me">로그아웃</a>
+    <script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+    	  alert(JSON.stringify(authObj));
+    	 
+    	  var access_tocken =authObj.access_tocken;
+    	  
+    	  
+    	  Kakao.API.request({
+			url:'/v2/user/me',
+          success: function(res){
+             console.log(res);
+             var id = res.id;
+             var access_tocken =res.access_tocken;
+             var name = res.properties.nickname;
+             var image = res.properties.profile_image;
+             var email = res.kakao_account.email;
+             var emailSplit = email.split("@");
+             var email1 = emailSplit[0];
+    	  	var domain = emailSplit[1];
+    	  
+           
+           
+            
+            alert("id받은값:"+id);
+             alert("name받은값:"+name);
+             alert("image받은값:"+image);
+             alert("email받은값:"+email);
+             alert("access_tocken 받은 값:"+access_tocken);
+             alert("emailSplit[0]: "+domain);
+             $('[name=id]').val(id);
+             $('[name=name]').val(name);
+             $('[name=id]').val(id);
+             $('[name=email]').val(email1);
+             $('[name=email2]').val(email1);
+             $('[name=domain]').val(domain);
+             $('[name=domain2]').val(domain);
+//              var html = '<h1>' + name + '</h1>';
+//              html += '<img src="' + image + '">';
+//              $('body').append(html);
+          }
+       })
+         console.log(authObj);
+        var token = authObj.access_token;
+//         alert(token);
+//         sessionStorage.setItem("token",token);
+//         location='http://localhost:8080/MVC/ListController'
+        
+       /*  $.ajax({
+           url:'login',
+           data:{'token':token},
+           success: function(res){
+              location='http://localhost:8080/MVC/ListController'
+           }
+           
+        }) */
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+  //]]>
+
+  
+  
+</script>
         <div class="container">
             <div class="align-items-center">
                 <div class="col-lg-8 col-md-8 col-sm-12 mx-auto">
@@ -574,7 +666,7 @@
 
                             <div class="input-group-icon col-lg-10">
                                 <div class="icon"><i class="fa fa-at" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select2">
+                                <div class="form-select" id="default-select2" >
                                     <select onchange="chkEmailDomainSelect(this)">
                                        <option value="">직접입력</option>
                                        <option value="naver.com">naver.com</option>
