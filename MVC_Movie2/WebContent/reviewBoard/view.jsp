@@ -72,10 +72,7 @@
 				%>
 				<input type="button" class="btn_3"
 					onclick='location.href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" '
-					value="삭제"> 
-<!-- 					<a href="http://www.naver.com" target="_blank"> -->
-<!-- 					<img src="이미지경로"> -->
-<!-- 				</a> -->
+					value="삭제">
 				<%
 					}
 					}
@@ -96,19 +93,18 @@
 							<%=cb.getComment_content()%>
 						</div>
 						<div class="comment_date col-2 text-right text-secondary">
-							<%=cb.getComment_date()%>
-						</div>
+							<%=cb.getComment_date()%> 	
 						<%
 							if (sId != null && sId.equals("admin")) {
 						%>
-						<div class="comment_date col-2 text-right text-secondary">
-							<a
-								href="./ReviewBoardCommentDelete.re?num=<%=cb.getComment_num()%>"><input
-								type="button" value="삭제"></a>
-						</div>
+							<a href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">
+								<img src="./assets/img/board/xicon.png" alt="xicon">
+							</a>
+						
 						<%
 							}
 						%>
+						</div>
 					</div>
 					<%
 						}
