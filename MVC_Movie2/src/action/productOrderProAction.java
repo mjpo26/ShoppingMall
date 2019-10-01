@@ -64,12 +64,14 @@ public class productOrderProAction implements Action {
 			
 			ProductOrderInfoService productOrderInfoService = new ProductOrderInfoService();
 			ItemBean itemBean = productOrderInfoService.getItemInfo(itemCode);
+			//재고 
+			int stock_count = itemBean.getItem_stock_count()-item_code_count;
+			System.out.println(stock_count);
 			if (memberBean != null) {
 				int mypoint = memberBean.getMember_mypoint();
 				
 				mypoint = mypoint -usedPoint+item_point;
 				memberUpdateProService.insertPoint(sId,mypoint);
-				
 				// 조회된 회원정보(MemberBean)를 request 객체에 저장
 				request.setAttribute("memberBean", memberBean);
 				request.setAttribute("itemBean", itemBean);
@@ -85,6 +87,7 @@ public class productOrderProAction implements Action {
 				OrderBean.setOrder_used_point(usedPoint);
 				OrderBean.setOrder_memo(order_memo);
 				OrderBean.setOrder_bank(order_bank);
+				
 				OrderBean.setOrder_member_id(memberBean.getMember_id());
 				OrderBean.setOrder_member_name(memberBean.getMember_name());
 				OrderBean.setOrder_item_point(memberBean.getMember_mypoint());
@@ -115,6 +118,29 @@ public class productOrderProAction implements Action {
 			    	   
 			       }
 				}
+				if(stock_count <= itemBean.getItem_stock_count()) {
+				
+					boolean isUpdateSuccess =productOrderInfoService.getItemstock_count(itemCode,stock_count);
+					
+					   if(!isUpdateSuccess) {
+				            response.setContentType("text/html;charset=UTF-8");
+				            PrintWriter out = response.getWriter();
+				            out.println("<script>");
+				            out.println("alert('재고 수정 실패!')");
+
+				            out.println("</script>");
+				        } else {
+				        	 response.setContentType("text/html;charset=UTF-8");
+					           PrintWriter out = response.getWriter();
+					           out.println("<script>");
+					           out.println("alert('장바구니 삭제 성공!')");
+					           out.println("</script>");
+
+				        }
+				}
+					
+				
+				
 				if (!isInsertSuccess) {
 					response.setContentType("text/html;charset=UTF-8");
 					PrintWriter out = response.getWriter();

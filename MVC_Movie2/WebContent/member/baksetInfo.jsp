@@ -7,10 +7,37 @@
 	<%
     	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
     	ArrayList<BasketListBean> articleList = (ArrayList<BasketListBean>)request.getAttribute("articleList");
-	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
+	
+// 	ItemBean itemBean = (ItemBean) request.getAttribute("itemBean");
 	
 	
     %>    
+    <script type="text/javascript">
+    
+// function check() {
+//	var item_code_count = document.BasketForm.item_code_count.value;
+// 	alert(item_code_count);
+<%-- 	var stock_count = <%=itemBean.getItem_stock_count()%>; --%>
+//     if (stock_count==0) {
+//         alert('제품이 품절되었습니다.');
+//         location.href='./BasketDelete.bl';       
+//         history.back();
+//         return false;
+//     }
+//     else {
+//     	if(stock_count<item_code_count){
+//     		alert('제품이 '+stock_count+'개 남았습니다. 재주문해주세요.');
+//     		location.href='./BasketDelete.bl';       
+//             history.back();
+//     		return false;
+//     	}
+//     	else{
+    		
+//     	return true;
+//     	}
+//     }
+// }
+</script>
 <jsp:include page="../main/top.jsp"></jsp:include>
 
 
@@ -51,18 +78,25 @@
 					<th>주문</th>
 				</tr>
 					<%for(int i = 0; i < articleList.size(); i++) {%>
+<!-- 							<form method="get" name="BasketForm" onsubmit="return check()"> -->
 							<tr>
-							<td><input type="checkbox" name="cb" value="<%=articleList.get(i).getBasket_code()%>"></td>  
+							<td><input type="checkbox" name="cb" value="<%=articleList.get(i).getBasket_code()%>">
+							<input type="hidden" name="bId" value="<%=articleList.get(i).getBasket_idx()%>">
+							<input type="hidden" id="item_code_count" name="item_code_count" value="<%=articleList.get(i).getBasket_code_count() %>">
+							</td>  
 							<td><%=articleList.get(i).getBasket_title() %></td>
 							<td><%=articleList.get(i).getBasket_code_count() %></td>
 							<td><%=articleList.get(i).getBasket_new_price() %></td>
 							<td><%=articleList.get(i).getBasket_sel_price() %></td>
 							<td><%=articleList.get(i).getBasket_new_price()-articleList.get(i).getBasket_sel_price() %> </td>
 							<td><%=articleList.get(i).getBasket_delivery_pee() %>원</td>
+							
+<!-- 							<td><input type="submit" value="장바구니 담기" formaction="./selectorder.sh"><br> -->
+<!-- 							<input type="submit" value="장바구니 담기" formaction="./BasketDelete.bl"><td> -->
 							<td><input type="button" value="주문하기" onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'"><br>
 							<input type="button" value="삭제하기" onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'"></td>
 							</tr>
-							
+							</form>
 					<%} %>					
 					
 			</table>
