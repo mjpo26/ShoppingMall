@@ -672,7 +672,7 @@ public String authNum() {
 		return result;
 	}
 
-	public int getPoint(String member_id) {
+public int getPoint(String member_id) {
 		int updateCount = 0;
 
 		PreparedStatement pstmt = null;
@@ -721,3 +721,5 @@ public String authNum() {
 			}
 
 }
+
+
