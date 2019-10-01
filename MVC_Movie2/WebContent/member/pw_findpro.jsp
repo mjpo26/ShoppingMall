@@ -59,16 +59,13 @@
 <script type="text/javascript">
 	function mailCheck() {
 // 		alert("인증번호가 일치하지않습니다");
-
 		if (document.getElementById('mailCk').value != document.getElementById('mailHidden').value) {
 			alert("인증번호가 일치하지않습니다");
-
 		} else {
 			alert("인증번호가 일치합니다.");
 			document.getElementById('resultEm').value="회원님의 비밀번호는 "+'<%=memberBean.getMember_pass()%>'+"입니다.";
 			document.getElementById('resultEm').style.color = "orange";
 		}
-
 	}
 </script>
 

@@ -75,7 +75,7 @@
  	for (int j = 0; j <= articleList.get(i).getQnA_re_lev() * 2; j++) {
  %> &nbsp; <%
  	}
- %>▶ <%
+ %>&angrt; <%
  	} else {
  %> <%
  	}
