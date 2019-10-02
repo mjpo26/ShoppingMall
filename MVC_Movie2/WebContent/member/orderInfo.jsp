@@ -52,8 +52,9 @@
 					for (int i = 0; i < articleList.size(); i++) {
 						int num = articleList.get(i).getOrder_idx();
 						String status = articleList.get(i).getOrder_delivery_status();
+						String review = articleList.get(i).getOrder_reviewCheck();
 				%>
-<%-- 				<a href="productDetail.sh?Item_code=<%=articleList.get(i).getOrder_item_code()%>&page=1"> --%>
+				<%-- 				<a href="productDetail.sh?Item_code=<%=articleList.get(i).getOrder_item_code()%>&page=1"> --%>
 				<tr>
 					<td><%=articleList.get(i).getOrder_idx()%></td>
 					<td><%=articleList.get(i).getOrder_item_code()%></td>
@@ -64,6 +65,7 @@
 					<td><%=articleList.get(i).getOrder_delivery_status()%></td>
 					<%
 						if (status.equals("배송완료")) {
+								if (review.equals("0")) {
 					%>
 					<td><a
 						href="ReviewBoardWriteForm.re?order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
@@ -71,7 +73,12 @@
 					</a></td>
 
 					<%
-						} else {
+						}else{
+							%>
+							<td>리뷰작성완료</td>
+							<%
+						}
+							} else {
 					%>
 					<td></td>
 					<%

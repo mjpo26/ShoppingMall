@@ -49,7 +49,6 @@ public class ReviewBoardDAO {
 			if (rs.next()) {
 				num = rs.getInt(1) + 1;
 			}
-
 			sql = "INSERT INTO Review_Board (" + "review_num," + "review_subject," + "review_content,"
 					+ "review_writer," + "review_id," + "review_pass," + "review_readcount," + "review_file1,"
 					+ "review_file2," // 10
@@ -76,9 +75,11 @@ public class ReviewBoardDAO {
 			pstmt.setInt(15, num);
 			pstmt.setInt(16, 0);
 			pstmt.setInt(17, 0);
-			pstmt.setString(18, "0");
+			pstmt.setString(18, "1");
 			pstmt.setInt(19, article.getReview_order_item_code());
 			pstmt.setString(20, article.getReview_order_item_name());
+			
+
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("insertArticle() 에러 - " + e.getMessage());
