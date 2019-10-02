@@ -2937,8 +2937,16 @@ ul {
 /************* our offer *****************/
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
 .our_offer {
-  background-color: #ecfdff;
+/*   background-color: #ecfdff; */
+  background-image: url("../img/main/main_komport_190911.jpg");
+  background-attachment: fixed;
+  
 }
+.our_offer .offer_text{
+	background-color: rgba(255,255,255,0.2);
+	padding: 1.5em 0em 1.5em 2em;
+}
+
 
 /* line 5, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
 .our_offer .date_countdown {
@@ -2954,8 +2962,13 @@ ul {
 /* line 12, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
 .our_offer h2 {
   font-size: 50px;
-  line-height: 70px;
+  line-height: 60px;
   font-weight: 700;
+}
+
+.our_offer p {
+	margin-top:1em;
+  line-height: 1.5;
 }
 
 @media (max-width: 991px) {
@@ -2964,6 +2977,7 @@ ul {
     font-size: 30px;
     line-height: 35px;
     margin-top: 30px;
+    text-shadow: 0px 0px 30px rgba(255,255,255,0.1);
   }
 }
 
@@ -2992,7 +3006,7 @@ ul {
 .our_offer span {
   display: block;
   font-size: 13px;
-  color: #666666;
+  color: rgba(255,255,255,0.5);
   text-transform: uppercase;
 }
 
@@ -3001,7 +3015,7 @@ ul {
   height: 60px;
   padding-left: 25px;
   border: 0px solid transparent;
-  background-color: #fff;
+  background-color: #666;
 }
 
 /* line 53, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
@@ -7588,7 +7602,8 @@ h6 {
 /**********************footer part css*******************/
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_footer.scss */
 .footer_part {
-  padding: 20px 0px;
+  margin-top : 3em;
+  padding: 35px 0px 20px;
 }
 
 @media (max-width: 576px) {

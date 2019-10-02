@@ -12,10 +12,10 @@
                 	<div class="col-lg-2 align-middle p-5">                		
                 		<img src="./assets/img/logo_mid_gray.png">
                 	</div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-7">
                         <div class="copyright_text ">
                             <p>                            
-				                            상호명 (주)모브 대표이사 강봉순 대표상담전화 1644-2630<br>
+				            <strong><b>(주)모브</b></strong> 대표이사:<strong>김숙현</strong>   대표상담전화:1644-2630<br>
 							사업자등록번호 128-86-11172 통신판매업신고증 제 경기고양-1927<br>
 							본사주소 경기도 고양시 덕양구 화랑로165번길 9 (경기도 고양시 덕양구 화전동 373-1)<br>
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
@@ -24,12 +24,13 @@
                        </div>
                     </div>
                     
-                    <div class="col-lg-5">
+                    <div class="col-lg-3">
                     	<div class="callcenter_text">
                     		<h5>CUSTOMER SERVICE CENTER</h5>
 							<h1>1644-2630</h1>
-							매장 영업시간 10:00~20:00   A/S문의 09:00~18:00<br>
-							메일 help@itwillbs.com<br>
+							구매문의 가능시간: 10:00~20:00<br>
+							A/S문의 가능시간: 09:00~18:00<br>
+							help@itwillbs.com<br>
                     	
                     	</div>
                     
