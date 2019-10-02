@@ -93,13 +93,23 @@ function pickNullCheck(){
 					<tr>
 						<td>상품분류</td>
 						<td>
-							<select name="category">
-								<option value="">카테고리</option>
+							<select name="icon1">
+								<option value="">이벤트</option>
 								<option value="best">best</option>
 								<option value="new">new</option>
 								<option value="recommend">recommend</option>
 							</select>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<select name="category">
+								<option value="">카테고리</option>
+								<option value="주방가구">주방가구</option>
+								<option value="사무가구">사무가구</option>
+								<option value="인테리어가구">인테리어가구</option>
+							</select>
 						</td>
+						
+							
+						
 					</tr>
 					<tr>
 						<td>기간검색</td>

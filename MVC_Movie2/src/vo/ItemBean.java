@@ -237,6 +237,9 @@ public class ItemBean {
 		Item_delivery_pee = item_delivery_pee;
 	}
 	public String getItem_icon1() {
+		if (Item_icon1 == "") {
+			Item_icon1 = null;
+		}
 		return Item_icon1;
 	}
 	public void setItem_icon1(String item_icon1) {
