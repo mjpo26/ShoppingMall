@@ -3,6 +3,9 @@
 <%@page import="vo.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 	// 	basketListBean basketListBean = (basketListBean) request.getAttribute("basketListBean");
 	String bId = (String) request.getParameter("bId");
@@ -161,9 +164,14 @@ function check() {
 					</tr>
 					<tr>
 						<th width="200" align="center">적립금</th>
-						<td width="200" align="center" colspan="2"><%=basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%></td>
+						<td width="200" align="center" colspan="2">
+						<fmt:formatNumber value="<%=basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%>"	pattern="#,###" />원
+					</td>
 						<th width="200" align="center">가격</th>
-						<td width="200" align="center" colspan="2"><%=basketListBean.getBasket_point() * basketListBean.getBasket_code_count()%></td>
+						<td width="200" align="center" colspan="2">
+						<fmt:formatNumber    value="<%=basketListBean.getBasket_point() * basketListBean.getBasket_code_count()%>" pattern="#,###" />원
+<%-- 						<%=basketListBean.getBasket_point() * basketListBean.getBasket_code_count()%> --%>
+						</td>
 
 					</tr>
 					<tr>
