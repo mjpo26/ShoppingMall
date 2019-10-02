@@ -208,22 +208,20 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 <section class="subscribe_area section_padding">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-lg-7">
+			<div class="col-lg-10">
 				<div class="subscribe_area_text text-center">
-					<h5>Join Our Newsletter</h5>
-					<h2>Subscribe to get Updated with new offers</h2>
+					<h5>모브의 맞춤 홈 인테리어 제안</h5>
+					<h2>MO:V HOME STYLING</h2>
+					<p> 인테리어 없이 가구, 패브릭, 조명, 소품 등 고객의 라이프 스타일에 맞게<br>
+						 1:1 상담을 통해 고객님의 공간을 연출해드립니다.</p>
 					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="enter email address"
-							aria-label="Recipient's username" aria-describedby="basic-addon2">
-						<div class="input-group-append">
-							<a href="#" class="input-group-text btn_2" id="basic-addon2">subscribe
-								now</a>
+						<div class="input-group-append mx-auto">
+							<a href="./QnA_BoardList.qa" class="input-group-text btn_2" id="basic-addon2">게시판 문의</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 </section>
 <!--::subscribe_area part end::-->
