@@ -2938,7 +2938,8 @@ ul {
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
 .our_offer {
 /*   background-color: #ecfdff; */
-  background-image: url("../img/main/main_komport_190911.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2) ), url("../img/main/main_komport_190911.jpg");
+/*   background-image: url("../img/main/main_komport_190911.jpg"); */
   background-attachment: fixed;
   
 }
