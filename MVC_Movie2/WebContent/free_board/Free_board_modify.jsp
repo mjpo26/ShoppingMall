@@ -114,8 +114,13 @@
 				</tr>
 				<tr>
 					<td class="td_left"><label for="free_content">내용</label></td>
-					<td class="td_right"><textarea id="summernote" name="content" rows="5" cols="100"></textarea></td>
+					<td class="td_right"><textarea id="summernote" name="content" rows="5" cols="100"><%=article.getFree_content()%></textarea></td>
 				</tr>
+				<tr>
+					<td class="td_left"><label for="free_file1">파일첨부</label></td>
+					<td class="td_right"><input type="file" name="free_file1" id="free_file1" /></td>
+				</tr>
+			</table>
 			</table>
 			<section id="commandCell">
 				<input type="submit" value="등록하기" />&nbsp;&nbsp;
