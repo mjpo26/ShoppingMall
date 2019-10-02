@@ -1,8 +1,14 @@
 package svc;
 
+import static db.JdbcUtil.close;
+import static db.JdbcUtil.commit;
+import static db.JdbcUtil.getConnection;
+import static db.JdbcUtil.rollback;
+
 import java.sql.Connection;
 
 import dao.Free_BoardDAO;
+import dao.MemberDAO;
 import dao.OrderDAO;
 import db.JdbcUtil;
 import vo.Free_BoardBean;
@@ -42,6 +48,29 @@ public class OrderInsertService {
         
         return isWriteSuccess;
     }
+
+	public boolean updateReview(int order_idx) {
+		boolean issusses=false;
+		int count=0;
+	    Connection con = getConnection();
+        OrderDAO orderDAO = OrderDAO.getInstance();
+        orderDAO.setConnection(con);
+        
+        // MemberDAO 객체의 selectMemberInfo() 메서드를 호출하여 회원 정보 조회(회원 아이디 전달)
+        count = orderDAO.updateReview(order_idx);
+//        System.out.println("인포서비스 : memberDao 호출 성공여부: " + memberBean);
+        if(count > 0) {
+            commit(con);
+            issusses = true;
+        } else {
+            rollback(con);
+        }
+        close(con);
+        return issusses;
+        
+        
+        
+	}
 }
 
 

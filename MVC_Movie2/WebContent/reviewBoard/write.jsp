@@ -31,7 +31,7 @@
 					<div class="breadcrumb_iner_item">
 						<h2>리뷰 게시판</h2>
 						<p>
-							리뷰 보기 <span>-</span> 상품 리뷰 보기
+							리뷰 작성 <span>-</span> 상품 리뷰 작성
 						</p>
 					</div>
 				</div>

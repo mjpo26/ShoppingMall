@@ -2686,13 +2686,15 @@ ul {
 /* line 26, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_feature_part.scss */
 .feature_part .single_feature_post_text p {
   line-height: 13px;
+  color:#ff3368;
+  font-weight:500;
 }
 
 /* line 30, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_feature_part.scss */
 .feature_part .single_feature_post_text h3 {
   font-size: 24px;
   font-weight: 700;
-  margin-top: 21px;
+  margin-top: 10px;
 }
 
 @media (max-width: 576px) {
@@ -2732,6 +2734,9 @@ ul {
   position: absolute;
   bottom: 0;
   right: 15px;
+  max-width: 85%;
+  min-width:300px;
+  
 }
 
 @media (max-width: 576px) {

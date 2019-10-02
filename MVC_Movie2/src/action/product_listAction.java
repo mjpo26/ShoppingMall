@@ -19,11 +19,16 @@ public class product_listAction implements Action {
 	        int page = 1; 
 	        int limit = 12;
 	        String category=(String)request.getParameter("Item_category1");
+	        String category2=(String)request.getParameter("Item_category2");
 //	        System.out.println("카테고리ㅣㅣㅣㅣ 번호 "+num);
 	        System.out.println("카테고고고이리리 : "+category);
 	        if(category==null) {
 	        	category="전체";
 	        }
+	        if(category2==null) {
+	        	category2="전체";
+	        }
+	        
 	        System.out.println("카테고고고이리리 : "+category);
 	        	
 	        if(request.getParameter("page") != null) {
@@ -31,9 +36,9 @@ public class product_listAction implements Action {
 	        }
 	        
 	        ProductListService productListService = new ProductListService();
-	        int listCount = productListService.getListCount(category); 
+	        int listCount = productListService.getListCount(category,category2); 
 	        
-	        articleList = productListService.getArticleList(page, limit,category);
+	        articleList = productListService.getArticleList(page, limit,category,category2);
 	        
 	        int maxPage = (int)((double)listCount / limit + 0.95);
 	        
