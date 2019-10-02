@@ -4,21 +4,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-// 	basketListBean basketListBean = (basketListBean) request.getAttribute("basketListBean");
-	String bId = (String) request.getParameter("bId"); 
+	// 	basketListBean basketListBean = (basketListBean) request.getAttribute("basketListBean");
+	String bId = (String) request.getParameter("bId");
 	MemberBean memberBean = (MemberBean) request.getAttribute("memberBean");
-	BasketListBean basketListBean= (BasketListBean) request.getAttribute("basketListBean");
+	BasketListBean basketListBean = (BasketListBean) request.getAttribute("basketListBean");
 	String nowPage = (String) request.getAttribute("page");
-	String sId = (String)session.getAttribute("sId");
-	
-// 	int Basket_code_count = Integer.parseInt((String)request.getAttribute("Basket_code_count"));
-// 	int itemCode = basketListBean.getBasket_code();
-	
-// 	String Basket_color=(String)request.getAttribute("Basket_color");
-// 	basketListBean.setBasket_color(Basket_color);
-int mypoint1 = memberBean.getMember_mypoint();
+	String sId = (String) session.getAttribute("sId");
+
+	// 	int Basket_code_count = Integer.parseInt((String)request.getAttribute("Basket_code_count"));
+	// 	int itemCode = basketListBean.getBasket_code();
+
+	// 	String Basket_color=(String)request.getAttribute("Basket_color");
+	// 	basketListBean.setBasket_color(Basket_color);
+	int mypoint1 = memberBean.getMember_mypoint();
 %>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#checkBoxId").change(function() {
@@ -42,7 +43,7 @@ $(function() {
       usedPoint *=1;
       var mypoint =  <%=mypoint1%>;
       mypoint *=1;
-      result = <%=basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> -usedPoint;
+      result = <%=basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%> -usedPoint;
 //       var mypoint =  $("input[id=mypoint]").val();
  
 //       alert(typeof usedPoint); 
@@ -60,14 +61,16 @@ $(function() {
              $('#text3').text('사용가능 금액이 초과하였습니다!');
              document.getElementById('usedOk').value = 'no';
 <%--              $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count%>); --%>
-			$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count() - basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
+			$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()
+					- basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
             }
           else if(result<0){
               $('span#result').css('color','red');
               $('#text3').text('포인트 금액에 맞게 사용해주세요!');
               document.getElementById('usedOk').value = 'no';
  <%--              $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count%>); --%>
- 			$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count() - basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
+ 			$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()
+					- basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
             
           }
           else{
@@ -78,7 +81,8 @@ $(function() {
 //                 $('span#Review_subject'+i).append(data[i].review_subject);
 <%--                 $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count %>); --%>
 				$('span#result').css('color','blue');
-				$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count() - basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
+				$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()
+					- basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
                 
                 
 <%--                 <span style="font-weight: bold;">상품금액</span>: <%=itemBean.getItem_old_price() * item_code_count%> --%>
@@ -118,19 +122,26 @@ function check() {
 		</div>
 	</div>
 </section>
-	<form action="orderPro.sh" method="post" name="orderForm" onsubmit="return check()">
-	  <input type="hidden" name="itemCode" value=<%=basketListBean.getBasket_code()%>>
-		<section class="cart_list shopping_cart mt-5">
+<form action="orderPro.sh" method="post" name="orderForm"
+	onsubmit="return check()">
+	<input type="hidden" name="itemCode"
+		value=<%=basketListBean.getBasket_code()%>>
+	<section class="cart_list shopping_cart mt-5">
 		<div class="container">
 			<div class="row clearfix">
-		<table class="table">
-		<input type="hidden" name="bId" value=<%=bId%>>
-		<input type="hidden" name="itemCode" value=<%=basketListBean.getBasket_code()%>> 
-            <input type="hidden" name="item_code_count" value=<%=basketListBean.getBasket_code_count()%>>
-            <input type="hidden" name="item_color" value=<%=basketListBean.getBasket_option_color()%>>
-            <input type="hidden" name="order_item_sel_price" value=<%=basketListBean.getBasket_sel_price()%>> 
-            <input type="hidden" name="item_point" value=<%=basketListBean.getBasket_point() * basketListBean.getBasket_code_count()%>>
-			<tr>
+				<table class="table">
+					<input type="hidden" name="bId" value=<%=bId%>>
+					<input type="hidden" name="itemCode"
+						value=<%=basketListBean.getBasket_code()%>>
+					<input type="hidden" name="item_code_count"
+						value=<%=basketListBean.getBasket_code_count()%>>
+					<input type="hidden" name="item_color"
+						value=<%=basketListBean.getBasket_option_color()%>>
+					<input type="hidden" name="order_item_sel_price"
+						value=<%=basketListBean.getBasket_sel_price()%>>
+					<input type="hidden" name="item_point"
+						value=<%=basketListBean.getBasket_point() * basketListBean.getBasket_code_count()%>>
+					<tr>
 						<th align="left" width="800" colspan="6"><span
 							style="color: red; font-weight: bold;">상품 정보</span></th>
 					</tr>
@@ -150,9 +161,9 @@ function check() {
 					</tr>
 					<tr>
 						<th width="200" align="center">적립금</th>
-						<td width="200" align="center" colspan="2"><%=basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%></td>
+						<td width="200" align="center" colspan="2"><%=basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%></td>
 						<th width="200" align="center">가격</th>
-						<td width="200" align="center" colspan="2"><%=basketListBean.getBasket_point()*basketListBean.getBasket_code_count()%></td>
+						<td width="200" align="center" colspan="2"><%=basketListBean.getBasket_point() * basketListBean.getBasket_code_count()%></td>
 
 					</tr>
 					<tr>
@@ -191,26 +202,24 @@ function check() {
 						<th align="left" width="600" colspan="6"><span
 							style="color: red; font-weight: bold;">주문결제내역 </span></th>
 					</tr>
- 				<tr>
-                  <td align="left" width="600" colspan="6">
-                  <span style="font-weight: bold;" id = "result"></span>
-                  </td>
-               </tr>
-<!-- 					<tr> -->
-<!-- 						<td align="left" width="600" colspan="6"><span -->
-<%-- 							style="font-weight: bold;">상품금액</span>: <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%> --%>
-<%-- 							- <span style="font-weight: bold;">할인금액</span>: <%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()-basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count() %> --%>
-<%-- 							= <span style="font-weight: bold;">총금액</span>:<%=basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> --%>
-<!-- 						</td> -->
-<!-- 					</tr> -->
+					<tr>
+						<td align="left" width="600" colspan="6"><span
+							style="font-weight: bold;" id="result"></span></td>
+					</tr>
+					<!-- 					<tr> -->
+					<!-- 						<td align="left" width="600" colspan="6"><span -->
+					<%-- 							style="font-weight: bold;">상품금액</span>: <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%> --%>
+					<%-- 							- <span style="font-weight: bold;">할인금액</span>: <%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()-basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count() %> --%>
+					<%-- 							= <span style="font-weight: bold;">총금액</span>:<%=basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> --%>
+					<!-- 						</td> -->
+					<!-- 					</tr> -->
 					<tr>
 						<td align="right" colspan="6"><input type="text"
 							id="usedPoint" name="usedPoint" readonly>적립금사용 <input
 							type="checkbox" id="checkBoxId" name="checkBoxId">
-							사용가능금액(<%=memberBean.getMember_mypoint()%>)
-						<span id="text3" style="padding-left:0.5em;"></span>
-                     <input type ="hidden" id="usedOk" value="no">
-                     </td>
+							사용가능금액(<%=memberBean.getMember_mypoint()%>) <span id="text3"
+							style="padding-left: 0.5em;"></span> <input type="hidden"
+							id="usedOk" value="no"></td>
 					</tr>
 				</table>
 				<input type="submit" class="btn_3" value="상품주문"> <input
