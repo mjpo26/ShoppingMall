@@ -66,32 +66,32 @@
 <script type="text/javascript">
   function check() {
 
-        if (document.update.id.value == "") {
+        if (document.updateForm.id.value == "") {
             alert("아이디를 입력하세요!");
-            document.update.id.focus();
+            document.updateForm.id.focus();
             return false;
         }
-        if (document.update.pass.value == "") {
+        if (document.updateForm.pass.value == "") {
             alert("비밀번호를 입력하세요");
-            document.update.id.focus();
+            document.updateForm.id.focus();
             return false;
         }
         
-        if (document.update.isPassOk.value=="no"||document.update.isIdOk.value=="no") {
+        if (document.updateForm.isPassOk.value=="no"||document.updateForm.isIdOk.value=="no") {
           alert("아이디와 비밀번호를 체크하세요")
-          document.update.id.focus();
+          document.updateForm.id.focus();
           return false;
      }
         
         
         if (document.update.pass.value.length <= 7) {
             alert("비밀번호가 유효하지 않습니다!")
-            document.fr.pass.focus();
+            document.updateForm.pass.focus();
             return false;
         }
 
-        if (document.update.passChecked.value != "yes") {
-            var fpass = document.fr.pass.value;
+        if (document.updateForm.passChecked.value != "yes") {
+            var fpass = document.updateForm.pass.value;
 
             window.open("passCheckPro.jsp?fpass=" + fpass, "",
                     "width=400,height=200");
@@ -101,42 +101,42 @@
         }
         if (document.update.pass2.value.length == "") {
             alert("비밀번호 확인란을 입력하세요!")
-            document.update.pass2.focus();
+            document.updateForm.pass2.focus();
             return false;
         }
          
 	if (document.update.pass.value != document.update.pass2.value) {
 		            alert("비밀번호가 일치되지 않습니다.");
-		            document.update.pass2.focus();
+		            document.updateForm.pass2.focus();
 		            return false;
 		        }
 
 		if (document.update.member_name.value.length == "") {
 			alert("이름을 입력하세요!")
-			document.update.name.focus();
+			document.updateForm.name.focus();
 			return false;
 		}
 
 		if (document.update.detailaddress.value.length == "") {
 			alert("상세 주소를 입력하세요!")
-			document.update.name.focus();
+			document.updateForm.name.focus();
 			return false;
 		}
 
 		if (document.update.email.value.length == "") {
 			alert("이메일을 입력하세요!")
-			document.update.email.focus();
+			document.updateForm.email.focus();
 			return false;
 		}
 		if (document.update.email2.value.length == "") {
 			alert("이메일 확인란을 입력하세요!")
-			document.update.email2.focus();
+			document.updateForm.email2.focus();
 			return false;
 		}
 
 		if (document.update.email.value != document.update.email2.value) {
 			alert("이메일이  일치되지 않습니다.");
-			document.update.pass2.focus();
+			document.updateForm.pass2.focus();
 			return false;
 		}
 		if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
@@ -154,8 +154,8 @@
 
 	// E-Mail 도메인 선택
 	function chkEmailDomainSelect(domain) {
-		document.update.domain.value = domain.value;
-		document.update.domain2.value = domain.value;
+		document.updateForm.domain.value = domain.value;
+		document.updateForm.domain2.value = domain.value;
 
 	}
 	//     function  {
