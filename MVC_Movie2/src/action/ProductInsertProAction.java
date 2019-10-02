@@ -36,6 +36,7 @@ public class ProductInsertProAction implements Action {
         String pic2="";
         String pic3="";
         String pic4="";
+        String bgpic="";
         Enumeration files = multi.getFileNames();
         String file = (String)files.nextElement();
         pic1 = multi.getFilesystemName(file);
@@ -46,11 +47,13 @@ public class ProductInsertProAction implements Action {
        
 
         String file3 = (String)files.nextElement();
-
         pic3 = multi.getFilesystemName(file3);
+        
         String file4 = (String)files.nextElement();
-
         pic4 = multi.getFilesystemName(file4);
+        String file5 = (String)files.nextElement();
+        bgpic = multi.getFilesystemName(file5);
+        
         
 		System.out.println("ProductInserProAction");
 		int sale_price =(Integer.parseInt(multi.getParameter("old_price"))*Integer.parseInt(multi.getParameter("sale_price")))/100;
@@ -67,6 +70,7 @@ public class ProductInsertProAction implements Action {
 		  	itemBean.setItem_pic2(pic2);
 		  	itemBean.setItem_pic3(pic3);
 		  	itemBean.setItem_pic4(pic4);
+		  	itemBean.setItem_bgpic(bgpic);
 //		  	itemBean.setItem_pic4(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		  	itemBean.setItem_option_color1("item_option_color1");
 		  	itemBean.setItem_option_color2("item_option_color2");

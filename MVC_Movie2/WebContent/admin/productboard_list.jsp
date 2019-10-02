@@ -54,13 +54,13 @@
 				if (articleList != null & listCount > 0) {
 					for (int i = 0; i < articleList.size(); i++) {
 			%>
-			<div class="col-lg-3 col-md-4 col-sm-6 float-left review_list">
+			<div class="col-lg-3 col-md-4 col-sm-6 float-left review_list" onclick="location.href='./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>'">
 				<figure class="figure">
 					<div class="review_photo">
 						<img
 							src="./assets/img/product/single-product/<%=articleList.get(i).getItem_pic1()%>"
 							class="figure-img"
-							onclick="location.href='./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>'">
+							>
 					</div>
 
 					<figcaption

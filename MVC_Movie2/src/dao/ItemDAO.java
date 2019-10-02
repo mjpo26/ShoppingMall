@@ -43,7 +43,7 @@ public class ItemDAO {
 
 		String sql = "INSERT INTO Item(Item_title,Item_old_price,Item_sel_price,Item_point,"
 				+ "Item_pic1,Item_pic2,Item_pic3,Item_pic4,Item_content1,Item_content2,Item_display,Item_sales,Item_icon1,Item_category1,Item_category2,Item_stock_price,"
-				+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_bgpig,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
+				+ "Item_delivery_pee,Item_weight,Item_stock_count,Item_bgpic,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 
 		try {
 			pstmt = con.prepareStatement(sql);

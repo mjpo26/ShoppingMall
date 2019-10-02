@@ -42,7 +42,7 @@
 					for (int i = 0; i < articleList.size(); i++) {
 			%>
 
-			<div class="col-lg-3 col-md-4 col-sm-6 float-left review_list">
+			<div class="col-lg-3 col-md-4 col-sm-6 float-left review_list" onclick="location.href='ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>'">
 				<figure class="figure">
 					<%
 						if (articleList.get(i).getReview_file1() != null) {
@@ -50,8 +50,7 @@
 					<div class="review_photo">
 						<img
 							src="./upload/review/<%=articleList.get(i).getReview_file1()%>"
-							class="figure-img"
-							onclick="location.href='ReviewBoardDetail.re?review_num=<%=articleList.get(i).getReview_num()%>&page=<%=nowPage%>'">
+							class="figure-img">
 					</div>
 					<%
 						} else {

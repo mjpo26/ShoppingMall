@@ -158,8 +158,8 @@ function chkCate2Sel(cate2sel) {
 						<input type="file" name="pic1"><br> 
 						<input type="file" name="pic2"><br> 
 						<input type="file" name="pic3"><br> 
-						<input type="file" name="pic4"></td>
-						
+						<input type="file" name="pic4"><br>
+						<input type="file" name="bgpic"></td>
 					</tr>
 
 					<tr>
