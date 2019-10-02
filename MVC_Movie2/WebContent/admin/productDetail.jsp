@@ -21,7 +21,9 @@
     int maxPage = pageInfo.getMaxPage();
     
     
- 
+    if (sId == null) {
+		sId = "비회원";
+	}
 
 
     
