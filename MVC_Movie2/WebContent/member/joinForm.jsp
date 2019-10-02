@@ -133,6 +133,14 @@ function searchAddress(){
             document.joinForm.email2.focus();
             return false;
         }
+        if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
+            alert("비밀번호가 일치하지 않습니다.")
+            document.getElementById('isPassOk').value=="no";
+            return false;
+           
+          
+            
+           }
         //   비밀번호유효성체크
 
         //비밀번호 유효성체크 끝
@@ -268,7 +276,8 @@ function searchAddress(){
                if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
                   $("#text3").css("color","red");
                   $("#text2").text('');
-                  $("#text3").text('비밀번호가 일치하지 않습니다!');   
+                  $("#text3").text('비밀번호가 일치하지 않습니다!');  
+                
                   
                  }else{
                   $("#text2").text('');

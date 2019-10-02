@@ -85,7 +85,7 @@
 						</tr>
 						<tr>
 							<td>별 점</td>
-							<td><input type="radio" name="review_starPoint" value="1">&nbsp;
+							<td><input type="radio" name="review_starPoint" value="1" checked ="checked">&nbsp;
 								<span class="review_score"><i class="fa fa-star"></i></span> <input
 								type="radio" name="review_starPoint" value="2"> &nbsp; <span
 								class="review_score"><i class="fa fa-star"></i><i
