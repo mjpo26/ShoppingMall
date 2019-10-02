@@ -18,9 +18,9 @@
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item">
 						<h2>
-							비밀번호 찾기<%=memberBean.getMember_pass()%></h2>
+							비밀번호 찾기</h2>
 						<p>
-							회원 <span>-</span> 비밀번호 찾기<%=authNum%>
+							회원 <span>-</span> 비밀번호 찾기
 						</p>
 					</div>
 				</div>
@@ -71,7 +71,6 @@
 			window.name = "비밀번호 변경";
 			 window.location.href="./MemberFwUpdate.me?fid="+ fid;
 <%-- 			document.getElementById('resultEm').value="회원님의 비밀번호는 "+'<%=memberBean.getMember_pass()%>'+"입니다."; --%>
-// 			document.getElementById('resultEm').style.color = "orange";
 		}
 	}
 </script>
