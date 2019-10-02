@@ -94,7 +94,7 @@
 				class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
 			<%
 				}
-					for (int i = startPage; i <= endPage-1; i++) {
+					for (int i = startPage; i <= endPage; i++) {
 						if (i == nowPage) {
 			%>
 			<span class="current"><b><%=i%></b></span>&nbsp;

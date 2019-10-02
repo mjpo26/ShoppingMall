@@ -90,9 +90,10 @@ public class ItemDAO {
             String sql = "SELECT COUNT(*) FROM Item";
             pstmt = con.prepareStatement(sql);
          } else {
-            String sql = "SELECT COUNT(*) FROM Item where Item_category1=?";
+            String sql = "SELECT COUNT(*) FROM Item where Item_category1=? and Item_display=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, category);
+            pstmt.setString(2, "yes");
          }
          rs = pstmt.executeQuery();
          System.out.println("daoㅏ카카테고리" + category);
