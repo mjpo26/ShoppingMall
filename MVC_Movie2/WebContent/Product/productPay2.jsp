@@ -213,9 +213,7 @@ function check() {
 					<tr>
 						<td align="left" width="600" colspan="6"><span
 							style="font-weight: bold;" id="result">
-							
-							상품금액 : <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>원 - 할인금액 : <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>원 - 적립금 : 0원 = 총금액 : <%=basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%>원
-							</span></td>
+							상품금액 : <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>원 - 할인금액 : <%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count()%>원 - 적립금 : 0원 = 총금액 : <%=basketListBean.getBasket_sel_price() * basketListBean.getBasket_code_count()%>원</span></td>
 					</tr>
 					<!-- 					<tr> -->
 					<!-- 						<td align="left" width="600" colspan="6"><span -->
