@@ -340,7 +340,7 @@ function pickNullCheck(){
 									<td><%=articleList.get(i).getOrder_memo()%></td>
 									<th>
 									<input type="hidden" name="order_idx" value="<%=articleList.get(i).getOrder_idx()%>">
-									<input type="submit" value="수정" formaction="./orderUpdate.ol">
+									<input type="submit" value="수정" formaction="./orderUpdate.ol" class="btn btn-default">
 									</th>
 								</tr>
 								<%
