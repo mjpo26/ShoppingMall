@@ -19,7 +19,7 @@ int date =cal.get(Calendar.DATE);
 
 // 이미지 업로드할 경로
 String uploadPath = request.getRealPath("/upload");
-
+System.out.println(uploadPath);
 //경로에 폴더가 없으면 만들어 준다
 File targetDir = new File(uploadPath);
 if(!targetDir.exists()){
