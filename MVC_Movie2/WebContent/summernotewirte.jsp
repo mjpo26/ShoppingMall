@@ -119,6 +119,7 @@
         type : "POST",
         url : "./summernote_imageUpload.jsp",
         success : function(data) {
+        	alert(data.url);
           modules.editor.insertImage(editable, data.url, files[i].name);
         }
       });

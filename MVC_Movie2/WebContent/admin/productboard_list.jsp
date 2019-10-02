@@ -24,9 +24,9 @@
 			<div class="col-lg-8">
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item">
-						<h2>상품 목록</h2>
+						<h2><%=category%>상품 목록</h2>
 						<p>
-							상품 목록 <span>-</span> 상품 보기
+							<%=category %>상품 목록 <span>-</span> 상품 보기
 						</p>
 					</div>
 				</div>

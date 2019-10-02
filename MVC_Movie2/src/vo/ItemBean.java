@@ -21,7 +21,7 @@ public class ItemBean {
 	private String Item_option_color3;
 	private String Item_option_color4;
 	private int Item_weight;
-//	private String Item_bgpic;
+	private String Item_bgpic;
 	private int Item_stock_count;
 	private String Item_pic1;
 	private String Item_pic2;
@@ -206,12 +206,12 @@ public class ItemBean {
 	public void setItem_weight(int item_weight) {
 		Item_weight = item_weight;
 	}
-//	public String getItem_bgpic() {
-//		return Item_bgpic;
-//	}
-//	public void setItem_bgpic(String item_bgpic) {
-//		Item_bgpic = item_bgpic;
-//	}
+	public String getItem_bgpic() {
+		return Item_bgpic;
+	}
+	public void setItem_bgpic(String item_bgpic) {
+		Item_bgpic = item_bgpic;
+	}
 	public int getItem_stock_count() {
 		return Item_stock_count;
 	}

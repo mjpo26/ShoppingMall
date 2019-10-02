@@ -147,7 +147,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<h3><%=newProduct.get(0).getItem_title() %></h3>
 					<a href="productDetail.sh?Item_code=<%=newProduct.get(0).getItem_code()%>&page=1" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img
-						src="./assets/img/feature/<%=newProduct.get(0).getItem_pic2() %>" alt="">
+						src="./assets/img/product/single-product/<%=newProduct.get(0).getItem_bgpic() %>" alt="">
 				</div>
 			</div>
 			<div class="col-lg-5 col-sm-6">
@@ -156,7 +156,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<h3><%=newProduct.get(1).getItem_title() %></h3>
 					<a href="productDetail.sh?Item_code=<%=newProduct.get(1).getItem_code()%>&page=1" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img
-						src="./assets/img/feature/<%=newProduct.get(1).getItem_pic2() %>" alt="">
+						src="./assets/img/product/single-product/<%=newProduct.get(1).getItem_bgpic() %>" alt="">
 				</div>
 			</div>
 			<div class="col-lg-5 col-sm-6">
@@ -165,7 +165,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<h3><%=newProduct.get(2).getItem_title() %></h3>
 					<a href="productDetail.sh?Item_code=<%=newProduct.get(2).getItem_code()%>&page=1" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img
-						src="./assets/img/feature/<%=newProduct.get(2).getItem_pic2() %>" alt="">
+						src="./assets/img/product/single-product/<%=newProduct.get(2).getItem_bgpic() %>" alt="">
 				</div>
 			</div>
 			<div class="col-lg-7 col-sm-6">
@@ -174,7 +174,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<h3><%=newProduct.get(3).getItem_title() %></h3>
 					<a href="productDetail.sh?Item_code=<%=newProduct.get(3).getItem_code()%>&page=1" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img
-						src="./assets/img/feature/<%=newProduct.get(3).getItem_pic2() %>" alt="">
+						src="./assets/img/product/single-product/<%=newProduct.get(3).getItem_bgpic() %>" alt="">
 				</div>
 			</div>
 		<%}else{ %> 이번주 입고 상품이 없습니다 <%} %>
