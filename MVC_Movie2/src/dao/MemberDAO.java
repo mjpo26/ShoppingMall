@@ -746,6 +746,30 @@ public int getPoint(String member_id) {
 		return updateCount;
 	}
 
+	public int updatePointMember(MemberBean memberBean) {
+		int updateCount = 0;
+	
+		PreparedStatement pstmt = null;
+		String sql = "update member set member_mypoint =? where member_id=? ";
+//		String sql = "UPDATE member SET member_mypoint=? where member_id=?" ;
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			// pstmt.setString(1, memberBean.getMember_id());
+			pstmt.setInt(1, memberBean.getMember_mypoint());
+			pstmt.setString(2, memberBean.getMember_id());
+
+			updateCount = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("updateMember 실패! - " + e.getMessage());
+		} finally {
+			close(pstmt);
+		}
+
+		return updateCount;
+	}
+
 
 }
 

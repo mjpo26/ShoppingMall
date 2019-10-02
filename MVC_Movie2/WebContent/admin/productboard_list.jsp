@@ -8,7 +8,7 @@
 	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<ItemBean> articleList = (ArrayList<ItemBean>) request.getAttribute("articleList");
 	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-
+ 	String category = (String) request.getAttribute("category");
 	// PageInfo 객체로부터 페이징 정보 가져오기
 	int listCount = pageInfo.getListCount();
 	int nowPage = pageInfo.getPage();
@@ -90,18 +90,18 @@
 			<%
 				} else {
 			%>
-			<a href="product_list.sh?page=<%=nowPage - 1%>"><i
+			<a href="product_list.sh?Item_category1=<%=category %>&page=<%=nowPage - 1%>"><i
 				class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
 			<%
 				}
-					for (int i = startPage; i <= endPage; i++) {
+					for (int i = startPage; i <= endPage-1; i++) {
 						if (i == nowPage) {
 			%>
 			<span class="current"><b><%=i%></b></span>&nbsp;
 			<%
 				} else {
 			%>
-			<a href="product_list.sh?page=<%=i%>"> <%=i%>
+			<a href="product_list.sh?Item_category1=<%=category %>&page=<%=i%>"> <%=i%>
 			</a>&nbsp;
 			<%
 				}
@@ -112,7 +112,7 @@
 			<%
 				} else {
 			%>
-			<a href="product_list.sh?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp;
+			<a href="product_list.sh?Item_category1=<%=category %>&page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp;
 				<i class="ti-angle-right"></i>
 			</a>
 			<%

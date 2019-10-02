@@ -176,6 +176,8 @@
 						for (int i = 0; i < memberList.size(); i++) {
 					%>
 					<tr>
+					<form method="post">
+					<input type="hidden" name="mId" value=<%=memberList.get(i).getMember_id()%>>
 						<!-- 여기서 For문 돌려서 list를 받아옵니다. -->
 						<td><input type="checkbox"></td>
 						<td><%=memberList.get(i).getMember_id()%></td>
@@ -184,7 +186,7 @@
 						<td><%=memberList.get(i).getMember_phone()%></td>
 						<td><%=memberList.get(i).getMember_sms_ok()%></td>
 						<td><%=memberList.get(i).getMember_email_ok()%></td>
-						<td><%=memberList.get(i).getMember_mypoint()%></td>
+						<td><input type="text" name="mypoint" value=<%=memberList.get(i).getMember_mypoint()%>></td>
 						<!-- 						<td><a -->
 						<%-- 							href="./deleteMemberAdmin.me?id=<%=memberList.get(i).getMember_id()%>"> --%>
 						<!-- 								<input class="btn btn-default" type="button" value="회원삭제"> -->
@@ -193,14 +195,12 @@
 
 						<!-- 							<input class="btn btn-default" type="button" value="이메일전송"> -->
 						<!-- 							<input class="btn btn-default" type="button" value="sms전송"></td> -->
-						<td><a
-							href="./deleteMemberAdmin.me?id=<%=memberList.get(i).getMember_id()%>">
-								<input class="btn btn-default" type="button" value="회원삭제">
-						</a> <a
-							href="./MemberUpdate.me?mId=<%=memberList.get(i).getMember_id()%>">
-								<input class="btn btn-default" type="button" value="회원수정">
-						</a> <input class="btn btn-default" type="button" value="이메일전송">
-							<input class="btn btn-default" type="button" value="sms전송"></td>
+						<td>
+								<input class="btn btn-default" type="submit" value="수정" formaction="./MemberPointUpdate.me">
+								<input type="submit" value="회원삭제 "  class="btn btn-default" formaction="deleteMemberAdmin.me">
+							
+								</td>
+					</form>
 					</tr>
 					<%
 						}

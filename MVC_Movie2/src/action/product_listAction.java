@@ -49,7 +49,7 @@ public class product_listAction implements Action {
 	        System.out.println("갯수ㅜㅜ+"+listCount);
 	        request.setAttribute("pageInfo", pageInfo);
 	        request.setAttribute("articleList", articleList);
-	        
+	        request.setAttribute("category",category);
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(false);
 	        forward.setPath("/admin/productboard_list.jsp");

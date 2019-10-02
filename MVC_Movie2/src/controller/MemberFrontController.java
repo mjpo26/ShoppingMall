@@ -23,6 +23,7 @@ import action.MemberInfoAction;
 import action.MemberJoinProAction;
 import action.MemberLoginProAction;
 import action.MemberLogoutProAction;
+import action.MemberPointUpdateProAction;
 import action.MemberPwUpdateProAction;
 import action.MemberUpdateAction;
 import action.MemberUpdateProAction;
@@ -120,7 +121,15 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/MemberIdCheck.me")) {
+		} else if (command.equals("/MemberPointUpdate.me")) {
+			action = new MemberPointUpdateProAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/MemberIdCheck.me")) {
 			action = new MemberIdCheckAction();
 			JSONObject json = (JSONObject) request.getAttribute("json");
 			request.setAttribute("json", json);
