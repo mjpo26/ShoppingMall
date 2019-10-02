@@ -11,50 +11,50 @@
 
 
 function check() {
-      if (document.joinForm.pass.value == "") {
+      if (document.updateForm.pass.value == "") {
           alert("비밀번호를 입력하세요");
-          document.joinForm.pass.focus();
+          document.updateForm.pass.focus();
           return false;
       }
       
-      if (document.joinForm.isPassOk.value=="no"||document.joinForm.isIdOk.value=="no") {
+      if (document.updateForm.isPassOk.value=="no"||document.updateForm.isIdOk.value=="no") {
         alert("아이디와 비밀번호를 체크하세요")
-        document.joinForm.id.focus();
+        document.updateForm.id.focus();
         return false;
    }
 
-      if (document.joinForm.pass2.value.length == "") {
+      if (document.updateForm.pass2.value.length == "") {
           alert("비밀번호 확인란을 입력하세요!")
-          document.joinForm.pass2.focus();
+          document.updateForm.pass2.focus();
           return false;
       }
 
-      if (document.joinForm.member_name.value.length == "") {
+      if (document.updateForm.member_name.value.length == "") {
           alert("이름을 입력하세요!")
-          document.joinForm.member_name.focus();
+          document.updateForm.member_name.focus();
           return false;
       }
 
-      if (document.joinForm.detailaddress.value.length == "") {
+      if (document.updateForm.detailaddress.value.length == "") {
           alert("상세 주소를 입력하세요!")
-          document.joinForm.detailaddress.focus();
+          document.updateForm.detailaddress.focus();
           return false;
       }
 
-      if (document.joinForm.email.value.length == "") {
+      if (document.updateForm.email.value.length == "") {
           alert("이메일을 입력하세요!")
-          document.joinForm.email.focus();
+          document.updateForm.email.focus();
           return false;
       }
-      if (document.joinForm.email2.value.length == "") {
+      if (document.updateForm.email2.value.length == "") {
           alert("이메일 확인란을 입력하세요!")
-          document.joinForm.email2.focus();
+          document.updateForm.email2.focus();
           return false;
       }
 
-      if (document.joinForm.email.value != document.joinForm.email2.value) {
+      if (document.updateForm.email.value != document.updateForm.email2.value) {
           alert("이메일이  일치되지 않습니다.");
-          document.joinForm.email2.focus();
+          document.updateForm.email2.focus();
           return false;
       }
       if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
@@ -202,7 +202,7 @@ function check() {
 					<div class="row mt-30">
 						<div class="col-xs-12 col-sm-6 mx-auto row">
 							<input type="submit"
-								class="genric-btn primary radius col-6 submit" value="비밀번호 변경">
+								class="genric-btn primary radius col-6 submit" value="비밀번호 변경" >
 							<input type="reset"
 								class="genric-btn default radius col-6 cancel" value="초기화">
 						</div>

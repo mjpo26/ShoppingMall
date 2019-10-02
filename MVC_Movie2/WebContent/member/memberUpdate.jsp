@@ -66,31 +66,31 @@
 <script type="text/javascript">
   function check() {
 
-        if (document.joinForm.id.value == "") {
+        if (document.update.id.value == "") {
             alert("아이디를 입력하세요!");
-            document.joinForm.id.focus();
+            document.update.id.focus();
             return false;
         }
-        if (document.joinForm.pass.value == "") {
+        if (document.update.pass.value == "") {
             alert("비밀번호를 입력하세요");
-            document.joinForm.id.focus();
+            document.update.id.focus();
             return false;
         }
         
-        if (document.joinForm.isPassOk.value=="no"||document.joinForm.isIdOk.value=="no") {
+        if (document.update.isPassOk.value=="no"||document.update.isIdOk.value=="no") {
           alert("아이디와 비밀번호를 체크하세요")
-          document.joinForm.id.focus();
+          document.update.id.focus();
           return false;
      }
         
         
-        if (document.joinForm.pass.value.length <= 7) {
+        if (document.update.pass.value.length <= 7) {
             alert("비밀번호가 유효하지 않습니다!")
             document.fr.pass.focus();
             return false;
         }
 
-        if (document.joinForm.passChecked.value != "yes") {
+        if (document.update.passChecked.value != "yes") {
             var fpass = document.fr.pass.value;
 
             window.open("passCheckPro.jsp?fpass=" + fpass, "",
@@ -99,44 +99,44 @@
             return false;
 
         }
-        if (document.joinForm.pass2.value.length == "") {
+        if (document.update.pass2.value.length == "") {
             alert("비밀번호 확인란을 입력하세요!")
-            document.joinForm.pass2.focus();
+            document.update.pass2.focus();
             return false;
         }
          
-	if (document.joinForm.pass.value != document.joinForm.pass2.value) {
+	if (document.update.pass.value != document.update.pass2.value) {
 		            alert("비밀번호가 일치되지 않습니다.");
-		            document.joinForm.pass2.focus();
+		            document.update.pass2.focus();
 		            return false;
 		        }
 
-		if (document.joinForm.member_name.value.length == "") {
+		if (document.update.member_name.value.length == "") {
 			alert("이름을 입력하세요!")
-			document.joinForm.name.focus();
+			document.update.name.focus();
 			return false;
 		}
 
-		if (document.joinForm.detailaddress.value.length == "") {
+		if (document.update.detailaddress.value.length == "") {
 			alert("상세 주소를 입력하세요!")
-			document.joinForm.name.focus();
+			document.update.name.focus();
 			return false;
 		}
 
-		if (document.joinForm.email.value.length == "") {
+		if (document.update.email.value.length == "") {
 			alert("이메일을 입력하세요!")
-			document.joinForm.email.focus();
+			document.update.email.focus();
 			return false;
 		}
-		if (document.joinForm.email2.value.length == "") {
+		if (document.update.email2.value.length == "") {
 			alert("이메일 확인란을 입력하세요!")
-			document.joinForm.email2.focus();
+			document.update.email2.focus();
 			return false;
 		}
 
-		if (document.joinForm.email.value != document.joinForm.email2.value) {
+		if (document.update.email.value != document.update.email2.value) {
 			alert("이메일이  일치되지 않습니다.");
-			document.joinForm.pass2.focus();
+			document.update.pass2.focus();
 			return false;
 		}
 		if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
@@ -154,25 +154,25 @@
 
 	// E-Mail 도메인 선택
 	function chkEmailDomainSelect(domain) {
-		document.joinForm.domain.value = domain.value;
-		document.joinForm.domain2.value = domain.value;
+		document.update.domain.value = domain.value;
+		document.update.domain2.value = domain.value;
 
 	}
 	//     function  {
-	// 		document.joinForm.idDuplication.value = "idUncheck";
+	// 		document.update.idDuplication.value = "idUncheck";
 	// 	}
 
 	//     function idcheck() {
 	//         // id 텍스트 상자가 비어있으면  "아이디입력" 제어
 
-	//         var fid = encodeURIComponent(document.joinForm.id.value);
-	//         var fcheck = document.joinForm.idDuplication.value;
+	//         var fid = encodeURIComponent(document.update.id.value);
+	//         var fcheck = document.update.idDuplication.value;
 	//         //한글 안깨지는 ie 폼 불러오기
 	//         //fid = document.wfr.id.value;
 	//         //opener.document.fr.id.value = document.wfr.id.value;
 	//         if (fid == "") {
 	//             alert("아이디입력");
-	//             document.joinForm.id.focus();
+	//             document.update.id.focus();
 	//             return;
 	//         }
 	//         //  아이디 입력되어있으면 새창열기  "idcheck.jsp"
