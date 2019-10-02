@@ -76,7 +76,7 @@
 							<td>상품명</td>
 							<td><input type="text" name="order_item_title"
 								class="form-control"
-								value="<%=OrderBean.getOrder_item_title()%>"></td>
+								value="<%=OrderBean.getOrder_item_title()%>" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<td>첨부파일</td>
@@ -97,7 +97,7 @@
 								class="review_score"><i class="fa fa-star"></i><i
 									class="fa fa-star"></i><i class="fa fa-star"></i><i
 									class="fa fa-star"></i></span> <input type="radio"
-								name="review_starPoint" value="5">&nbsp; <span
+								name="review_starPoint" value="5" checked="checked">&nbsp; <span
 								class="review_score"><i class="fa fa-star"></i><i
 									class="fa fa-star"></i><i class="fa fa-star"></i><i
 									class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
@@ -112,8 +112,8 @@
 						<tr>
 							<th></th>
 							<td><input type="submit" value="글쓰기"
-								class="genric-btn primary radius submit">
-								<input type="reset" value="취소" class="genric-btn default radius"
+								class="genric-btn primary radius submit"> <input
+								type="reset" value="취소" class="genric-btn default radius"
 								onclick="history.back()"></td>
 
 						</tr>
