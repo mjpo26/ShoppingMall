@@ -36,22 +36,21 @@
   
     <section class="event_board_list board_list mt-5">    
         <div class="container">
-           <div class=" ">
+           <div class="row">
                     <%                    
                     if (articleList != null & listCount > 0) {              
                         for (int i = 0; i < articleList.size(); i++) {
                     %>                  
                
-                         <div class="event_list">
+                         <div class="event_list col-md-6 col-sm-12"  onclick="location.href='EventBoardDetail.event?event_num=<%=articleList.get(i).getEvent_num()%>&page=<%=nowPage%>'">
                              <figure class="figure">
-                                 <%if(articleList.get(i).getEvent_imageMain()!= null){ %>
                                 <div class="event_photo">
-                                    <img src="./upload/event/<%=articleList.get(i).getEvent_imageMain()%>" class="figure-img"                                 
-                                    onclick="location.href='EventBoardDetail.event?event_num=<%=articleList.get(i).getEvent_num()%>&page=<%=nowPage%>'">
-                                </div>
-                                <% }else{%>                                
-                                <%=articleList.get(i).getEvent_content() %>
+                                 <%if(articleList.get(i).getEvent_imageMain()!= null){ %>
+                                    <img src="./upload/event/<%=articleList.get(i).getEvent_imageMain()%>" class="figure-img">
+                                 <% }else{%>                                
+                               		<img src="../upload/event/basic.png" class="figure-img mx-auto" width="80%">
                                 <% }%>
+                                </div>
                                       
                                 <figcaption class="figure-caption position-absolute fixed-top event_title mx-auto">
                                 <p><%=articleList.get(i).getEvent_subject()%><br>
@@ -66,54 +65,8 @@
                         }
                     %>
            </div>
-    
-<!--         <section id="writeButton">
-            <a href="ReviewBoardWriteForm.re"><input type="button" value="글쓰기"></a>
-        </section> -->
-    
-        <div id="pageList" class="text-center event_board board_paging">
-            <%
-            if (nowPage <= 1) {
-            %>
-            <i class="ti-angle-left text-black-50"></i> &nbsp;&nbsp;&nbsp;
-            <%
-                } else {
-            %>
-            <a href="EventBoardList.event?page=<%=nowPage - 1%>"><i
-             class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
-            <%
-                }
-            %>
-            <% 
-                 for (int i = startPage; i <= endPage; i++) {
-                        if (i == nowPage) {
-            %>
-            <span class="current"><b><%=i%></b></span>&nbsp;
-            <%
-                } else {
-            %>
-            <a href="EventBoardList.event?page=<%=i%>">
-            <%=i%>&nbsp;
-            </a>
-            <%
-                }
 
-            }
-            %>
     
-            <%
-            if (nowPage >= maxPage) {
-            %>
-            &nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i> 
-
-            <%
-                } else {
-            %>
-            <a href="EventBoardList.event?page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp; <i class="ti-angle-right" ></i> </a>
-            <%
-                }
-            %>
-        </div>
         <%
             } else {
         %>
