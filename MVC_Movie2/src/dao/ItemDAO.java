@@ -269,7 +269,7 @@ public int UpdateItem(ItemBean itemBean) {
       ArrayList<ItemBean> products = new ArrayList<ItemBean>();
 
       try {
-         String sql = "SELECT * FROM Item WHERE Item_icon1=? order by Item_Date";
+         String sql = "SELECT * FROM Item WHERE Item_icon1=? order by Item_Date desc";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, Item_icon1);
          rs = pstmt.executeQuery();
