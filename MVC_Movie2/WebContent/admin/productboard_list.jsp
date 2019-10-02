@@ -8,7 +8,7 @@
 	// Action 클래스에서 request 객체의 setAttibute() 메서드로 저장되어 전달된 객체 가져오기(Object 타입이므로 형변환 필요)
 	ArrayList<ItemBean> articleList = (ArrayList<ItemBean>) request.getAttribute("articleList");
 	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
- 	String category = (String) request.getAttribute("category");
+	String category = (String) request.getAttribute("category");
 	// PageInfo 객체로부터 페이징 정보 가져오기
 	int listCount = pageInfo.getListCount();
 	int nowPage = pageInfo.getPage();
@@ -24,9 +24,10 @@
 			<div class="col-lg-8">
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item">
-						<h2><%=category%>상품 목록</h2>
+						<h2><%=category%>상품 목록
+						</h2>
 						<p>
-							<%=category %>상품 목록 <span>-</span> 상품 보기
+							<%=category%>상품 목록 <span>-</span> 상품 보기
 						</p>
 					</div>
 				</div>
@@ -34,11 +35,19 @@
 		</div>
 	</div>
 </section>
-
-
+<div>
+	<a href="./product_list.sh?Item_category1=전체">전체보기 </a> <a
+		href="./product_list.sh?Item_category1=주방가구">주방가구 </a> <a
+		href="./product_list.sh?Item_category1=사무가구">사무가구</a> <a
+		href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
+</div>
+<div>
+	<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=전체">전체보기 </a> <a
+		href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">의자 </a> <a
+		href="./product_list.sh?Item_category1=<%=category%>&Item_category2=침대">침대</a>
+</div>
 <section class="review_board_list board_list mt-5">
 	<div class="container">
-
 
 		<div class="row clearfix">
 			<%
@@ -90,7 +99,8 @@
 			<%
 				} else {
 			%>
-			<a href="product_list.sh?Item_category1=<%=category %>&page=<%=nowPage - 1%>"><i
+			<a
+				href="product_list.sh?Item_category1=<%=category%>&page=<%=nowPage - 1%>"><i
 				class="ti-angle-left"></i></a>&nbsp;&nbsp;&nbsp;
 			<%
 				}
@@ -101,18 +111,20 @@
 			<%
 				} else {
 			%>
-			<a href="product_list.sh?Item_category1=<%=category %>&page=<%=i%>"> <%=i%>
+			<a href="product_list.sh?Item_category1=<%=category%>&page=<%=i%>">
+				<%=i%>
 			</a>&nbsp;
 			<%
 				}
 					}
-				if (nowPage >= maxPage) {
+					if (nowPage >= maxPage) {
 			%>
 			&nbsp;&nbsp;&nbsp; <i class="ti-angle-right text-black-50"></i>
 			<%
 				} else {
 			%>
-			<a href="product_list.sh?Item_category1=<%=category %>&page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp;
+			<a
+				href="product_list.sh?Item_category1=<%=category%>&page=<%=nowPage + 1%>">&nbsp;&nbsp;&nbsp;
 				<i class="ti-angle-right"></i>
 			</a>
 			<%
