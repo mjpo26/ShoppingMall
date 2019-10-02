@@ -23,6 +23,10 @@ public class MemberUpdateAction implements Action {
         
         // 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
         String sId = (String)session.getAttribute("sId");
+        String mId = (String)request.getParameter("mId");
+        if(mId==null) {
+        	mId=sId;
+        }
         if(sId == null) {
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
@@ -32,7 +36,7 @@ public class MemberUpdateAction implements Action {
             out.println("</script>");
         } else {
             MemberInfoService memberInfoService = new MemberInfoService();
-            MemberBean memberBean = memberInfoService.getMemberInfo(sId); // 세션 아이디값을 파라미터로 전달
+            MemberBean memberBean = memberInfoService.getMemberInfo(mId); // 세션 아이디값을 파라미터로 전달
             
             if(memberBean != null) {
                 // 조회된 회원정보(MemberBean)를 request 객체에 저장

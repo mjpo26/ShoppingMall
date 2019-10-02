@@ -7,6 +7,11 @@
 <%
 	// 현재 세션에 저장된 id 값이 없을 경우 메인 페이지로 이동("잘못된 접근입니다" 출력)
 	String sId = (String) session.getAttribute("sId");
+
+// 	String mId = (String) request.getParameter("mId");
+// 	if(mId==null){
+// 		mId= sId;
+// 	}
 	if (sId == null) {
 		out.println("<script>");
 		out.println("alert('잘못된 접근입니다!')");

@@ -185,12 +185,21 @@
 						<td><%=memberList.get(i).getMember_sms_ok()%></td>
 						<td><%=memberList.get(i).getMember_email_ok()%></td>
 						<td><%=memberList.get(i).getMember_mypoint()%></td>
+						<!-- 						<td><a -->
+						<%-- 							href="./deleteMemberAdmin.me?id=<%=memberList.get(i).getMember_id()%>"> --%>
+						<!-- 								<input class="btn btn-default" type="button" value="회원삭제"> -->
+						<!-- 						</a> -->
+						<!-- 						<input class="btn btn-default" type="button" value="회원수정"> -->
+
+						<!-- 							<input class="btn btn-default" type="button" value="이메일전송"> -->
+						<!-- 							<input class="btn btn-default" type="button" value="sms전송"></td> -->
 						<td><a
 							href="./deleteMemberAdmin.me?id=<%=memberList.get(i).getMember_id()%>">
 								<input class="btn btn-default" type="button" value="회원삭제">
-						</a>
-						<input class="btn btn-default" type="button" value="회원수정">
-							<input class="btn btn-default" type="button" value="이메일전송">
+						</a> <a
+							href="./MemberUpdate.me?mId=<%=memberList.get(i).getMember_id()%>">
+								<input class="btn btn-default" type="button" value="회원수정">
+						</a> <input class="btn btn-default" type="button" value="이메일전송">
 							<input class="btn btn-default" type="button" value="sms전송"></td>
 					</tr>
 					<%
