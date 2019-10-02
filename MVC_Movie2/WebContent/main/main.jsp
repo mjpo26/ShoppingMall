@@ -165,7 +165,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<h3><%=newProduct.get(2).getItem_title() %></h3>
 					<a href="productDetail.sh?Item_code=<%=newProduct.get(2).getItem_code()%>&page=1" class="feature_btn">EXPLORE NOW <i
 						class="fas fa-play"></i></a> <img
-						src="./assets/img/product/single-product/<%=newProduct.get(2).getItem_pic2() %>" alt="">
+						src="./assets/img/product/single-product/<%=newProduct.get(2).getItem_() %>" alt="">
 				</div>
 			</div>
 			<div class="col-lg-7 col-sm-6">

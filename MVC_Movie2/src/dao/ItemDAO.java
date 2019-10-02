@@ -43,7 +43,7 @@ public class ItemDAO {
 
       String sql = "INSERT INTO Item(Item_title,Item_old_price,Item_sel_price,Item_point,"
             + "Item_pic1,Item_pic2,Item_pic3,Item_pic4,Item_content1,Item_content2,Item_display,Item_sales,Item_icon1,Item_category1,Item_category2,Item_stock_price,"
-            + "Item_delivery_pee,Item_weight,Item_stock_count,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
+            + "Item_delivery_pee,Item_weight,Item_stock_count,Item_bgpig,Item_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 
       try {
          pstmt = con.prepareStatement(sql);
@@ -51,7 +51,6 @@ public class ItemDAO {
          pstmt.setInt(2, itemBean.getItem_old_price()); // 판매가(정가)
          pstmt.setInt(3, itemBean.getItem_sel_price()); // 판매가(정가)
          pstmt.setInt(4, itemBean.getItem_point());
-//         pstmt.setString(5, itemBean.getItem_bgpic()); // 상품 대표그림
          pstmt.setString(5, itemBean.getItem_pic1()); // 추가이미지
          pstmt.setString(6, itemBean.getItem_pic2()); // 추가이미지
          pstmt.setString(7, itemBean.getItem_pic3()); // 추가이미지
@@ -67,6 +66,7 @@ public class ItemDAO {
          pstmt.setInt(17, itemBean.getItem_delivery_pee());// 배송비
          pstmt.setInt(18, itemBean.getItem_weight()); // 판매중량
          pstmt.setInt(19, itemBean.getItem_stock_count()); // 재고
+         pstmt.setString(20, itemBean.getItem_bgpic()); // 상품 배경 없는 이미지
          insertCount = pstmt.executeUpdate();
          System.out.println("DB성공");
       } catch (SQLException e) {
@@ -145,7 +145,7 @@ public class ItemDAO {
             itemBean.setItem_content1(rs.getString("Item_content1"));
             itemBean.setItem_content2(rs.getString("Item_content2"));
             itemBean.setItem_point(rs.getInt("item_point"));
-//                   itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+            itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
             itemBean.setItem_pic1(rs.getString("Item_pic1"));
             itemBean.setItem_pic2(rs.getString("Item_pic2"));
             itemBean.setItem_pic3(rs.getString("Item_pic3"));
@@ -194,7 +194,7 @@ public class ItemDAO {
             itemBean.setItem_content1(rs.getString("Item_content1"));
             itemBean.setItem_content2(rs.getString("Item_content2"));
             itemBean.setItem_point(rs.getInt("item_point"));
-//                   itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+            itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
             itemBean.setItem_pic1(rs.getString("Item_pic1"));
             itemBean.setItem_pic2(rs.getString("Item_pic2"));
             itemBean.setItem_pic3(rs.getString("Item_pic3"));
@@ -226,7 +226,7 @@ public int UpdateItem(ItemBean itemBean) {
 
       String sql = "UPDATE Item SET Item_title=?,Item_old_price=?,Item_sel_price=?,Item_content1=?,Item_content2=?,"
             + "Item_pic1=?,Item_pic2=?,Item_pic3=?,Item_pic4=?,Item_display=?,Item_sales=?,Item_icon1=?,Item_category1=?,Item_category2=?,Item_stock_price=?,"
-            + "Item_delivery_pee=?,Item_weight=?,Item_stock_count=?,Item_point=?,Item_date=NOW() where Item_code=?";
+            + "Item_delivery_pee=?,Item_weight=?,Item_stock_count=?,Item_point=?,Item_bgpic=?,Item_date=NOW() where Item_code=?";
 
       try {
          pstmt = con.prepareStatement(sql);
@@ -249,7 +249,9 @@ public int UpdateItem(ItemBean itemBean) {
          pstmt.setInt(17, itemBean.getItem_weight()); // 판매중량
          pstmt.setInt(18, itemBean.getItem_stock_count()); // 재고
          pstmt.setInt(19, itemBean.getItem_point());
-         pstmt.setInt(20, itemBean.getItem_code());
+         pstmt.setString(20, itemBean.getItem_bgpic()); // 추가이미지
+         pstmt.setInt(21, itemBean.getItem_code());
+
          updateCount = pstmt.executeUpdate();
          System.out.println("DB성공");
       } catch (SQLException e) {
@@ -295,7 +297,7 @@ public int UpdateItem(ItemBean itemBean) {
             itemBean.setItem_stock_count(rs.getInt("Item_stock_count"));
             itemBean.setItem_Date(rs.getDate("Item_Date"));
             itemBean.setItem_icon1(Item_icon1);
-
+            itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
             products.add(itemBean);
          }
 
@@ -329,7 +331,7 @@ public int UpdateItem(ItemBean itemBean) {
             itemBean.setItem_content1(rs.getString("Item_content1"));
             itemBean.setItem_content2(rs.getString("Item_content2"));
             itemBean.setItem_point(rs.getInt("item_point"));
-//                   itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+            itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
             itemBean.setItem_pic1(rs.getString("Item_pic1"));
             itemBean.setItem_pic2(rs.getString("Item_pic2"));
             itemBean.setItem_pic3(rs.getString("Item_pic3"));
@@ -493,7 +495,7 @@ public int UpdateItem(ItemBean itemBean) {
             itemBean.setItem_content1(rs.getString("Item_content1"));
             itemBean.setItem_content2(rs.getString("Item_content2"));
             itemBean.setItem_point(rs.getInt("item_point"));
-//                   itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
+            itemBean.setItem_bgpic(rs.getString("Item_bgpic"));
             itemBean.setItem_pic1(rs.getString("Item_pic1"));
             itemBean.setItem_pic2(rs.getString("Item_pic2"));
             itemBean.setItem_pic3(rs.getString("Item_pic3"));
