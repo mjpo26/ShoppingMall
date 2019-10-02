@@ -61,7 +61,7 @@ public class ReviewBoardWriteProAction implements Action {
         mb.setMember_id(multi.getParameter("review_id"));
         System.out.println("멤버!!!!아이디!!!!"+mb.getMember_id());
         MemberInfoService infoService=new MemberInfoService();
-        int isRight = infoService.getPoint(mb.getMember_id());
+        boolean isRight = infoService.getPoint(mb.getMember_id());
         System.out.println("적립금 추가 성공하였음?? " + isRight);
         boolean isWriteSuccess = reviewBoardWriteProService.registArticle(boardBean);
       
@@ -75,6 +75,8 @@ public class ReviewBoardWriteProAction implements Action {
         } else { 
             System.out.println();
             System.out.println(isRight);
+            
+            
             forward = new ActionForward();
             forward.setPath("ReviewBoardList.re"); 
             forward.setRedirect(true); 
