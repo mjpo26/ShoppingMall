@@ -30,7 +30,7 @@
 function check() {
 	var item_code_count = document.orderForm.Item_code_count.value;
 // 	alert(item_code_count);
-	var stock_count = <%=itemBean.getItem_stock_count()%>;
+	var stock_count = <%=itemBean.getItem_stock_count() %>;
     if (stock_count==0) {
         alert('제품이 품절되었습니다.');
         history.back();
@@ -44,7 +44,7 @@ function check() {
     	else{
     		
     	return true;
-    	}
+    }
     }
 }
 </script>
@@ -212,7 +212,10 @@ function searchBoardListPaging (page) {
 							<h2><%=itemBean.getItem_sel_price()%> </h2>
 							<h6>
 								적립금 : <%=itemBean.getItem_point()%></h6>
+								<%if(itemBean.getItem_sales().equals("no")){ %>
+								<p><h3>구매 불가 상품입니다</h3><%}else{ %>
 							<p> <%=itemBean.getItem_content1()%> </p>
+							<%} %>
 						</div>
 						<div class="card_area d-flex justify-content-between align-items-center">
 							색상 : <div class="product_option">
@@ -231,6 +234,7 @@ function searchBoardListPaging (page) {
 							</div>
 
 						</div>
+						<%if(itemBean.getItem_sales().equals("yes")){ %>
 						<div
 							class="card_area d-flex justify-content-between align-items-center product_buying">
 							<input type="submit" value="장바구니 담기" formaction="./BasketInsert.bl"
@@ -238,6 +242,7 @@ function searchBoardListPaging (page) {
 								class="like_us" onclick="./wish.sh"> <i class="ti-heart"></i>
 							</a>
 						</div>
+						<%} %>
 
 					</div>
 				</div>
