@@ -29,8 +29,19 @@ public class OrderBean {
 	private int page;
 	private int limit;
 	private int order_item_count;
+	private String order_reviewCheck;
 	
 	
+	
+	
+	public String getOrder_reviewCheck() {
+		return order_reviewCheck;
+	}
+
+	public void setOrder_reviewCheck(String order_reviewCheck) {
+		this.order_reviewCheck = order_reviewCheck;
+	}
+
 	public int getOrder_item_count() {
 		return order_item_count;
 	}

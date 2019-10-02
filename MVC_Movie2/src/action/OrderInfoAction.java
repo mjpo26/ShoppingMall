@@ -12,6 +12,7 @@ import svc.OrderInfoService;
 import vo.ActionForward;
 import vo.BasketListBean;
 import vo.OrderBean;
+import vo.ReviewBoardBean;
 
 public class OrderInfoAction implements Action {
 
@@ -34,7 +35,6 @@ public class OrderInfoAction implements Action {
 			out.println("</script>");
 		} else {
 			ArrayList<OrderBean> articleList = new ArrayList<OrderBean>();
-			
 			int page = 1;
 			int limit = 10;
 
