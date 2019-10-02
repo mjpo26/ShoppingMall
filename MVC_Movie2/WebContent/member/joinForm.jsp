@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../main/top.jsp"></jsp:include>
-<a href="http://developers.kakao.com/logout">로그아웃</a>
 
 <script src='http://code.jquery.com/jquery-3.1.1.min.js'></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
