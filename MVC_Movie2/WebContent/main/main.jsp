@@ -2,8 +2,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="vo.ItemBean"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>	
 <%
 ArrayList<ItemBean> bestProduct = bestProduct = (ArrayList<ItemBean>) request.getAttribute("bestProduct");
 ArrayList<ItemBean> newProduct = (ArrayList<ItemBean>) request.getAttribute("newProduct");
@@ -47,75 +50,25 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 					<%
 					  }
 					}else{%>
-					<div class="single_banner_slider">
-						<div class="row">
-							<div class="col-lg-5 col-md-8">
-								<div class="banner_text">
-									<div class="banner_text_iner">
-										<h1>Wood & Cloth Sofa</h1>
-										<p>Incididunt ut labore et dolore magna aliqua quis ipsum
-											suspendisse ultrices gravida. Risus commodo viverra</p>
-										<a href="#" class="btn_2">buy now</a>
+						<div class="single_banner_slider">
+							<div class="row">
+								<div class="col-lg-5 col-md-8">
+									<div class="banner_text">
+										<div class="banner_text_iner">
+											<h1>Wood & Cloth Sofa</h1>
+											<p>Incididunt ut labore et dolore magna aliqua quis ipsum
+												suspendisse ultrices gravida. Risus commodo viverra</p>
+											<a href="#" class="btn_2">buy now</a>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="banner_img d-none d-lg-block">
-								<img src="./assets/img/banner_img.png" alt="">
+								<div class="banner_img d-none d-lg-block">
+									<img src="./assets/img/banner_img.png" alt="">
+								</div>
 							</div>
 						</div>
-					</div>
 					<%}%>
-<!--                         <div class="single_banner_slider"> -->
-<!--                             <div class="row"> -->
-<!--                                 <div class="col-lg-5 col-md-8"> -->
-<!--                                     <div class="banner_text"> -->
-<!--                                         <div class="banner_text_iner"> -->
-<!--                                             <h1>Cloth & Wood Sofa</h1> -->
-<!--                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum -->
-<!--                                                 suspendisse ultrices gravida. Risus commodo viverra</p> -->
-<!--                                             <a href="#" class="btn_2">buy now</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <div class="banner_img d-none d-lg-block"> -->
-<!--                                     <img src="./assets/img/banner_img.png" alt=""> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div><div class="single_banner_slider"> -->
-<!--                             <div class="row"> -->
-<!--                                 <div class="col-lg-5 col-md-8"> -->
-<!--                                     <div class="banner_text"> -->
-<!--                                         <div class="banner_text_iner"> -->
-<!--                                             <h1>Wood & Cloth -->
-<!--                                                 Sofa</h1> -->
-<!--                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum -->
-<!--                                                 suspendisse ultrices gravida. Risus commodo viverra</p> -->
-<!--                                             <a href="#" class="btn_2">buy now</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <div class="banner_img d-none d-lg-block"> -->
-<!--                                     <img src="./assets/img/banner_img.png" alt=""> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                         <div class="single_banner_slider">
-<!--                             <div class="row"> -->
-<!--                                 <div class="col-lg-5 col-md-8"> -->
-<!--                                     <div class="banner_text"> -->
-<!--                                         <div class="banner_text_iner"> -->
-<!--                                             <h1>Cloth $ Wood Sofa</h1> -->
-<!--                                             <p>Incididunt ut labore et dolore magna aliqua quis ipsum -->
-<!--                                                 suspendisse ultrices gravida. Risus commodo viverra</p> -->
-<!--                                             <a href="#" class="btn_2">buy now</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <div class="banner_img d-none d-lg-block"> -->
-<!--                                     <img src="./assets/img/banner_img.png" alt=""> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div> --> 
+
                     </div>
                     <div class="slider-counter"></div>
                 </div>
@@ -189,30 +142,16 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 	<div class="container">
 		<div class="row align-items-center justify-content-between">
 			<div class="col-lg-6 col-md-6">
-				<div class="offer_img">
-					<img src="./assets/img/offer_img.png" alt="">
+				<div class="offer_text">
+					<span>FUNCTIONAL SOFA</span>
+					<h2>KOMFORT SOFA</h2>
+					<p>생활오염, 얼룩으로부터 깨끗하고 안전하게<br> 기능과 실용성을  모두 갖춘 체리쉬 콤포어 쇼파</p>
+					
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6">
-				<div class="offer_text">
-					<h2>Weekly Sale on 60% Off All Products</h2>
-					<div class="date_countdown">
-						<div id="timer">
-							<div id="days" class="date"></div>
-							<div id="hours" class="date"></div>
-							<div id="minutes" class="date"></div>
-							<div id="seconds" class="date"></div>
-						</div>
-					</div>
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="enter email address"
-							aria-label="Recipient's username" aria-describedby="basic-addon2">
-						<div class="input-group-append">
-							<a href="#" class="input-group-text btn_2" id="basic-addon2">book
-								now</a>
-						</div>
-					</div>
+				<div class="offer_img">
+<!-- 					<img src="./assets/img/offer_img.png" alt=""> -->
 				</div>
 			</div>
 		</div>
@@ -249,7 +188,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 							onclick="location.href='productDetail.sh?Item_code=<%=bestProduct.get(i).getItem_code()%>&page=1'">
 						<div class="single_product_text">
 							<h4><%=bestProduct.get(i).getItem_title()%></h4>
-							<h3><%=bestProduct.get(i).getItem_sel_price()%></h3>
+							<h3><fmt:formatNumber value="<%=bestProduct.get(i).getItem_sel_price()%>" pattern="#,###" />원</h3>
 						</div>
 					</div>
 					<%    
@@ -325,7 +264,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 										onclick="location.href='productDetail.sh?Item_code=<%=recommendProduct.get(i).getItem_code()%>&page=1'">
 									<div class="single_product_text">
 										<h4><%=recommendProduct.get(i).getItem_title()%></h4>
-										<h3><%=recommendProduct.get(i).getItem_sel_price()%></h3>
+										<h3><fmt:formatNumber value="<%=recommendProduct.get(i).getItem_sel_price()%>" pattern="#,###" />원</h3>
 										<a
 											href="./basket.sh?Item_code=<%=recommendProduct.get(i).getItem_code()%>"
 											class="add_cart">+ add to cart<i class="ti-heart"></i></a> <a
