@@ -36,22 +36,39 @@ public class productUpdateProAction implements Action {
         String pic2="";
         String pic3="";
         String pic4="";
+        String bgpic="";
+        String oripic1=(String) request.getParameter("oripic1");
+        String oripic2=(String) request.getParameter("oripic2");
+        String oripic3=(String) request.getParameter("oripic3");
+        String oripic4=(String) request.getParameter("oripic4");
+        String oribgpic=(String) request.getParameter("oribgpic");
         Enumeration files = multi.getFileNames();
         String file = (String)files.nextElement();
         pic1 = multi.getFilesystemName(file);
-
         String file2 = (String)files.nextElement();
         pic2 = multi.getFilesystemName(file2);
-
-       
-
         String file3 = (String)files.nextElement();
-
         pic3 = multi.getFilesystemName(file3);
         String file4 = (String)files.nextElement();
-
         pic4 = multi.getFilesystemName(file4);
+        String file5 = (String)files.nextElement();
+        bgpic = multi.getFilesystemName(file5);        
         
+        if(pic1==null) {
+        	pic4=oripic4;
+        }
+        if(pic2==null) {
+        	pic3=oripic3;
+        }
+        if(pic3==null) {
+        	pic1=oripic1;
+        }
+        if(pic4==null) {
+        	bgpic=oribgpic;
+        }
+        if(bgpic==null) {
+        	pic2=oripic2;
+        }
         
         
       int sale_price =(Integer.parseInt(multi.getParameter("old_price"))*Integer.parseInt(multi.getParameter("sale_price")))/100;
@@ -70,6 +87,7 @@ public class productUpdateProAction implements Action {
            itemBean.setItem_pic2(pic2);
            itemBean.setItem_pic3(pic3);
            itemBean.setItem_pic4(pic4);
+           itemBean.setItem_bgpic(bgpic);
 //           itemBean.setItem_pic4(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
            itemBean.setItem_option_color1("item_option_color1");
            itemBean.setItem_option_color2("item_option_color2");

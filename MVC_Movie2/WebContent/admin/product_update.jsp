@@ -163,12 +163,19 @@
       
                      </tr>
                      <tr>
+                
                         <th>이미지추가</th>
-                        <td>
-                           <input type="file" name="pic1"> 
-                           <input type="file" name="pic2"> 
-                           <input type="file" name="pic3"> 
-                           <input type="file" name="pic4"> 
+                        <td><%=article.getItem_pic1() %>
+                        <input type="hidden" name="oripic1" value=<%=article.getItem_pic1() %>>
+                        <input type="hidden" name="oripic2" value=<%=article.getItem_pic2() %>>
+                        <input type="hidden" name="oripic3" value=<%=article.getItem_pic3() %>>
+                        <input type="hidden" name="oripic4" value=<%=article.getItem_pic4() %>>
+                        <input type="hidden" name="oribgpic" value=<%=article.getItem_bgpic() %>>
+                		<input type="file" name="pic1"> 
+                        <input type="file" name="pic2"> 
+                        <input type="file" name="pic3"> 
+                        <input type="file" name="pic4"> 
+                        <input type="file" name="bgpic">
                         </td>
                      </tr>
       
