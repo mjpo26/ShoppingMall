@@ -12,7 +12,10 @@
 <!--   <servlet-name>IdCheckServlet</servlet-name> -->
 <!--   <url-pattern>/IdCheckServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
-  
+   <error-page>
+      <error-code>404</error-code>
+      <location>/404.jsp</location>
+  </error-page>
   
   
    <servlet>
