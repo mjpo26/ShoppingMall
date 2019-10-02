@@ -62,7 +62,14 @@ $(function() {
 <%--              $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count%>); --%>
 			$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count() - basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
             }
-          
+          else if(result<0){
+              $('span#result').css('color','red');
+              $('#text3').text('포인트 금액에 맞게 사용해주세요!');
+              document.getElementById('usedOk').value = 'no';
+ <%--              $('span#result').append("상품금액"+<%=itemBean.getItem_old_price() * item_code_count%>+"할인금액"+<%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> +"적립금" + usedPoint + "총금액"+<%=itemBean.getItem_sel_price() * item_code_count%>); --%>
+ 			$('span#result').html('상품금액 : '+<%=basketListBean.getBasket_new_price()*basketListBean.getBasket_code_count()%>+'원 - 할인금액 : '+<%=basketListBean.getBasket_new_price() * basketListBean.getBasket_code_count() - basketListBean.getBasket_sel_price()*basketListBean.getBasket_code_count()%> +'원 - 적립금 : ' + usedPoint + '원 = 총금액 : '+result+'원');
+            
+          }
           else{
             	$('#text3').css('color','blue');
                 
@@ -201,7 +208,7 @@ function check() {
 							id="usedPoint" name="usedPoint" readonly>적립금사용 <input
 							type="checkbox" id="checkBoxId" name="checkBoxId">
 							사용가능금액(<%=memberBean.getMember_mypoint()%>)
-						<span id="text3" style="padding-left:0.5em;">사용이 안됩니다.</span>
+						<span id="text3" style="padding-left:0.5em;"></span>
                      <input type ="hidden" id="usedOk" value="no">
                      </td>
 					</tr>
