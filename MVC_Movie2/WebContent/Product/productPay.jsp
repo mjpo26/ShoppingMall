@@ -207,7 +207,9 @@ function check() {
 
 					<tr>
 						<td align="left" width="600" colspan="6"><span
-							style="font-weight: bold;" id="result"></span> <!--                   <span -->
+							style="font-weight: bold;" id="result">
+							상품금액 : <%=itemBean.getItem_old_price() * item_code_count%>원 - 할인금액 : <%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%>원 - 적립금 : 0원 = 총금액 : <%=itemBean.getItem_sel_price() * item_code_count%>원
+							</span> <!--                   <span -->
 							<%--                      style="font-weight: bold;">상품금액</span>: <%=itemBean.getItem_old_price() * item_code_count%> --%>
 							<%--                      - <span style="font-weight: bold;">할인금액</span>: <%=itemBean.getItem_old_price() * item_code_count - itemBean.getItem_sel_price() * item_code_count%> --%>
 							<%--                      = <span style="font-weight: bold;">총금액</span>: <%=itemBean.getItem_sel_price() * item_code_count%> --%>
