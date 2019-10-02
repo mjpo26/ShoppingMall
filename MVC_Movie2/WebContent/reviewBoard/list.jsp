@@ -55,7 +55,9 @@
 					<%
 						} else {
 					%>
-					<%=articleList.get(i).getReview_content()%>
+					<img
+							src="./upload/review/000.jpg"
+							class="figure-img">
 					<%
 						}
 					%>
