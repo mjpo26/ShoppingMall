@@ -5,7 +5,14 @@
 	pageEncoding="UTF-8"%>
 	<% 
  	ArrayList<ItemBean> articleList = (ArrayList<ItemBean>) request.getAttribute("articleList");
+	// 세션 아이디 가져오기
+		String sId = (String) session.getAttribute("sId");
 
+		// 만약, 회원만 게시판 목록 조회가 가능할 경우
+		// 세션 아이디 없으면 Main.bo 로 이동
+		if (sId == null) {
+			sId = "비회원";
+		}
 %>
 <jsp:include page="../main/adminTop.jsp"></jsp:include>  
 	<h3>관리자 상품 리스트</h3>
