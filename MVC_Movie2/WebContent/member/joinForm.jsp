@@ -1,3 +1,4 @@
+<%@page import="com.fasterxml.jackson.databind.ObjectMapper"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../main/top.jsp"></jsp:include>
@@ -309,7 +310,7 @@ function searchAddress(){
     <section class="join_part padding_top">
   <div id="kakaoLo">  
     <a id="kakao-login-btn"></a>
-<a href="./index.jsp">로그아웃</a>
+<a href="./MemberJoinForm.me">로그아웃</a>
   </div>
     <script type='text/javascript'>
   //<![CDATA[
@@ -357,7 +358,13 @@ function searchAddress(){
              $('[name=domain]').val(domain);
              $('[name=domain2]').val(domain);
               var html = '<h1>' + name + '</h1>';
-              html += '<img src="' + image + '" width="200px" height="200px">';
+              html += '<img src="' + image + '" width="200px" height="200px"><br>';
+              html +=  '이름 :' + name + '<br>';
+              html +=  '임시id :' + id + '<br>';
+              html +=  'email :' + email + '<br>';
+              html +=  '세션 토큰 :' +token+ '<br>';
+              html +=  '주소 :' +"유료" + '<br>';
+              html +=  '전화 :' +"유료"+ '<br>';
               $('div#kakaoLo').append(html);
           }
        })
@@ -385,6 +392,7 @@ function searchAddress(){
   
   
 </script>
+
         <div class="container">
             <div class="align-items-center">
                 <div class="col-lg-8 col-md-8 col-sm-12 mx-auto">
