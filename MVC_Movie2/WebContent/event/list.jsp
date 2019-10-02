@@ -44,21 +44,22 @@
                
                          <div class="event_list col-md-6 col-sm-12"  onclick="location.href='EventBoardDetail.event?event_num=<%=articleList.get(i).getEvent_num()%>&page=<%=nowPage%>'">
                              <figure class="figure">
+<%--                              	<p class="text-black"><%=articleList.get(i).getEvent_subject()%></p> --%>
                                 <div class="event_photo">
                                  <%if(articleList.get(i).getEvent_imageMain()!= null){ %>
                                     <img src="./upload/event/<%=articleList.get(i).getEvent_imageMain()%>" class="figure-img">
                                  <% }else{%>                                
-                               		<img src="../upload/event/basic.png" class="figure-img mx-auto" width="80%">
+                               		<img src="./upload/event/basic.png" class="figure-img mx-auto" >
                                 <% }%>
                                 </div>
                                       
-                                <figcaption class="figure-caption position-absolute fixed-top event_title mx-auto">
-                                <p><%=articleList.get(i).getEvent_subject()%><br>
-								</p>
-								</figcaption>
-                                <figcaption class="figure-caption position-absolute fixed-bottom event_writer mx-auto">
+<!--                                 <figcaption class="figure-caption position-absolute fixed-top event_title mx-auto"> -->
+<%--                                 <p><%=articleList.get(i).getEvent_subject()%><br> --%>
+<!-- 								</p> -->
+<!-- 								</figcaption> -->
+<%--                                 <figcaption class="figure-caption position-absolute fixed-bottom event_writer mx-auto">
                                 	<p><%=articleList.get(i).getEvent_content()%></p>
-                               	</figcaption>
+                               	</figcaption> --%>
                              </figure>
                          </div>
                           <%
