@@ -31,6 +31,7 @@ public class productList1Action implements Action {
 //	        pb.setItem_sel_price(Integer.parseInt(request.getParameter("sel_price")));
 	        pb.setItem_display(request.getParameter("display"));
 	        pb.setItem_sales(request.getParameter("sales"));
+	        pb.setItem_icon1(request.getParameter("icon1"));
 	        pb.setItem_category1(request.getParameter("category"));
 	        
 	        System.out.println("jsp script 로 널값 변환되나 보자  ["+request.getParameter("pickStart")+"]");

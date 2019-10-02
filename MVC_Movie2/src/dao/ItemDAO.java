@@ -467,7 +467,7 @@ public int UpdateItem(ItemBean itemBean) {
 
          String sql = "SELECT * FROM Item where " + "Item_title like ifnull(?,'%%') " + "and Item_date >= ?"
                + "and Item_date <= ?" + "and Item_display like ifnull(?,'%%') "
-               + "and Item_sales like ifnull(?,'%%')" + "and Item_category1 like ifnull(?,'%%')";
+               + "and Item_sales like ifnull(?,'%%')" + "and Item_category1 like ifnull(?,'%%')"+ "and Item_icon1 like ifnull(?,'%%')";
 
          pstmt = con.prepareStatement(sql);
 //         pstmt.setString(1, ob.getOrder_item_option_color());
@@ -478,6 +478,7 @@ public int UpdateItem(ItemBean itemBean) {
          pstmt.setString(4, pb.getItem_display());
          pstmt.setString(5, pb.getItem_sales());
          pstmt.setString(6, pb.getItem_category1());
+         pstmt.setString(7, pb.getItem_icon1());
          rs = pstmt.executeQuery();
 
          while (rs.next()) {

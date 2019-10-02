@@ -5,7 +5,7 @@
    ItemBean article = (ItemBean) request.getAttribute("article");
 
    int sale_price = (article.getItem_old_price() - article.getItem_sel_price())
-         / ((article.getItem_old_price() / 100))*100;
+         / ((article.getItem_old_price() / 100));
 %>
   <%
        
@@ -135,11 +135,11 @@
                      <h1>상품 수정</h1>
                   </div>
                   <table class="table" id="itemtable">
-                     <input type="hidden" name="item_code" value=<%=article.getItem_code()%>>
                      <tr>
                         <th>상품명(필수)</th>
                         <td><input type="text" name="title"
                            value=<%=article.getItem_title()%>>
+                     <input type="hidden" name="item_code" value=<%=article.getItem_code()%>>
                         </td>
                      </tr>
                      <tr>
