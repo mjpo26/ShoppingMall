@@ -128,11 +128,12 @@ public class ItemDAO {
             pstmt.setInt(1, startRow);
             pstmt.setInt(2, limit);
          } else {
-            String sql = "SELECT * FROM Item where Item_category1=? LIMIT ?,? ";
+            String sql = "SELECT * FROM Item where Item_category1=? and Item_display=? LIMIT ?,? ";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, category);
-            pstmt.setInt(2, startRow);
-            pstmt.setInt(3, limit);
+            pstmt.setString(2, "yes");
+            pstmt.setInt(3, startRow);
+            pstmt.setInt(4, limit);
          }
          rs = pstmt.executeQuery();
          while (rs.next()) {
