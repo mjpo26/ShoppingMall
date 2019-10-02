@@ -54,7 +54,7 @@ public class OrderDAO {
 					+ "order_memo ," // 메모
 					+ "order_item_status ," // 주문현황
 					+ "order_date," + "order_member_name, "
-					+ "order_member_id,oreder_reviewCheck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?,?,?)";
+					+ "order_member_id,order_reviewCheck) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?,?,?)";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, OrderBean.getOrder_item_code());
