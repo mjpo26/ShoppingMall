@@ -65,8 +65,8 @@
 					<tr>
 						<th width="200" align="center">보유 포인트</th>
 						<td width="200" align="center" colspan="2"><%=memberBean.getMember_mypoint()%></td>
-						<th width="200" align="center">보유 예치금</th>
-						<td width="200" align="center" colspan="2"><%=memberBean.getMember_yechimoney()%></td>
+						<th width="200" align="center">보유 쿠폰</th>
+						<td width="200" align="center" colspan="2">서비스 예정</td>
 					</tr>
 					
 					<tr>
