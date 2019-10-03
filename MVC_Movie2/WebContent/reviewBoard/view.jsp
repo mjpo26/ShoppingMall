@@ -102,7 +102,7 @@
 								if (sId != null && sId.equals("admin")) {
 							%>
 							<a
-								href="ReviewBoardCommentDelete.re?num=<%=article.getReview_num()%>">
+								href="ReviewBoardCommentDelete.re?num=<%=article.getReview_num()%>&commentNum=<%=cb.getComment_num()%>">
 								<img src="./assets/img/board/xicon.png" alt="xicon">
 							</a>
 

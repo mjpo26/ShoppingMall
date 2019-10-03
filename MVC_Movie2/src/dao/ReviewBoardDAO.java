@@ -541,15 +541,17 @@ public class ReviewBoardDAO {
 		return boardlist;
 	}
 
-	public int deleteComment(int num) {
+	public int deleteComment(int num, int commentNum) {
 		PreparedStatement pstmt = null;
 System.out.println(num+"립버버버버ㅓㄴㄴ");
+System.out.println(commentNum+"코에네트넘");
 		int deleteCount = 0;
 
 		try {
-			String sql = "DELETE FROM Review_comment WHERE comment_num=?";
+			String sql = "DELETE FROM Review_comment WHERE comment_review_num=? and comment_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			pstmt.setInt(2, commentNum);
 			deleteCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("deleteArticle() 에러 - " + e.getMessage());
