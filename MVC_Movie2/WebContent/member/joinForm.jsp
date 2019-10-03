@@ -332,7 +332,7 @@ function searchAddress(){
     Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
       success: function(authObj) {
-    	  alert(JSON.stringify(authObj));
+    	 // alert(JSON.stringify(authObj));
     	 
     	  var access_tocken =authObj.access_tocken;
     	  
@@ -353,11 +353,11 @@ function searchAddress(){
            
            
             
-            alert("[id받은값]:                          "+id);
-             alert("[name받은값]:                    "+name);
-             alert("[image받은값]:                    "+image);
-             alert("[email받은값]:                    "+email);
-             alert("[도메인]:                          "+domain);
+//             alert("[id받은값]:                          "+id);
+//              alert("[name받은값]:                    "+name);
+//              alert("[image받은값]:                    "+image);
+//              alert("[email받은값]:                    "+email);
+//              alert("[도메인]:                          "+domain);
              $('[name=id]').val(id);
              $('[name=name]').val(name);
              $('[name=id]').val(id);
@@ -365,6 +365,8 @@ function searchAddress(){
              $('[name=email2]').val(email1);
              $('[name=domain]').val(domain);
              $('[name=domain2]').val(domain);
+             $('[name=pass]').val("kakaoGuestPass!1");
+             $('[name=pass2]').val("kakaoGuestPass!1");
               var html = '<h1>' + name + '</h1>';
               html += '<img src="' + image + '" width="200px" height="200px"><br>';
               html +=  '이름 :' + name + '<br>';
