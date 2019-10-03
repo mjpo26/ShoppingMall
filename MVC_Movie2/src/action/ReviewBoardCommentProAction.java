@@ -33,7 +33,7 @@ public class ReviewBoardCommentProAction implements Action {
         
         // ActionForward 객체를 사용하여 BoardList.bo?page=x 포워딩 => 페이지 번호를 가지고 이동
         ActionForward forward = new ActionForward();
-        forward.setPath("/reviewBoard/list.jsp");
+        forward.setPath("index.jsp");
         forward.setRedirect(true);
         
         return forward;
