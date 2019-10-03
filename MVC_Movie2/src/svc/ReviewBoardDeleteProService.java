@@ -53,7 +53,7 @@ public class ReviewBoardDeleteProService {
         return isRemoveSuccess;
     }
 
-	public boolean removeComment(int num) throws Exception {
+	public boolean removeComment(int num, int commentNum) throws Exception {
         boolean isRemoveSuccess = false; // 게시물 삭제 결과 저장할 변수
         
         Connection con = getConnection();
@@ -62,7 +62,7 @@ public class ReviewBoardDeleteProService {
         
         // BoardDAO 객체의 deleteArticle() 메서드를 호출하여 글 번호(review_num)를 전달
         // => 게시물 삭제 결과를 정수형으로 리턴받아 성공 여부 판별
-        int deleteCount = boardDAO.deleteComment(num);
+        int deleteCount = boardDAO.deleteComment(num,commentNum);
         
         if(deleteCount > 0) { // 삭제 성공했을 경우
             commit(con);

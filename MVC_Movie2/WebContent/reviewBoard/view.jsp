@@ -75,7 +75,7 @@
 <!-- 					value="수정"> -->
 					
 					 <input type="button" class="btn_3"
-					onclick='location.href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" '
+					onclick='location.href="ReviewBoardCommentDelete.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>" '
 					value="삭제">
 				<%
 					}
@@ -102,7 +102,7 @@
 								if (sId != null && sId.equals("admin")) {
 							%>
 							<a
-								href="ReviewBoardDeleteForm.re?review_num=<%=article.getReview_num()%>&page=<%=nowPage%>">
+								href="ReviewBoardCommentDelete.re?num=<%=article.getReview_num()%>&commentNum=<%=cb.getComment_num()%>">
 								<img src="./assets/img/board/xicon.png" alt="xicon">
 							</a>
 
