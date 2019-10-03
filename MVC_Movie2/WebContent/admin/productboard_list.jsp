@@ -47,8 +47,8 @@
 		</div>
 		<div class="col-6 text-center cate">
 		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=전체">전체보기 </a> 
-		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">의자 </a> 
-		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=침대">침대</a>
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">대분류 </a> 
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=침대">소분류</a>
 		</div>
 		
 		</div>
