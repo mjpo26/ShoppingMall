@@ -543,7 +543,7 @@ public class ReviewBoardDAO {
 
 	public int deleteComment(int num) {
 		PreparedStatement pstmt = null;
-
+System.out.println(num+"립버버버버ㅓㄴㄴ");
 		int deleteCount = 0;
 
 		try {
