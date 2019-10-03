@@ -103,7 +103,7 @@
 
 
 <a id="custom-login-btn" href="javascript:loginWithKakao()">
-<img src="https://developers.kakao.com/assets/img/about/logos/kakaologin/kr/kakao_login_btn_medium.png" width="300"/>
+<img src="https://developers.kakao.com/assets/img/about/logos/kakaologin/kr/kakao_login_btn_medium.png" height="50"/>
 </a>
 <a href="http://developers.kakao.com/logout">카카오로그아웃</a>
 
@@ -115,8 +115,51 @@
       // 로그인 창을 띄웁니다.
       Kakao.Auth.login({
         success: function(authObj) {
-          alert(JSON.stringify(authObj));
-        },
+          alert(JSON.stringify(authObj));var token = authObj.access_token;
+          var token = authObj.access_token;
+          
+       Kakao.API.request({
+			url:'/v2/user/me',
+         success: function(res){
+            console.log(res);
+            var id = res.id;
+            var kakao_token =res.access_tocken;
+            var name = res.properties.nickname;
+            var image = res.properties.profile_image;
+            var email = res.kakao_account.email;
+            var emailSplit = email.split("@");
+            var email1 = emailSplit[0];
+   	  	var domain = emailSplit[1];
+   	  
+   	  	
+//     	  	alert(token);
+//     	  	alert(id);
+   	  	
+   	  	
+   	  	  $.ajax({
+   	  		 type:"POST",
+          		  url:"<%=request.getContextPath()%>/MemberLoginPro.me",
+        		   data:{'kakao_token':token,"kakao_id":id},
+         		  success: function(res){
+               location='<%=request.getContextPath()%>/index.jsp'
+           }
+           
+        }) 
+   	  	
+   	  	
+   	  	
+   	  	
+         }
+      })
+        console.log(authObj);
+       
+      
+       
+       
+       
+      
+       
+     },//api2.0석세스끝단
         fail: function(err) {
           alert(JSON.stringify(err));
         }
