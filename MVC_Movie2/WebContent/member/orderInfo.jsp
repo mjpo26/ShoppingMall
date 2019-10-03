@@ -69,7 +69,8 @@
 					%>
 					<td><a
 						href="ReviewBoardWriteForm.re?order_item_code=<%=articleList.get(i).getOrder_item_code()%>">
-							<input type="button" value="리뷰달기">
+								<input type="button"
+								class="genric-btn primary radius col-6 submit" value="리뷰달기" >
 					</a></td>
 
 					<%
