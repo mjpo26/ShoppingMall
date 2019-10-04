@@ -6,10 +6,21 @@
 	String authNum = (String) request.getAttribute("authNum");
 	// 	String id = memberBean.getMember_id();
 %>
+		<script type="text/javascript">
+	function mailCheck() {
+// 		alert("인증번호가 일치하지않습니다");
+		if (document.getElementById('mailCk').value != document.getElementById('mailHidden').value) {
+			alert("인증번호가 일치하지않습니다");
+		} else {
+			alert("인증번호가 일치합니다.");
+			var fid='<%=memberBean.getMember_id()%>';
+					window.name = "비밀번호 변경";
+					window.location.href = "./MemberFwUpdate.me?fid="+fid;
+				}
+			}
+		</script>
 
-
-<jsp:include page="../assets/top.jsp"></jsp:include>
-
+<jsp:include page="../main/top.jsp"></jsp:include>
 
 <section class="breadcrumb breadcrumb_bg">
 	<div class="container">
@@ -17,8 +28,7 @@
 			<div class="col-lg-8">
 				<div class="breadcrumb_iner">
 					<div class="breadcrumb_iner_item">
-						<h2>
-							비밀번호 찾기</h2>
+						<h2>비밀번호 찾기</h2>
 						<p>
 							회원 <span>-</span> 비밀번호 찾기
 						</p>
@@ -57,22 +67,7 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 </section>
-
-<script type="text/javascript">
-	function mailCheck() {
-// 		alert("인증번호가 일치하지않습니다");
-		if (document.getElementById('mailCk').value != document.getElementById('mailHidden').value) {
-			alert("인증번호가 일치하지않습니다");
-		} else {
-			alert("인증번호가 일치합니다.");
-			var fid = '<%=memberBean.getMember_id()%>';
-			window.name = "비밀번호 변경";
-			 window.location.href="./MemberFwUpdate.me?fid="+ fid;
-<%-- 			document.getElementById('resultEm').value="회원님의 비밀번호는 "+'<%=memberBean.getMember_pass()%>'+"입니다."; --%>
-		}
-	}
-</script>
-
 <jsp:include page="../main/foot.jsp"></jsp:include>
