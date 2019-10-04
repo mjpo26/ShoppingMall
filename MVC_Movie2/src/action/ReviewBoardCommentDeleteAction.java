@@ -14,10 +14,11 @@ public class ReviewBoardCommentDeleteAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("여기까찌는 오니 ?");
 		int num = Integer.parseInt(request.getParameter("num"));
-
+		int commentNum =Integer.parseInt(request.getParameter("commentNum"));
+		System.out.println("받아온 넘값!!!!!!!!!" + num+"댓글번호오ㅗ"+commentNum);
 		ReviewBoardDeleteProService boardDeleteProService = new ReviewBoardDeleteProService();
 		ActionForward forward = null;
-		boolean isDeleteSuccess = boardDeleteProService.removeComment(num);
+		boolean isDeleteSuccess = boardDeleteProService.removeComment(num,commentNum);
 		if (!isDeleteSuccess) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();

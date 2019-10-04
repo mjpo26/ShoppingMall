@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
@@ -59,7 +61,17 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/member/id_find.jsp");
 		} else if (command.equals("/MemberLoginPro.me")) {
-			action = new MemberLoginProAction();
+			
+		    HttpSession session =request.getSession(); 
+		    
+		    if(request.getParameter("kakao_id") != null) {
+            session.setAttribute("sid",request.getParameter("kakao_id"));
+          System.out.println("콘트롤러 카카오토큰가져오나"+ request.getParameter("kakao_token"));
+          System.out.println("콘트롤러 카카오아이디가져오나"+ request.getParameter("kakao_id"));
+		    }
+          
+          
+          action = new MemberLoginProAction();
 
 			try {
 				forward = action.execute(request, response);

@@ -418,7 +418,7 @@ public class QnA_BoardDAO {
         int deleteCount = 0;
         
         try {
-            String sql = "DELETE FROM QnA_Board WHERE QnA_num=?";
+            String sql = "DELETE FROM QnA_Board WHERE QnA_re_ref=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, QnA_num);
             deleteCount = pstmt.executeUpdate();

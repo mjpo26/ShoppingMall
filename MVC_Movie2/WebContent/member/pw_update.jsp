@@ -204,14 +204,13 @@ $(document).ready(function(){
            $("#text3").text('');
          $("#text2").css("color","blue");
          $("#text2").text(' 사용 가능한 비밀번호 입니다.');
-         document.getElementById('isPassOk').value = "yes";
         $("#pass2").focus();
 
       }else{
          $("#text3").text('');
          $("#text2").css("color","blue");
          $("#text2").text(' 사용 가능한 비밀번호 입니다.');
-         document.getElementById('isPassOk').value = "yes";
+//          document.getElementById('isPassOk').value = "yes";
         $("#pass2").focus();
       }
       }
@@ -222,7 +221,7 @@ $(document).ready(function(){
      $('[name=pass2]').keyup(function(){
        
         
-        if(document.getElementById('isPassOk').value=="yes"){               
+        if(document.getElementById('isPassOk').value=="no"){               
            if ( $('[name=pass]').val() != $('[name=pass2]').val()) {
               $("#text3").css("color","red");
               $("#text2").text('');
@@ -233,11 +232,12 @@ $(document).ready(function(){
               $("#text2").text('');
                 $("#text3").css("color","blue");
                $("#text3").text('비밀번호가 일치합니다!');                 
+         document.getElementById('isPassOk').value = "yes";
              }
         }
         else{
            //$("#member_pass").focus();
-           $("#text2").text(' 사용불가! 영문자,숫자,특수문자 3가지 조합과 8자이상으로 설정하세요');
+           $("#text2").text(' 비밀번호가 일치합니다.');
         }
         
      });

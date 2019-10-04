@@ -37,8 +37,8 @@
 						<td><input type="password" class="form-control" name="QnA_pass"></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="삭제" /></td>
-						<td><input type="reset" value="돌아가기" onclick="history.back()" /></td>
+						<td><input type="submit" value="삭제" class="genric-btn primary radius submit" /></td>
+						<td><input type="reset" value="돌아가기"  class="genric-btn default radius"  onclick="history.back()" /></td>
 					</tr>
 				</table>
 			</form>

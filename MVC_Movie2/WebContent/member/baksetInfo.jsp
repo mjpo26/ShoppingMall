@@ -105,12 +105,19 @@
 
 					<!-- 							<td><input type="submit" value="장바구니 담기" formaction="./selectorder.sh"><br> -->
 					<!-- 							<input type="submit" value="장바구니 담기" formaction="./BasketDelete.bl"><td> -->
-					<td><input type="button" value="주문하기"
-						onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'"><br>
-						<input type="button" value="삭제하기"
-						onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'"></td>
+					<td>
+<!-- 						<div class="col-xs-12 col-sm-6 mx-auto row"> -->
+							<input type="button"
+								class="genric-btn primary radius submit" value="주문하기"
+								onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'">
+							<br> <input type="button"
+								class="genric-btn default radius" value="삭제하기"
+								onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'">
+<%-- 						</div> <!-- 					<input type="button" value="주문하기" --> 						onclick="location.href='./selectorder.sh?bId=<%=articleList.get(i).getBasket_idx()%>'"><br> --%>
+						<!-- 						<input type="button" value="삭제하기" --> <%-- 						onclick="location.href='./BasketDelete.bl?bId=<%=articleList.get(i).getBasket_idx()%>'"> --%>
+					</td>
 				</tr>
-				</form>
+<!-- 				</form> -->
 				<%
 					}
 				%>

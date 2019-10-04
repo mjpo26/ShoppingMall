@@ -8114,5 +8114,9 @@ figure:hover .event_writer {
     overflow: hidden;    
 }
 
-
+.review_board_list .cate{
+	background-color: #ddd;
+	border-radius: 1em;
+	padding: 2em;
+}
 

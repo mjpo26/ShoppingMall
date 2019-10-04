@@ -35,21 +35,25 @@
 		</div>
 	</div>
 </section>
-<div>
-	<a href="./product_list.sh?Item_category1=전체">전체보기 </a> <a
-		href="./product_list.sh?Item_category1=주방가구">주방가구 </a> <a
-		href="./product_list.sh?Item_category1=사무가구">사무가구</a> <a
-		href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
-</div>
-<div>
-	<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=전체">전체보기 </a> <a
-		href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">의자 </a> <a
-		href="./product_list.sh?Item_category1=<%=category%>&Item_category2=침대">침대</a>
-</div>
+
 <section class="review_board_list board_list mt-5">
 	<div class="container">
-
+		<div class="row">
+		<div class="col-6 text-center cate">
+		<a href="./product_list.sh?Item_category1=전체">전체보기 </a> 
+		<a href="./product_list.sh?Item_category1=주방가구">주방가구 </a> 
+		<a href="./product_list.sh?Item_category1=사무가구">사무가구</a> 
+		<a href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
+		</div>
+		<div class="col-6 text-center cate">
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=전체">전체보기 </a> 
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">대분류 </a> 
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=침대">소분류</a>
+		</div>
+		
+		</div>
 		<div class="row clearfix">
+
 			<%
 				if (articleList != null & listCount > 0) {
 					for (int i = 0; i < articleList.size(); i++) {
@@ -57,10 +61,8 @@
 			<div class="col-lg-3 col-md-4 col-sm-6 float-left review_list" onclick="location.href='./productDetail.sh?Item_code=<%=articleList.get(i).getItem_code()%>&page=<%=nowPage%>'">
 				<figure class="figure">
 					<div class="review_photo">
-						<img
-							src="./assets/img/product/single-product/<%=articleList.get(i).getItem_pic1()%>"
-							class="figure-img"
-							>
+					
+						<img src="./assets/img/product/single-product/<%=articleList.get(i).getItem_pic1()%>" class="figure-img">
 					</div>
 
 					<figcaption

@@ -114,7 +114,7 @@
 				</tr>
 				<tr>
 					<td class="td_left"><label for="free_content">내용</label></td>
-					<td class="td_right"><textarea id="summernote" name="content" rows="5" cols="100"><%=article.getFree_content()%></textarea></td>
+					<td class="td_right"><textarea id="summernote" name="free_content" rows="5" cols="100"><%=article.getFree_content()%></textarea></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="free_file1">파일첨부</label></td>
