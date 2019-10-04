@@ -332,13 +332,13 @@ function searchAddress(){
     Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
       success: function(authObj) {
-    	 // alert(JSON.stringify(authObj));
-    	 
-    	  var access_tocken =authObj.access_tocken;
-    	  
-    	  
-    	  Kakao.API.request({
-			url:'/v2/user/me',
+        // alert(JSON.stringify(authObj));
+        
+         var access_tocken =authObj.access_tocken;
+         
+         
+         Kakao.API.request({
+         url:'/v2/user/me',
           success: function(res){
              console.log(res);
              var id = res.id;
@@ -348,8 +348,8 @@ function searchAddress(){
              var email = res.kakao_account.email;
              var emailSplit = email.split("@");
              var email1 = emailSplit[0];
-    	  	var domain = emailSplit[1];
-    	  
+            var domain = emailSplit[1];
+         
            
            
             
