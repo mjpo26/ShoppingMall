@@ -38,16 +38,16 @@
 
 <section class="review_board_list board_list mt-5">
 	<div class="container">
-		<div class="row">
-		<div class="col-6 text-center cate">
-		<a href="./product_list.sh?Item_category1=전체">전체보기 </a> 
-		<a href="./product_list.sh?Item_category1=주방가구">주방가구 </a> 
-		<a href="./product_list.sh?Item_category1=사무가구">사무가구</a> 
+		<div class="row mx-auto">
+		<div class="col-5 text-center cate mx-auto">
+		<a href="./product_list.sh?Item_category1=전체"><b>1차 카테고리 전체보기</b> </a> &nbsp; &nbsp;
+		<a href="./product_list.sh?Item_category1=주방가구">주방가구 | </a> 
+		<a href="./product_list.sh?Item_category1=사무가구">사무가구 |</a> 
 		<a href="./product_list.sh?Item_category1=인테리어가구">인테리어가구</a>
 		</div>
-		<div class="col-6 text-center cate">
-		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=전체">전체보기 </a> 
-		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">대분류 </a> 
+		<div class="col-5 text-center cate mx-auto">
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=전체"><b>2차 카테고리  전체보기</b> </a> &nbsp; &nbsp;
+		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=의자">대분류 | </a> 
 		<a href="./product_list.sh?Item_category1=<%=category%>&Item_category2=침대">소분류</a>
 		</div>
 		
@@ -71,7 +71,7 @@
 					</figcaption>
 					<figcaption
 						class="figure-caption position-absolute fixed-bottom review_writer mx-auto">
-						<p><%=articleList.get(i).getItem_title()%></p>
+						<p><%=articleList.get(i).getItem_content1()%></p>
 					</figcaption>
 				</figure>
 			</div>
@@ -93,7 +93,6 @@
 		<!-- 		</section> -->
 
 		<div id="pageList" class="text-center event_board board_paging">
-
 			<%
 				if (nowPage <= 1) {
 			%>
