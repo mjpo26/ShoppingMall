@@ -95,7 +95,9 @@
   
 <!--   네이버 버튼 시작임 -->
   <a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
-<a href="http://nid.naver.com/nidlogin.logout">네이버로그아웃</a>
+<a href="http://nid.naver.com/nidlogin.logout"><!-- 네이버로그아웃 --></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <!--네이버 버튼 끝          -->
 <!-- 카카오버튼 -->
@@ -105,10 +107,10 @@
 <a id="custom-login-btn" href="javascript:loginWithKakao()">
 <img src="https://developers.kakao.com/assets/img/about/logos/kakaologin/kr/kakao_login_btn_medium.png" height="50"/>
 </a>
-<a href="http://developers.kakao.com/logout">카카오로그아웃</a>
+<a href="http://developers.kakao.com/logout"><!-- 카카오로그아웃 --></a>
 
 <script type='text/javascript'>
-  //<![CDATA[
+ // <![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
     function loginWithKakao() {
@@ -183,7 +185,7 @@
 
 
 <!-- <script type='text/javascript'> -->
- //<![CDATA[
+ <![CDATA[
 //     // 사용할 앱의 JavaScript 키를 설정해 주세요.
 //     Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
 //     // 카카오 로그인 버튼을 생성합니다.
@@ -253,7 +255,7 @@
 
 
 <!-- 카카오버튼 끝  -->
-                            <div class="col-md-12 clearfix">
+<!--                             <div class="col-md-12 clearfix">
                                 <figure class="col-6 float-left">
                                     <img src="./assets/img/btn/login/naver_login_small_grren.PNG">
                                 </figure>
@@ -261,7 +263,7 @@
                                     <img src="./assets/img/btn/login/kakao_login_btn_large.png">
                                 </figure>
 
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>

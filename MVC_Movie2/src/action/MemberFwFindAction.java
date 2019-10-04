@@ -39,7 +39,7 @@ public class MemberFwFindAction implements Action {
 				forward = new ActionForward();
 				// forward.setPath("./idcheck.jsp");
 				forward.setPath("./member/pw_findpro.jsp");
-				System.out.println(memberBean.getMember_id()+"비번은"+memberBean.getMember_pass());
+//				System.out.println(memberBean.getMember_id()+"비번은"+memberBean.getMember_pass());
 				forward.setRedirect(false);
 
 				return forward;
