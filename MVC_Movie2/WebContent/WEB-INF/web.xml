@@ -18,6 +18,7 @@
   </error-page>
   
   
+  
    <servlet>
   <servlet-name>CategoryListServlet</servlet-name>
   <servlet-class>controller.CategoryListServlet</servlet-class>

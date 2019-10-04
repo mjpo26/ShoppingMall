@@ -9,7 +9,7 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <%
     String clientId = "t264Qh6r0U2esDUlEFWD";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://localhost:8080/MVC_Movie/MemberLoginPro.me", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://192.168.5.7:8080/MVC_Movie/MemberLoginPro.me", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";

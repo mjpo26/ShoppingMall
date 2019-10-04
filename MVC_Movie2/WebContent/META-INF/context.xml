@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-<!-- 	<Resource -->
-<!-- 		name="jdbc/MySQL" -->
-<!-- 		auth="Container" -->
-<!-- 		type="javax.sql.DataSource" -->
-<!-- 		username="mydb" -->
-<!-- 		password="dkagh1212"  -->
-<!-- 		driverClassName="com.mysql.jdbc.Driver" -->
-<!-- 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" -->
-<!-- 		url="jdbc:mysql://mydb.cihjn38frpag.ap-northeast-2.rds.amazonaws.com:3305/test" -->
-<!-- 		maxActive="500"					 -->
-<!-- 	/> -->
-		<Resource
+	<Resource
 		name="jdbc/MySQL"
 		auth="Container"
 		type="javax.sql.DataSource"
-	    username="itwillbs10"
-        password="itwillbs8030909"
+		username="mydb"
+		password="dkagh1212" 
 		driverClassName="com.mysql.jdbc.Driver"
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url="jdbc:mysql://localhost/itwillbs10"
+		url="jdbc:mysql://mydb.cihjn38frpag.ap-northeast-2.rds.amazonaws.com:3305/test"
 		maxActive="500"					
 	/>
+<!-- 		<Resource -->
+<!-- 		name="jdbc/MySQL" -->
+<!-- 		auth="Container" -->
+<!-- 		type="javax.sql.DataSource" -->
+<!-- 	    username="itwillbs10" -->
+<!--         password="itwillbs8030909" -->
+<!-- 		driverClassName="com.mysql.jdbc.Driver" -->
+<!-- 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" -->
+<!-- 		url="jdbc:mysql://localhost/itwillbs10" -->
+<!-- 		maxActive="500"					 -->
+<!-- 	/> -->
 </Context>
