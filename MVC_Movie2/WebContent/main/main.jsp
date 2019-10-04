@@ -31,7 +31,7 @@ ArrayList<EventBean> eventBean = (ArrayList<EventBean>) request.getAttribute("Ev
 				if (null != eventBean && eventBean.size() > 0) {
 					for (EventBean eb : eventBean) {
 				%>
-					<div class="single_banner_slider" onclick="location.href='EventBoardDetail.event?event_num=<%=eb.getEvent_num() %>'">
+					<div class="single_banner_slider" onclick="location.href='EventBoardDetail.event?event_num=<%=eb.getEvent_num() %>&page=1'">
 						<div class="row">
 							<div class="col-lg-12 col-12 mx-auto">
 								<div class="banner_text">
