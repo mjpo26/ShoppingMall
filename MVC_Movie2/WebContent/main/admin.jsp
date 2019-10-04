@@ -48,7 +48,8 @@
 					</div>
 					<div class="con_count">
 						<h5>
-							<span><fmt:formatNumber value="${adminListBean.getSumOrder()}" pattern="#,###" /></span>원
+							<span><fmt:formatNumber
+									value="${adminListBean.getSumOrder()}" pattern="#,###" /></span>원
 						</h5>
 					</div>
 				</div>
@@ -58,7 +59,8 @@
 					</div>
 					<div class="con_count">
 						<h5>
-							<span><fmt:formatNumber value="${adminListBean.getSumsel()}" pattern="#,###" /></span>원
+							<span><fmt:formatNumber
+									value="${adminListBean.getSumsel()}" pattern="#,###" /></span>원
 						</h5>
 
 					</div>
@@ -69,7 +71,8 @@
 					</div>
 					<div class="con_count">
 						<h5>
-						<span><fmt:formatNumber value="${adminListBean.getSumrefund()}" pattern="#,###" /></span>원
+							<span><fmt:formatNumber
+									value="${adminListBean.getSumrefund()}" pattern="#,###" /></span>원
 						</h5>
 					</div>
 				</div>
@@ -79,7 +82,8 @@
 					</div>
 					<div class="con_count">
 						<h5>
-							<span><fmt:formatNumber value="${adminListBean.getResult()}" pattern="#,###" /></span>원
+							<span><fmt:formatNumber
+									value="${adminListBean.getResult()}" pattern="#,###" /></span>원
 						</h5>
 					</div>
 				</div>
