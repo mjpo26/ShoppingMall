@@ -318,12 +318,12 @@ function searchAddress(){
     <section class="join_part padding_top">
   <div id="kakaoLo">  
     <a id="kakao-login-btn"></a>
-<a href="./MemberJoinForm.me">로그아웃</a>
+<!-- <a href="./MemberJoinForm.me">로그아웃</a> -->
   </div>
     <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('e49d2d504fb15bb8ce46ff78327f611d');
+/*     Kakao.init('e49d2d504fb15bb8ce46ff78327f611d'); */
     // 카카오 로그인 버튼을 생성합니다.
     
   
