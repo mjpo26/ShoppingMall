@@ -66,6 +66,7 @@ public class MemberFrontController extends HttpServlet {
 		    
 		    if(request.getParameter("kakao_id") != null) {
             session.setAttribute("sid",request.getParameter("kakao_id"));
+            
           System.out.println("콘트롤러 카카오토큰가져오나"+ request.getParameter("kakao_token"));
           System.out.println("콘트롤러 카카오아이디가져오나"+ request.getParameter("kakao_id"));
 		    }

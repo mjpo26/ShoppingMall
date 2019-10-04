@@ -140,6 +140,7 @@ public class MemberLoginProAction implements Action {
             }else if(request.getParameter("kakao_id") !=null) {
                 id = "kakaoGuest";
                 password = "kakaoGuestPass!1";
+                System.out.println("카카오로그인조건들어오나?");
                 
             }else {//네이버토큰 갖고있는경우와 카카오토큰 구분해야지 나중에.
                  id ="naverGuest";
